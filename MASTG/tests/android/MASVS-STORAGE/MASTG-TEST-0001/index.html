@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
     
     
       
@@ -11405,7 +11405,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 08, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: March 01, 2024</small></em>
     <br><br>
     
 
@@ -11481,11 +11481,11 @@
 <li>Analyze data storage in the source code.</li>
 <li>Be sure to trigger all possible functionality in the application (e.g. by clicking everywhere possible) in order to ensure data generation.</li>
 <li>Check all application generated and modified files and ensure that the storage method is sufficiently secure.<ul>
-<li>This includes SharedPreferences, SQL databases, Realm Databases, Internal Storage, External Storage, etc.</li>
+<li>This includes <code>SharedPreferences</code>, databases, Internal Storage, External Storage, etc.</li>
 </ul>
 </li>
 </ul>
-<p>In general sensitive data stored locally on the device should always be at least encrypted, and any keys used for encryption methods should be securely stored within the Android Keystore. These files should also be stored within the application sandbox. If achievable for the application, sensitive data should be stored off device or, even better, not stored at all.</p>
+<p><strong>NOTE:</strong> For MASVS L1 compliance, it is sufficient to store data unencrypted in the application's internal storage directory (sandbox). For L2 compliance, additional encryption is required using cryptographic keys securely managed in the Android KeyStore. This includes using envelope encryption (DEK+KEK) or equivalent methods, or using the Android Security Library's <a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedFile"><code>EncryptedFile</code></a>/<a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences"><code>EncryptedSharedPreferences</code></a>.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>First of all, try to determine the kind of storage used by the Android app and to find out whether the app processes sensitive data insecurely.</p>
 <ul>
@@ -11594,6 +11594,7 @@
 <ul>
 <li><a href="https://github.com/realm/realm-browser-osx" title="Realm Browser for macOS">Realm Browser for macOS</a></li>
 <li><a href="https://github.com/scottyab/secure-preferences" title="Secure-preferences encrypts the values of Shared Preferences">Secure-preferences encrypts the values of Shared Preferences</a></li>
+<li><a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedFile"><code>EncryptedFile</code></a>/<a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences"><code>EncryptedSharedPreferences</code></a></li>
 </ul>
 
 
@@ -11700,7 +11701,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../../../../javascripts/tablesort.min.js"></script>
       
