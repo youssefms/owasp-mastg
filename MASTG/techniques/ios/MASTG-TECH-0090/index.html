@@ -83,6 +83,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#patching-example-installing-frida-gadget" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -6856,6 +6861,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Patching
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -6865,6 +6881,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#patching-example-installing-frida-gadget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patching Example: Installing Frida Gadget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patching-example-making-an-app-debuggable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patching Example: Making an App Debuggable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -11245,6 +11296,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#patching-example-installing-frida-gadget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patching Example: Installing Frida Gadget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patching-example-making-an-app-debuggable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patching Example: Making an App Debuggable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -11274,7 +11351,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 08, 2024</small></em>
     <br><br>
     
 
@@ -11344,9 +11421,29 @@
 
   <h1>Patching</h1>
 
-<p>Time to get serious! As you already know, IPA files are actually ZIP archives, so you can use any ZIP tool to unpack the archive.</p>
+<p>IPA files are actually ZIP archives, so you can use any ZIP tool to unpack the archive.</p>
 <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>UnCrackable-Level1.ipa
 </code></pre></div>
+<h2 id="patching-example-installing-frida-gadget">Patching Example: Installing Frida Gadget<a class="headerlink" href="#patching-example-installing-frida-gadget" title="Permanent link">&para;</a></h2>
+<p>IF you want to use Frida on non-jailbroken devices you'll need to include <code>FridaGadget.dylib</code>. Download it first:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://build.frida.re/frida/ios/lib/FridaGadget.dylib
+</code></pre></div>
+<p>Copy <code>FridaGadget.dylib</code> into the app directory and use <a href="" title="optool">optool</a> to add a load command to the "UnCrackable Level 1" binary.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>unzip<span class="w"> </span>UnCrackable_Level1.ipa
+$<span class="w"> </span>cp<span class="w"> </span>FridaGadget.dylib<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/
+$<span class="w"> </span>optool<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>load<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;@executable_path/FridaGadget.dylib&quot;</span><span class="w">  </span>-t<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>
+Found<span class="w"> </span>FAT<span class="w"> </span>Header
+Found<span class="w"> </span>thin<span class="w"> </span>header...
+Found<span class="w"> </span>thin<span class="w"> </span>header...
+Inserting<span class="w"> </span>a<span class="w"> </span>LC_LOAD_DYLIB<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>architecture:<span class="w"> </span>arm
+Successfully<span class="w"> </span>inserted<span class="w"> </span>a<span class="w"> </span>LC_LOAD_DYLIB<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>arm
+Inserting<span class="w"> </span>a<span class="w"> </span>LC_LOAD_DYLIB<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>architecture:<span class="w"> </span>arm64
+Successfully<span class="w"> </span>inserted<span class="w"> </span>a<span class="w"> </span>LC_LOAD_DYLIB<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>arm64
+Writing<span class="w"> </span>executable<span class="w"> </span>to<span class="w"> </span>Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>...
+</code></pre></div>
+<h2 id="patching-example-making-an-app-debuggable">Patching Example: Making an App Debuggable<a class="headerlink" href="#patching-example-making-an-app-debuggable" title="Permanent link">&para;</a></h2>
+<p>By default, an app available on the Apple App Store is not debuggable. In order to debug an iOS application, it must have the <code>get-task-allow</code> entitlement enabled. This entitlement allows other processes (like a debugger) to attach to the app. Xcode is not adding the <code>get-task-allow</code> entitlement in a distribution provisioning profile; it is only whitelisted and added in a development provisioning profile.</p>
+<p>Thus, to debug an iOS application obtained from the App Store, it needs to be re-signed with a development provisioning profile with the <code>get-task-allow</code> entitlement. How to re-sign an application is discussed in the next section.</p>
 
 
 

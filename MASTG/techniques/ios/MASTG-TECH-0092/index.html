@@ -11369,7 +11369,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 08, 2024</small></em>
     <br><br>
     
 
@@ -11439,7 +11439,7 @@
 
   <h1>Repackaging and Re-Signing</h1>
 
-<p>Of course, tampering an app invalidates the main executable's code signature, so this won't run on a non-jailbroken device. You'll need to replace the provisioning profile and sign both the main executable and the files you've made include (e.g. <code>FridaGadget.dylib</code>) with the certificate listed in the profile.</p>
+<p>Tampering an app invalidates the main executable's code signature, so this won't run on a non-jailbroken device. You'll need to replace the provisioning profile and sign both the main executable and the files you've made include (e.g. <code>FridaGadget.dylib</code>) with the certificate listed in the profile.</p>
 <h2 id="repackaging">Repackaging<a class="headerlink" href="#repackaging" title="Permanent link">&para;</a></h2>
 <p>First, let's add our own provisioning profile to the package:</p>
 <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>AwesomeRepackaging.mobileprovision<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/embedded.mobileprovision
@@ -11457,7 +11457,7 @@ Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span cl
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>/usr/bin/codesign<span class="w"> </span>--force<span class="w"> </span>--sign<span class="w"> </span>8004380F331DCA22CC1B47FB1A805890AE41C938<span class="w"> </span>--entitlements<span class="w"> </span>entitlements.plist<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>
 Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>replacing<span class="w"> </span>existing<span class="w"> </span>signature
 </code></pre></div>
-<p>Now you should be ready to run the modified app. Deploy and run the app on the device using <a href="/MASTG/Tools/0x08a-Testing-Tools#ios-deploy">ios-deploy</a>:</p>
+<p>Now you should be ready to run the modified app. Deploy and run the app on the device using <a href="" title="ios-deploy">ios-deploy</a>:</p>
 <div class="highlight"><pre><span></span><code>ios-deploy<span class="w"> </span>--debug<span class="w"> </span>--bundle<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/
 </code></pre></div>
 <p>If everything went well, the app should start in debugging mode with LLDB attached. Frida should then be able to attach to the app as well. You can verify this via the frida-ps command:</p>
