@@ -8270,6 +8270,8 @@
       
         
       
+        
+      
     
     
       
@@ -9027,6 +9029,27 @@
   
   <span class="md-ellipsis">
     objection for iOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/ios/MASTG-TOOL-0101/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    codesign
   </span>
   
 
@@ -11369,7 +11392,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
     <br><br>
     
 
@@ -11444,7 +11467,7 @@
 <p>For more information you can refer to the LLVM project in GitHub which contains the <a href="https://github.com/llvm/llvm-project/tree/main/lldb" title="LLDB">source code for LLDB</a> as well as Chapter 5 and 13 from "Mac OS X and iOS Internals: To the Apple's Core" [#levin] and Chapter 4 "Tracing and Debugging" from "The Mac Hacker's Handbook" [#miller].</p>
 </blockquote>
 <h2 id="debugging-with-lldb">Debugging with LLDB<a class="headerlink" href="#debugging-with-lldb" title="Permanent link">&para;</a></h2>
-<p>The default debugserver executable that Xcode installs can't be used to attach to arbitrary processes (it is usually used only for debugging self-developed apps deployed with Xcode). To enable debugging of third-party apps, the <code>task_for_pid-allow</code> entitlement must be added to the debugserver executable so that the debugger process can call <code>task_for_pid</code> to obtain the target Mach task port as seen before. An easy way to do this is to add the entitlement to the <a href="http://iphonedevwiki.net/index.php/Debugserver" title="Debug Server on the iPhone Dev Wiki">debugserver binary shipped with Xcode</a>.</p>
+<p>The default debugserver executable that Xcode installs can't be used to attach to arbitrary processes (it is usually used only for debugging self-developed apps deployed with Xcode). To enable debugging of third-party apps, the <code>task_for_pid-allow</code> entitlement must be added to the debugserver executable so that the debugger process can call <code>task_for_pid</code> to obtain the target Mach task port as seen before. An easy way to do this is to add the entitlement to the <a href="https://web.archive.org/web/20190223224236/https://iphonedevwiki.net/index.php/Debugserver" title="Debug Server on the iPhone Dev Wiki">debugserver binary shipped with Xcode</a>.</p>
 <p>To obtain the executable, mount the following DMG image:</p>
 <div class="highlight"><pre><span></span><code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/&lt;target-iOS-version&gt;/DeveloperDiskImage.dmg
 </code></pre></div>
@@ -11464,7 +11487,7 @@
 <span class="nt">&lt;/dict&gt;</span>
 <span class="nt">&lt;/plist&gt;</span>
 </code></pre></div>
-<p>Apply the entitlement with codesign:</p>
+<p>Apply the entitlement with <a href="" title="codesign">codesign</a>:</p>
 <div class="highlight"><pre><span></span><code>codesign<span class="w"> </span>-s<span class="w"> </span>-<span class="w"> </span>--entitlements<span class="w"> </span>entitlements.plist<span class="w"> </span>-f<span class="w"> </span>debugserver
 </code></pre></div>
 <p>Copy the modified binary to any directory on the test device. The following examples use usbmuxd to forward a local port through USB.</p>
@@ -11567,7 +11590,7 @@ Attaching<span class="w"> </span>to<span class="w"> </span>process<span class="w
 <p>Officially Apple recommends use of LLDB for debugging purposes, but GDB can be also used on iOS. The techniques discussed above are applicable while debugging using GDB as well, provided the LLDB specific commands are <a href="https://lldb.llvm.org/use/map.html" title="GDB to LLDB command map">changed to GDB commands</a>.</p>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="http://iphonedevwiki.net/index.php/Debugserver" title="Debug Server on the iPhone Dev Wiki">Debug Server on the iPhone Dev Wiki</a></li>
+<li><a href="https://web.archive.org/web/20190223224236/https://iphonedevwiki.net/index.php/Debugserver" title="Debug Server on the iPhone Dev Wiki">Debug Server on the iPhone Dev Wiki</a></li>
 <li><a href="https://lldb.llvm.org/use/map.html" title="GDB to LLDB command map">GDB to LLDB command map</a></li>
 <li><a href="https://lldb.llvm.org/use/python.html" title="LLDB - Python Scripting">LLDB - Python Scripting</a></li>
 <li><a href="https://github.com/llvm/llvm-project/tree/main/lldb" title="LLDB">LLDB</a></li>

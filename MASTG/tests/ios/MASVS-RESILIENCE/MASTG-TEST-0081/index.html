@@ -8272,6 +8272,8 @@
       
         
       
+        
+      
     
     
       
@@ -9029,6 +9031,27 @@
   
   <span class="md-ellipsis">
     objection for iOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/ios/MASTG-TOOL-0101/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    codesign
   </span>
   
 
@@ -11385,7 +11408,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 08, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
     <br><br>
     
 
@@ -11457,7 +11480,7 @@
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
-<p>You have to ensure that the app is <a href="https://developer.apple.com/documentation/xcode/using-the-latest-code-signature-format">using the latest code signature format</a>. You can retrieve the signing certificate information from the application's .app file with <a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html" title="Code Signing Tasks">codesign</a>. Codesign is used to create, check, and display code signatures, as well as inquire into the dynamic status of signed code in the system.</p>
+<p>You have to ensure that the app is <a href="https://developer.apple.com/documentation/xcode/using-the-latest-code-signature-format">using the latest code signature format</a>. You can retrieve the signing certificate information from the application's .app file with <a href="" title="codesign">codesign</a>. Codesign is used to create, check, and display code signatures, as well as inquire into the dynamic status of signed code in the system.</p>
 <p>After you get the application's IPA file, re-save it as a ZIP file and decompress the ZIP file. Navigate to the Payload directory, where the application's .app file will be.</p>
 <p>Execute the following <code>codesign</code> command to display the signing information:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>codesign<span class="w"> </span>-dvvv<span class="w"> </span>YOURAPP.app
@@ -11484,7 +11507,6 @@ Internal<span class="w"> </span>requirements<span class="w"> </span><span class=
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://developer.apple.com/business/distribute/" title="Apple Business">Apple Business</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html" title="Code Signing Tasks">Code Signing Tasks</a></li>
 <li><a href="https://developer.apple.com/documentation/xcode/using-the-latest-code-signature-format">using the latest code signature format</a></li>
 </ul>
 

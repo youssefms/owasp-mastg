@@ -8270,6 +8270,8 @@
       
         
       
+        
+      
     
     
       
@@ -9027,6 +9029,27 @@
   
   <span class="md-ellipsis">
     objection for iOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/ios/MASTG-TOOL-0101/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    codesign
   </span>
   
 
@@ -11369,7 +11392,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 08, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
     <br><br>
     
 
@@ -11448,7 +11471,7 @@
 <div class="highlight"><pre><span></span><code>/usr/libexec/PlistBuddy<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Set :CFBundleIdentifier sg.vantagepoint.repackage&quot;</span><span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/Info.plist
 </code></pre></div>
 <h2 id="re-signing">Re-Signing<a class="headerlink" href="#re-signing" title="Permanent link">&para;</a></h2>
-<p>Finally, we use the codesign tool to re-sign both binaries. You need to use <em>your own</em> signing identity (in this example 8004380F331DCA22CC1B47FB1A805890AE41C938), which you can output by executing the command <code>security find-identity -v</code>.</p>
+<p>Finally, we use the <a href="" title="codesign">codesign</a> tool to re-sign both binaries. You need to use <em>your own</em> signing identity (in this example 8004380F331DCA22CC1B47FB1A805890AE41C938), which you can output by executing the command <code>security find-identity -v</code>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/_CodeSignature
 $<span class="w"> </span>/usr/bin/codesign<span class="w"> </span>--force<span class="w"> </span>--sign<span class="w"> </span>8004380F331DCA22CC1B47FB1A805890AE41C938<span class="w">  </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/FridaGadget.dylib
 Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app/FridaGadget.dylib:<span class="w"> </span>replacing<span class="w"> </span>existing<span class="w"> </span>signature
