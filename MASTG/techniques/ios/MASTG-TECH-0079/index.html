@@ -9548,6 +9548,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -9612,6 +9616,48 @@
   
   <span class="md-ellipsis">
     DVIA-v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/ios/MASTG-APP-0025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iOS UnCrackable L1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../apps/ios/MASTG-APP-0026/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iOS UnCrackable L2
   </span>
   
 
@@ -11410,7 +11456,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
     <br><br>
     
 
@@ -11487,7 +11533,7 @@
 <h2 id="manual-repackaging">Manual Repackaging<a class="headerlink" href="#manual-repackaging" title="Permanent link">&para;</a></h2>
 <p>Thanks to Apple's confusing provisioning and code-signing system, re-signing an app is more challenging than you would expect. iOS won't run an app unless you get the provisioning profile and code signature header exactly right. This requires learning many concepts-certificate types, Bundle IDs, application IDs, team identifiers, and how Apple's build tools connect them. Getting the OS to run a binary that hasn't been built via the default method (Xcode) can be a daunting process.</p>
 <p>We'll use <a href="/MASTG/Tools/0x08a-Testing-Tools#optool">optool</a>, Apple's build tools, and some shell commands. Our method is inspired by <a href="https://github.com/vtky/Swizzler2/" title="Swizzler">Vincent Tan's Swizzler project</a>. <a href="https://research.nccgroup.com/2016/10/12/ios-instrumentation-without-jailbreak/" title="NCC blog - iOS instrumentation without jailbreak">The NCC group</a> has described an alternative repackaging method.</p>
-<p>To reproduce the steps listed below, download <a href="/MASTG/Tools/0x08b-Reference-Apps#ios-uncrackable-l1">UnCrackable iOS App Level 1</a> from the OWASP Mobile Testing Guide repository. Our goal is to make the UnCrackable app load <code>FridaGadget.dylib</code> during startup so we can instrument the app with Frida.</p>
+<p>To reproduce the steps listed below, download <a href="" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> from the OWASP Mobile Testing Guide repository. Our goal is to make the UnCrackable app load <code>FridaGadget.dylib</code> during startup so we can instrument the app with Frida.</p>
 <blockquote>
 <p>Please note that the following steps apply to macOS only, as Xcode is only available for macOS.</p>
 </blockquote>
