@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11530,7 +11530,7 @@
 <p>All data that's sent to third-party services should be anonymized to prevent exposure of PII (Personal Identifiable Information) that would allow the third party to identify the user account. No other data (such as IDs that can be mapped to a user account or session) should be sent to a third party.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Check all requests to external services for embedded sensitive information.
-To intercept traffic between the client and server, you can perform dynamic analysis by launching a man-in-the-middle (MITM) attack with <a href="/MASTG/Tools/0x08a-Testing-Tools#burp-suite">Burp Suite</a> Professional or <a href="/MASTG/Tools/0x08a-Testing-Tools#owasp-zap">OWASP ZAP</a>. Once you route the traffic through the interception proxy, you can try to sniff the traffic that passes between the app and server. All app requests that aren't sent directly to the server on which the main function is hosted should be checked for sensitive information, such as PII in a tracker or ad service.</p>
+To intercept traffic between the client and server, you can perform dynamic analysis by launching a man-in-the-middle (MITM) attack with <a href="../../../Document/0x08a-Testing-Tools.md#burp-suite">Burp Suite</a> Professional or <a href="../../../Document/0x08a-Testing-Tools.md#owasp-zap">OWASP ZAP</a>. Once you route the traffic through the interception proxy, you can try to sniff the traffic that passes between the app and server. All app requests that aren't sent directly to the server on which the main function is hosted should be checked for sensitive information, such as PII in a tracker or ad service.</p>
 
 
 

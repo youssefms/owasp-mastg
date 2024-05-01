@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -6210,17 +6205,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Accessing App Data Directories
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -6230,32 +6214,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11402,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11542,7 +11483,7 @@ LibraryDirectory<span class="w">   </span>/var/mobile/Containers/Data/Applicatio
 <li>Content in this directory is not backed up.</li>
 <li>The OS may delete this directory's files automatically when the app is not running and storage space is running low.</li>
 </ul>
-<p>Let's take a closer look at <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a>'s Application Bundle (.app) directory inside the Bundle directory (<code>/var/containers/Bundle/Application/3ADAF47D-A734-49FA-B274-FBCA66589E67/iGoat-Swift.app</code>):</p>
+<p>Let's take a closer look at <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a>'s Application Bundle (.app) directory inside the Bundle directory (<code>/var/containers/Bundle/Application/3ADAF47D-A734-49FA-B274-FBCA66589E67/iGoat-Swift.app</code>):</p>
 <div class="highlight"><pre><span></span><code>OWASP.iGoat-Swift<span class="w"> </span>on<span class="w"> </span><span class="o">(</span>iPhone:<span class="w"> </span><span class="m">11</span>.1.2<span class="o">)</span><span class="w"> </span><span class="o">[</span>usb<span class="o">]</span><span class="w"> </span><span class="c1"># ls</span>
 NSFileType<span class="w">      </span>Perms<span class="w">  </span>NSFileProtection<span class="w">    </span>...<span class="w">  </span>Name
 ------------<span class="w">  </span>-------<span class="w">  </span>------------------<span class="w">  </span>...<span class="w">  </span>--------------------------------------
@@ -11579,17 +11520,13 @@ Regular<span class="w">           </span><span class="m">420</span><span class="
 
 Regular<span class="w">           </span><span class="m">493</span><span class="w">  </span>None<span class="w">                </span>...<span class="w">  </span>iGoat-Swift
 </code></pre></div>
-<p>You can also visualize the Bundle directory from <a href="" title="Grapefruit">Grapefruit</a> by clicking on <strong>Finder</strong> -&gt; <strong>Bundle</strong>:</p>
+<p>You can also visualize the Bundle directory from <a href="../../../tools/ios/MASTG-TOOL-0061/" title="Grapefruit">Grapefruit</a> by clicking on <strong>Finder</strong> -&gt; <strong>Bundle</strong>:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_bundle_dir.png" width="100%" /></p>
 <p>Including the <code>Info.plist</code> file:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_plist_view.png" width="100%" /></p>
 <p>As well as the Data directory in <strong>Finder</strong> -&gt; <strong>Home</strong>:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_data_dir.png" width="100%" /></p>
-<p>Refer to the <a href="/MASTG/iOS/0x06d-Testing-Data-Storage" title="Data Storage on iOS&quot; &quot;Data Storage on iOS">Testing Data Storage</a> chapter for more information and best practices on securely storing sensitive data.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://cydia.saurik.com/package/com.autopear.installipa" title="IPA Installer Console">IPA Installer Console</a></li>
-</ul>
+<p>Refer to the <a href="0x06d-Testing-Data-Storage.md" title="Data Storage on iOS">Testing Data Storage</a> chapter for more information and best practices on securely storing sensitive data.</p>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1299,15 +1299,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11542,15 +11533,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11655,7 +11637,7 @@
 <h1 id="android-local-authentication">Android Local Authentication<a class="headerlink" href="#android-local-authentication" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>During local authentication, an app authenticates the user against credentials stored locally on the device. In other words, the user "unlocks" the app or some inner layer of functionality by providing a valid PIN, password or biometric characteristics such as face or fingerprint, which is verified by referencing local data. Generally, this is done so that users can more conveniently resume an existing session with a remote service or as a means of step-up authentication to protect some critical function.</p>
-<p>As stated before in chapter <a href="/MASTG/General/0x04e-Testing-Authentication-and-Session-Management">Mobile App Authentication Architectures</a>: The tester should be aware that local authentication should always be enforced at a remote endpoint or based on a cryptographic primitive. Attackers can easily bypass local authentication if no data returns from the authentication process.</p>
+<p>As stated before in chapter <a href="0x04e-Testing-Authentication-and-Session-Management.md">"Mobile App Authentication Architectures"</a>: The tester should be aware that local authentication should always be enforced at a remote endpoint or based on a cryptographic primitive. Attackers can easily bypass local authentication if no data returns from the authentication process.</p>
 <p>On Android, there are two mechanisms supported by the Android Runtime for local authentication: the Confirm Credential flow and the Biometric Authentication flow.</p>
 <h3 id="confirm-credential-flow">Confirm Credential Flow<a class="headerlink" href="#confirm-credential-flow" title="Permanent link">&para;</a></h3>
 <p>The confirm credential flow is available since Android 6.0 and is used to ensure that users do not have to enter app-specific passwords together with the lock screen protection. Instead: if a user has logged in to the device recently, then confirm-credentials can be used to unlock cryptographic materials from the <code>AndroidKeystore</code>. That is, if the user unlocked the device within the set time limits (<code>setUserAuthenticationValidityDurationSeconds</code>), otherwise the device needs to be unlocked again.</p>
@@ -11873,20 +11855,6 @@
 </ul>
 <h3 id="third-party-sdks">Third party SDKs<a class="headerlink" href="#third-party-sdks" title="Permanent link">&para;</a></h3>
 <p>Make sure that fingerprint authentication and/or other types of biometric authentication are exclusively based on the Android SDK and its APIs. If this is not the case, ensure that the alternative SDK has been properly vetted for any weaknesses. Make sure that the SDK is backed by the TEE/SE which unlocks a (cryptographic) secret based on the biometric authentication. This secret should not be unlocked by anything else, but a valid biometric entry. That way, it should never be the case that the fingerprint logic can be bypassed.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://android-developers.googleblog.com/2015/10/new-in-android-samples-authenticating.html" title="Authenticating to remote servers using the Fingerprint API">Authenticating to remote servers using the Fingerprint API</a></li>
-<li><a href="https://developer.android.com/jetpack/androidx/releases/biometric" title="Biometric library for Android">Biometric library for Android</a></li>
-<li><a href="https://developer.android.com/reference/kotlin/android/hardware/biometrics/BiometricManager" title="BiometricManager">BiometricManager</a></li>
-<li><a href="https://developer.android.com/reference/kotlin/android/hardware/biometrics/BiometricPrompt" title="BiometricPrompt">BiometricPrompt</a></li>
-<li><a href="https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.CryptoObject.html" title="CryptoObject">CryptoObject</a></li>
-<li><a href="https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.CryptoObject.html" title="FingerprintManager.CryptoObject">FingerprintManager.CryptoObject</a></li>
-<li><a href="https://developer.android.com/reference/android/hardware/fingerprint/" title="FingerprintManager">FingerprintManager</a></li>
-<li><a href="https://source.android.com/security/biometric/measure#strong-weak-unlocks" title="Measuring Biometric Unlock Security">Measuring Biometric Unlock Security</a></li>
-<li><a href="https://android-developers.googleblog.com/2019/10/one-biometric-api-over-all-android.html" title="One Biometric API Over all Android">One Biometric API Over all Android</a></li>
-<li><a href="https://developer.android.com/training/sign-in/biometric-auth" title="Show a biometric authentication dialog">Show a biometric authentication dialog</a></li>
-<li><a href="https://source.android.com/security/biometric#validation" title="Validation of Biometric Auth">Validation of Biometric Auth</a></li>
-</ul>
 
 
 

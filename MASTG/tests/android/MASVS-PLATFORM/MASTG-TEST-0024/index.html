@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2532,15 +2532,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11520,15 +11511,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11645,7 +11627,7 @@
   <h1>Testing for App Permissions</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>When testing <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#app-permissions" title="App Permissions&quot; &quot;App Permissions">app permissions</a> the goal is to try and reduce the amount of permissions used by your app to the absolute minimum. While going through each permission, remember that it is best practice first to try and <a href="https://developer.android.com/training/permissions/evaluating">evaluate whether your app needs to use this permission</a> because many functionalities such as taking a photo can be done without, limiting the amount of access to sensitive data. If permissions are required you will then make sure that the request/response to access the permission is handled handled correctly.</p>
+<p>When testing <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#app-permissions" title="App Permissions">app permissions</a> the goal is to try and reduce the amount of permissions used by your app to the absolute minimum. While going through each permission, remember that it is best practice first to try and <a href="https://developer.android.com/training/permissions/evaluating">evaluate whether your app needs to use this permission</a> because many functionalities such as taking a photo can be done without, limiting the amount of access to sensitive data. If permissions are required you will then make sure that the request/response to access the permission is handled handled correctly.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <h3 id="android-permissions">Android Permissions<a class="headerlink" href="#android-permissions" title="Permanent link">&para;</a></h3>
 <p>Check permissions to make sure that the app really needs them and remove unnecessary permissions. For example, the <code>INTERNET</code> permission in the AndroidManifest.xml file is necessary for an Activity to load a web page into a WebView. Because a user can revoke an application's right to use a dangerous permission, the developer should check whether the application has the appropriate permission each time an action is performed that would require that permission.</p>
@@ -11654,7 +11636,7 @@
 <p>Go through the permissions with the developer to identify the purpose of every permission set and remove unnecessary permissions.</p>
 <p>Besides going through the AndroidManifest.xml file manually, you can also use the Android Asset Packaging tool (aapt) to examine the permissions of an APK file.</p>
 <blockquote>
-<p>aapt comes with the Android SDK within the build-tools folder. It requires an APK file as input. You may list the APKs in the device by running <code>adb shell pm list packages -f | grep -i &lt;keyword&gt;</code> as seen in "<a href="/MASTG/Android/0x05b-Android-Security-Testing#listing-installed-apps" title="Listing Installed Apps&quot; &quot;Listing Installed Apps">Listing Installed Apps</a>".</p>
+<p>aapt comes with the Android SDK within the build-tools folder. It requires an APK file as input. You may list the APKs in the device by running <code>adb shell pm list packages -f | grep -i &lt;keyword&gt;</code> as seen in "<a href="../../../Document/0x05b-Android-Security-Testing.md#listing-installed-apps" title="Listing Installed Apps">Listing Installed Apps</a>".</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>aapt<span class="w"> </span>d<span class="w"> </span>permissions<span class="w"> </span>app-x86-debug.apk
 package:<span class="w"> </span>sg.vp.owasp_mobile.omtg_android
@@ -11802,19 +11784,6 @@ install<span class="w"> </span>permissions:
 <li>Use the <a href="https://developer.android.com/training/permissions/explaining-access#privacy-dashboard">Privacy Dashboard</a> (Android 12 (API level 31) and higher) to verify how the app <a href="https://developer.android.com/training/permissions/explaining-access">explains access to sensitive information</a>.</li>
 </ul>
 <p>To obtain detail about a specific permission you can refer to the <a href="https://developer.android.com/reference/android/Manifest.permission">Android Documentation</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/reference/android/Manifest.permission">Android Documentation</a></li>
-<li><a href="https://developer.android.com/guide/topics/connectivity/companion-device-pairing">Companion Device Pairing</a></li>
-<li><a href="https://developer.android.com/training/permissions/evaluating">Evaluate</a></li>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/9214102?hl=en">Permissions Declaration Form</a></li>
-<li><a href="https://developer.android.com/training/permissions/explaining-access#privacy-dashboard">Privacy Dashboard</a></li>
-<li><a href="https://developers.google.com/identity/sms-retriever/overview">SMS Retriever API</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview#permission-groups" title="Table 1. Dangerous permissions and permission groups.">Table 1. Dangerous permissions and permission groups.</a></li>
-<li><a href="https://developer.android.com/training/permissions/evaluating#alternatives">alternatives to declaring permissions</a></li>
-<li><a href="https://developer.android.com/training/permissions/evaluating">evaluate whether your app needs to use this permission</a></li>
-<li><a href="https://developer.android.com/training/permissions/explaining-access">explains access to sensitive information</a></li>
-</ul>
 
 
 

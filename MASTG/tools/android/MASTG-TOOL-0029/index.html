@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -8114,15 +8114,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11380,15 +11371,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11503,7 +11485,7 @@
 <li>Start Activities</li>
 </ul>
 <p>If you have a rooted device with frida-server installed, Objection can connect directly to the running Frida server to provide all its functionality without needing to repackage the application. However, it is not always possible to root an Android device or the app may contain advanced RASP controls for root detection, so injecting a frida-gadget may be the easiest way to bypass those controls.</p>
-<p>The ability to <strong>perform advanced dynamic analysis on non-rooted devices</strong> is one of the features that makes Objection incredibly useful. After following the <a href="/MASTG/Android/0x05b-Android-Security-Testing#repackaging-apps">repackaging process</a> you will be able to run all the aforementioned commands which make it very easy to quickly analyze an application, or bypass basic security controls.</p>
+<p>The ability to <strong>perform advanced dynamic analysis on non-rooted devices</strong> is one of the features that makes Objection incredibly useful. After following the <a href="0x05b-Android-Security-Testing.md#repackaging-apps">repackaging process</a> you will be able to run all the aforementioned commands which make it very easy to quickly analyze an application, or bypass basic security controls.</p>
 <h2 id="using-objection-on-android">Using Objection on Android<a class="headerlink" href="#using-objection-on-android" title="Permanent link">&para;</a></h2>
 <p>Starting up Objection depends on whether you've patched the APK or whether you are using a rooted device running Frida-server. For running a patched APK, objection will automatically find any attached devices and search for a listening Frida gadget. However, when using frida-server, you need to explicitly tell frida-server which application you want to analyze.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Connecting to a patched APK</span>
@@ -11530,11 +11512,6 @@ $<span class="w"> </span>android<span class="w"> </span>keystore<span class="w">
 $<span class="w"> </span>android<span class="w"> </span>root<span class="w"> </span>disable
 </code></pre></div>
 <p>More information on using the Objection REPL can be found on the <a href="https://github.com/sensepost/objection/wiki/Using-objection" title="Using Objection">Objection Wiki</a></p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/sensepost/objection/wiki/Using-objection" title="Using Objection">Using Objection</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Features">full list of features</a></li>
-</ul>
 
 
 

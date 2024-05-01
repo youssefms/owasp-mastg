@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1802,15 +1802,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11571,7 +11553,7 @@
 </ul>
 </li>
 </ul>
-<p>While preparing the production release, you can use tools like <a href="/MASTG/Tools/0x08a-Testing-Tools#proguard">ProGuard</a> (included in Android Studio). To determine whether all logging functions from the <code>android.util.Log</code> class have been removed, check the ProGuard configuration file (proguard-rules.pro) for the following options (according to this <a href="https://www.guardsquare.com/en/products/proguard/manual/examples#logging" title="ProGuard\'s example of removing logging code">example of removing logging code</a> and this article about <a href="https://developer.android.com/studio/build/shrink-code#enable" title="Android Developer - Enable shrinking, obfuscation, and optimization">enabling ProGuard in an Android Studio project</a>):</p>
+<p>While preparing the production release, you can use tools like <a href="../../../Document/0x08a-Testing-Tools.md#proguard">ProGuard</a> (included in Android Studio). To determine whether all logging functions from the <code>android.util.Log</code> class have been removed, check the ProGuard configuration file (proguard-rules.pro) for the following options (according to this <a href="https://www.guardsquare.com/en/products/proguard/manual/examples#logging" title="ProGuard\'s example of removing logging code">example of removing logging code</a> and this article about <a href="https://developer.android.com/studio/build/shrink-code#enable" title="Android Developer - Enable shrinking, obfuscation, and optimization">enabling ProGuard in an Android Studio project</a>):</p>
 <div class="highlight"><pre><span></span><code>-assumenosideeffects class android.util.Log
 {
   public static boolean isLoggable(java.lang.String, int);
@@ -11613,15 +11595,6 @@
 <p>If you already know the app PID you may give it directly using <code>--pid</code> flag.</p>
 </blockquote>
 <p>You may also want to apply further filters or regular expressions (using <code>logcat</code>'s regex flags <code>-e &lt;expr&gt;, --regex=&lt;expr&gt;</code> for example) if you expect certain strings or patterns to come up in the logs.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/studio/build/shrink-code#enable" title="Android Developer - Enable shrinking, obfuscation, and optimization">Android Developer - Enable shrinking, obfuscation, and optimization</a></li>
-<li><a href="https://developer.android.com/tools/debugging/debugging-log.html" title="Debugging with Logcat">Debugging with Logcat</a></li>
-<li><a href="https://developer.android.com/reference/android/util/Log.html" title="Log Class">Log Class</a></li>
-<li><a href="https://developer.android.com/reference/java/util/logging/Logger.html" title="Logger Class">Logger Class</a></li>
-<li><a href="https://www.guardsquare.com/en/products/proguard/manual/examples#logging" title="ProGuard's example of removing logging code">ProGuard's example of removing logging code</a></li>
-<li><a href="https://stackoverflow.com/questions/6009078/removing-unused-strings-during-proguard-optimisation" title="Removing unused strings during ProGuard optimization">Removing unused strings during ProGuard optimization </a></li>
-</ul>
 
 
 

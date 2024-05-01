@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1830,15 +1830,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -12010,15 +12001,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12178,7 +12160,7 @@ Similarly, when a user is not forced to update, do not forget to test older vers
     <span class="n">CustomPoint</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span>
 </code></pre></div>
 <p>When decoding a keyed archive, because values are requested by name, values can be decoded out of sequence or not at all. Keyed archives, therefore, provide better support for forward and backward compatibility. This means that an archive on disk could actually contain additional data which is not detected by the program, unless the key for that given data is provided at a later stage.</p>
-<p>Note that additional protection needs to be in place to secure the file in case of confidential data, as the data is not encrypted within the file. See the chapter <a href="/MASTG/iOS/0x06d-Testing-Data-Storage">Data Storage on iOS</a> for more details.</p>
+<p>Note that additional protection needs to be in place to secure the file in case of confidential data, as the data is not encrypted within the file. See the chapter <a href="../0x06d-Testing-Data-Storage/">"Data Storage on iOS"</a> for more details.</p>
 <h4 id="codable">Codable<a class="headerlink" href="#codable" title="Permanent link">&para;</a></h4>
 <p>With Swift 4, the <code>Codable</code> type alias arrived: it is a combination of the <code>Decodable</code> and <code>Encodable</code> protocols. A <code>String</code>, <code>Int</code>, <code>Double</code>, <code>Date</code>, <code>Data</code> and <code>URL</code> are <code>Codable</code> by nature: meaning they can easily be encoded and decoded without any additional work. Let's take the following example:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">struct</span> <span class="nc">CustomPointStruct</span><span class="p">:</span><span class="n">Codable</span> <span class="p">{</span>
@@ -12225,7 +12207,7 @@ Again, note in case of immutability: confidential information cannot be removed 
 <span class="c1">// &quot;name&quot; : &quot;test&quot;</span>
 <span class="c1">// })</span>
 </code></pre></div>
-<p>JSON itself can be stored anywhere, e.g., a (NoSQL) database or a file. You just need to make sure that any JSON that contains secrets has been appropriately protected (e.g., encrypted/HMACed). See the chapter <a href="/MASTG/iOS/0x06d-Testing-Data-Storage">Data Storage on iOS</a> for more details.</p>
+<p>JSON itself can be stored anywhere, e.g., a (NoSQL) database or a file. You just need to make sure that any JSON that contains secrets has been appropriately protected (e.g., encrypted/HMACed). See the chapter <a href="../0x06d-Testing-Data-Storage/">"Data Storage on iOS"</a> for more details.</p>
 <h4 id="property-lists-and-codable">Property Lists and Codable<a class="headerlink" href="#property-lists-and-codable" title="Permanent link">&para;</a></h4>
 <p>You can persist objects to <em>property lists</em> (also called plists in previous sections). You can find two examples below of how to use it:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// archiving:</span>
@@ -12365,7 +12347,7 @@ Note that <strong>Protocol Buffers do not provide any protection for confidentia
 <p>Even though Apple urges to protect the privacy of the user and to be <a href="https://developer.apple.com/design/human-interface-guidelines/privacy" title="Requesting Permission">very clear on how to ask permissions</a>, it can still be the case that an app requests too many of them for non-obvious reasons.</p>
 <p>Verifying the use of some permissions such as Camera, Photos, Calendar Data, Motion, Contacts or Speech Recognition should be pretty straightforward as it should be obvious if the app requires them to fulfill its tasks. Let's consider the following examples regarding the Photos permission, which, if granted, gives the app access to all user photos in the "Camera Roll" (the iOS default system-wide location for storing photos):</p>
 <ul>
-<li>The typical QR Code scanning app obviously requires the camera to function but might be requesting the photos permission as well. If storage is explicitly required, and depending on the sensitivity of the pictures being taken, these apps might better opt to use the app sandbox storage to avoid other apps (having the photos permission) to access them. See the chapter <a href="/MASTG/iOS/0x06d-Testing-Data-Storage">Data Storage on iOS</a> for more information regarding storage of sensitive data.</li>
+<li>The typical QR Code scanning app obviously requires the camera to function but might be requesting the photos permission as well. If storage is explicitly required, and depending on the sensitivity of the pictures being taken, these apps might better opt to use the app sandbox storage to avoid other apps (having the photos permission) to access them. See the chapter <a href="../0x06d-Testing-Data-Storage/">"Data Storage on iOS"</a> for more information regarding storage of sensitive data.</li>
 <li>Some apps require photo uploads (e.g. for profile pictures). Recent versions of iOS introduce new APIs such as <a href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" title="UIImagePickerController"><code>UIImagePickerController</code></a> (iOS 11+) and its modern <a href="https://developer.apple.com/videos/play/wwdc2020/10652/" title="replacement">replacement</a> <a href="https://developer.apple.com/documentation/photokit/phpickerviewcontroller" title="PHPickerViewController"><code>PHPickerViewController</code></a> (iOS 14+). These APIs run on a separate process from your app and by using them, the app gets read-only access exclusively to the images selected by the user instead of to the whole "Camera Roll". This is considered a best practice to avoid requesting unnecessary permissions.</li>
 </ul>
 <p>Verifying other permissions like Bluetooth or Location require a deeper source code inspection. They may be required for the app to properly function but the data being handled by those tasks might not be properly protected.</p>
@@ -12571,93 +12553,6 @@ This entitlement is also required if an app extension requires to <a href="https
 <li>Since iOS 9, apps <a href="https://forums.developer.apple.com/thread/13760" title="UIPasteboard returning null from Today extension">cannot access the pasteboard while in background</a>, this mitigates background pasteboard monitoring. However, if the <em>malicious</em> app is brought to foreground again and the data remains in the pasteboard, it will be able to retrieve it programmatically without the knowledge nor the consent of the user.</li>
 <li><a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc" title="Pasteboard Security and Privacy Changes in iOS 10">Apple warns about persistent named pasteboards</a> and discourages their use. Instead, shared containers should be used.</li>
 <li>Starting in iOS 10 there is a new Handoff feature called Universal Clipboard that is enabled by default. It allows the general pasteboard contents to automatically transfer between devices. This feature can be disabled if the developer chooses to do so and it is also possible to set an expiration time and date for copied data.</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/tadija/AEXML" title="AEXML">AEXML</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy/accessing_protected_resources?language=objc" title="Accessing Protected Resources">Accessing Protected Resources</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW19" title="Adding an App to an App Group">Adding an App to an App Group</a></li>
-<li><a href="https://developer.apple.com/support/app-capabilities/" title="Advanced App Capabilities">Advanced App Capabilities</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/ExtensionOverview.html#//apple_ref/doc/uid/TP40014214-CH2-SW13" title="An app extension can communicate indirectly with its containing app">An app extension can communicate indirectly with its containing app</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1" title="App Extensions Increase Your Impact">App Extensions Increase Your Impact</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/com_apple_security_application-groups" title="App Groups entitlement">App Groups entitlement</a></li>
-<li><a href="https://github.com/apple/swift-protobuf" title="Apple's swift-protobuf Plugin and Runtime library">Apple's swift-protobuf Plugin and Runtime library</a></li>
-<li><a href="https://github.com/freshOS/Arrow" title="Arrow">Arrow</a></li>
-<li><a href="https://nvd.nist.gov/vuln/detail/CVE-2015-3784" title="CVE-2015-3784">CVE-2015-3784</a></li>
-<li><a href="https://www.cvedetails.com/cve/CVE-2015-5237/" title="CVE-2015-5237">CVE-2015-5237</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html" title="Cocoa Keys">Cocoa Keys</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-ENTITLEMENTSFILE" title="Code Signing Entitlements files">Code Signing Entitlements files</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothBackgroundProcessingForIOSApps/PerformingTasksWhileYourAppIsInTheBackground.html" title="Core Bluetooth Background Processing for iOS Apps">Core Bluetooth Background Processing for iOS Apps</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothOverview/CoreBluetoothOverview.html#//apple_ref/doc/uid/TP40013257-CH2-SW1" title="Core Bluetooth Overview">Core Bluetooth Overview</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/index.html#//apple_ref/doc/uid/TP40001075-CH2-SW1," title="CoreData">CoreData</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ExpectedAppBehaviors/ExpectedAppBehaviors.html#//apple_ref/doc/uid/TP40007072-CH3-SW7" title="Data and resources protected by system authorization settings">Data and resources protected by system authorization settings</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app" title="Defining a Custom URL Scheme for Your App">Defining a Custom URL Scheme for Your App</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types" title="Encoding and Decoding Custom Types">Encoding and Decoding Custom Types</a></li>
-<li><a href="https://github.com/project-imas/encrypted-core-data" title="Encrypted Core Data">Encrypted Core Data</a></li>
-<li><a href="https://academy.realm.io/posts/tim-oliver-realm-cocoa-tutorial-on-encryption-with-realm/" title="Encryption with Realm">Encryption with Realm</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-DESTINATIONS" title="Entitlement Destinations">Entitlement Destinations</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-SOURCES" title="Entitlement Sources">Entitlement Sources</a></li>
-<li><a href="https://www.thedailybeast.com/facebook-is-spying-on-your-clipboard" title="Facebook Is Spying On Your Clipboard">Facebook Is Spying On Your Clipboard</a></li>
-<li><a href="https://github.com/cezheng/Fuzi" title="Fuzi">Fuzi</a></li>
-<li><a href="https://github.com/hkellaway/Gloss" title="Gloss">Gloss</a></li>
-<li><a href="https://developers.google.com/protocol-buffers/" title="Google Documentation">Google Documentation</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW13" title="Handling URL Requests">Handling URL Requests</a></li>
-<li><a href="http://www.dhanjani.com/blog/2010/11/insecure-handling-of-url-schemes-in-apples-ios.html" title="Insecure Handling of URL Schemes in Apple’s iOS">Insecure Handling of URL Schemes in Apple’s iOS</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-APPENTITLEMENTS" title="Inspect the entitlements of a built app">Inspect the entitlements of a built app</a></li>
-<li><a href="https://github.com/delba/JASON" title="JASON">JASON</a></li>
-<li><a href="https://github.com/johnezang/JSONKit" title="JSONKit">JSONKit</a></li>
-<li><a href="https://github.com/JSONModel/JSONModel" title="JSONModel">JSONModel</a></li>
-<li><a href="https://github.com/jsonmodel/jsonmodel" title="JSONModel">JSONModel</a></li>
-<li><a href="https://grepharder.github.io/blog/0x03_learning_about_universal_links_and_fuzzing_url_schemes_on_ios_with_frida.html" title="Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida">Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida</a></li>
-<li><a href="https://github.com/Mantle/Mantle" title="Mantle">Mantle</a></li>
-<li><a href="https://github.com/lyft/mapper" title="Mapper">Mapper</a></li>
-<li><a href="https://itunes.apple.com/us/app/nfc-taginfo-by-nxp/id1246143596" title="NFC TagInfo by NXP">NFC TagInfo by NXP</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/NSSecureCoding" title="NSSecureCoding">NSSecureCoding</a></li>
-<li><a href="https://github.com/Hearst-DD/ObjectMapper" title="ObjectMapper library">ObjectMapper library</a></li>
-<li><a href="https://github.com/mattt/Ono" title="Ono">Ono</a></li>
-<li><a href="https://developer.apple.com/documentation/photokit/phpickerviewcontroller" title="PHPickerViewController">PHPickerViewController</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc" title="Pasteboard Security and Privacy Changes in iOS 10">Pasteboard Security and Privacy Changes in iOS 10</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/PersistentStoreFeatures.html" title="PersistentStoreFeatures">PersistentStoreFeatures</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy" title="Protecting the User's Privacy">Protecting the User's Privacy</a></li>
-<li><a href="https://developers.google.com/protocol-buffers/docs/encoding" title="Protocol Buffers Encoding">Protocol Buffers Encoding</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy/accessing_protected_resources?language=objc#3037322" title="Provide a Purpose String">Provide a Purpose String</a></li>
-<li><a href="https://github.com/ZaBlanc/RaptureXML" title="RaptureXML">RaptureXML</a></li>
-<li><a href="https://realm.io/docs/swift/latest/" title="Realm">Realm</a></li>
-<li><a href="https://developer.apple.com/design/human-interface-guidelines/privacy" title="Requesting Permission">Requesting Permission</a></li>
-<li><a href="https://github.com/ibireme/YYModel" title="SBJson 5">SBJson 5</a></li>
-<li><a href="https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller" title="SFSafariViewController">SFSafariViewController</a></li>
-<li><a href="https://github.com/drmohundro/SWXMLHash" title="SWXMLHash">SWXMLHash</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html">Safari Web Inspector</a></li>
-<li><a href="https://medium.com/ios-os-x-development/security-flaw-with-uiwebview-95bbd8508e3c" title="Security Flaw with UIWebView">Security Flaw with UIWebView</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html" title="Sharing Data with Your Containing App">Sharing Data with Your Containing App</a></li>
-<li><a href="https://github.com/ArtSabintsev/Siren" title="Siren">Siren</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW3" title="Supporting AirDrop">Supporting AirDrop</a></li>
-<li><a href="https://github.com/SwiftyJSON/SwiftyJSON" title="SwiftyJSON">SwiftyJSON</a></li>
-<li><a href="https://github.com/yahoojapan/SwiftyXMLParser" title="SwiftyXMLParser">SwiftyXMLParser</a></li>
-<li><a href="https://github.com/peter-iakovlev/Telegram-iOS/blob/77ee5c4dabdd6eb5f1e2ff76219edf7e18b45c00/Telegram-iOS/Telegram-iOS-AppStoreLLC.entitlements#L23" title="Telegram-iOS-AppStoreLLC.entitlements Line 23">Telegram-iOS-AppStoreLLC.entitlements Line 23</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/ExpectedAppBehaviors/ExpectedAppBehaviors.html#//apple_ref/doc/uid/TP40007072-CH3-SW5" title="The Information Property List File">The Information Property List File</a></li>
-<li><a href="http://www.trustedbsd.org/mac.html" title="TrustedBSD Mandatory Access Control (MAC) Framework">TrustedBSD Mandatory Access Control (MAC) Framework</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiactivity/activitytype" title="UIActivity ActivityType">UIActivity ActivityType</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" title="UIImagePickerController">UIImagePickerController</a></li>
-<li><a href="https://forums.developer.apple.com/thread/13760" title="UIPasteboard returning null from Today extension">UIPasteboard returning null from Today extension</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard" title="UIPasteboard">UIPasteboard</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/plist/info/UIRequiredDeviceCapabilities" title="UIRequiredDeviceCapabilities">UIRequiredDeviceCapabilities</a></li>
-<li><a href="https://developer.apple.com/reference/uikit/uiwebview" title="UIWebView">UIWebView</a></li>
-<li><a href="https://github.com/JohnSundell/Unbox" title="Unbox">Unbox</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html" title="Universal Links">Universal Links</a></li>
-<li><a href="https://www.npmjs.com/package/react-native-appstore-version-checker" title="Update checker for React">Update checker for React</a></li>
-<li><a href="https://mobikul.com/show-update-application-latest-version-functionality-ios-app-swift-3/" title="Updating version in Swift 3">Updating version in Swift 3</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1" title="Using URL Schemes to Communicate with Apps">Using URL Schemes to Communicate with Apps</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/ValidatingInput.html" title="Validating Input and Interprocess Communication">Validating Input and Interprocess Communication</a></li>
-<li><a href="https://developer.apple.com/documentation/webkit/wkusercontentcontroller/1537172-add" title="WKUserContentController add(_ scriptMessageHandler:name:)">WKUserContentController add(_ scriptMessageHandler:name:)</a></li>
-<li><a href="https://developer.apple.com/reference/webkit/wkwebview" title="WKWebView">WKWebView</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/xmlparser" title="XMLParser">XMLParser</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html" title="XXE Prevention Cheatsheet">XXE Prevention Cheatsheet</a></li>
-<li><a href="https://github.com/ibireme/YYModel" title="YYModel">YYModel</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html" title="iOS Device Compatibility Matrix">iOS Device Compatibility Matrix</a></li>
-<li><a href="https://www.apple.com/business/site/docs/iOS_Security_Guide.pdf" title="iOS Security Guide">iOS Security Guide</a></li>
-<li><a href="http://cydia.saurik.com/package/li.oldman.inspectorplus/" title="inspectorplus">inspectorplus</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2020/10652/" title="replacement">replacement</a></li>
 </ul>
 
 

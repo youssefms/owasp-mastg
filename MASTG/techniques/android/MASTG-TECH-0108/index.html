@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -5900,17 +5895,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Taint Analysis
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5920,32 +5904,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11402,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11475,8 +11416,8 @@
 <p>Taint analysis is an information flow analysis technique that tracks the flow of sensitive information within a program. For example, it can determine whether geolocation data collected in an Android app is being transmitted to third-party domains.</p>
 <p>In taint analysis, data flows from a "source" to a "sink". A source is where sensitive information originates, and a sink is where this information is ultimately utilized. For instance, we can determine if the device ID retrieved by a <code>getDeviceId()</code> function is transmitted as a text message via another function <code>sendTextMessage()</code>. In this scenario, <code>getDeviceId()</code> is the source, and <code>sendTextMessage()</code> is the sink. If a direct path exists between them, it's called a <em>leak</em>.</p>
 <p>In large applications, manual information flow analysis can be very time consuming and inaccurate. Taint analysis automates this, with two main methods: static and dynamic. The former examines code without running it, offering broad coverage but potentially yielding false positives. In contrast, dynamic analysis observes real-time application execution, providing actual context but possibly overlooking untriggered issues. A thorough comparison of these techniques is beyond this section's scope.</p>
-<p>There are multiple tools which perform taint analysis on native code, including <a href="https://github.com/jonathansalwan/Triton" title="Triton">Triton</a> and <a href="https://github.com/airbus-seclab/bincat" title="bincat">bincat</a>. However, in this section, we'll primarily focus on Android Java code and utilize <a href="" title="FlowDroid">FlowDroid</a> for the taint analysis. Another notable tool supporting taint analysis for Android apps is <a href="https://github.com/charles2gan/GDA-android-reversing-Tool/wiki/GDA-Static-Taint-Analysis" title="GDA">GDA</a>.</p>
-<p>For our demonstration, we'll use <a href="">FlowDroid</a>'s command line tool to perform taint analysis on the <a href="https://github.com/hax0rgb/InsecureShop/releases/tag/v1.0" title="InsecureShop">InsecureShop v1.0</a> application.</p>
+<p>There are multiple tools which perform taint analysis on native code, including <a href="https://github.com/jonathansalwan/Triton" title="Triton">Triton</a> and <a href="https://github.com/airbus-seclab/bincat" title="bincat">bincat</a>. However, in this section, we'll primarily focus on Android Java code and utilize <a href="../../../tools/android/MASTG-TOOL-0099/" title="FlowDroid">FlowDroid</a> for the taint analysis. Another notable tool supporting taint analysis for Android apps is <a href="https://github.com/charles2gan/GDA-android-reversing-Tool/wiki/GDA-Static-Taint-Analysis" title="GDA">GDA</a>.</p>
+<p>For our demonstration, we'll use the <a href="../../../tools/android/MASTG-TOOL-0099/">FlowDroid</a> command line tool to perform taint analysis on the <a href="https://github.com/hax0rgb/InsecureShop/releases/tag/v1.0" title="InsecureShop">InsecureShop v1.0</a> application.</p>
 <p>The InsecureShop app accepts a username and password as input and stores them in the app's shared preferences. In our taint analysis, we're interested in how this stored username and password are used. In this context, the username and password are the sensitive information, and reading from shared preferences is the source. The sink in this analysis could be various operations, such as sending info over the network, transmitting info via an <code>Intent</code>, or storing info in an external file.</p>
 <p>To use FlowDroid, firstly, we need to provide an input list of potential sources and sinks to evaluate for. In our case, <em>reading from shared preferences</em> will be the source, while <em>adding parameters to an <code>Intent</code></em> will be the sink. The configuration file will look as follows (we'll name it "source_sink.txt"):</p>
 <div class="highlight"><pre><span></span><code>&lt;android.content.SharedPreferences: java.lang.String getString(java.lang.String, java.lang.String)&gt; -&gt; _SOURCE_
@@ -11523,14 +11464,6 @@
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>Taint analysis is especially beneficial for automating data flow analysis in intricate applications. However, given the complexity of some apps, the accuracy of such tools can vary. Thus, it's essential for reviewers to find a balance between the accuracy of tools and the time spent on manual analysis.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/charles2gan/GDA-android-reversing-Tool/wiki/GDA-Static-Taint-Analysis" title="GDA">GDA</a></li>
-<li><a href="https://github.com/hax0rgb/InsecureShop/releases/tag/v1.0" title="InsecureShop">InsecureShop</a></li>
-<li><a href="https://www.sable.mcgill.ca/soot/doc/soot/jimple/Jimple.html" title="Jimple">Jimple</a></li>
-<li><a href="https://github.com/jonathansalwan/Triton" title="Triton">Triton</a></li>
-<li><a href="https://github.com/airbus-seclab/bincat" title="bincat">bincat</a></li>
-</ul>
 
 
 

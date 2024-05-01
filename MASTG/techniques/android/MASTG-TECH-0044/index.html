@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5898,15 +5898,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11535,7 +11517,7 @@
 <li>Reverse engineering a native library while it's running.</li>
 </ul>
 <p>As you can see, these passive tasks help us collect information. This Information is often used for other techniques, such as method hooking.</p>
-<p>In the following sections you will be using <a href="/MASTG/Tools/0x08a-Testing-Tools#r2frida">r2frida</a> to retrieve information straight from the app runtime. Please refer to <a href="https://github.com/nowsecure/r2frida/blob/master/README.md#installation" title="r2frida installation instructions">r2frida's official installation instructions</a>. First start by opening an r2frida session to the target app (e.g. <a href="https://github.com/OWASP/owasp-mastg/raw/master/Samples/Android/01_HelloWorld-JNI/HelloWord-JNI.apk" title="HelloWorld JNI">HelloWorld JNI</a> APK) that should be running on your Android phone (connected per USB). Use the following command:</p>
+<p>In the following sections you will be using <a href="0x08a-Testing-Tools.md#r2frida">r2frida</a> to retrieve information straight from the app runtime. Please refer to <a href="https://github.com/nowsecure/r2frida/blob/master/README.md#installation" title="r2frida installation instructions">r2frida's official installation instructions</a>. First start by opening an r2frida session to the target app (e.g. <a href="https://github.com/OWASP/owasp-mastg/raw/master/Samples/Android/01_HelloWorld-JNI/HelloWord-JNI.apk" title="HelloWorld JNI">HelloWorld JNI</a> APK) that should be running on your Android phone (connected per USB). Use the following command:</p>
 <div class="highlight"><pre><span></span><code>r2<span class="w"> </span>frida://usb//sg.vantagepoint.helloworldjni
 </code></pre></div>
 <blockquote>
@@ -11690,7 +11672,7 @@ Memory<span class="w"> </span>dumped<span class="w"> </span>to<span class="w"> <
 <span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>izz~Hello<span class="w"> </span>from
 <span class="m">1136</span><span class="w"> </span>0x00065270<span class="w"> </span>0x00065270<span class="w">  </span><span class="m">14</span><span class="w">  </span><span class="m">15</span><span class="w"> </span><span class="o">()</span><span class="w"> </span>ascii<span class="w"> </span>Hello<span class="w"> </span>from<span class="w"> </span>C++
 </code></pre></div>
-<p>Alternatively you can use Fridump. This time, we will input a string and see if we can find it in the memory dump. For this, open the <a href="/MASTG/Tools/0x08b-Reference-Apps#mastg-hacking-playground">MASTG Hacking Playground</a> app, navigate to "OMTG_DATAST_002_LOGGING" and enter "owasp-mstg" to the password field. Next, run Fridump:</p>
+<p>Alternatively you can use Fridump. This time, we will input a string and see if we can find it in the memory dump. For this, open the <a href="0x08b-Reference-Apps.md#mastg-hacking-playground">MASTG Hacking Playground</a> app, navigate to "OMTG_DATAST_002_LOGGING" and enter "owasp-mstg" to the password field. Next, run Fridump:</p>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>fridump.py<span class="w"> </span>-U<span class="w"> </span>sg.vp.owasp_mobile.omtg_android<span class="w"> </span>-s
 
 Current<span class="w"> </span>Directory:<span class="w"> </span>/Users/foo/git/fridump
@@ -11716,15 +11698,6 @@ Binary<span class="w"> </span>file<span class="w"> </span>dump//316669952_dump.d
 Binary<span class="w"> </span>file<span class="w"> </span>dump//strings.txt<span class="w"> </span>matches
 </code></pre></div>
 <p>The "owasp-mstg" string can be found in one of the dump files as well as in the processed strings file.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a></li>
-<li><a href="https://github.com/OWASP/owasp-mastg/raw/master/Samples/Android/01_HelloWorld-JNI/HelloWord-JNI.apk" title="HelloWorld JNI">HelloWorld JNI</a></li>
-<li><a href="https://github.com/sensepost/objection" title="Objection">Objection</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Wide_character" title="Wide character">Wide character</a></li>
-<li><a href="https://github.com/sensepost/objection/issues" title="objection Issues">objection Issues</a></li>
-<li><a href="https://github.com/nowsecure/r2frida/blob/master/README.md#installation" title="r2frida installation instructions">r2frida installation instructions</a></li>
-</ul>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11413,8 +11413,8 @@
 
   <h1>Symbolic Execution</h1>
 
-<p>Symbolic execution is a very useful technique to have in your toolbox, especially while dealing with problems where you need to find a correct input for reaching a certain block of code. In this section, we will solve a simple Android crackme by using the <a href="/MASTG/Tools/0x08a-Testing-Tools#angr">Angr</a> binary analysis framework as our symbolic execution engine.</p>
-<p>To demonstrate this technique we'll use a crackme called <a href="/MASTG/Tools/0x08b-Reference-Apps#android-license-validator" title="Android License Validator&quot; &quot;Android License Validator">Android License Validator</a>. The crackme consists of a single ELF executable file, which can be executed on any Android device by following the instructions below:</p>
+<p>Symbolic execution is a very useful technique to have in your toolbox, especially while dealing with problems where you need to find a correct input for reaching a certain block of code. In this section, we will solve a simple Android crackme by using the <a href="0x08a-Testing-Tools.md#angr">Angr</a> binary analysis framework as our symbolic execution engine.</p>
+<p>To demonstrate this technique we'll use a crackme called <a href="0x08b-Reference-Apps.md#android-license-validator" title="Android License Validator">Android License Validator</a>. The crackme consists of a single ELF executable file, which can be executed on any Android device by following the instructions below:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>adb<span class="w"> </span>push<span class="w"> </span>validate<span class="w"> </span>/data/local/tmp
 <span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>/data/local/tmp/validate
 
@@ -11426,7 +11426,7 @@ Usage:<span class="w"> </span>./validate<span class="w"> </span>&lt;serial&gt;
 $<span class="w"> </span>adb<span class="w"> </span>shell<span class="w"> </span>/data/local/tmp/validate<span class="w"> </span><span class="m">12345</span>
 Incorrect<span class="w"> </span>serial<span class="w"> </span><span class="o">(</span>wrong<span class="w"> </span>format<span class="o">)</span>.
 </code></pre></div>
-<p>So far so good, but we know nothing about what a valid license key looks like. To get started, open the ELF executable in a disassembler such as <a href="/MASTG/Tools/0x08a-Testing-Tools#iaito">iaito</a>. The main function is located at offset <code>0x00001874</code> in the disassembly. It is important to note that this binary is PIE-enabled, and iaito chooses to load the binary at <code>0x0</code> as image base address.</p>
+<p>So far so good, but we know nothing about what a valid license key looks like. To get started, open the ELF executable in a disassembler such as <a href="0x08a-Testing-Tools.md#iaito">iaito</a>. The main function is located at offset <code>0x00001874</code> in the disassembly. It is important to note that this binary is PIE-enabled, and iaito chooses to load the binary at <code>0x0</code> as image base address.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/disass_main_1874.png" width="100%" /></p>
 <p>The function names have been stripped from the binary, but luckily there are enough debugging strings to provide us a context to the code. Moving forward, we will start analyzing the binary from the entry function at offset <code>0x00001874</code>, and keep a note of all the information easily available to us. During this analysis, we will also try to identify the code regions which are suitable for symbolic execution.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/graph_1874.png" width="100%" /></p>
@@ -11575,7 +11575,7 @@ Incorrect<span class="w"> </span>serial<span class="w"> </span><span class="o">(
 <span class="n">solution</span> <span class="o">=</span> <span class="n">found</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">concrete_addr</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">cast_to</span><span class="o">=</span><span class="nb">bytes</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b32encode</span><span class="p">(</span><span class="n">solution</span><span class="p">))</span>
 </code></pre></div>
-<p>As discussed previously in the section "<a href="/MASTG/General/0x04c-Tampering-and-Reverse-Engineering#static-and-dynamic-binary-analysis" title="Dynamic Binary Instrumentation&quot; &quot;Dynamic Binary Instrumentation">Dynamic Binary Instrumentation</a>", the symbolic execution engine constructs a binary tree of the operations for the program input given and generates a mathematical equation for each possible path that might be taken. Internally, Angr explores all the paths between the two points specified by us, and passes the corresponding mathematical equations to the solver to return meaningful concrete results. We can access these solutions via <code>simulation_manager.found</code> list, which contains all the possible paths explored by Angr which satisfies our specified search criteria.</p>
+<p>As discussed previously in the section "<a href="0x04c-Tampering-and-Reverse-Engineering.md#static-and-dynamic-binary-analysis" title="Dynamic Binary Instrumentation">Dynamic Binary Instrumentation</a>", the symbolic execution engine constructs a binary tree of the operations for the program input given and generates a mathematical equation for each possible path that might be taken. Internally, Angr explores all the paths between the two points specified by us, and passes the corresponding mathematical equations to the solver to return meaningful concrete results. We can access these solutions via <code>simulation_manager.found</code> list, which contains all the possible paths explored by Angr which satisfies our specified search criteria.</p>
 <p>Take a closer look at the latter part of the script where the final solution string is being retrieved. The address of the string is obtained from address <code>r11 - 0x20</code>. This may appear magical at first, but a careful analysis of the function at <code>0x00001760</code> holds the clue, as it determines if the given input string is a valid license key or not. In the disassembly above, you can see how the input string to the function (in register R0) is stored into a local stack variable <code>0x0000176c      str r0, [var_20h]</code>. Hence, we decided to use this value to retrieve the final solution in the script. Using <code>found.solver.eval</code> you can ask the solver questions like "given the output of this sequence of operations (the current state in <code>found</code>), what must the input (at <code>addr</code>) have been?".</p>
 <blockquote>
 <p>In ARMv7, R11 is called fp (<em>function pointer</em>), therefore <code>R11 - 0x20</code> is equivalent to <code>fp-0x20</code>: <code>var int32_t var_20h @ fp-0x20</code></p>
@@ -11588,7 +11588,7 @@ WARNING<span class="w"> </span><span class="p">|</span><span class="w"> </span>.
 
 b<span class="s1">&#39;JACE6ACIARNAAIIA&#39;</span>
 </code></pre></div>
-<p>Now you can run the validate binary in your Android device to verify the solution as indicated <a href="">here</a>.</p>
+<p>Now you can run the validate binary in your Android device to verify the solution as indicated <a href="../Crackmes/README.md#android-license-validator">here</a>.</p>
 <blockquote>
 <p>You may obtain different solutions using the script, as there are multiple valid license keys possible.</p>
 </blockquote>

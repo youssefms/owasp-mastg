@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -5459,17 +5454,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Dynamic Analysis on Non-Rooted Devices
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5479,32 +5463,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11402,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11473,9 +11414,9 @@
   <h1>Dynamic Analysis on Non-Rooted Devices</h1>
 
 <p>Non-rooted devices have the benefit of replicating an environment that the application is intended to run on.</p>
-<p>Thanks to tools like <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">objection</a>, you can patch the app in order to test it like if you were on a rooted device (but of course being jailed to that one app). To do that you have to perform one additional step: <a href="https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---patching-an-apk" title="patching - patching an APK">patch the APK</a> to include the <a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida gadget</a> library.</p>
+<p>Thanks to tools like <a href="0x08a-Testing-Tools.md#objection">objection</a>, you can patch the app in order to test it like if you were on a rooted device (but of course being jailed to that one app). To do that you have to perform one additional step: <a href="https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---patching-an-apk" title="patching - patching an APK">patch the APK</a> to include the <a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida gadget</a> library.</p>
 <p>Now you can use objection to dynamically analyze the application on non-rooted devices.</p>
-<p>The following commands summarize how to patch and start dynamic analysis using objection using the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a> as an example:</p>
+<p>The following commands summarize how to patch and start dynamic analysis using objection using the <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> as an example:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download the Uncrackable APK</span>
 $<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/OWASP/owasp-mastg/master/Crackmes/Android/Level_01/UnCrackable-Level1.apk
 <span class="c1"># Patch the APK with the Frida Gadget</span>
@@ -11485,11 +11426,6 @@ $<span class="w"> </span>adb<span class="w"> </span>install<span class="w"> </sp
 <span class="c1"># After running the mobile phone, objection will detect the running frida-server through the APK</span>
 $<span class="w"> </span>objection<span class="w"> </span>explore
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida Gadget</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---patching-an-apk" title="patching - patching an APK">patching - patching an APK</a></li>
-</ul>
 
 
 

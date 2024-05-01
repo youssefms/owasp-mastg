@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1518,15 +1518,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11896,15 +11887,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12629,7 +12611,7 @@ the specific URI regardless if it has permissions to access to data from the con
 <p>Now you can read/write the object with <code>ObjectInputStream</code>/<code>ObjectOutputStream</code> in another class.</p>
 <h4 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h4>
 <p>There are several ways to serialize the contents of an object to JSON. Android comes with the <code>JSONObject</code> and <code>JSONArray</code> classes. A wide variety of libraries, including <a href="https://github.com/google/gson" title="Google Gson">GSON</a>, <a href="https://github.com/FasterXML/jackson-core" title="Jackson core">Jackson</a>, <a href="https://github.com/square/moshi" title="Moshi">Moshi</a>, can also be used. The main differences between the libraries are whether they use reflection to compose the object, whether they support annotations, whether the create immutable objects, and the amount of memory they use. Note that almost all the JSON representations are String-based and therefore immutable. This means that any secret stored in JSON will be harder to remove from memory.
-JSON itself can be stored anywhere, e.g., a (NoSQL) database or a file. You just need to make sure that any JSON that contains secrets has been appropriately protected (e.g., encrypted/HMACed). See the chapter <a href="/MASTG/Android/0x05d-Testing-Data-Storage">Data Storage on Android</a> for more details. A simple example (from the GSON User Guide) of writing and reading JSON with GSON follows. In this example, the contents of an instance of the <code>BagOfPrimitives</code> is serialized into JSON:</p>
+JSON itself can be stored anywhere, e.g., a (NoSQL) database or a file. You just need to make sure that any JSON that contains secrets has been appropriately protected (e.g., encrypted/HMACed). See the chapter <a href="../0x05d-Testing-Data-Storage/">"Data Storage on Android"</a> for more details. A simple example (from the GSON User Guide) of writing and reading JSON with GSON follows. In this example, the contents of an instance of the <code>BagOfPrimitives</code> is serialized into JSON:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">BagOfPrimitives</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
@@ -12648,7 +12630,7 @@ JSON itself can be stored anywhere, e.g., a (NoSQL) database or a file. You just
 </code></pre></div>
 <h4 id="xml">XML<a class="headerlink" href="#xml" title="Permanent link">&para;</a></h4>
 <p>There are several ways to serialize the contents of an object to XML and back. Android comes with the <code>XmlPullParser</code> interface which allows for easily maintainable XML parsing. There are two implementations within Android: <code>KXmlParser</code> and <code>ExpatPullParser</code>. The <a href="https://developer.android.com/training/basics/network-ops/xml#java" title="Instantiate the parser">Android Developer Guide</a> provides a great write-up on how to use them. Next, there are various alternatives, such as a <code>SAX</code> parser that comes with the Java runtime. For more information, see <a href="https://www.ibm.com/developerworks/opensource/library/x-android/index.html" title="Working with XML on Android on IBM Developer">a blogpost from ibm.com</a>.
-Similarly to JSON, XML has the issue of working mostly String based, which means that String-type secrets will be harder to remove from memory. XML data can be stored anywhere (database, files), but do need additional protection in case of secrets or information that should not be changed. See the chapter "<a href="/MASTG/Android/0x05d-Testing-Data-Storage">Data Storage on Android</a>" for more details. As stated earlier: the true danger in XML lies in the <a href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_%28XXE%29_Processing" title="XML eXternal Entity attack (XXE)">XML eXternal Entity (XXE)</a> attack as it might allow for reading external data sources that are still accessible within the application.</p>
+Similarly to JSON, XML has the issue of working mostly String based, which means that String-type secrets will be harder to remove from memory. XML data can be stored anywhere (database, files), but do need additional protection in case of secrets or information that should not be changed. See the chapter "<a href="../0x05d-Testing-Data-Storage/">Data Storage on Android</a>" for more details. As stated earlier: the true danger in XML lies in the <a href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_%28XXE%29_Processing" title="XML eXternal Entity attack (XXE)">XML eXternal Entity (XXE)</a> attack as it might allow for reading external data sources that are still accessible within the application.</p>
 <h4 id="orm">ORM<a class="headerlink" href="#orm" title="Permanent link">&para;</a></h4>
 <p>There are libraries that provide functionality for directly storing the contents of an object in a database and then instantiating the object with the database contents. This is called Object-Relational Mapping (ORM). Libraries that use the SQLite database include</p>
 <ul>
@@ -12657,7 +12639,7 @@ Similarly to JSON, XML has the issue of working mostly String based, which means
 <li><a href="https://github.com/greenrobot/greenDAO" title="GreenDAO">GreenDAO</a> and</li>
 <li><a href="http://www.activeandroid.com/" title="ActiveAndroid">ActiveAndroid</a>.</li>
 </ul>
-<p><a href="https://www.mongodb.com/docs/realm/sdk/java/" title="Realm Java">Realm</a>, on the other hand, uses its own database to store the contents of a class. The amount of protection that ORM can provide depends primarily on whether the database is encrypted. See the chapter <a href="/MASTG/Android/0x05d-Testing-Data-Storage">Data Storage on Android</a> for more details. The Realm website includes a nice <a href="https://github.com/j256/ormlite-examples/tree/master/android/HelloAndroid" title="OrmLite example">example of ORM Lite</a>.</p>
+<p><a href="https://www.mongodb.com/docs/realm/sdk/java/" title="Realm Java">Realm</a>, on the other hand, uses its own database to store the contents of a class. The amount of protection that ORM can provide depends primarily on whether the database is encrypted. See the chapter <a href="../0x05d-Testing-Data-Storage/">"Data Storage on Android"</a> for more details. The Realm website includes a nice <a href="https://github.com/j256/ormlite-examples/tree/master/android/HelloAndroid" title="OrmLite example">example of ORM Lite</a>.</p>
 <h4 id="parcelable">Parcelable<a class="headerlink" href="#parcelable" title="Permanent link">&para;</a></h4>
 <p><a href="https://developer.android.com/reference/android/os/Parcelable.html" title="Parcelable"><code>Parcelable</code></a> is an interface for classes whose instances can be written to and restored from a <a href="https://developer.android.com/reference/android/os/Parcel.html" title="Parcel"><code>Parcel</code></a>. Parcels are often used to pack a class as part of a <code>Bundle</code> for an <code>Intent</code>. Here's an Android developer documentation example that implements <code>Parcelable</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyParcelable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Parcelable</span><span class="w"> </span><span class="p">{</span>
@@ -12707,94 +12689,6 @@ Note that Protocol Buffers do not provide any protection for confidentiality: th
 Enforced updating can be really helpful when it comes to public key pinning (see the Testing Network communication for more details) when a pin has to be refreshed due to a certificate/public key rotation. Next, vulnerabilities are easily patched by means of forced updates.</p>
 <p>Please note that newer versions of an application will not fix security issues that are living in the backends to which the app communicates. Allowing an app not to communicate with it might not be enough. Having proper API-lifecycle management is key here.
 Similarly, when a user is not forced to update, do not forget to test older versions of your app against your API and/or use proper API versioning.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/components/aidl.html" title="AIDL">AIDL</a></li>
-<li><a href="http://www.activeandroid.com/" title="ActiveAndroid">ActiveAndroid</a></li>
-<li><a href="https://developer.android.com/about/versions/10/highlights#privacy_for_users" title="Android 10 for Developers: Privacy for users">Android 10 for Developers: Privacy for users</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#rmp" title="Android 8 Permissions Changes">Android 8 Permissions Changes</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#atap" title="Android 8.0 (API level 26) - Changes for all apps">Android 8.0 (API level 26) - Changes for all apps</a></li>
-<li><a href="https://developer.android.com/training/app-links">Android App Links</a></li>
-<li><a href="https://developer.android.com/guide/components/intents-filters#Types">Android Developers Documentation</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.1#safebrowsing">Android Developers documentation</a></li>
-<li><a href="https://developer.android.com/develop/ui/views/notifications" title="Android Notifications">Android Notifications</a></li>
-<li><a href="https://unit42.paloaltonetworks.com/unit42-android-toast-overlay-attack-cloak-and-dagger-with-no-permissions/" title="Android Toast Overlay Attack: Cloak and Dagger with No Permissions">Android Toast Overlay Attack: Cloak and Dagger with No Permissions</a></li>
-<li><a href="https://developer.android.com/training/permissions/usage-notes" title="App permissions best practices">App permissions best practices</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#o-apps" title="Apps targeting Android 8.0">Apps targeting Android 8.0</a></li>
-<li><a href="https://developer.android.com/about/versions/pie/android-9.0-changes-all" title="Behavior changes: all apps">Behavior changes: all apps</a></li>
-<li><a href="https://developer.android.com/about/versions/pie/android-9.0-changes-28" title="Behavior changes: apps targeting API level 28+">Behavior changes: apps targeting API level 28+</a></li>
-<li><a href="https://developer.android.com/guide/components/bound-services.html" title="BoundServices">BoundServices</a></li>
-<li><a href="https://www.cvedetails.com/cve/CVE-2015-5237/" title="CVE-2015-5237">CVE-2015-5237</a></li>
-<li><a href="https://cwe.mitre.org/data/definitions/927.html" title="CWE-927: Use of Implicit Intent for Sensitive Communication">CWE-927: Use of Implicit Intent for Sensitive Communication</a></li>
-<li><a href="https://cloak-and-dagger.org/" title="Cloak &amp; Dagger">Cloak &amp; Dagger</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/defining.html" title="Custom Permissions">Custom Permissions</a></li>
-<li><a href="https://wiki.sei.cmu.edu/confluence/display/android/DRD03-J.+Do+not+broadcast+sensitive+information+using+an+implicit+intent" title="DRD03-J. Do not broadcast sensitive information using an implicit intent">DRD03-J. Do not broadcast sensitive information using an implicit intent</a></li>
-<li><a href="https://www.infosecurity-magazine.com/opinions/overlay-attacks-safeguard-mobile/" title="Dealing with Overlay Attacks: Adopting Built-in Security to Safeguard Mobile Experience">Dealing with Overlay Attacks: Adopting Built-in Security to Safeguard Mobile Experience</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/defining" title="Define a custom app permission">Define a custom app permission</a></li>
-<li><a href="https://developers.google.com/digital-asset-links/v1/getting-started" title="Digital Asset Link">Digital Asset Link</a></li>
-<li><a href="https://developers.google.com/protocol-buffers/docs/encoding" title="Encoding">Encoding</a></li>
-<li><a href="https://developer.android.com/reference/android/app/PendingIntent#FLAG_IMMUTABLE" title="FLAG_IMMUTABLE">FLAG_IMMUTABLE</a></li>
-<li><a href="https://medium.com/@sembozdemir/force-your-users-to-update-your-app-with-using-firebase-33f1e0bcec5a" title="Force users to update the app using Firebase">Force users to update the app using Firebase</a></li>
-<li><a href="https://developer.android.com/reference/android/Manifest.permission.html#GET_ACCOUNTS" title="GET_ACCOUNTS">GET_ACCOUNTS</a></li>
-<li><a href="https://developers.virustotal.com/reference#getting-started" title="Getting Started">Getting Started</a></li>
-<li><a href="https://developers.google.com/protocol-buffers/" title="Google Documentation">Google Documentation</a></li>
-<li><a href="https://github.com/google/gson" title="Google Gson">Google Gson</a></li>
-<li><a href="https://github.com/greenrobot/greenDAO" title="GreenDAO">GreenDAO</a></li>
-<li><a href="https://developer.android.com/reference/android/os/Binder.html" title="IPCBinder">IPCBinder</a></li>
-<li><a href="https://developer.android.com/reference/android/content/ContentProvider.html" title="IPCContentProviders">IPCContentProviders</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Intent.html" title="IPCIntent">IPCIntent</a></li>
-<li><a href="https://developer.android.com/guide/components/services.html" title="IPCServices">IPCServices</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview#install-time" title="Install-time permissions">Install-time permissions</a></li>
-<li><a href="https://developer.android.com/training/basics/network-ops/xml#java" title="Instantiate the parser">Instantiate the parser</a></li>
-<li><a href="https://developer.android.com/guide/appendix/g-app-intents.html" title="Intent List">Intent List</a></li>
-<li><a href="https://blog.oversecured.com/Interception-of-Android-implicit-intents/" title="Interception of Android implicit intents">Interception of Android implicit intents</a></li>
-<li><a href="https://github.com/FasterXML/jackson-core" title="Jackson core">Jackson core</a></li>
-<li><a href="https://developer.android.com/reference/android/Manifest.permission" title="Manifest.permission">Manifest.permission</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView.html#addJavascriptInterface%28java.lang.Object,%20java.lang.String%29" title="Method addJavascriptInterface()">Method addJavascriptInterface()</a></li>
-<li><a href="https://developer.android.com/training/permissions/evaluating" title="Minimize your permission requests">Minimize your permission requests</a></li>
-<li><a href="https://github.com/square/moshi" title="Moshi">Moshi</a></li>
-<li><a href="https://github.com/j256/ormlite-examples/tree/master/android/HelloAndroid" title="OrmLite example">OrmLite example</a></li>
-<li><a href="http://ormlite.com/" title="OrmLite">OrmLite</a></li>
-<li><a href="https://developer.android.com/reference/android/os/Parcel.html" title="Parcel">Parcel</a></li>
-<li><a href="https://developer.android.com/reference/android/os/Parcelable.html" title="Parcelable">Parcelable</a></li>
-<li><a href="https://developer.android.com/reference/android/app/PendingIntent" title="PendingIntent">PendingIntent</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview.html#perm-groups" title="Permission groups">Permission groups</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview.html#permission-groups" title="Permission groups">Permission groups</a></li>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/9888170" title="Permissions and APIs that Access Sensitive Information">Permissions and APIs that Access Sensitive Information</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview" title="Permissions on Android">Permissions on Android</a></li>
-<li><a href="https://developer.android.com/reference/android/Manifest.permission.html#READ_CONTACTS" title="READ_CONTACTS">READ_CONTACTS</a></li>
-<li><a href="https://www.mongodb.com/docs/realm/sdk/java/" title="Realm Java">Realm Java</a></li>
-<li><a href="https://developer.android.com/training/permissions/requesting" title="Request runtime permissions">Request runtime permissions</a></li>
-<li><a href="https://developer.android.com/training/permissions/requesting-special" title="Request special permissions">Request special permissions</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcasts#restrict-broadcasts-permissions" title="Restricting broadcasts with permissions">Restricting broadcasts with permissions</a></li>
-<li><a href="https://developer.android.com/training/safetynet/safebrowsing">SafetyNet library</a></li>
-<li><a href="https://developer.android.com/training/articles/security-tips?hl=en#WebView" title="Security Tips - Use WebView">Security Tips - Use WebView</a></li>
-<li><a href="https://developer.android.com/reference/java/io/Serializable.html" title="Serializable">Serializable</a></li>
-<li><a href="https://satyan.github.io/sugar/" title="Sugar ORM">Sugar ORM</a></li>
-<li><a href="https://www.android-device-security.org/publications/2020-lau-uraniborg/Lau_2020_Uraniborg_Scoring_Whitepaper_20200827.pdf" title="Uraniborg’s Device Preloaded App Risks Scoring Metrics">Uraniborg’s Device Preloaded App Risks Scoring Metrics</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations" title="Verify Android App Links">Verify Android App Links</a></li>
-<li><a href="https://labs.withsecure.com/publications/webview-addjavascriptinterface-remote-code-execution" title="WebView addJavascriptInterface Remote Code Execution">WebView addJavascriptInterface Remote Code Execution</a></li>
-<li><a href="https://developer.android.com/about/versions/10/features?hl=en#webview-hung" title="WebView hung renderer detection">WebView hung renderer detection</a></li>
-<li><a href="https://medium.com/devknoxio/what-is-tapjacking-in-android-and-how-to-prevent-it-50140e57bf44" title="What is Tapjacking in Android and How to Prevent It">What is Tapjacking in Android and How to Prevent It</a></li>
-<li><a href="https://developer.android.com/reference/android/net/wifi/WifiManager#getConnectionInfo%28%29" title="WifiManager.getConnectionInfo">WifiManager.getConnectionInfo</a></li>
-<li><a href="https://www.ibm.com/developerworks/opensource/library/x-android/index.html" title="Working with XML on Android on IBM Developer">Working with XML on Android on IBM Developer</a></li>
-<li><a href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_%28XXE%29_Processing" title="XML eXternal Entity attack (XXE)">XML eXternal Entity attack (XXE)</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/permission-element#plevel" title="&lt;permission&gt; - android:protectionLevel"><code>&lt;permission&gt; - android:protectionLevel</code></a></li>
-<li><a href="https://developers.google.com/safe-browsing/v4"><code>SafeBrowsing API</code></a></li>
-<li><a href="https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/AndroidManifest.xml#819" title="android.googlesource.com - AndroidManifest.xml">android.googlesource.com - AndroidManifest.xml</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/provider-element#gprmsn" title="android:grantUriPermissions">android:grantUriPermissions</a></li>
-<li><a href="https://developer.android.com/develop/ui/views/appwidgets/advanced#user-interaction" title="app widgets">app widgets</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Context#checkUriPermission%28android.net.Uri,%20int,%20int,%20int%29" title="checkUriPermission">checkUriPermission</a></li>
-<li><a href="https://developer.android.com/reference/android/os/Build.html#getSerial%28%29" title="getSerial">getSerial</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Context.html#grantUriPermission%28java.lang.String,%20android.net.Uri,%20int%29" title="grantUriPermission">grantUriPermission</a></li>
-<li><a href="https://developer.android.com/reference/android/app/PendingIntent#FLAG_MUTABLE" title="immutable by default">immutable by default</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/manifest-intro#filestruct" title="manifest-intro">manifest-intro</a></li>
-<li><a href="https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice" title="media browser services">media browser services</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview" title="permission overview">permission overview</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Context#revokeUriPermission%28android.net.Uri,%20int%29" title="revokeUriPermission">revokeUriPermission</a></li>
-<li><a href="https://developer.android.com/training/app-links/deep-linking">set up deep links</a></li>
-<li><a href="https://developer.android.com/guide/components/intents-filters#PendingIntent" title="using a pending intent">using a pending intent</a></li>
-</ul>
 
 
 

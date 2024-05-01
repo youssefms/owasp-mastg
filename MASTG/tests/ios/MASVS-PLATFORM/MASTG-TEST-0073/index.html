@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4079,15 +4079,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11484,15 +11475,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11635,7 +11617,7 @@
 <li>Get the first available pasteboard item: e.g. for strings use <code>string</code> method. Or use any of the other methods for the <a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc#1654275" title="Getting and Setting Pasteboard Items of Standard Data Types">standard data types</a>.</li>
 <li>Get the number of items with <code>numberOfItems</code>.</li>
 <li>Check for existence of standard data types with the <a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc#2107142" title="Checking for Data Types on a Pasteboard">convenience methods</a>, e.g. <code>hasImages</code>, <code>hasStrings</code>, <code>hasURLs</code> (starting in iOS 10).</li>
-<li>Check for other data types (typically UTIs) with <a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622100-containspasteboardtypes?language=objc" title="UIPasteboard containsPasteboardTypes:inItemSet:"><code>containsPasteboardTypes: inItemSet:</code></a>. You may inspect for more concrete data types like, for example an picture as public.png and public.tiff (<a href="http://web.archive.org/web/20190616231857/https://developer.apple.com/documentation/mobilecoreservices/uttype" title="MobileCoreServices UTType">UTIs</a>) or for custom data such as com.mycompany.myapp.mytype. Remember that, in this case, only those apps that <em>declare knowledge</em> of the type are able to understand the data written to the pasteboard. This is the same as we have seen in the "<a href="/MASTG/iOS/0x06h-Testing-Platform-Interaction#uiactivity-sharing" title="UIActivity Sharing&quot; &quot;UIActivity Sharing">UIActivity Sharing</a>" section. Retrieve them using <a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622071-itemsetwithpasteboardtypes?language=objc" title="UIPasteboard itemSetWithPasteboardTypes:"><code>itemSetWithPasteboardTypes:</code></a> and setting the corresponding UTIs.</li>
+<li>Check for other data types (typically UTIs) with <a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622100-containspasteboardtypes?language=objc" title="UIPasteboard containsPasteboardTypes:inItemSet:"><code>containsPasteboardTypes: inItemSet:</code></a>. You may inspect for more concrete data types like, for example an picture as public.png and public.tiff (<a href="http://web.archive.org/web/20190616231857/https://developer.apple.com/documentation/mobilecoreservices/uttype" title="MobileCoreServices UTType">UTIs</a>) or for custom data such as com.mycompany.myapp.mytype. Remember that, in this case, only those apps that <em>declare knowledge</em> of the type are able to understand the data written to the pasteboard. This is the same as we have seen in the "<a href="../../../Document/0x06h-Testing-Platform-Interaction.md#uiactivity-sharing" title="UIActivity Sharing">UIActivity Sharing</a>" section. Retrieve them using <a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622071-itemsetwithpasteboardtypes?language=objc" title="UIPasteboard itemSetWithPasteboardTypes:"><code>itemSetWithPasteboardTypes:</code></a> and setting the corresponding UTIs.</li>
 <li>Check for excluded or expiring items by hooking <code>setItems:options:</code> and inspecting its options for <code>UIPasteboardOptionLocalOnly</code> or <code>UIPasteboardOptionExpirationDate</code>.</li>
 </ul>
 <p>If only looking for strings you may want to use objection's command <code>ios pasteboard monitor</code>:</p>
@@ -11690,20 +11672,6 @@
 <span class="o">)</span>
 </code></pre></div>
 <p>You see that first a text was copied including the string "hola", after that a URL was copied and finally a picture was copied. Some of them are available via different UTIs. Other apps will consider these UTIs to allow pasting of this data or not.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc#2107142" title="Checking for Data Types on a Pasteboard">Checking for Data Types on a Pasteboard</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard?language=objc#1654275" title="Getting and Setting Pasteboard Items of Standard Data Types">Getting and Setting Pasteboard Items of Standard Data Types</a></li>
-<li><a href="http://web.archive.org/web/20190616231857/https://developer.apple.com/documentation/mobilecoreservices/uttype" title="MobileCoreServices UTType">MobileCoreServices UTType</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622100-containspasteboardtypes?language=objc" title="UIPasteboard containsPasteboardTypes:inItemSet:">UIPasteboard containsPasteboardTypes:inItemSet:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622106-generalpasteboard?language=objc" title="UIPasteboard generalPasteboard">UIPasteboard generalPasteboard</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622071-itemsetwithpasteboardtypes?language=objc" title="UIPasteboard itemSetWithPasteboardTypes:">UIPasteboard itemSetWithPasteboardTypes:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622074-pasteboardwithname?language=objc" title="UIPasteboard pasteboardWithName:create:">UIPasteboard pasteboardWithName:create:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622087-pasteboardwithuniquename?language=objc" title="UIPasteboard pasteboardWithUniqueName">UIPasteboard pasteboardWithUniqueName</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622072-removepasteboardwithname?language=objc" title="UIPasteboard removePasteboardWithName:">UIPasteboard removePasteboardWithName:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uipasteboard/1622096-setpersistent?language=objc" title="UIPasteboard setPersistent:">UIPasteboard setPersistent:</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/b39ee53b5ba2e9a271797d2f3931d79c46dccfdb/agent/src/ios/pasteboard.ts" title="pasteboard.ts">pasteboard.ts</a></li>
-</ul>
 
 
 

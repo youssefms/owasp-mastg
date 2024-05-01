@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -9011,15 +9011,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11380,15 +11371,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11508,7 +11490,7 @@ OWASP.iGoat-Swift<span class="w"> </span>on<span class="w"> </span><span class="
 OWASP.iGoat-Swift<span class="w"> </span>on<span class="w"> </span><span class="o">(</span>iPhone:<span class="w"> </span><span class="m">12</span>.0<span class="o">)</span><span class="w"> </span><span class="o">[</span>usb<span class="o">]</span><span class="w"> </span><span class="c1"># ios bundles list_bundles</span>
 </code></pre></div>
 <p>If you have a jailbroken device with frida-server installed, Objection can connect directly to the running Frida server to provide all its functionality without needing to repackage the application. However, it is not always possible to jailbreak the latest version of iOS, or you may have an application with advanced jailbreak detection mechanisms.</p>
-<p>The ability to <strong>perform advanced dynamic analysis on non-jailbroken devices</strong> is one of the features that makes Objection incredibly useful. After following the <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#repackaging-apps">repackaging process</a> you will be able to run all the aforementioned commands which make it very easy to quickly analyze an application, or get around basic security controls.</p>
+<p>The ability to <strong>perform advanced dynamic analysis on non-jailbroken devices</strong> is one of the features that makes Objection incredibly useful. After following the <a href="0x06b-iOS-Security-Testing.md#repackaging-apps">repackaging process</a> you will be able to run all the aforementioned commands which make it very easy to quickly analyze an application, or get around basic security controls.</p>
 <h2 id="using-objection-on-ios">Using Objection on iOS<a class="headerlink" href="#using-objection-on-ios" title="Permanent link">&para;</a></h2>
 <p>Starting up Objection depends on whether you've patched the IPA or whether you are using a jailbroken device running Frida-server. For running a patched IPA, objection will automatically find any attached devices and search for a listening Frida gadget. However, when using frida-server, you need to explicitly tell frida-server which application you want to analyze.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Connecting to a patched IPA</span>
@@ -11538,11 +11520,6 @@ $<span class="w"> </span>ios<span class="w"> </span>keychain<span class="w"> </s
 $<span class="w"> </span>ios<span class="w"> </span>plist<span class="w"> </span>cat<span class="w"> </span>&lt;myfile.plist&gt;
 </code></pre></div>
 <p>More information on using the Objection REPL can be found on the <a href="https://github.com/sensepost/objection/wiki/Using-objection" title="Using Objection">Objection Wiki</a></p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/sensepost/objection/wiki/Using-objection" title="Using Objection">Using Objection</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Features">full list of features</a></li>
-</ul>
 
 
 

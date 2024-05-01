@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5473,15 +5473,6 @@
   <a href="#ghidra" class="md-nav__link">
     <span class="md-ellipsis">
       Ghidra
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11599,10 +11581,6 @@
 <p>After opening the library in Ghidra we can see all the functions defined in the <strong>Symbol Tree</strong> panel under <strong>Functions</strong>. The native library for the current application is relatively very small. There are three user defined functions: <code>FUN_001004d0</code>, <code>FUN_0010051c</code>, and <code>Java_sg_vantagepoint_helloworldjni_MainActivity_stringFromJNI</code>. The other symbols are not user defined and are generated for proper functioning of the shared library. The instructions in the function <code>Java_sg_vantagepoint_helloworldjni_MainActivity_stringFromJNI</code> are already discussed in detail in previous sections. In this section we can look into the decompilation of the function.</p>
 <p>Inside the current function there is a call to another function, whose address is obtained by accessing an offset in the <code>JNIEnv</code> pointer (found as <code>plParm1</code>). This logic has been diagrammatically demonstrated above as well. The corresponding C code for the disassembled function is shown in the <strong>Decompiler</strong> window. This decompiled C code makes it much easier to understand the function call being made. Since this function is small and extremely simple, the decompilation output is very accurate, this can change drastically when dealing with complex functions.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/Ghidra_decompiled_function.png" width="100%" /></p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/radareorg/r2ghidra" title="r2ghidra">r2ghidra</a></li>
-</ul>
 
 
 

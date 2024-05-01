@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11509,7 +11509,7 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>Test the app native libraries to determine if they have the PIE and stack smashing protections enabled.</p>
-<p>You can use <a href="/MASTG/Tools/0x08a-Testing-Tools#radare2">radare2's rabin2</a> to get the binary information. We'll use the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l4">UnCrackable App for Android Level 4</a> v1.0 APK as an example.</p>
+<p>You can use <a href="../../../Document/0x08a-Testing-Tools.md#radare2">radare2's rabin2</a> to get the binary information. We'll use the <a href="../../../Document/0x08b-Reference-Apps.md#android-uncrackable-l4">UnCrackable App for Android Level 4</a> v1.0 APK as an example.</p>
 <p>All native libraries must have <code>canary</code> and <code>pic</code> both set to <code>true</code>.</p>
 <p>That's the case for <code>libnative-lib.so</code>:</p>
 <div class="highlight"><pre><span></span><code>rabin2<span class="w"> </span>-I<span class="w"> </span>lib/x86_64/libnative-lib.so<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;canary|pic&quot;</span>

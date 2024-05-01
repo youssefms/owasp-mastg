@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11511,7 +11511,7 @@
 <li>Patch the emulator detection functionality. Disable the unwanted behavior by simply overwriting the associated bytecode or native code with NOP instructions.</li>
 <li>Use Frida or Xposed APIs to hook file system APIs on the Java and native layers. Return innocent-looking values (preferably taken from a real device) instead of the telltale emulator values. For example, you can override the <code>TelephonyManager.getDeviceID</code> method to return an IMEI value.</li>
 </ol>
-<p>Refer to the "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a>" chapter for examples of patching, code injection, and kernel modules.</p>
+<p>Refer to the "<a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" chapter for examples of patching, code injection, and kernel modules.</p>
 <h2 id="effectiveness-assessment">Effectiveness Assessment<a class="headerlink" href="#effectiveness-assessment" title="Permanent link">&para;</a></h2>
 <p>Install and run the app in the emulator. The app should detect that it is being executed in an emulator and terminate or refuse to execute the functionality that's meant to be protected.</p>
 <p>Work on bypassing the defenses and answer the following questions:</p>

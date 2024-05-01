@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6955,15 +6955,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11398,15 +11389,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11438,7 +11420,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11517,7 +11499,7 @@
 <div class="highlight"><pre><span></span><code>/usr/libexec/PlistBuddy<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Set :CFBundleIdentifier sg.vantagepoint.repackage&quot;</span><span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/Info.plist
 </code></pre></div>
 <h2 id="re-signing">Re-Signing<a class="headerlink" href="#re-signing" title="Permanent link">&para;</a></h2>
-<p>Finally, we use the <a href="" title="codesign">codesign</a> tool to re-sign both binaries. You need to use <em>your own</em> signing identity (in this example 8004380F331DCA22CC1B47FB1A805890AE41C938), which you can output by executing the command <code>security find-identity -v</code>.</p>
+<p>Finally, we use the <a href="../../../tools/ios/MASTG-TOOL-0101/" title="codesign">codesign</a> tool to re-sign both binaries. You need to use <em>your own</em> signing identity (in this example 8004380F331DCA22CC1B47FB1A805890AE41C938), which you can output by executing the command <code>security find-identity -v</code>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/_CodeSignature
 $<span class="w"> </span>/usr/bin/codesign<span class="w"> </span>--force<span class="w"> </span>--sign<span class="w"> </span>8004380F331DCA22CC1B47FB1A805890AE41C938<span class="w">  </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/FridaGadget.dylib
 Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app/FridaGadget.dylib:<span class="w"> </span>replacing<span class="w"> </span>existing<span class="w"> </span>signature
@@ -11526,7 +11508,7 @@ Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span cl
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>/usr/bin/codesign<span class="w"> </span>--force<span class="w"> </span>--sign<span class="w"> </span>8004380F331DCA22CC1B47FB1A805890AE41C938<span class="w"> </span>--entitlements<span class="w"> </span>entitlements.plist<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>
 Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>replacing<span class="w"> </span>existing<span class="w"> </span>signature
 </code></pre></div>
-<p>Now you should be ready to run the modified app. Deploy and run the app on the device using <a href="" title="ios-deploy">ios-deploy</a>:</p>
+<p>Now you should be ready to run the modified app. Deploy and run the app on the device using <a href="../../../tools/ios/MASTG-TOOL-0054/" title="ios-deploy">ios-deploy</a>:</p>
 <div class="highlight"><pre><span></span><code>ios-deploy<span class="w"> </span>--debug<span class="w"> </span>--bundle<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/
 </code></pre></div>
 <p>If everything went well, the app should start in debugging mode with LLDB attached. Frida should then be able to attach to the app as well. You can verify this via the frida-ps command:</p>
@@ -11537,11 +11519,6 @@ PID<span class="w">  </span>Name
 </code></pre></div>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/fridaStockiOS.png" width="100%" /></p>
 <p>When something goes wrong (and it usually does), mismatches between the provisioning profile and code-signing header are the most likely causes. Reading the <a href="https://developer.apple.com/support/code-signing/" title="Code Signing">official documentation</a> helps you understand the code-signing process. Apple's <a href="https://developer.apple.com/library/content/technotes/tn2415/_index.html" title="Entitlements Troubleshooting">entitlement troubleshooting page</a> is also a useful resource.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/support/code-signing/" title="Code Signing">Code Signing</a></li>
-<li><a href="https://developer.apple.com/library/content/technotes/tn2415/_index.html" title="Entitlements Troubleshooting">Entitlements Troubleshooting</a></li>
-</ul>
 
 
 

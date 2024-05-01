@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -7008,17 +7003,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Runtime Reverse Engineering
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -7028,32 +7012,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11473,7 +11414,7 @@
   <h1>Runtime Reverse Engineering</h1>
 
 <p>Runtime reverse engineering can be seen as the on-the-fly version of reverse engineering where you don't have the binary data to your host computer. Instead, you'll analyze it straight from the memory of the app.</p>
-<p>We'll keep using the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> app, open a session with r2frida <code>r2 frida://usb//iGoat-Swift</code> and you can start by displaying the target binary information by using the <code>:i</code> command:</p>
+<p>We'll keep using the <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> app, open a session with r2frida <code>r2 frida://usb//iGoat-Swift</code> and you can start by displaying the target binary information by using the <code>:i</code> command:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:i
 arch<span class="w">                </span>arm
 bits<span class="w">                </span><span class="m">64</span>
@@ -11574,10 +11515,6 @@ Reading<span class="w"> </span><span class="m">2</span>.390625MB<span class="w">
 0x00000001006d4792<span class="w">  </span><span class="s2">&quot;INSERT INTO creds(username, password) VALUES(?, ?)&quot;</span>
 </code></pre></div>
 <p>To learn more, please refer to the <a href="https://github.com/enovella/r2frida-wiki/blob/master/README.md" title="r2frida Wiki">r2frida wiki</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/enovella/r2frida-wiki/blob/master/README.md" title="r2frida Wiki">r2frida Wiki</a></li>
-</ul>
 
 
 

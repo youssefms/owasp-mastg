@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11343,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11413,7 +11413,7 @@
 
   <h1>Waiting for the Debugger</h1>
 
-<p>The <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a> is not stupid: it notices that it has been run in debuggable mode and reacts by shutting down. A modal dialog is shown immediately, and the crackme terminates once you tap "OK".</p>
+<p>The <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> is not stupid: it notices that it has been run in debuggable mode and reacts by shutting down. A modal dialog is shown immediately, and the crackme terminates once you tap "OK".</p>
 <p>Fortunately, Android's "Developer options" contain the useful "Wait for Debugger" feature, which allows you to automatically suspend an app during startup until a JDWP debugger connects. With this feature, you can connect the debugger before the detection mechanism runs, and trace, debug, and deactivate that mechanism. It's really an unfair advantage, but, on the other hand, reverse engineers never play fair!</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/debugger_detection.png" width="400px" /></p>
 <p>In the Developer options, pick <code>Uncrackable1</code> as the debugging application and activate the "Wait for Debugger" switch.</p>

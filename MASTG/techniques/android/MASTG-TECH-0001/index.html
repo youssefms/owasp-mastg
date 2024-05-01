@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5014,15 +5014,6 @@
   <a href="#on-device-shell-app" class="md-nav__link">
     <span class="md-ellipsis">
       On-device Shell App
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11464,15 +11455,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11576,7 +11558,7 @@
 
 <p>One of the most common things you do when testing an app is accessing the device shell. In this section we'll see how to access the Android shell both remotely from your host computer with/without a USB cable and locally from the device itself.</p>
 <h2 id="remote-shell">Remote Shell<a class="headerlink" href="#remote-shell" title="Permanent link">&para;</a></h2>
-<p>In order to connect to the shell of an Android device from your host computer, <a href="/MASTG/Tools/0x08a-Testing-Tools#adb">adb</a> is usually your tool of choice (unless you prefer to use remote SSH access, e.g. <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">via Termux</a>).</p>
+<p>In order to connect to the shell of an Android device from your host computer, <a href="0x08a-Testing-Tools.md#adb">adb</a> is usually your tool of choice (unless you prefer to use remote SSH access, e.g. <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">via Termux</a>).</p>
 <p>For this section we assume that you've properly enabled Developer Mode and USB debugging as explained in "Testing on a Real Device". Once you've connected your Android device via USB, you can access the remote device's shell by running:</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell
 </code></pre></div>
@@ -11611,14 +11593,9 @@ emulator-5554<span class="w">    </span>device
 </blockquote>
 <p>See the full instructions and considerations in the <a href="https://developer.android.com/studio/command-line/adb#wireless" title="Connect to a device over Wi-Fi">Android Developers Documentation</a>.</p>
 <h3 id="connect-to-a-device-via-ssh">Connect to a Device via SSH<a class="headerlink" href="#connect-to-a-device-via-ssh" title="Permanent link">&para;</a></h3>
-<p>If you prefer, you can also enable SSH access. A convenient option is to use <a href="/MASTG/Tools/0x08a-Testing-Tools#termux">Termux</a>, which you can easily <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">configure to offer SSH access</a> (with password or public key authentication) and start it with the command <code>sshd</code> (starts by default on port 8022). In order to connect to the Termux via SSH you can simply run the command <code>ssh -p 8022 &lt;ip_address&gt;</code> (where <code>ip_address</code> is the actual remote device IP). This option has some additional benefits as it allows to access the file system via SFTP also on port 8022.</p>
+<p>If you prefer, you can also enable SSH access. A convenient option is to use <a href="0x08a-Testing-Tools.md#termux">Termux</a>, which you can easily <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">configure to offer SSH access</a> (with password or public key authentication) and start it with the command <code>sshd</code> (starts by default on port 8022). In order to connect to the Termux via SSH you can simply run the command <code>ssh -p 8022 &lt;ip_address&gt;</code> (where <code>ip_address</code> is the actual remote device IP). This option has some additional benefits as it allows to access the file system via SFTP also on port 8022.</p>
 <h2 id="on-device-shell-app">On-device Shell App<a class="headerlink" href="#on-device-shell-app" title="Permanent link">&para;</a></h2>
-<p>While usually using an on-device shell (terminal emulator) such as <a href="/MASTG/Tools/0x08a-Testing-Tools#termux">Termux</a> might be very tedious compared to a remote shell, it can prove handy for debugging in case of, for example, network issues or to check some configuration.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/studio/command-line/adb#wireless" title="Connect to a device over Wi-Fi">Connect to a device over Wi-Fi</a></li>
-<li><a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">Using the SSH server</a></li>
-</ul>
+<p>While usually using an on-device shell (terminal emulator) such as <a href="0x08a-Testing-Tools.md#termux">Termux</a> might be very tedious compared to a remote shell, it can prove handy for debugging in case of, for example, network issues or to check some configuration.</p>
 
 
 

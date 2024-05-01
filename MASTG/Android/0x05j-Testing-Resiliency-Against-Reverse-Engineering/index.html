@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1629,15 +1629,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -12034,15 +12025,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12158,7 +12140,7 @@
 <h3 id="root-detection-and-common-root-detection-methods">Root Detection and Common Root Detection Methods<a class="headerlink" href="#root-detection-and-common-root-detection-methods" title="Permanent link">&para;</a></h3>
 <p>In the context of anti-reversing, the goal of root detection is to make running the app on a rooted device a bit more difficult, which in turn blocks some of the tools and techniques reverse engineers like to use. Like most other defenses, root detection is not very effective by itself, but implementing multiple root checks that are scattered throughout the app can improve the effectiveness of the overall anti-tampering scheme.</p>
 <p>For Android, we define "root detection" a bit more broadly, including custom ROMs detection, i.e., determining whether the device is a stock Android build or a custom build.</p>
-<p>In the following section, we list some common root detection methods you'll encounter. You'll find some of these methods implemented in the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-crackmes">OWASP UnCrackable Apps for Android</a> that accompany the OWASP Mobile Testing Guide.</p>
+<p>In the following section, we list some common root detection methods you'll encounter. You'll find some of these methods implemented in the <a href="0x08b-Reference-Apps.md#android-crackmes">OWASP UnCrackable Apps for Android</a> that accompany the OWASP Mobile Testing Guide.</p>
 <p>Root detection can also be implemented through libraries such as <a href="https://github.com/scottyab/rootbeer" title="RootBeer">RootBeer</a>.</p>
 <h4 id="google-play-integrity">Google Play Integrity<a class="headerlink" href="#google-play-integrity" title="Permanent link">&para;</a></h4>
 <p>Google has launched the <a href="https://developer.android.com/google/play/integrity/overview" title="Google Play Integrity API">Google Play Integrity API</a> to improve the security and integrity of apps and games on Android starting with Android 4.4 (level 19). The previous official API, <a href="https://developer.android.com/training/safetynet">SafetyNet</a>, did not cover all the security needs that Google wanted for the platform, so Play Integrity was developed with the basic functions of the previous API and integrated additional features. This change aims to protect users from dangerous and fraudulent interactions.</p>
@@ -12594,7 +12576,7 @@ Exiting
 <h3 id="file-integrity-checks">File Integrity Checks<a class="headerlink" href="#file-integrity-checks" title="Permanent link">&para;</a></h3>
 <p>There are two topics related to file integrity:</p>
 <ol>
-<li><em>Code integrity checks:</em> In the <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a> chapter, we discussed Android's APK code signature check. We also saw that determined reverse engineers can easily bypass this check by re-packaging and re-signing an app. To make this bypassing process more involved, a protection scheme can be augmented with CRC checks on the app bytecode, native libraries, and important data files. These checks can be implemented on both the Java and the native layer. The idea is to have additional controls in place so that the app only runs correctly in its unmodified state, even if the code signature is valid.</li>
+<li><em>Code integrity checks:</em> In the <a href="0x05c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on Android"</a> chapter, we discussed Android's APK code signature check. We also saw that determined reverse engineers can easily bypass this check by re-packaging and re-signing an app. To make this bypassing process more involved, a protection scheme can be augmented with CRC checks on the app bytecode, native libraries, and important data files. These checks can be implemented on both the Java and the native layer. The idea is to have additional controls in place so that the app only runs correctly in its unmodified state, even if the code signature is valid.</li>
 <li><em>The file storage integrity checks:</em> The integrity of files that the application stores on the SD card or public storage and the integrity of key-value pairs that are stored in <code>SharedPreferences</code> should be protected.</li>
 </ol>
 <h4 id="sample-implementation-application-source-code">Sample Implementation - Application Source Code<a class="headerlink" href="#sample-implementation-application-source-code" title="Permanent link">&para;</a></h4>
@@ -12856,8 +12838,8 @@ TelephonyManager.getVoiceMailNumber()                   15552175049             
 <p>In contrast to GNU <code>ld</code>, which resolves symbol addresses only after they are needed for the first time (lazy binding), the Android linker resolves all external functions and writes the respective GOT entries immediately after a library is loaded (immediate binding). You can therefore expect all GOT entries to point to valid memory locations in the code sections of their respective libraries during runtime. GOT hook detection methods usually walk the GOT and verify this.</p>
 <p><em>Inline hooks</em> work by overwriting a few instructions at the beginning or end of the function code. During runtime, this so-called trampoline redirects execution to the injected code. You can detect inline hooks by inspecting the prologues and epilogues of library functions for suspect instructions, such as far jumps to locations outside the library.</p>
 <h3 id="obfuscation">Obfuscation<a class="headerlink" href="#obfuscation" title="Permanent link">&para;</a></h3>
-<p>The chapter <a href="/MASTG/General/0x04c-Tampering-and-Reverse-Engineering#obfuscation">Mobile App Tampering and Reverse Engineering</a> introduces several well-known obfuscation techniques that can be used in mobile apps in general.</p>
-<p>Android apps can implement some of those obfuscation techniques using different tooling. For example, <a href="/MASTG/Tools/0x08a-Testing-Tools#proguard">ProGuard</a> offers an easy way to shrink and obfuscate code and to strip unneeded debugging information from the bytecode of Android Java apps. It replaces identifiers, such as class names, method names, and variable names, with meaningless character strings. This is a type of layout obfuscation, which doesn't impact the program's performance.</p>
+<p>The chapter <a href="0x04c-Tampering-and-Reverse-Engineering.md#obfuscation">"Mobile App Tampering and Reverse Engineering"</a> introduces several well-known obfuscation techniques that can be used in mobile apps in general.</p>
+<p>Android apps can implement some of those obfuscation techniques using different tooling. For example, <a href="0x08a-Testing-Tools.md#proguard">ProGuard</a> offers an easy way to shrink and obfuscate code and to strip unneeded debugging information from the bytecode of Android Java apps. It replaces identifiers, such as class names, method names, and variable names, with meaningless character strings. This is a type of layout obfuscation, which doesn't impact the program's performance.</p>
 <blockquote>
 <p>Decompiling Java classes is trivial, therefore it is recommended to always applying some basic obfuscation to the production bytecode.</p>
 </blockquote>
@@ -12977,44 +12959,6 @@ TelephonyManager.getVoiceMailNumber()                   15552175049             
 <li>
 <p>Use token-based device authentication (Instance ID) to make sure that the same instance of the app is used.</p>
 </li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="http://man7.org/linux/man-pages/man5/proc.5.html" title="/proc/[pid]/status">/proc/[pid]/status</a></li>
-<li><a href="https://github.com/enovella/cve-bio-enovella/blob/master/slides/APKiD-NowSecure-Connect19-enovella.pdf">APKiD: Fast Identification of AppShielding Products</a></li>
-<li><a href="https://developer.android.com/training/articles/keystore.html" title="Android Keystore">Android Keystore</a></li>
-<li><a href="https://www.netspi.com/blog/technical/mobile-application-penetration-testing/android-root-detection-techniques/" title="Android Root Detection Techniques">Android Root Detection Techniques</a></li>
-<li><a href="https://web.archive.org/web/20200307152820/https://www.vantagepoint.sg/blog/88-anti-debugging-fun-with-android-art" title="Anti-Debugging Fun with Android ART">Anti-Debugging Fun with Android ART</a></li>
-<li><a href="https://web.archive.org/web/20210804035343/https://cseweb.ucsd.edu/~mihir/papers/oem.html" title="Authenticated Encryption: Relations among notions and analysis of the generic composition paradigm">Authenticated Encryption: Relations among notions and analysis of the generic composition paradigm</a></li>
-<li><a href="https://github.com/crazykid95/Backup-Mobile-Security-Report/blob/master/AndroidREnDefenses201305.pdf" title="Bluebox Security - Android Reverse Engineering &amp; Defenses">Bluebox Security - Android Reverse Engineering &amp; Defenses</a></li>
-<li><a href="https://www.yumpu.com/en/document/read/15228183/android-reverse-engineering-defenses-bluebox-labs" title="Bluebox Security - Android Reverse Engineering &amp; Defenses">Bluebox Security - Android Reverse Engineering &amp; Defenses</a></li>
-<li><a href="https://www.theses.fr/2020REN1S047.pdf">Challenges of Native Android Applications: Obfuscation and Vulnerabilities</a></li>
-<li><a href="https://developer.android.com/studio/build/shrink-code#configuration-files" title="Customize which code to keep">Customize which code to keep</a></li>
-<li><a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida Gadget</a></li>
-<li><a href="https://developer.android.com/reference/android/content/pm/PackageManager#GET_SIGNING_CERTIFICATES" title="GET_SIGNING_CERTIFICATES">GET_SIGNING_CERTIFICATES</a></li>
-<li><a href="https://developer.android.com/google/play/integrity/overview" title="Google Play Integrity API">Google Play Integrity API</a></li>
-<li><a href="https://resources.infosecinstitute.com/android-hacking-security-part-8-root-detection-evasion//" title="InfoSec Institute - Android Root Detection and Evasion">InfoSec Institute - Android Root Detection and Evasion</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Named_pipe" title="Named Pipes">Named Pipes</a></li>
-<li><a href="https://wiki.owasp.org/index.php/OWASP_Reverse_Engineering_and_Code_Modification_Prevention_Project" title="OWASP Architectural Principles That Prevent Code Modification or Reverse Engineering">OWASP Architectural Principles That Prevent Code Modification or Reverse Engineering</a></li>
-<li><a href="https://wiki.owasp.org/index.php/Technical_Risks_of_Reverse_Engineering_and_Unauthorized_Code_Modification" title="OWASP Technical Risks of Reverse Engineering and Unauthorized Code Modification">OWASP Technical Risks of Reverse Engineering and Unauthorized Code Modification</a></li>
-<li><a href="http://man7.org/linux/man-pages/man2/ptrace.2.html" title="Ptrace man page">Ptrace man page</a></li>
-<li><a href="https://android-developers.googleblog.com/2018/11/r8-new-code-shrinker-from-google-is.html" title="R8">R8</a></li>
-<li><a href="https://github.com/scottyab/rootbeer" title="RootBeer">RootBeer</a></li>
-<li><a href="https://github.com/scottyab/rootbeer/blob/master/rootbeerlib/src/main/java/com/scottyab/rootbeer/RootBeer.java#L76" title="Rootbeer - detectTestKeys function">Rootbeer - detectTestKeys function</a></li>
-<li><a href="https://developer.android.com/training/safetynet">SafetyNet</a></li>
-<li><a href="https://darvincitech.wordpress.com/2020/01/07/security-hardening-of-android-native-code/">Security Hardening of Android Native Code</a></li>
-<li><a href="https://developer.android.com/studio/build/shrink-code" title="Shrink, obfuscate, and optimize your app">Shrink, obfuscate, and optimize your app</a></li>
-<li><a href="https://web.archive.org/web/20181227120751/http://www.vantagepoint.sg/blog/90-the-jiu-jitsu-of-detecting-frida" title="The Jiu-Jitsu of Detecting Frida">The Jiu-Jitsu of Detecting Frida</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Trampoline_%28computing%29" title="Trampolines">Trampolines</a></li>
-<li><a href="https://github.com/strazzere/anti-emulator/" title="anti-emulator">anti-emulator</a></li>
-<li><a href="https://androidcracking.blogspot.com/2011/06/anti-tampering-with-crc-check.html" title="anti-tampering with crc check">anti-tampering with crc check</a></li>
-<li><a href="https://d3adend.org/blog/?p=589" title="dead &amp;&amp; end blog - Android Anti-Hooking Techniques in Java">dead &amp;&amp; end blog - Android Anti-Hooking Techniques in Java</a></li>
-<li><a href="https://github.com/muellerberndt/frida-detection-demo/blob/master/AntiFrida/app/src/main/cpp/native-lib.cpp" title="frida-detection-demo">frida-detection-demo</a></li>
-<li><a href="https://developer.android.com/reference/android/app/ActivityManager.html#getRunningServices%28int%29" title="getRunningServices">getRunningServices</a></li>
-<li><a href="https://github.com/gperftools/gperftools/blob/master/src/heap-checker.cc#L112" title="heap-checker.cc - IsDebuggerAttached">heap-checker.cc - IsDebuggerAttached</a></li>
-<li><a href="https://github.com/android/ndk-samples/tree/android-mk/hello-jni" title="hello-jni sample">hello-jni sample</a></li>
-<li><a href="https://developer.android.com/google/play/integrity/error-codes">official page</a></li>
-<li><a href="https://github.com/devadvance/rootinspector/" title="rootinspector">rootinspector</a></li>
 </ul>
 
 

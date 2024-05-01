@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11416,7 +11416,7 @@
 <p>As discussed earlier in this chapter, iOS applications can also contain native code (C/C++ code) and it can be traced using the <code>frida-trace</code> CLI as well. For example, you can trace calls to the <code>open</code> function by running the following command:</p>
 <div class="highlight"><pre><span></span><code>frida-trace<span class="w"> </span>-U<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;open&quot;</span><span class="w"> </span>sg.vp.UnCrackable1
 </code></pre></div>
-<p>The overall approach and further improvisation for tracing native code using Frida is similar to the one discussed in the Android "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#tracing" title="Tracing&quot; &quot;Tracing">Tracing</a>" section.</p>
+<p>The overall approach and further improvisation for tracing native code using Frida is similar to the one discussed in the Android "<a href="0x05c-Reverse-Engineering-and-Tampering.md#tracing" title="Tracing">Tracing</a>" section.</p>
 <p>Unfortunately, there are no tools such as <code>strace</code> or <code>ftrace</code> available to trace syscalls or function calls of an iOS app. Only <code>DTrace</code> exists, which is a very powerful and versatile tracing tool, but it's only available for MacOS and not for iOS.</p>
 
 

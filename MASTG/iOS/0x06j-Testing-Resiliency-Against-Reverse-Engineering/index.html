@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1803,15 +1803,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11872,15 +11863,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12058,18 +12040,18 @@
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Checking Protocol Handlers:</strong></p>
-<p>The app might be attempting to call well-known protocol handlers such as <code>cydia://</code> (available by default after installing <a href="/MASTG/Tools/0x08a-Testing-Tools#cydia" title="Cydia">Cydia</a> "Cydia").</p>
+<p>The app might be attempting to call well-known protocol handlers such as <code>cydia://</code> (available by default after installing <a href="0x08a-Testing-Tools.md#cydia" title="Cydia">Cydia</a>).</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;cydia://package/com.example.package&quot;</span><span class="p">),</span> <span class="bp">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">canOpenURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Device is jailbroken</span>
 <span class="p">}</span>
 </code></pre></div>
 <h4 id="automated-jailbreak-detection-bypass">Automated Jailbreak Detection Bypass<a class="headerlink" href="#automated-jailbreak-detection-bypass" title="Permanent link">&para;</a></h4>
-<p>The quickest way to bypass common Jailbreak detection mechanisms is <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">objection</a>. You can find the implementation of the jailbreak bypass in the <a href="https://github.com/sensepost/objection/blob/master/agent/src/ios/jailbreak.ts" title="jailbreak.ts">jailbreak.ts script</a>.</p>
+<p>The quickest way to bypass common Jailbreak detection mechanisms is <a href="0x08a-Testing-Tools.md#objection">objection</a>. You can find the implementation of the jailbreak bypass in the <a href="https://github.com/sensepost/objection/blob/master/agent/src/ios/jailbreak.ts" title="jailbreak.ts">jailbreak.ts script</a>.</p>
 <h4 id="manual-jailbreak-detection-bypass">Manual Jailbreak Detection Bypass<a class="headerlink" href="#manual-jailbreak-detection-bypass" title="Permanent link">&para;</a></h4>
 <p>If the automated bypasses aren't effective you need to get your hands dirty and reverse engineer the app binaries until you find the pieces of code responsible for the detection and either patch them statically or apply runtime hooks to disable them.</p>
 <p><strong>Step 1: Reverse Engineering:</strong></p>
 <p>When you need to reverse engineer a binary looking for jailbreak detection, the most obvious way is to search for known strings, such as "jail" or "jailbreak". Note that this won't be always effective, especially when resilience measures are in place or simply when the the developer has avoided such obvious terms.</p>
-<p>Example: Download the <a href="/MASTG/Tools/0x08b-Reference-Apps#dvia-v2">Damn Vulnerable iOS application (DVIA-v2)</a>, unzip it, load the main binary into <a href="/MASTG/Tools/0x08a-Testing-Tools#radare2">radare2</a> and wait for the analysis to complete.</p>
+<p>Example: Download the <a href="0x08b-Reference-Apps.md#dvia-v2">Damn Vulnerable iOS application (DVIA-v2)</a>, unzip it, load the main binary into <a href="0x08a-Testing-Tools.md#radare2">radare2</a> and wait for the analysis to complete.</p>
 <div class="highlight"><pre><span></span><code>r2<span class="w"> </span>-A<span class="w"> </span>./DVIA-v2-swift/Payload/DVIA-v2.app/DVIA-v2
 </code></pre></div>
 <p>Now you can list the binary's symbols using the <code>is</code> command and apply a case-insensitive grep (<code>~+</code>) for the string "jail".</p>
@@ -12111,7 +12093,7 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <li>Reactive techniques allow the application to detect the presence of a debugger and have a chance to diverge from normal behavior.</li>
 </ul>
 <h4 id="using-ptrace">Using ptrace<a class="headerlink" href="#using-ptrace" title="Permanent link">&para;</a></h4>
-<p>As seen in chapter <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#debugging">Tampering and Reverse Engineering on iOS</a>, the iOS XNU kernel implements a <code>ptrace</code> system call that's lacking most of the functionality required to properly debug a process (e.g. it allows attaching/stepping but not read/write of memory and registers).</p>
+<p>As seen in chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md#debugging">"Tampering and Reverse Engineering on iOS"</a>, the iOS XNU kernel implements a <code>ptrace</code> system call that's lacking most of the functionality required to properly debug a process (e.g. it allows attaching/stepping but not read/write of memory and registers).</p>
 <p>Nevertheless, the iOS implementation of the <code>ptrace</code> syscall contains a nonstandard and very useful feature: preventing the debugging of processes. This feature is implemented as the <code>PT_DENY_ATTACH</code> request, as described in the <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/ptrace.2.html" title="PTRACE(2)">official BSD System Calls Manual</a>. In simple words, it ensures that no other debugger can attach to the calling process; if a debugger attempts to attach, the process will terminate. Using <code>PT_DENY_ATTACH</code> is a fairly well-known anti-debugging technique, so you may encounter it often during iOS pentests.</p>
 <blockquote>
 <p>Before diving into the details, it is important to know that <code>ptrace</code> is not part of the public iOS API. Non-public APIs are prohibited, and the App Store may reject apps that include them. Because of this, <code>ptrace</code> is not directly called in the code; it's called when a <code>ptrace</code> function pointer is obtained via <code>dlsym</code>.</p>
@@ -12150,7 +12132,7 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <h3 id="file-integrity-checks">File Integrity Checks<a class="headerlink" href="#file-integrity-checks" title="Permanent link">&para;</a></h3>
 <p>There are two common approaches to check file integrity: using application source code integrity checks and using file storage integrity checks.</p>
 <h4 id="application-source-code-integrity-checks">Application Source Code Integrity Checks<a class="headerlink" href="#application-source-code-integrity-checks" title="Permanent link">&para;</a></h4>
-<p>In the <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#debugging">Tampering and Reverse Engineering on iOS</a> chapter, we discussed the iOS IPA application signature check. We also saw that determined reverse engineers can bypass this check by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.</p>
+<p>In the <a href="0x06c-Reverse-Engineering-and-Tampering.md#debugging">"Tampering and Reverse Engineering on iOS"</a> chapter, we discussed the iOS IPA application signature check. We also saw that determined reverse engineers can bypass this check by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.</p>
 <p>Apple takes care of integrity checks with DRM. However, additional controls (such as in the example below) are possible. The <code>mach_header</code> is parsed to calculate the start of the instruction data, which is used to generate the signature. Next, the signature is compared to the given signature. Make sure that the generated signature is stored or coded somewhere else.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">xyz</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">mach_header</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">header</span><span class="p">;</span>
@@ -12258,7 +12240,7 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <li>Patch the anti reverse engineering functionality. Disable the unwanted behavior by patching the binary through usage of radare2/<a href="https://github.com/radareorg/iaito" title="iaito">iaito</a> or Ghidra.</li>
 <li>Use Frida or Cydia Substrate to hook file system APIs on the Objective-C/Swift or native layers. Return a handle to the original file, not the modified file.</li>
 </ol>
-<p>Refer to the chapter <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on iOS</a> for examples of patching and code injection.</p>
+<p>Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on iOS"</a> for examples of patching and code injection.</p>
 <h4 id="frida-detection">Frida Detection<a class="headerlink" href="#frida-detection" title="Permanent link">&para;</a></h4>
 <p>Frida runs under the name of frida-server in its default configuration (injected mode) on a jailbroken device. When you explicitly attach to a target app (e.g. via frida-trace or the Frida CLI), Frida injects a frida-agent into the memory of the app. Therefore, you may expect to find it there after attaching to the app (and not before). On Android, verifying this is pretty straightforward as you can simply grep for the string "frida" in the memory maps of the process ID in the <code>proc</code> directory (<code>/proc/&lt;pid&gt;/maps</code>).
 However, on iOS the <code>proc</code> directory is not available, but you can list the loaded dynamic libraries in an app with the function <code>_dyld_image_count</code>.</p>
@@ -12318,14 +12300,14 @@ drwxr-xr-x<span class="w"> </span><span class="m">11</span><span class="w"> </sp
 <p>Both would <em>help</em> to detect Substrate or Frida's Interceptor but, for example, won't be effective against Frida's Stalker. Remember that the success of each of these detection methods will depend on whether you're using a jailbroken device, the specific version of the jailbreak and method and/or the version of the tool itself. At the end, this is part of the cat and mouse game of protecting data being processed on an uncontrolled environment (the end user's device).</p>
 <h3 id="emulator-detection">Emulator Detection<a class="headerlink" href="#emulator-detection" title="Permanent link">&para;</a></h3>
 <p>The goal of emulator detection is to increase the difficulty of running the app on an emulated device. This forces the reverse engineer to defeat the emulator checks or utilize the physical device, thereby barring the access required for large-scale device analysis.</p>
-<p>As discussed in the section <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#testing-on-the-ios-simulator" title="Testing on the iOS Simulator&quot; &quot;Testing on the iOS Simulator">Testing on the iOS Simulator</a> in the basic security testing chapter, the only available simulator is the one that ships with Xcode. Simulator binaries are compiled to x86 code instead of ARM code and apps compiled for a real device (ARM architecture) don't run in the simulator, hence <em>simulation</em> protection was not so much a concern regarding iOS apps in contrast to Android with a wide range of <em>emulation</em> choices available.</p>
+<p>As discussed in the section <a href="../0x06b-iOS-Security-Testing/#testing-on-the-ios-simulator" title="Testing on the iOS Simulator">Testing on the iOS Simulator</a> in the basic security testing chapter, the only available simulator is the one that ships with Xcode. Simulator binaries are compiled to x86 code instead of ARM code and apps compiled for a real device (ARM architecture) don't run in the simulator, hence <em>simulation</em> protection was not so much a concern regarding iOS apps in contrast to Android with a wide range of <em>emulation</em> choices available.</p>
 <p>However, since its release, <a href="https://www.corellium.com/">Corellium</a> (commercial tool) has enabled real emulation, <a href="https://www.corellium.com/compare/ios-simulator" title="Corellium vs Apple\'s iOS Simulator">setting itself apart from the iOS simulator</a>. In addition to that, being a SaaS solution, Corellium enables large-scale device analysis with the limiting factor just being available funds.</p>
 <p>With Apple Silicon (ARM) hardware widely available, traditional checks for the presence of x86 / x64 architecture might not suffice. One potential detection strategy is to identify features and limitations available for commonly used emulation solutions. For instance, Corellium doesn't support iCloud, cellular services, camera, NFC, Bluetooth, App Store access or GPU hardware emulation (<a href="https://developer.apple.com/documentation/metal/gpu_devices_and_work_submission/getting_the_default_gpu" title="Apple Metal Framework">Metal</a>). Therefore, smartly combining checks involving any of these features could be an indicator for the presence of an emulated environment.</p>
 <p>Pairing these results with the ones from 3rd party frameworks such as <a href="https://github.com/securing/IOSSecuritySuite#emulator-detector-module">iOS Security Suite</a>, <a href="https://www.ibm.com/products/trusteer-mobile-sdk/details">Trusteer</a> or a no-code solution such as <a href="https://www.appdome.com/">Appdome</a> (commercial solution) will provide a good line of defense against attacks utilizing emulators.</p>
 <h3 id="obfuscation">Obfuscation<a class="headerlink" href="#obfuscation" title="Permanent link">&para;</a></h3>
-<p>The chapter <a href="/MASTG/General/0x04c-Tampering-and-Reverse-Engineering#obfuscation">Mobile App Tampering and Reverse Engineering</a> introduces several well-known obfuscation techniques that can be used in mobile apps in general.</p>
+<p>The chapter <a href="0x04c-Tampering-and-Reverse-Engineering.md#obfuscation">"Mobile App Tampering and Reverse Engineering"</a> introduces several well-known obfuscation techniques that can be used in mobile apps in general.</p>
 <h4 id="name-obfuscation">Name Obfuscation<a class="headerlink" href="#name-obfuscation" title="Permanent link">&para;</a></h4>
-<p>The standard compiler generates binary symbols based on class and function names from the source code. Therefore, if no obfuscation was applied, symbol names remain meaningful and can be easily read straight from the app binary. For instance, a function which detects a jailbreak can be located by searching for relevant keywords (e.g. "jailbreak"). The listing below shows the disassembled function <code>JailbreakDetectionViewController.jailbreakTest4Tapped</code> from the <a href="/MASTG/Tools/0x08b-Reference-Apps#dvia-v2">Damn Vulnerable iOS App (DVIA-v2)</a>.</p>
+<p>The standard compiler generates binary symbols based on class and function names from the source code. Therefore, if no obfuscation was applied, symbol names remain meaningful and can be easily read straight from the app binary. For instance, a function which detects a jailbreak can be located by searching for relevant keywords (e.g. "jailbreak"). The listing below shows the disassembled function <code>JailbreakDetectionViewController.jailbreakTest4Tapped</code> from the <a href="0x08b-Reference-Apps.md#dvia-v2">Damn Vulnerable iOS App (DVIA-v2)</a>.</p>
 <div class="highlight"><pre><span></span><code>__T07DVIA_v232JailbreakDetectionViewControllerC20jailbreakTest4TappedyypF:
 stp        x22, x21, [sp, #-0x30]!
 mov        rbp, rsp
@@ -12348,7 +12330,7 @@ mov        rbp, rsp
 <p>Applications are often compiled with hardcoded keys, licences, tokens and endpoint URLs. By default, all of them are stored in plaintext in the data section of an application’s binary. This technique encrypts these values and injects stubs of code into the program that will decrypt that data before it is used by the program.</p>
 <h4 id="recommended-tools">Recommended Tools<a class="headerlink" href="#recommended-tools" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="/MASTG/Tools/0x08a-Testing-Tools#swiftshield">SwiftShield</a> can be used to perform name obfuscation. It reads the source code of the Xcode project and replaces all names of classes, methods and fields with random values before the compiler is used.</li>
+<li><a href="0x08a-Testing-Tools.md#swiftshield">SwiftShield</a> can be used to perform name obfuscation. It reads the source code of the Xcode project and replaces all names of classes, methods and fields with random values before the compiler is used.</li>
 <li><a href="https://github.com/obfuscator-llvm">obfuscator-llvm</a> operates on the Intermediate Representation (IR) instead of the source code. It can be used for symbol obfuscation, string encryption and control flow flattening. Since it's based on IR, it can hide out significantly more information about the application as compared to SwiftShield.</li>
 </ul>
 <p>Learn more about iOS obfuscation techniques in the paper <a href="https://faculty.ist.psu.edu/wu/papers/obf-ii.pdf" title="Paper - Protecting Million-User iOS Apps with Obfuscation: Motivations, Pitfalls, and Experience">"Protecting Million-User iOS Apps with Obfuscation: Motivations, Pitfalls, and Experience"</a>.</p>
@@ -12361,42 +12343,6 @@ mov        rbp, rsp
 <li><strong>Using Google Instance ID</strong>: see the <a href="https://developers.google.com/instance-id/guides/ios-implementation" title="iOS implementation Google Instance ID">implementation for iOS here</a>.</li>
 </ul>
 <p>Any scheme based on these methods will be more secure the moment a passcode and/or Touch ID is enabled, the materials stored in the Keychain or filesystem are protected with protection classes (such as <code>kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly</code> and <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>), and the <code>SecAccessControlCreateFlags</code> is set either with <code>kSecAccessControlDevicePasscode</code> (for passcodes), <code>kSecAccessControlUserPresence</code> (passcode, Face ID or Touch ID), <code>kSecAccessControlBiometryAny</code> (Face ID or Touch ID) or <code>kSecAccessControlBiometryCurrentSet</code> (Face ID / Touch ID: but current enrolled biometrics only).</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://seredynski.com/articles/a-security-review-of-1-300-appstore-applications" title="A security review of 1,300 AppStore applications - 5 April 2020">A security review of 1,300 AppStore applications - 5 April 2020</a></li>
-<li><a href="https://www.appdome.com/">Appdome</a></li>
-<li><a href="https://developer.apple.com/documentation/metal/gpu_devices_and_work_submission/getting_the_default_gpu" title="Apple Metal Framework">Apple Metal Framework</a></li>
-<li><a href="http://armconverter.com/" title="Armconverter">Armconverter</a></li>
-<li><a href="https://web.archive.org/web/20210804035343/https://cseweb.ucsd.edu/~mihir/papers/oem.html" title="Authenticated Encryption: Relations among notions and analysis of the generic composition paradigm">Authenticated Encryption: Relations among notions and analysis of the generic composition paradigm</a></li>
-<li><a href="https://developer.apple.com/documentation/swift/commandline" title="CommandLine">CommandLine</a></li>
-<li><a href="https://www.corellium.com/compare/ios-simulator" title="Corellium vs Apple's iOS Simulator">Corellium vs Apple's iOS Simulator</a></li>
-<li><a href="https://www.corellium.com/">Corellium</a></li>
-<li><a href="https://alexomara.com/blog/defeating-anti-debug-techniques-macos-ptrace-variants/" title="Defeating Anti-Debug Techniques: macOS ptrace variants">Defeating Anti-Debug Techniques: macOS ptrace variants</a></li>
-<li><a href="https://developer.apple.com/library/archive/qa/qa1361/_index.html" title="Detecting the Debugger">Detecting the Debugger</a></li>
-<li><a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida Gadget</a></li>
-<li><a href="http://www.cocoawithlove.com/blog/2016/03/08/swift-wrapper-for-sysctl.html" title="Gathering system information in Swift with sysctl">Gathering system information in Swift with sysctl</a></li>
-<li><a href="https://stackoverflow.com/a/56619466" title="How can I run Command Line commands or tasks with Swift in iOS?">How can I run Command Line commands or tasks with Swift in iOS?</a></li>
-<li><a href="https://developer.apple.com/library/content/qa/qa1361/_index.html" title="How do I determine if I'm being run under the debugger?">How do I determine if I'm being run under the debugger?</a></li>
-<li><a href="https://github.com/crazykid95/Backup-Mobile-Security-Report/blob/master/Jailbreak-Root-Detection-Evasion-Study-on-iOS-and-Android.pdf" title="Jailbreak/Root Detection Evasion Study on iOS and Android">Jailbreak/Root Detection Evasion Study on iOS and Android</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Named_pipe" title="Named Pipes">Named Pipes</a></li>
-<li><a href="https://wiki.owasp.org/index.php/OWASP_Reverse_Engineering_and_Code_Modification_Prevention_Project" title="OWASP Architectural Principles That Prevent Code Modification or Reverse Engineering">OWASP Architectural Principles That Prevent Code Modification or Reverse Engineering</a></li>
-<li><a href="https://wiki.owasp.org/index.php/Technical_Risks_of_Reverse_Engineering_and_Unauthorized_Code_Modification" title="OWASP Technical Risks of Reverse Engineering and Unauthorized Code Modification">OWASP Technical Risks of Reverse Engineering and Unauthorized Code Modification</a></li>
-<li><a href="http://ac.inf.elte.hu/Vol_030_2009/003.pdf">Obfuscating C++ programs via control flow flattening</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/ptrace.2.html" title="PTRACE(2)">PTRACE(2)</a></li>
-<li><a href="https://faculty.ist.psu.edu/wu/papers/obf-ii.pdf" title="Paper - Protecting Million-User iOS Apps with Obfuscation: Motivations, Pitfalls, and Experience">Paper - Protecting Million-User iOS Apps with Obfuscation: Motivations, Pitfalls, and Experience</a></li>
-<li><a href="https://www.guardsquare.com/en/blog/iOS-SSL-certificate-pinning-bypassing" title="Prevent bypassing of SSL certificate pinning in iOS applications">Prevent bypassing of SSL certificate pinning in iOS applications</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Trampoline_%28computing%29" title="Trampolines">Trampolines</a></li>
-<li><a href="https://www.ibm.com/products/trusteer-mobile-sdk/details">Trusteer</a></li>
-<li><a href="https://developer.apple.com/library/content/releasenotes/General/RN-iOSSDK-7.0/index.html" title="iOS 7 release notes">iOS 7 release notes</a></li>
-<li><a href="https://www.coredump.gr/articles/ios-anti-debugging-protections-part-2/" title="iOS Anti-Debugging Protections #2">iOS Anti-Debugging Protections #2</a></li>
-<li><a href="https://github.com/securing/IOSSecuritySuite" title="iOS Security Suite">iOS Security Suite</a></li>
-<li><a href="https://github.com/securing/IOSSecuritySuite#emulator-detector-module">iOS Security Suite</a></li>
-<li><a href="https://developers.google.com/instance-id/guides/ios-implementation" title="iOS implementation Google Instance ID">iOS implementation Google Instance ID</a></li>
-<li><a href="https://github.com/radareorg/iaito" title="iaito">iaito</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/master/agent/src/ios/jailbreak.ts" title="jailbreak.ts">jailbreak.ts</a></li>
-<li><a href="http://newosxbook.com/articles/Ch07.pdf">launchd</a></li>
-<li><a href="https://github.com/obfuscator-llvm">obfuscator-llvm</a></li>
-</ul>
 
 
 

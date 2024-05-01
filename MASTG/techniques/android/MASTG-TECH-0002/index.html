@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5011,15 +5011,6 @@
   <a href="#using-objection" class="md-nav__link">
     <span class="md-ellipsis">
       Using objection
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11527,7 +11509,7 @@
   <h1>Host-Device Data Transfer</h1>
 
 <h2 id="using-adb">Using adb<a class="headerlink" href="#using-adb" title="Permanent link">&para;</a></h2>
-<p>You can copy files to and from a device by using the <a href="/MASTG/Tools/0x08a-Testing-Tools#adb">adb</a> commands <code>adb pull &lt;remote&gt; &lt;local&gt;</code> and <code>adb push &lt;local&gt; &lt;remote&gt;</code> <a href="https://developer.android.com/studio/command-line/adb#copyfiles" title="Copy files to/from a device">commands</a>. Their usage is very straightforward. For example, the following will copy <code>foo.txt</code> from your current directory (local) to the <code>sdcard</code> folder (remote):</p>
+<p>You can copy files to and from a device by using the <a href="0x08a-Testing-Tools.md#adb">adb</a> commands <code>adb pull &lt;remote&gt; &lt;local&gt;</code> and <code>adb push &lt;local&gt; &lt;remote&gt;</code> <a href="https://developer.android.com/studio/command-line/adb#copyfiles" title="Copy files to/from a device">commands</a>. Their usage is very straightforward. For example, the following will copy <code>foo.txt</code> from your current directory (local) to the <code>sdcard</code> folder (remote):</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>push<span class="w"> </span>foo.txt<span class="w"> </span>/sdcard/foo.txt
 </code></pre></div>
 <p>This approach is commonly used when you know exactly what you want to copy and from/to where and also supports bulk file transfer, e.g. you can pull (copy) a whole directory from the Android device to your host computer.</p>
@@ -11540,7 +11522,7 @@
 <p>If you're using a rooted device you can now start exploring the whole file system. However, when using a non-rooted device accessing the app sandboxes won't work unless the app is debuggable and even then you are "jailed" within the app sandbox.</p>
 <h2 id="using-objection">Using objection<a class="headerlink" href="#using-objection" title="Permanent link">&para;</a></h2>
 <p>This option is useful when you are working on a specific app and want to copy files you might encounter inside its sandbox (notice that you'll only have access to the files that the target app has access to). This approach works without having to set the app as debuggable, which is otherwise required when using Android Studio's Device File Explorer.</p>
-<p>First, connect to the app with Objection as explained in "<a href="/MASTG/Tools/0x08a-Testing-Tools#objection" title="Testing Tools - Objection&quot; &quot;Testing Tools - Objection">Recommended Tools - Objection</a>". Then, use <code>ls</code> and <code>cd</code> as you normally would on your terminal to explore the available files:</p>
+<p>First, connect to the app with Objection as explained in "<a href="0x08a-Testing-Tools.md#objection" title="Testing Tools - Objection">Recommended Tools - Objection</a>". Then, use <code>ls</code> and <code>cd</code> as you normally would on your terminal to explore the available files:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida-ps<span class="w"> </span>-U<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>owasp
 <span class="m">21228</span><span class="w">  </span>sg.vp.owasp_mobile.omtg_android
 
@@ -11577,11 +11559,6 @@ Writing<span class="w"> </span>bytes<span class="w"> </span>to<span class="w"> <
 Successfully<span class="w"> </span>downloaded<span class="w"> </span>...<span class="w"> </span>to<span class="w"> </span>sg.vp.owasp_mobile.omtg_android_preferences.xml
 </code></pre></div>
 <p>The downside is that, at the time of this writing, objection does not support bulk file transfer yet, so you're restricted to copy individual files. Still, this can come handy in some scenarios where you're already exploring the app using objection anyway and find some interesting file. Instead of for example taking note of the full path of that file and use <code>adb pull &lt;path_to_some_file&gt;</code> from a separate terminal, you might just want to directly do <code>file download &lt;some_file&gt;</code>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/studio/command-line/adb#copyfiles" title="Copy files to/from a device">Copy files to/from a device</a></li>
-<li><a href="https://developer.android.com/studio/debug/device-file-explorer" title="Device File Explorer">Device File Explorer</a></li>
-</ul>
 
 
 

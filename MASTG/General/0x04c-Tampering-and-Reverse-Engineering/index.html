@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1144,15 +1144,6 @@
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11788,15 +11779,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11922,8 +11904,8 @@
 <p>Keep in mind that modern mobile operating systems strictly enforce code signing, so running modified apps is not as straightforward as it used to be in desktop environments. Security experts had a much easier life in the 90s! Fortunately, patching is not very difficult if you work on your own device. You simply have to re-sign the app or disable the default code signature verification facilities to run modified code.</p>
 <h3 id="code-injection">Code Injection<a class="headerlink" href="#code-injection" title="Permanent link">&para;</a></h3>
 <p>Code injection is a very powerful technique that allows you to explore and modify processes at runtime. Injection can be implemented in various ways, but you'll get by without knowing all the details thanks to freely available, well-documented tools that automate the process. These tools give you direct access to process memory and important structures such as live objects instantiated by the app. They come with many utility functions that are useful for resolving loaded libraries, hooking methods and native functions, and more. Process memory tampering is more difficult to detect than file patching, so it is the preferred method in most cases.</p>
-<p>Substrate, <a href="/MASTG/Tools/0x08a-Testing-Tools#frida">Frida</a>, and <a href="/MASTG/Tools/0x08a-Testing-Tools#xposed">Xposed</a> are the most widely used hooking and code injection frameworks in the mobile industry. The three frameworks differ in design philosophy and implementation details: Substrate and Xposed focus on code injection and/or hooking, while Frida aims to be a full-blown "dynamic instrumentation framework", incorporating code injection, language bindings, and an injectable JavaScript VM and console.</p>
-<p>However, you can also instrument apps with Substrate by using it to inject <a href="/MASTG/Tools/0x08a-Testing-Tools#cycript">Cycript</a>, the programming environment (aka "Cycript-to-JavaScript" compiler) authored by Saurik of Cydia fame. To complicate things even more, Frida's authors also created a fork of Cycript called <a href="https://github.com/nowsecure/frida-cycript" title="Cycript fork powered by Frida">"frida-cycript"</a>. It replaces Cycript's runtime with a Frida-based runtime called Mjølner. This enables Cycript to run on all the platforms and architectures maintained by frida-core (if you are confused at this point, don't worry). The release of frida-cycript was accompanied by a blog post by Frida's developer Ole titled "Cycript on Steroids", a title that <a href="https://www.reddit.com/r/ReverseEngineering/comments/50uweq/cycript_on_steroids_pumping_up_portability_and/" title="Cycript on steroids: Pumping up portability and performance with Frida">Saurik wasn't very fond of</a>.</p>
+<p>Substrate, <a href="0x08a-Testing-Tools.md#frida">Frida</a>, and <a href="0x08a-Testing-Tools.md#xposed">Xposed</a> are the most widely used hooking and code injection frameworks in the mobile industry. The three frameworks differ in design philosophy and implementation details: Substrate and Xposed focus on code injection and/or hooking, while Frida aims to be a full-blown "dynamic instrumentation framework", incorporating code injection, language bindings, and an injectable JavaScript VM and console.</p>
+<p>However, you can also instrument apps with Substrate by using it to inject <a href="0x08a-Testing-Tools.md#cycript">Cycript</a>, the programming environment (aka "Cycript-to-JavaScript" compiler) authored by Saurik of Cydia fame. To complicate things even more, Frida's authors also created a fork of Cycript called <a href="https://github.com/nowsecure/frida-cycript" title="Cycript fork powered by Frida">"frida-cycript"</a>. It replaces Cycript's runtime with a Frida-based runtime called Mjølner. This enables Cycript to run on all the platforms and architectures maintained by frida-core (if you are confused at this point, don't worry). The release of frida-cycript was accompanied by a blog post by Frida's developer Ole titled "Cycript on Steroids", a title that <a href="https://www.reddit.com/r/ReverseEngineering/comments/50uweq/cycript_on_steroids_pumping_up_portability_and/" title="Cycript on steroids: Pumping up portability and performance with Frida">Saurik wasn't very fond of</a>.</p>
 <p>We'll include examples of all three frameworks. We recommend starting with Frida because it is the most versatile of the three (for this reason, we'll also include more Frida details and examples). Notably, Frida can inject a JavaScript VM into a process on both Android and iOS, while Cycript injection with Substrate only works on iOS. Ultimately, however, you can of course achieve many of the same goals with either framework.</p>
 <h2 id="static-and-dynamic-binary-analysis">Static and Dynamic Binary Analysis<a class="headerlink" href="#static-and-dynamic-binary-analysis" title="Permanent link">&para;</a></h2>
 <p>Reverse engineering is the process of reconstructing the semantics of a compiled program's source code. In other words, you take the program apart, run it, simulate parts of it, and do other unspeakable things to it to understand what it does and how.</p>
@@ -11955,7 +11937,7 @@
 <li>Packing</li>
 </ul>
 <h4 id="name-obfuscation">Name Obfuscation<a class="headerlink" href="#name-obfuscation" title="Permanent link">&para;</a></h4>
-<p>The standard compiler generates binary symbols based on class and function names from the source code. Therefore, if no obfuscation is applied, symbol names remain meaningful and can easily be extracted from the app binary. For instance, a function which detects a jailbreak can be located by searching for relevant keywords (e.g. "jailbreak"). The listing below shows the disassembled function <code>JailbreakDetectionViewController.jailbreakTest4Tapped</code> from the <a href="/MASTG/Tools/0x08b-Reference-Apps#dvia-v2">Damn Vulnerable iOS App (DVIA-v2)</a>.</p>
+<p>The standard compiler generates binary symbols based on class and function names from the source code. Therefore, if no obfuscation is applied, symbol names remain meaningful and can easily be extracted from the app binary. For instance, a function which detects a jailbreak can be located by searching for relevant keywords (e.g. "jailbreak"). The listing below shows the disassembled function <code>JailbreakDetectionViewController.jailbreakTest4Tapped</code> from the <a href="0x08b-Reference-Apps.md#dvia-v2">Damn Vulnerable iOS App (DVIA-v2)</a>.</p>
 <div class="highlight"><pre><span></span><code>__T07DVIA_v232JailbreakDetectionViewControllerC20jailbreakTest4TappedyypF:
 stp        x22, x21, [sp, #-0x30]!
 mov        rbp, rsp
@@ -11992,9 +11974,9 @@ mov        rbp, rsp
 <p>The difference between a simulator and an emulator often causes confusion and leads to use of the two terms interchangeably, but in reality they are different, specially for the iOS use case. An emulator mimics both the software and hardware environment of a targeted platform. On the other hand, a simulator only mimics the software environment.</p>
 <p>QEMU based emulators for Android take into consideration the RAM, CPU, battery performance etc (hardware components) while running an application, but in an iOS simulator this hardware component behaviour is not taken into consideration at all. The iOS simulator even lacks the implementation of the iOS kernel, as a result if an application is using syscalls it cannot be executed in this simulator.</p>
 <p>In simple words, an emulator is a much closer imitation of the targeted platform, while a simulator mimics only a part of it.</p>
-<p>Running an app in the emulator gives you powerful ways to monitor and manipulate its environment. For some reverse engineering tasks, especially those that require low-level instruction tracing, emulation is the best (or only) choice. Unfortunately, this type of analysis is only viable for Android, because no free or open source emulator exists for iOS (the iOS simulator is not an emulator, and apps compiled for an iOS device don't run on it). The only iOS emulator available is a commercial SaaS solution - <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#corellium">Corellium</a>. We'll provide an overview of popular emulation-based analysis frameworks for Android in the "Tampering and Reverse Engineering on Android" chapter.</p>
+<p>Running an app in the emulator gives you powerful ways to monitor and manipulate its environment. For some reverse engineering tasks, especially those that require low-level instruction tracing, emulation is the best (or only) choice. Unfortunately, this type of analysis is only viable for Android, because no free or open source emulator exists for iOS (the iOS simulator is not an emulator, and apps compiled for an iOS device don't run on it). The only iOS emulator available is a commercial SaaS solution - <a href="0x06c-Reverse-Engineering-and-Tampering.md#corellium">Corellium</a>. We'll provide an overview of popular emulation-based analysis frameworks for Android in the "Tampering and Reverse Engineering on Android" chapter.</p>
 <h3 id="custom-tooling-with-reverse-engineering-frameworks">Custom Tooling with Reverse Engineering Frameworks<a class="headerlink" href="#custom-tooling-with-reverse-engineering-frameworks" title="Permanent link">&para;</a></h3>
-<p>Even though most professional GUI-based disassemblers feature scripting facilities and extensibility, they are simply not well-suited to solving particular problems. Reverse engineering frameworks allow you to perform and automate any kind of reversing task without depending on a heavy-weight GUI. Notably, most reversing frameworks are open source and/or available for free. Popular frameworks with support for mobile architectures include <a href="/MASTG/Tools/0x08a-Testing-Tools#radare2">radare2</a> and <a href="/MASTG/Tools/0x08a-Testing-Tools#angr">Angr</a>.</p>
+<p>Even though most professional GUI-based disassemblers feature scripting facilities and extensibility, they are simply not well-suited to solving particular problems. Reverse engineering frameworks allow you to perform and automate any kind of reversing task without depending on a heavy-weight GUI. Notably, most reversing frameworks are open source and/or available for free. Popular frameworks with support for mobile architectures include <a href="0x08a-Testing-Tools.md#radare2">radare2</a> and <a href="0x08a-Testing-Tools.md#angr">Angr</a>.</p>
 <h4 id="example-program-analysis-with-symbolicconcolic-execution">Example: Program Analysis with Symbolic/Concolic Execution<a class="headerlink" href="#example-program-analysis-with-symbolicconcolic-execution" title="Permanent link">&para;</a></h4>
 <p>In the late 2000s, testing based on symbolic execution has become a popular way to identify security vulnerabilities. Symbolic "execution" actually refers to the process of representing possible paths through a program as formulas in first-order logic. Satisfiability Modulo Theories (SMT) solvers are used to check the satisfiability of these formulas and provide solutions, including concrete values of the variables needed to reach a certain point of execution on the path corresponding to the solved formula.</p>
 <p>In simple words, symbolic execution is mathematically analyzing a program without executing it. During analysis, each unknown input is represented as a mathematical variable (a symbolic value), and hence all the operations performed on these variables are recorded as a tree of operations (aka. AST (abstract syntax tree), from compiler theory). These ASTs can be translated into so-called <em>constraints</em> that will be interpreted by a SMT solver. In the end of this analysis, a final mathematical equation is obtained, in which the variables are the inputs whose values are not known. SMT solvers are special programs which solve these equations to give possible values for the input variables given a final state.</p>
@@ -12016,15 +11998,6 @@ mov        rbp, rsp
 <ul>
 <li>[#vadla] Ole André Vadla Ravnås, Anatomy of a code tracer - <a href="https://medium.com/@oleavr/anatomy-of-a-code-tracer-b081aadb0df8">https://medium.com/@oleavr/anatomy-of-a-code-tracer-b081aadb0df8</a></li>
 <li>[#salwan] Jonathan Salwan and Romain Thomas, How Triton can help to reverse virtual machine based software protections - <a href="https://drive.google.com/file/d/1EzuddBA61jEMy8XbjQKFF3jyoKwW7tLq/view?usp=sharing">https://drive.google.com/file/d/1EzuddBA61jEMy8XbjQKFF3jyoKwW7tLq/view?usp=sharing</a></li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/nowsecure/frida-cycript" title="Cycript fork powered by Frida">Cycript fork powered by Frida</a></li>
-<li><a href="https://www.reddit.com/r/ReverseEngineering/comments/50uweq/cycript_on_steroids_pumping_up_portability_and/" title="Cycript on steroids: Pumping up portability and performance with Frida">Cycript on steroids: Pumping up portability and performance with Frida</a></li>
-<li><a href="https://drive.google.com/file/d/1EzuddBA61jEMy8XbjQKFF3jyoKwW7tLq/view?usp=sharing" title="Jonathan Salwan and Romain Thomas: How Triton can help to reverse virtual machine based software protections">Jonathan Salwan and Romain Thomas: How Triton can help to reverse virtual machine based software protections</a></li>
-<li><a href="http://ac.inf.elte.hu/Vol_030_2009/003.pdf">Obfuscating C++ programs via control flow flattening</a></li>
-<li><a href="https://attack.mitre.org/techniques/T1027/002/">Packing</a></li>
-<li><a href="http://valgrind.org/docs/manual/dist.readme-android.html" title="Valgrind README">Valgrind README</a></li>
 </ul>
 
 

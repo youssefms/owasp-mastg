@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11420,7 +11420,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11497,7 +11497,7 @@
 <p>IF you want to use Frida on non-jailbroken devices you'll need to include <code>FridaGadget.dylib</code>. Download it first:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://build.frida.re/frida/ios/lib/FridaGadget.dylib
 </code></pre></div>
-<p>Copy <code>FridaGadget.dylib</code> into the app directory and use <a href="" title="optool">optool</a> to add a load command to the "UnCrackable Level 1" binary.</p>
+<p>Copy <code>FridaGadget.dylib</code> into the app directory and use <a href="../../../tools/ios/MASTG-TOOL-0059/" title="optool">optool</a> to add a load command to the "UnCrackable Level 1" binary.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>unzip<span class="w"> </span>UnCrackable_Level1.ipa
 $<span class="w"> </span>cp<span class="w"> </span>FridaGadget.dylib<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/
 $<span class="w"> </span>optool<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>load<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;@executable_path/FridaGadget.dylib&quot;</span><span class="w">  </span>-t<span class="w"> </span>Payload/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>.app/UnCrackable<span class="se">\ </span>Level<span class="se">\ </span><span class="m">1</span>

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2026,15 +2026,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11557,13 +11539,9 @@
 <li>classes which uses <code>java.security.*</code>, <code>javax.crypto.*</code>, <code>android.security.*</code> and <code>android.security.keystore.*</code> packages.</li>
 </ul>
 <p>Identify that all calls to getInstance use default <code>provider</code> of security services by not specifying it (it means AndroidOpenSSL aka Conscrypt). <code>Provider</code> can only be specified in <code>KeyStore</code> related code (in that situation <code>KeyStore</code> should be provided as <code>provider</code>). If other <code>provider</code> is specified it should be verified according to situation and business case (i.e. Android API version), and <code>provider</code> should be examined against potential vulnerabilities.  </p>
-<p>Ensure that the best practices outlined in the "<a href="/MASTG/General/0x04g-Testing-Cryptography">Cryptography for Mobile Apps</a>" chapter are followed. Look at <a href="/MASTG/General/0x04g-Testing-Cryptography#identifying-insecure-and/or-deprecated-cryptographic-algorithms">insecure and deprecated algorithms</a> and <a href="/MASTG/General/0x04g-Testing-Cryptography#common-configuration-issues">common configuration issues</a>.</p>
+<p>Ensure that the best practices outlined in the "<a href="../../../Document/0x04g-Testing-Cryptography.md">Cryptography for Mobile Apps</a>" chapter are followed. Look at <a href="../../../Document/0x04g-Testing-Cryptography.md#identifying-insecure-and/or-deprecated-cryptographic-algorithms">insecure and deprecated algorithms</a> and <a href="../../../Document/0x04g-Testing-Cryptography.md#common-configuration-issues">common configuration issues</a>.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="/MASTG/Tools/0x08a-Testing-Tools#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a></li>
-</ul>
+<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
 
 
 

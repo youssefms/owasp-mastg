@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -5606,17 +5601,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Method Tracing
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5626,32 +5610,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11473,19 +11414,13 @@
   <h1>Method Tracing</h1>
 
 <p>In contrast to method profiling, which tells you how frequently a method is being called, method tracing helps you to also determine its input and output values. This technique can prove to be very useful when dealing with applications that have a big codebase and/or are obfuscated.</p>
-<p>If you prefer a GUI-based approach you can use tools such as <a href="/MASTG/Tools/0x08a-Testing-Tools#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a> which enables a more visual experience as well as include several convenience <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#3-hook-on-the-fly-classesmethods-and-trace-their-args-and-return-values">tracing options</a>.</p>
+<p>If you prefer a GUI-based approach you can use tools such as <a href="0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a> which enables a more visual experience as well as include several convenience <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#3-hook-on-the-fly-classesmethods-and-trace-their-args-and-return-values">tracing options</a>.</p>
 <p>If you prefer the command line, Frida offers a useful syntax to query Java classes and methods as well as Java method tracing support for frida-trace via <code>-j</code> (starting on frida-tools 8.0, Frida 12.10).</p>
 <ul>
 <li>In Frida scripts: e.g. <code>Java.enumerateMethods('*youtube*!on*')</code> uses globs to take all classes that include "youtube" as part of their name and enumerate all methods starting with "on".</li>
 <li>In frida-trace: e.g. <code>-j '*!*certificate*/isu'</code> triggers a case-insensitive query (<code>i</code>), including method signatures (<code>s</code>) and excluding system classes (<code>u</code>).</li>
 </ul>
 <p>Refer to the <a href="https://frida.re/news/2020/06/29/frida-12-10-released/" title="Frida 12.10">Release Notes for Frida 12.10</a> for more details on this new feature. To learn more about all options for advanced usage, check the <a href="https://frida.re/docs/frida-trace/" title="documentation">documentation on the official Frida website</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://frida.re/news/2020/06/29/frida-12-10-released/" title="Frida 12.10">Frida 12.10</a></li>
-<li><a href="https://frida.re/docs/frida-trace/" title="documentation">documentation</a></li>
-<li><a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#3-hook-on-the-fly-classesmethods-and-trace-their-args-and-return-values">tracing options</a></li>
-</ul>
 
 
 

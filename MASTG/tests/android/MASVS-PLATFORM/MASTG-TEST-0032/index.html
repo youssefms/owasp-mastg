@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2586,15 +2586,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing WebView Protocol Handlers</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#webview-protocol-handlers" title="WebView Protocol Handlers&quot; &quot;WebView Protocol Handlers">WebView protocol handlers</a> check the app for WebView usage and evaluate whether or not the WebView should have resource access. If resource access is necessary you need to verify that it's implemented following best practices.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#webview-protocol-handlers" title="WebView Protocol Handlers">WebView protocol handlers</a> check the app for WebView usage and evaluate whether or not the WebView should have resource access. If resource access is necessary you need to verify that it's implemented following best practices.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>Check the source code for WebView usage. The following <a href="https://developer.android.com/reference/android/webkit/WebSettings.html" title="WebView Settings">WebView settings</a> control resource access:</p>
 <ul>
@@ -11579,13 +11561,6 @@
 </ul>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>To identify the usage of protocol handlers, look for ways to trigger phone calls and ways to access files from the file system while you're using the app.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/reference/android/webkit/WebSettings.html#setAllowFileAccess%28boolean%29" title="File Access in WebView">File Access in WebView</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebSettings.html" title="WebView Settings">WebView Settings</a></li>
-<li><a href="https://github.com/nowsecure/secure-mobile-development/blob/master/en/android/webview-best-practices.md#remediation" title="WebView best practices">WebView best practices</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView.html#loadUrl%28java.lang.String%29" title="loadURL in WebView">loadURL in WebView</a></li>
-</ul>
 
 
 

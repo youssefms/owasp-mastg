@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6691,15 +6691,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11456,7 +11438,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11528,12 +11510,12 @@
 
 <p>If you don't have access to a jailbroken device, you can patch and repackage the target app to load a dynamic library at startup (e.g. the <a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida gadget</a> to enable dynamic testing with Frida and related tools such as objection). This way, you can instrument the app and do everything you need to do for  dynamic analysis (of course, you can't break out of the sandbox this way). However, this technique only works if the app binary isn't FairPlay-encrypted (i.e., obtained from the App Store).</p>
 <h2 id="automated-repackaging">Automated Repackaging<a class="headerlink" href="#automated-repackaging" title="Permanent link">&para;</a></h2>
-<p><a href="/MASTG/Tools/0x08a-Testing-Tools#objection">Objection</a> automates the process of app repackaging. You can find exhaustive documentation on the official <a href="https://github.com/sensepost/objection/wiki" title="Objection - Documentation">wiki pages</a>.</p>
+<p><a href="0x08a-Testing-Tools.md#objection">Objection</a> automates the process of app repackaging. You can find exhaustive documentation on the official <a href="https://github.com/sensepost/objection/wiki" title="Objection - Documentation">wiki pages</a>.</p>
 <p>Using objection's repackaging feature is sufficient for most of use cases. However, in some complex scenarios you might need more fine-grained control or a more customizable repackaging process. In that case, you can read a detailed explanation of the repackaging and resigning process in <a href="#manual-repackaging">"Manual Repackaging"</a>.</p>
 <h2 id="manual-repackaging">Manual Repackaging<a class="headerlink" href="#manual-repackaging" title="Permanent link">&para;</a></h2>
 <p>Thanks to Apple's confusing provisioning and code-signing system, re-signing an app is more challenging than you would expect. iOS won't run an app unless you get the provisioning profile and code signature header exactly right. This requires learning many concepts-certificate types, Bundle IDs, application IDs, team identifiers, and how Apple's build tools connect them. Getting the OS to run a binary that hasn't been built via the default method (Xcode) can be a daunting process.</p>
-<p>We'll use <a href="/MASTG/Tools/0x08a-Testing-Tools#optool">optool</a>, Apple's build tools, and some shell commands. Our method is inspired by <a href="https://github.com/vtky/Swizzler2/" title="Swizzler">Vincent Tan's Swizzler project</a>. <a href="https://research.nccgroup.com/2016/10/12/ios-instrumentation-without-jailbreak/" title="NCC blog - iOS instrumentation without jailbreak">The NCC group</a> has described an alternative repackaging method.</p>
-<p>To reproduce the steps listed below, download <a href="" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> from the OWASP Mobile Testing Guide repository. Our goal is to make the UnCrackable app load <code>FridaGadget.dylib</code> during startup so we can instrument the app with Frida.</p>
+<p>We'll use <a href="0x08a-Testing-Tools.md#optool">optool</a>, Apple's build tools, and some shell commands. Our method is inspired by <a href="https://github.com/vtky/Swizzler2/" title="Swizzler">Vincent Tan's Swizzler project</a>. <a href="https://research.nccgroup.com/2016/10/12/ios-instrumentation-without-jailbreak/" title="NCC blog - iOS instrumentation without jailbreak">The NCC group</a> has described an alternative repackaging method.</p>
+<p>To reproduce the steps listed below, download <a href="../../../apps/ios/MASTG-APP-0025/" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> from the OWASP Mobile Testing Guide repository. Our goal is to make the UnCrackable app load <code>FridaGadget.dylib</code> during startup so we can instrument the app with Frida.</p>
 <blockquote>
 <p>Please note that the following steps apply to macOS only, as Xcode is only available for macOS.</p>
 </blockquote>
@@ -11541,7 +11523,7 @@
 <p>The <em>provisioning profile</em> is a plist file signed by Apple, which adds your code-signing certificate to its list of accepted certificates on one or more devices. In other words, this represents Apple explicitly allowing your app to run for certain reasons, such as debugging on selected devices (development profile). The provisioning profile also includes the <em>entitlements</em> granted to your app. The <em>certificate</em> contains the private key you'll use to sign.</p>
 <p>Depending on whether you're registered as an iOS developer, you can obtain a certificate and provisioning profile in one of the following ways:</p>
 <p><strong>With an iOS developer account:</strong></p>
-<p>If you've developed and deployed iOS apps with Xcode before, you already have your own code-signing certificate installed. Use the <a href="/MASTG/Tools/0x08a-Testing-Tools#security"><code>security</code></a> command (macOS only) to list your signing identities:</p>
+<p>If you've developed and deployed iOS apps with Xcode before, you already have your own code-signing certificate installed. Use the <a href="0x08a-Testing-Tools.md#security"><code>security</code></a> command (macOS only) to list your signing identities:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>security<span class="w"> </span>find-identity<span class="w"> </span>-v
 <span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>61FA3547E0AF42A11E233F6A2B255E6B6AF262CE<span class="w"> </span><span class="s2">&quot;iPhone Distribution: Company Name Ltd.&quot;</span>
 <span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>8004380F331DCA22CC1B47FB1A805890AE41C938<span class="w"> </span><span class="s2">&quot;iPhone Developer: Bernhard Müller (RV852WND79)&quot;</span>
@@ -11550,7 +11532,7 @@
 <p>In the examples below, I use my signing identity, which is associated with my company's development team. I created the App ID "sg.vp.repackaged" and the provisioning profile "AwesomeRepackaging" for these examples. I ended up with the file <code>AwesomeRepackaging.mobileprovision</code>-replace this with your own filename in the shell commands below.</p>
 <p><strong>With a Regular Apple ID:</strong></p>
 <p>Apple will issue a free development provisioning profile even if you're not a paying developer. You can obtain the profile via Xcode and your regular Apple account: simply create an empty iOS project and extract <code>embedded.mobileprovision</code> from the app container, which is in the Xcode subdirectory of your home directory: <code>~/Library/Developer/Xcode/DerivedData/&lt;ProjectName&gt;/Build/Products/Debug-iphoneos/&lt;ProjectName&gt;.app/</code>. The <a href="https://www.nccgroup.trust/au/about-us/newsroom-and-events/blogs/2016/october/ios-instrumentation-without-jailbreak/" title="iOS instrumentation without jailbreak">NCC blog post "iOS instrumentation without jailbreak"</a> explains this process in great detail.</p>
-<p>Once you've obtained the provisioning profile, you can check its contents with the <a href="/MASTG/Tools/0x08a-Testing-Tools#security"><code>security</code></a> command. You'll find the entitlements granted to the app in the profile, along with the allowed certificates and devices. You'll need these for code-signing, so extract them to a separate plist file as shown below. Have a look at the file contents to make sure everything is as expected.</p>
+<p>Once you've obtained the provisioning profile, you can check its contents with the <a href="0x08a-Testing-Tools.md#security"><code>security</code></a> command. You'll find the entitlements granted to the app in the profile, along with the allowed certificates and devices. You'll need these for code-signing, so extract them to a separate plist file as shown below. Have a look at the file contents to make sure everything is as expected.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>security<span class="w"> </span>cms<span class="w"> </span>-D<span class="w"> </span>-i<span class="w"> </span>AwesomeRepackaging.mobileprovision<span class="w"> </span>&gt;<span class="w"> </span>profile.plist
 $<span class="w"> </span>/usr/libexec/PlistBuddy<span class="w"> </span>-x<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;Print :Entitlements&#39;</span><span class="w"> </span>profile.plist<span class="w"> </span>&gt;<span class="w"> </span>entitlements.plist
 $<span class="w"> </span>cat<span class="w"> </span>entitlements.plist
@@ -11572,14 +11554,6 @@ $<span class="w"> </span>cat<span class="w"> </span>entitlements.plist
 &lt;/plist&gt;
 </code></pre></div>
 <p>Note the application identifier, which is a combination of the Team ID (LRUD9L355Y) and Bundle ID (sg.vantagepoint.repackage). This provisioning profile is only valid for the app that has this App ID. The <code>get-task-allow</code> key is also important: when set to <code>true</code>, other processes, such as the debugging server, are allowed to attach to the app (consequently, this would be set to <code>false</code> in a distribution profile).</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">Frida Gadget</a></li>
-<li><a href="https://research.nccgroup.com/2016/10/12/ios-instrumentation-without-jailbreak/" title="NCC blog - iOS instrumentation without jailbreak">NCC blog - iOS instrumentation without jailbreak</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki" title="Objection - Documentation">Objection - Documentation</a></li>
-<li><a href="https://github.com/vtky/Swizzler2/" title="Swizzler">Swizzler</a></li>
-<li><a href="https://www.nccgroup.trust/au/about-us/newsroom-and-events/blogs/2016/october/ios-instrumentation-without-jailbreak/" title="iOS instrumentation without jailbreak">iOS instrumentation without jailbreak</a></li>
-</ul>
 
 
 

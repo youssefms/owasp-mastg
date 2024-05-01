@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2862,15 +2862,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11570,14 +11552,10 @@ gradle<span class="w"> </span>dependencyCheckAnalyze<span class="w"> </span>--in
 <li>Is the library packaged with the application? Then check whether the library has a version in which the vulnerability is patched. If not, check whether the vulnerability actually affects the application. If that is the case or might be the case in the future, then look for an alternative which provides similar functionality, but without the vulnerabilities.</li>
 <li>Is the library not packaged with the application? See if there is a patched version in which the vulnerability is fixed. If this is not the case, check if the implications of the vulnerability for the build-process. Could the vulnerability impede a build or weaken the security of the build-pipeline? Then try looking for an alternative in which the vulnerability is fixed.</li>
 </ul>
-<p>When the sources are not available, one can decompile the app and check the JAR files. When Dexguard or <a href="/MASTG/Tools/0x08a-Testing-Tools#proguard">ProGuard</a> are applied properly, then version information about the library is often obfuscated and therefore gone. Otherwise you can still find the information very often in the comments of the Java files of given libraries. Tools such as MobSF can help in analyzing the possible libraries packed with the application. If you can retrieve the version of the library, either via comments, or via specific methods used in certain versions, you can look them up for CVEs by hand.</p>
-<p>If the application is a high-risk application, you will end up vetting the library manually. In that case, there are specific requirements for native code, which you can find in the chapter "<a href="/MASTG/General/0x04h-Testing-Code-Quality">Testing Code Quality</a>". Next to that, it is good to vet whether all best practices for software engineering are applied.</p>
+<p>When the sources are not available, one can decompile the app and check the JAR files. When Dexguard or <a href="../../../Document/0x08a-Testing-Tools.md#proguard">ProGuard</a> are applied properly, then version information about the library is often obfuscated and therefore gone. Otherwise you can still find the information very often in the comments of the Java files of given libraries. Tools such as MobSF can help in analyzing the possible libraries packed with the application. If you can retrieve the version of the library, either via comments, or via specific methods used in certain versions, you can look them up for CVEs by hand.</p>
+<p>If the application is a high-risk application, you will end up vetting the library manually. In that case, there are specific requirements for native code, which you can find in the chapter "<a href="../../../Document/0x04h-Testing-Code-Quality.md">Testing Code Quality</a>". Next to that, it is good to vet whether all best practices for software engineering are applied.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>The dynamic analysis of this section comprises validating whether the copyrights of the licenses have been adhered to. This often means that the application should have an <code>about</code> or <code>EULA</code> section in which the copyright statements are noted as required by the license of the third party library.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/jeremylong/dependency-check-gradle" title="dependency-check-gradle">dependency-check-gradle</a></li>
-</ul>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3205,15 +3205,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11544,7 +11526,7 @@
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
-<p><a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#decompiling-java-code">Decompile the APK</a> and <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#reviewing-decompiled-java-code">review it</a> to determine whether the codebase has been obfuscated.</p>
+<p><a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#decompiling-java-code">Decompile the APK</a> and <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#reviewing-decompiled-java-code">review it</a> to determine whether the codebase has been obfuscated.</p>
 <p>Below you can find a sample for an obfuscated code block:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.a.a.a</span><span class="p">;</span>
 
@@ -11582,10 +11564,10 @@
 <li><a href="https://github.com/obfuscator-llvm/obfuscator" title="Obfuscator-LLVM">Obfuscator-LLVM</a> might have been applied to perform <a href="https://github.com/obfuscator-llvm/obfuscator/wiki/Control-Flow-Flattening">"Control Flow Flattening"</a> or <a href="https://github.com/obfuscator-llvm/obfuscator/wiki/Bogus-Control-Flow">"Bogus Control Flow"</a>.</li>
 </ul>
 <p>Some of these techniques are discussed and analyzed in the blog post <a href="https://darvincitech.wordpress.com/2020/01/07/security-hardening-of-android-native-code/">"Security hardening of Android native code"</a> by Gautam Arvind and in the <a href="https://github.com/enovella/cve-bio-enovella/blob/master/slides/APKiD-NowSecure-Connect19-enovella.pdf">"APKiD: Fast Identification of AppShielding Products"</a> presentation by Eduardo Novella.</p>
-<p>For a more detailed assessment, you need a detailed understanding of the relevant threats and the obfuscation methods used. Tools such as <a href="/MASTG/Tools/0x08a-Testing-Tools#apkid">APKiD</a> may give you additional indications about which techniques were used for the target app such as obfuscators, packers and anti-debug measures.</p>
+<p>For a more detailed assessment, you need a detailed understanding of the relevant threats and the obfuscation methods used. Tools such as <a href="../../../Document/0x08a-Testing-Tools.md#apkid">APKiD</a> may give you additional indications about which techniques were used for the target app such as obfuscators, packers and anti-debug measures.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="/MASTG/Tools/0x08a-Testing-Tools#apkid">APKiD</a> to detect if the app has been obfuscated.</p>
-<p>Example using the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l4">UnCrackable App for Android Level 4</a>:</p>
+<p>You can use <a href="../../../Document/0x08a-Testing-Tools.md#apkid">APKiD</a> to detect if the app has been obfuscated.</p>
+<p>Example using the <a href="../../../Document/0x08b-Reference-Apps.md#android-uncrackable-l4">UnCrackable App for Android Level 4</a>:</p>
 <div class="highlight"><pre><span></span><code>apkid<span class="w"> </span>owasp-mastg/Crackmes/Android/Level_04/r2pay-v1.0.apk
 <span class="o">[</span>+<span class="o">]</span><span class="w"> </span>APKiD<span class="w"> </span><span class="m">2</span>.1.2<span class="w"> </span>::<span class="w"> </span>from<span class="w"> </span>RedNaga<span class="w"> </span>::<span class="w"> </span>rednaga.io
 <span class="o">[</span>*<span class="o">]</span><span class="w"> </span>owasp-mastg/Crackmes/Android/Level_04/r2pay-v1.0.apk!classes.dex
@@ -11594,16 +11576,6 @@
 <span class="w"> </span><span class="p">|</span>-&gt;<span class="w"> </span>obfuscator<span class="w"> </span>:<span class="w"> </span>unreadable<span class="w"> </span>field<span class="w"> </span>names,<span class="w"> </span>unreadable<span class="w"> </span>method<span class="w"> </span>names
 </code></pre></div>
 <p>In this case it detects that the app has unreadable field names and method names, among other things.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/enovella/cve-bio-enovella/blob/master/slides/APKiD-NowSecure-Connect19-enovella.pdf">APKiD: Fast Identification of AppShielding Products</a></li>
-<li><a href="https://github.com/obfuscator-llvm/obfuscator/wiki/Bogus-Control-Flow">Bogus Control Flow</a></li>
-<li><a href="https://github.com/obfuscator-llvm/obfuscator/wiki/Control-Flow-Flattening">Control Flow Flattening</a></li>
-<li><a href="https://github.com/obfuscator-llvm/obfuscator" title="Obfuscator-LLVM">Obfuscator-LLVM</a></li>
-<li><a href="https://darvincitech.wordpress.com/2020/01/07/security-hardening-of-android-native-code/">Security hardening of Android native code</a></li>
-<li><a href="https://man7.org/linux/man-pages/dir_section_3.html">libc APIs</a></li>
-<li><a href="https://man7.org/linux/man-pages/man2/syscalls.2.html">syscalls</a></li>
-</ul>
 
 
 

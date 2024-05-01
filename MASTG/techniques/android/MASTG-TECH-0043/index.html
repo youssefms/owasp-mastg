@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5868,15 +5868,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11398,15 +11389,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11438,7 +11420,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11561,7 +11543,7 @@
 </code></pre></div>
 <p>Just like regular Android apps, modules for Xposed are developed and deployed with Android Studio. For more details on writing, compiling, and installing Xposed modules, refer to the tutorial provided by its author, <a href="https://github.com/rovo89/XposedTools" title="Rovo89 Xposed tools">rovo89</a>.</p>
 <h2 id="frida">Frida<a class="headerlink" href="#frida" title="Permanent link">&para;</a></h2>
-<p>We'll use Frida to solve the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a> and demonstrate how we can easily bypass root detection and extract secret data from the app.</p>
+<p>We'll use Frida to solve the <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> and demonstrate how we can easily bypass root detection and extract secret data from the app.</p>
 <p>When you start the crackme app on an emulator or a rooted device, you'll find that the it presents a dialog box and exits as soon as you press "OK" because it detected root:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/crackme-frida-1.png" width="400px" /></p>
 <p>Let's see how we can prevent this.</p>
@@ -11725,10 +11707,6 @@ Here is the complete script that prevents exiting on root and intercepts the dec
 <p>The hooked function outputted the decrypted string. You extracted the secret string without having to dive too deep into the application code and its decryption routines.</p>
 <p>You've now covered the basics of static/dynamic analysis on Android. Of course, the only way to <em>really</em> learn it is hands-on experience: build your own projects in Android Studio, observe how your code gets translated into bytecode and native code, and try to crack our challenges.</p>
 <p>In the remaining sections, we'll introduce a few advanced subjects, including process exploration, kernel modules and dynamic execution.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/rovo89/XposedTools" title="Rovo89 Xposed tools">Rovo89 Xposed tools</a></li>
-</ul>
 
 
 

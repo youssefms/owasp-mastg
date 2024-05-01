@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -82,11 +82,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#resources" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -5270,17 +5265,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Decompiling Java Code
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5290,32 +5274,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -11356,23 +11314,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -11402,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11474,7 +11415,7 @@
 
 <p>In Android app security testing, if the application is based solely on Java and doesn't have any native code (C/C++ code), the reverse engineering process is relatively easy and recovers (decompiles) almost all the source code. In those cases, black-box testing (with access to the compiled binary, but not the original source code) can get pretty close to white-box testing.</p>
 <p>Nevertheless, if the code has been purposefully obfuscated (or some tool-breaking anti-decompilation tricks have been applied), the reverse engineering process may be very time-consuming and unproductive. This also applies to applications that contain native code. They can still be reverse engineered, but the process is not automated and requires knowledge of low-level details.</p>
-<p>If you want to look directly into Java source code on a GUI, simply open your APK using <a href="/MASTG/Tools/0x08a-Testing-Tools#jadx">jadx</a> or <a href="/MASTG/Tools/0x08a-Testing-Tools#bytecode-viewer">Bytecode Viewer</a>.</p>
+<p>If you want to look directly into Java source code on a GUI, simply open your APK using <a href="0x08a-Testing-Tools.md#jadx">jadx</a> or <a href="0x08a-Testing-Tools.md#bytecode-viewer">Bytecode Viewer</a>.</p>
 <p>Android decompilers go one step further and attempt to convert Android bytecode back into Java source code, making it more human-readable. Fortunately, Java decompilers generally handle Android bytecode well. The above mentioned tools embed, and sometimes even combine, popular free decompilers such as:</p>
 <ul>
 <li><a href="http://java-decompiler.github.io/" title="JD">JD</a></li>
@@ -11483,13 +11424,13 @@
 <li><a href="https://github.com/mstrobel/procyon" title="Procyon">Procyon</a></li>
 <li><a href="https://www.benf.org/other/cfr/" title="CFR">CFR</a></li>
 </ul>
-<p>Alternatively you can use the <a href="/MASTG/Tools/0x08a-Testing-Tools#apklab">APKLab</a> extension for Visual Studio Code or run <a href="/MASTG/Tools/0x08a-Testing-Tools#apkx">apkx</a> on your APK or use the exported files from the previous tools to open the reversed source code on your preferred IDE.</p>
-<p>In the following example we'll be using <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a>. First, let's install the app on a device or emulator and run it to see what the crackme is about.</p>
+<p>Alternatively you can use the <a href="0x08a-Testing-Tools.md#apklab">APKLab</a> extension for Visual Studio Code or run <a href="0x08a-Testing-Tools.md#apkx">apkx</a> on your APK or use the exported files from the previous tools to open the reversed source code on your preferred IDE.</p>
+<p>In the following example we'll be using <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a>. First, let's install the app on a device or emulator and run it to see what the crackme is about.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/crackme-1.png" width="400px" /></p>
 <p>Seems like we're expected to find some kind of secret code!</p>
 <p>We're looking for a secret string stored somewhere inside the app, so the next step is to look inside. First, unzip the APK file (<code>unzip UnCrackable-Level1.apk -d UnCrackable-Level1</code>) and look at the content. In the standard setup, all the Java bytecode and app data is in the file <code>classes.dex</code> in the app root directory (<code>UnCrackable-Level1/</code>). This file conforms to the Dalvik Executable Format (DEX), an Android-specific way of packaging Java programs. Most Java decompilers take plain class files or JARs as input, so you need to convert the classes.dex file into a JAR first. You can do this with <code>dex2jar</code> or <code>enjarify</code>.</p>
 <p>Once you have a JAR file, you can use any free decompiler to produce Java code. In this example, we'll use the <a href="https://www.benf.org/other/cfr/" title="CFR decompiler">CFR decompiler</a>. CFR releases are available on the author's website. CFR was released under an MIT license, so you can use it freely even though its source code is not available.</p>
-<p>The easiest way to run CFR is through <a href="/MASTG/Tools/0x08a-Testing-Tools#apkx">apkx</a>, which also packages <code>dex2jar</code> and automates extraction, conversion, and decompilation. Run it on the APK and you should find the decompiled sources in the directory <code>Uncrackable-Level1/src</code>. To view the sources, a simple text editor (preferably with syntax highlighting) is fine, but loading the code into a Java IDE makes navigation easier. Let's import the code into IntelliJ, which also provides on-device debugging functionality.</p>
+<p>The easiest way to run CFR is through <a href="0x08a-Testing-Tools.md#apkx">apkx</a>, which also packages <code>dex2jar</code> and automates extraction, conversion, and decompilation. Run it on the APK and you should find the decompiled sources in the directory <code>Uncrackable-Level1/src</code>. To view the sources, a simple text editor (preferably with syntax highlighting) is fine, but loading the code into a Java IDE makes navigation easier. Let's import the code into IntelliJ, which also provides on-device debugging functionality.</p>
 <p>Open IntelliJ and select "Android" as the project type in the left tab of the "New Project" dialog. Enter "Uncrackable1" as the application name and "vantagepoint.sg" as the company name. This results in the package name "sg.vantagepoint.uncrackable1", which matches the original package name. Using a matching package name is important if you want to attach the debugger to the running app later on because IntelliJ uses the package name to identify the correct process.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/intellij_new_project.jpg" width="100%" /></p>
 <p>In the next dialog, pick any API number; you don't actually want to compile the project, so the number doesn't matter. Click "next" and choose "Add no Activity", then click "finish".</p>
@@ -11500,15 +11441,6 @@
 <p>You'll end up with a structure that resembles the original Android Studio project from which the app was built.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/final_structure.jpg" width="400px" /></p>
 <p>See the section "<a href="#reviewing-decompiled-java-code" title="Reviewing Decompiled Java Code">Reviewing Decompiled Java Code</a>" below to learn on how to proceed when inspecting the decompiled Java code.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.benf.org/other/cfr/" title="CFR decompiler">CFR decompiler</a></li>
-<li><a href="https://www.benf.org/other/cfr/" title="CFR">CFR</a></li>
-<li><a href="http://www.javadecompilers.com/jad" title="JAD">JAD</a></li>
-<li><a href="http://java-decompiler.github.io/" title="JD">JD</a></li>
-<li><a href="https://github.com/mstrobel/procyon" title="Procyon">Procyon</a></li>
-<li><a href="https://github.com/skylot/jadx" title="jadx">jadx</a></li>
-</ul>
 
 
 

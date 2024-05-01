@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5134,15 +5134,6 @@
   <a href="#other-app-resources" class="md-nav__link">
     <span class="md-ellipsis">
       Other App Resources
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11452,15 +11443,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11563,7 +11545,7 @@
   <h1>Exploring the App Package</h1>
 
 <p>Once you have collected the package name of the application you want to target, you'll want to start gathering information about it. First, retrieve the APK as explained in <a href="#obtaining-and-extracting-apps">"Basic Testing Operations - Obtaining and Extracting Apps"</a>.</p>
-<p>APK files are actually ZIP files that can be unpacked using a standard decompression utility such as <code>unzip</code>. However, we recommend using <a href="/MASTG/Tools/0x08a-Testing-Tools#apktool">apktool</a> which additionally decodes the AndroidManifest.xml and disassembles the app binaries (classes.dex) to smali code:</p>
+<p>APK files are actually ZIP files that can be unpacked using a standard decompression utility such as <code>unzip</code>. However, we recommend using <a href="0x08a-Testing-Tools.md#apktool">apktool</a> which additionally decodes the AndroidManifest.xml and disassembles the app binaries (classes.dex) to smali code:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>apktool<span class="w"> </span>d<span class="w"> </span>UnCrackable-Level3.apk
 $<span class="w"> </span>tree
 .
@@ -11595,7 +11577,7 @@ $<span class="w"> </span>tree
 <li>res: directory containing resources that haven't been compiled into resources.arsc</li>
 <li>resources.arsc: file containing precompiled resources, such as XML files for the layout</li>
 </ul>
-<p>As unzipping with the standard <code>unzip</code> utility leaves some files such as the <code>AndroidManifest.xml</code> unreadable, it's better to unpack the APK using <a href="/MASTG/Tools/0x08a-Testing-Tools#apktool">apktool</a>.</p>
+<p>As unzipping with the standard <code>unzip</code> utility leaves some files such as the <code>AndroidManifest.xml</code> unreadable, it's better to unpack the APK using <a href="0x08a-Testing-Tools.md#apktool">apktool</a>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-alh
 total<span class="w"> </span><span class="m">32</span>
 drwxr-xr-x<span class="w">    </span><span class="m">9</span><span class="w"> </span>sven<span class="w">  </span>staff<span class="w">   </span>306B<span class="w"> </span>Dec<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">16</span>:29<span class="w"> </span>.
@@ -11612,15 +11594,15 @@ drwxr-xr-x<span class="w">    </span><span class="m">9</span><span class="w"> </
 <p>The Android Manifest is the main source of information, it includes a lot of interesting information such as the package name, the permissions, app components, etc.</p>
 <p>Here's a non-exhaustive list of some info and the corresponding keywords that you can easily search for in the Android Manifest by just inspecting the file or by using <code>grep -i &lt;keyword&gt; AndroidManifest.xml</code>:</p>
 <ul>
-<li>App permissions: <code>permission</code> (see "<a href="/MASTG/Android/0x05h-Testing-Platform-Interaction" title="Testing Platform Interaction&quot; &quot;Testing Platform Interaction">Android Platform APIs</a>")</li>
-<li>Backup allowance: <code>android:allowBackup</code> (see "<a href="/MASTG/Android/0x05d-Testing-Data-Storage" title="Testing Data Storage)&quot; &quot;Testing Data Storage)">Data Storage on Android</a></li>
-<li>App components: <code>activity</code>, <code>service</code>, <code>provider</code>, <code>receiver</code> (see "<a href="/MASTG/Android/0x05h-Testing-Platform-Interaction" title="Testing Platform Interaction&quot; &quot;Testing Platform Interaction">Android Platform APIs</a>" and "<a href="/MASTG/Android/0x05d-Testing-Data-Storage" title="Testing Data Storage)&quot; &quot;Testing Data Storage)">Data Storage on Android</a></li>
-<li>Debuggable flag: <code>debuggable</code> (see "<a href="/MASTG/Android/0x05i-Testing-Code-Quality-and-Build-Settings" title="Testing Code Quality and Build Settings&quot; &quot;Testing Code Quality and Build Settings">Code Quality and Build Settings of Android Apps</a>")</li>
+<li>App permissions: <code>permission</code> (see "<a href="0x05h-Testing-Platform-Interaction.md" title="Testing Platform Interaction">Android Platform APIs</a>")</li>
+<li>Backup allowance: <code>android:allowBackup</code> (see "<a href="0x05d-Testing-Data-Storage.md" title="Testing Data Storage)">Data Storage on Android</a></li>
+<li>App components: <code>activity</code>, <code>service</code>, <code>provider</code>, <code>receiver</code> (see "<a href="0x05h-Testing-Platform-Interaction.md" title="Testing Platform Interaction">Android Platform APIs</a>" and "<a href="0x05d-Testing-Data-Storage.md" title="Testing Data Storage)">Data Storage on Android</a></li>
+<li>Debuggable flag: <code>debuggable</code> (see "<a href="0x05i-Testing-Code-Quality-and-Build-Settings.md" title="Testing Code Quality and Build Settings">Code Quality and Build Settings of Android Apps</a>")</li>
 </ul>
 <p>Please refer to the mentioned chapters to learn more about how to test each of these points.</p>
 <h2 id="app-binary">App Binary<a class="headerlink" href="#app-binary" title="Permanent link">&para;</a></h2>
 <p>The app binary (<code>classes.dex</code>) can be found in the root directory of the app package. It is a so-called DEX (Dalvik Executable) file that contains compiled Java code. Due to its nature, after applying some conversions you'll be able to use a decompiler to produce Java code. We've also seen the folder <code>smali</code> that was obtained after we run apktool. This contains the disassembled Dalvik bytecode in an intermediate language called smali, which is a human-readable representation of the Dalvik executable.</p>
-<p>Refer to the section "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#reviewing-decompiled-java-code" title="Reviewing Decompiled Java Code&quot; &quot;Reviewing Decompiled Java Code">Reviewing Decompiled Java Code</a>" in the chapter "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer DEX files.</p>
+<p>Refer to the section "<a href="0x05c-Reverse-Engineering-and-Tampering.md#reviewing-decompiled-java-code" title="Reviewing Decompiled Java Code">Reviewing Decompiled Java Code</a>" in the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer DEX files.</p>
 <h2 id="compiled-app-binary">Compiled App Binary<a class="headerlink" href="#compiled-app-binary" title="Permanent link">&para;</a></h2>
 <p>In some cases it might be useful to retrieve the compiled app binary (.odex).</p>
 <p>First get the path to the app's data directory:</p>
@@ -11649,14 +11631,9 @@ File<span class="w">    </span>...<span class="w">  </span>libdatabase_sqlcipher
 File<span class="w">    </span>...<span class="w">  </span>libstlport_shared.so
 File<span class="w">    </span>...<span class="w">  </span>libsqlcipher_android.so
 </code></pre></div>
-<p>For now this is all information you can get about the native libraries unless you start reverse engineering them, which is done using a different approach than the one used to reverse the app binary as this code cannot be decompiled but only disassembled. Refer to the section "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#reviewing-disassembled-native-code" title="Reviewing Disassemble Native Code&quot; &quot;Reviewing Disassemble Native Code">Reviewing Disassemble Native Code</a>" in the chapter "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer these libraries.</p>
+<p>For now this is all information you can get about the native libraries unless you start reverse engineering them, which is done using a different approach than the one used to reverse the app binary as this code cannot be decompiled but only disassembled. Refer to the section "<a href="0x05c-Reverse-Engineering-and-Tampering.md#reviewing-disassembled-native-code" title="Reviewing Disassemble Native Code">Reviewing Disassemble Native Code</a>" in the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer these libraries.</p>
 <h2 id="other-app-resources">Other App Resources<a class="headerlink" href="#other-app-resources" title="Permanent link">&para;</a></h2>
 <p>It is normally worth taking a look at the rest of the resources and files that you may find in the root folder of the APK as some times they contain additional goodies like key stores, encrypted databases, certificates, etc.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" title="API Levels">API Levels</a></li>
-<li><a href="https://developer.android.com/reference/android/content/res/AssetManager">AssetManager</a></li>
-</ul>
 
 
 

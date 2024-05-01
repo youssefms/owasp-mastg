@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1290,15 +1290,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11482,15 +11473,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11607,7 +11589,7 @@
 <p>If an app defines a custom Network Security Configuration, you can obtain its location by searching for <code>android:networkSecurityConfig</code> in the AndroidManifest.xml file.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;application</span><span class="w"> </span><span class="na">android:networkSecurityConfig=</span><span class="s">&quot;@xml/network_security_config&quot;</span>
 </code></pre></div>
-<p>In this case the file is located at <code>@xml</code> (equivalent to /res/xml) and has the name "network_security_config" (which might vary). You should be able to find it as "res/xml/network_security_config.xml". If a configuration exists, the following event should be visible in the <a href="/MASTG/Android/0x05b-Android-Security-Testing#monitoring-system-logs">system logs</a>:</p>
+<p>In this case the file is located at <code>@xml</code> (equivalent to /res/xml) and has the name "network_security_config" (which might vary). You should be able to find it as "res/xml/network_security_config.xml". If a configuration exists, the following event should be visible in the <a href="../0x05b-Android-Security-Testing/#monitoring-system-logs">system logs</a>:</p>
 <div class="highlight"><pre><span></span><code>D/NetworkSecurityConfig:<span class="w"> </span>Using<span class="w"> </span>Network<span class="w"> </span>Security<span class="w"> </span>Config<span class="w"> </span>from<span class="w"> </span>resource<span class="w"> </span>network_security_config
 </code></pre></div>
 <p>The Network Security Configuration is <a href="https://developer.android.com/training/articles/security-config#FileFormat">XML-based</a> and can be used to configure app-wide and domain-specific settings:</p>
@@ -11683,18 +11665,6 @@
 <p>Android relies on a <a href="https://developer.android.com/training/articles/security-gms-provider.html" title="Update your security provider to protect against SSL exploits">security provider</a> to provide SSL/TLS-based connections. The problem with this kind of security provider (one example is <a href="https://www.openssl.org/news/vulnerabilities.html" title="OpenSSL Vulnerabilities">OpenSSL</a>), which comes with the device, is that it often has bugs and/or vulnerabilities.</p>
 <p>To avoid known vulnerabilities, developers need to make sure that the application will install a proper security provider.
 Since July 11, 2016, Google <a href="https://support.google.com/faqs/answer/6376725?hl=en" title="How to address OpenSSL vulnerabilities in your apps">has been rejecting Play Store application submissions</a> (both new applications and updates) that use vulnerable versions of OpenSSL.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.nowsecure.com/blog/2018/08/15/a-security-analysts-guide-to-network-security-configuration-in-android-p/">A Security Analyst’s Guide to Network Security Configuration in Android P</a></li>
-<li><a href="https://developer.android.com/codelabs/android-network-security-config">Android Codelab - Network Security Configuration</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config">Android Developers - Network Security Configuration</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config.html#CertificatePinning" title="Certificate Pinning using Network Security Configuration">Certificate Pinning using Network Security Configuration</a></li>
-<li><a href="https://support.google.com/faqs/answer/6376725?hl=en" title="How to address OpenSSL vulnerabilities in your apps">How to address OpenSSL vulnerabilities in your apps</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config">Network Security Configuration</a></li>
-<li><a href="https://www.openssl.org/news/vulnerabilities.html" title="OpenSSL Vulnerabilities">OpenSSL Vulnerabilities</a></li>
-<li><a href="https://developer.android.com/training/articles/security-gms-provider.html" title="Update your security provider to protect against SSL exploits">Update your security provider to protect against SSL exploits</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config#FileFormat">XML-based</a></li>
-</ul>
 
 
 

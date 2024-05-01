@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11417,7 +11417,7 @@
 <p>Typically these domains will be present as strings within the binary of the application. One can extract domains by retrieving strings (as discussed above) or checking the strings using tools like Ghidra. The latter option has a clear advantage: it can provide you with context, as you'll be able to see in which context each domain is being used by checking the cross-references.</p>
 <p>From here on you can use this information to derive more insights which might be of use later during your analysis, e.g. you could match the domains to the pinned certificates or perform further reconnaissance on domain names to know more about the target environment.</p>
 <p>The implementation and verification of secure connections can be an intricate process and there are numerous aspects to consider. For instance, many applications use other protocols apart from HTTP such as XMPP or plain TCP packets, or perform certificate pinning in an attempt to deter MITM attacks.</p>
-<p>Remember that in most cases, using only static analysis will not be enough and might even turn out to be extremely inefficient when compared to the dynamic alternatives which will get much more reliable results (e.g. using an interception proxy). In this section we've only touched the surface, so please refer to the section "<a href="/MASTG/iOS/0x06b-iOS-Security-Testing#basic-network-monitoringsniffing" title="Basic Network Monitoring/Sniffing&quot; &quot;Basic Network Monitoring/Sniffing">Basic Network Monitoring/Sniffing</a>" in the "iOS Basic Security Testing" chapter and check out the test cases in the chapter "<a href="/MASTG/iOS/0x06g-Testing-Network-Communication">iOS Network Communication</a>" for further information.</p>
+<p>Remember that in most cases, using only static analysis will not be enough and might even turn out to be extremely inefficient when compared to the dynamic alternatives which will get much more reliable results (e.g. using an interception proxy). In this section we've only touched the surface, so please refer to the section "<a href="0x06b-iOS-Security-Testing.md#basic-network-monitoringsniffing" title="Basic Network Monitoring/Sniffing">Basic Network Monitoring/Sniffing</a>" in the "iOS Basic Security Testing" chapter and check out the test cases in the chapter "<a href="0x06g-Testing-Network-Communication.md">iOS Network Communication</a>" for further information.</p>
 
 
 

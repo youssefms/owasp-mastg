@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2568,15 +2568,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11550,15 +11541,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11675,7 +11657,7 @@
   <h1>Testing Deep Links</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Any existing <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#deep-links" title="Deep Links&quot; &quot;Deep Links">deep links</a> (including App Links) can potentially increase the app attack surface. This <a href="https://people.cs.vt.edu/gangwang/deep17.pdf">includes many risks</a> such as link hijacking, sensitive functionality exposure, etc.</p>
+<p>Any existing <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#deep-links" title="Deep Links">deep links</a> (including App Links) can potentially increase the app attack surface. This <a href="https://people.cs.vt.edu/gangwang/deep17.pdf">includes many risks</a> such as link hijacking, sensitive functionality exposure, etc.</p>
 <ul>
 <li>Before Android 12 (API level 31), if the app has any <a href="https://developer.android.com/training/app-links/verify-site-associations#fix-errors">non-verifiable links</a>, it can cause the system to not verify all Android App Links for that app.</li>
 <li>Starting on Android 12 (API level 31), apps benefit from a <a href="https://developer.android.com/training/app-links/deep-linking">reduced attack surface</a>. A generic web intent resolves to the user's default browser app unless the target app is approved for the specific domain contained in that web intent.</li>
@@ -11691,7 +11673,7 @@
 </ul>
 <h3 id="check-for-deep-link-usage">Check for Deep Link Usage<a class="headerlink" href="#check-for-deep-link-usage" title="Permanent link">&para;</a></h3>
 <p><strong>Inspecting the Android Manifest:</strong></p>
-<p>You can easily determine whether deep links (with or without custom URL schemes) are defined by <a href="/MASTG/Android/0x05b-Android-Security-Testing#exploring-the-app-package">decoding the app using apktool</a> and inspecting the Android Manifest file looking for <a href="https://developer.android.com/guide/components/intents-filters.html#DataTest" title="intent-filters - DataTest"><code>&lt;intent-filter&gt;</code> elements</a>.</p>
+<p>You can easily determine whether deep links (with or without custom URL schemes) are defined by <a href="../../../Document/0x05b-Android-Security-Testing.md#exploring-the-app-package">decoding the app using apktool</a> and inspecting the Android Manifest file looking for <a href="https://developer.android.com/guide/components/intents-filters.html#DataTest" title="intent-filters - DataTest"><code>&lt;intent-filter&gt;</code> elements</a>.</p>
 <ul>
 <li><strong>Custom Url Schemes</strong>: The following example specifies a deep link with a custom URL scheme called <code>myapp://</code>.</li>
 </ul>
@@ -11733,7 +11715,7 @@
 <li><code>https://open.my.app</code></li>
 </ul>
 <p><strong>Using Dumpsys:</strong></p>
-<p>Use <a href="/MASTG/Tools/0x08a-Testing-Tools#adb">adb</a> to run the following command that will show all schemes:</p>
+<p>Use <a href="../../../Document/0x08a-Testing-Tools.md#adb">adb</a> to run the following command that will show all schemes:</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>dumpsys<span class="w"> </span>package<span class="w"> </span>com.example.package
 </code></pre></div>
 <p><strong>Using Android "App Link Verification" Tester:</strong></p>
@@ -11752,7 +11734,7 @@ https://www.example.com
 <h4 id="automatic-verification">Automatic Verification<a class="headerlink" href="#automatic-verification" title="Permanent link">&para;</a></h4>
 <p>Use the <a href="https://github.com/inesmartins/Android-App-Link-Verification-Tester">Android "App Link Verification" Tester</a> script to get the verification status for all app links (<code>verify-applinks</code>). See an example <a href="https://github.com/inesmartins/Android-App-Link-Verification-Tester#use-an-apk-to-check-for-dals-for-all-app-links">here</a>.</p>
 <p><strong>Only on Android 12 (API level 31) or higher:</strong></p>
-<p>You can use <a href="/MASTG/Tools/0x08a-Testing-Tools#adb">adb</a> to test the verification logic regardless of whether the app targets Android 12 (API level 31) or not. This feature allows you to:</p>
+<p>You can use <a href="../../../Document/0x08a-Testing-Tools.md#adb">adb</a> to test the verification logic regardless of whether the app targets Android 12 (API level 31) or not. This feature allows you to:</p>
 <ul>
 <li><a href="https://developer.android.com/training/app-links/verify-site-associations#manual-verification">invoke the verification process manually</a>.</li>
 <li><a href="https://developer.android.com/training/app-links/verify-site-associations#reset-state">reset the state of the target app's Android App Links on your device</a>.</li>
@@ -11813,7 +11795,7 @@ com.example.package:
 <h3 id="check-the-handler-method">Check the Handler Method<a class="headerlink" href="#check-the-handler-method" title="Permanent link">&para;</a></h3>
 <p>Even if the deep link is correctly verified, the logic of the handler method should be carefully analyzed. Pay special attention to <strong>deep links being used to transmit data</strong> (which is controlled externally by the user or any other app).</p>
 <p>First, obtain the name of the Activity from the Android Manifest <code>&lt;activity&gt;</code> element which defines the target <code>&lt;intent-filter&gt;</code> and search for usage of <a href="https://developer.android.com/reference/android/content/Intent#getIntent(java.lang.String)" title="getIntent()"><code>getIntent</code></a> and <a href="https://developer.android.com/reference/android/content/Intent#getData%28%29" title="getData()"><code>getData</code></a>. This general approach of locating these methods can be used across most applications when performing reverse engineering and is key when trying to understand how the application uses deep links and handles any externally provided input data and if it could be subject to any kind of abuse.</p>
-<p>The following example is a snippet from an exemplary Kotlin app <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#decompiling-java-code">decompiled with jadx</a>. From the <a href="#check-for-deep-link-usage">static analysis</a> we know that it supports the deep link <code>deeplinkdemo://load.html/</code> as part of <code>com.mstg.deeplinkdemo.WebViewActivity</code>.</p>
+<p>The following example is a snippet from an exemplary Kotlin app <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#decompiling-java-code">decompiled with jadx</a>. From the <a href="#check-for-deep-link-usage">static analysis</a> we know that it supports the deep link <code>deeplinkdemo://load.html/</code> as part of <code>com.mstg.deeplinkdemo.WebViewActivity</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// snippet edited for simplicity</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WebViewActivity</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AppCompatActivity</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ActivityWebViewBinding</span><span class="w"> </span><span class="n">binding</span><span class="p">;</span>
@@ -11831,18 +11813,18 @@ com.example.package:
 <span class="w">                </span><span class="n">wv</span><span class="p">.</span><span class="na">loadUrl</span><span class="p">(</span><span class="n">deeplink_url</span><span class="p">);</span>
 <span class="w">            </span><span class="p">...</span>
 </code></pre></div>
-<p>You can simply follow the <code>deeplink_url</code> String variable and see the result from the <code>wv.loadUrl</code> call. This means the attacker has full control of the URL being loaded to the WebView (as shown above has <a href="">JavaScript enabled</a>.</p>
-<p>The same WebView might be also rendering an attacker controlled parameter. In that case, the following deep link payload would trigger <a href="/MASTG/General/0x04h-Testing-Code-Quality#cross-site-scripting-flaws">Reflected Cross-Site Scripting (XSS)</a> within the context of the WebView:</p>
+<p>You can simply follow the <code>deeplink_url</code> String variable and see the result from the <code>wv.loadUrl</code> call. This means the attacker has full control of the URL being loaded to the WebView (as shown above has <a href="../MASTG-TEST-0031/">JavaScript enabled</a>.</p>
+<p>The same WebView might be also rendering an attacker controlled parameter. In that case, the following deep link payload would trigger <a href="../../../Document/0x04h-Testing-Code-Quality.md#cross-site-scripting-flaws">Reflected Cross-Site Scripting (XSS)</a> within the context of the WebView:</p>
 <div class="highlight"><pre><span></span><code>deeplinkdemo://load.html?attacker_controlled=&lt;svg onload=alert(1)&gt;
 </code></pre></div>
 <p>But there are many other possibilities. Be sure to check the following sections to learn more about what to expect and how to test different scenarios:</p>
 <ul>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#cross-site-scripting-flaws">Cross-Site Scripting Flaws</a>.</li>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#injection-flaws">Injection Flaws</a>.</li>
-<li><a href="">Testing Object Persistence</a>.</li>
-<li><a href="">Testing for URL Loading in WebViews</a></li>
-<li><a href="">Testing JavaScript Execution in WebViews</a></li>
-<li><a href="">Testing WebView Protocol Handlers</a></li>
+<li><a href="../../../Document/0x04h-Testing-Code-Quality.md#cross-site-scripting-flaws">"Cross-Site Scripting Flaws"</a>.</li>
+<li><a href="../../../Document/0x04h-Testing-Code-Quality.md#injection-flaws">"Injection Flaws"</a>.</li>
+<li><a href="../../MASVS-CODE/MASTG-TEST-0034/">"Testing Object Persistence"</a>.</li>
+<li><a href="../../MASVS-CODE/MASTG-TEST-0027/">"Testing for URL Loading in WebViews"</a></li>
+<li><a href="../MASTG-TEST-0031/">"Testing JavaScript Execution in WebViews"</a></li>
+<li><a href="../MASTG-TEST-0032/">"Testing WebView Protocol Handlers"</a></li>
 </ul>
 <p>In addition, we recommend to search and read public reports (search term: <code>"deep link*"|"deeplink*" site:https://hackerone.com/reports/</code>). For example:</p>
 <ul>
@@ -11853,12 +11835,12 @@ com.example.package:
 <li><a href="https://hackerone.com/reports/341908">"[HackerOne#341908] XSS via Direct Message deeplinks"</a></li>
 </ul>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>Here you will use the list of deep links from the static analysis to iterate and determine each handler method and the processed data, if any. You will first start a <a href="/MASTG/Tools/0x08a-Testing-Tools#frida">Frida</a> hook and then begin invoking the deep links.</p>
+<p>Here you will use the list of deep links from the static analysis to iterate and determine each handler method and the processed data, if any. You will first start a <a href="../../../Document/0x08a-Testing-Tools.md#frida">Frida</a> hook and then begin invoking the deep links.</p>
 <p>The following example assumes a target app that accepts this deep link: <code>deeplinkdemo://load.html</code>. However, we don't know the corresponding handler method yet, nor the parameters it potentially accepts.</p>
 <p><strong>[Step 1] Frida Hooking:</strong></p>
-<p>You can use the script <a href="https://codeshare.frida.re/@leolashkevych/android-deep-link-observer/">"Android Deep Link Observer"</a> from <a href="/MASTG/Tools/0x08a-Testing-Tools#frida-codeshare">Frida CodeShare</a> to monitor all invoked deep links triggering a call to <code>Intent.getData</code>. You can also use the script as a base to include your own modifications depending on the use case at hand. In this case we <a href="https://github.com/FrenchYeti/frida-trick/blob/master/README.md">included the stack trace</a> in the script since we are interested in the method which calls <code>Intent.getData</code>.</p>
+<p>You can use the script <a href="https://codeshare.frida.re/@leolashkevych/android-deep-link-observer/">"Android Deep Link Observer"</a> from <a href="../../../Document/0x08a-Testing-Tools.md#frida-codeshare">Frida CodeShare</a> to monitor all invoked deep links triggering a call to <code>Intent.getData</code>. You can also use the script as a base to include your own modifications depending on the use case at hand. In this case we <a href="https://github.com/FrenchYeti/frida-trick/blob/master/README.md">included the stack trace</a> in the script since we are interested in the method which calls <code>Intent.getData</code>.</p>
 <p><strong>[Step 2] Invoking Deep Links:</strong></p>
-<p>Now you can invoke any of the deep links using <a href="/MASTG/Tools/0x08a-Testing-Tools#adb">adb</a> and the <a href="https://developer.android.com/training/app-links/deep-linking#testing-filters" title="Activity Manager">Activity Manager (am)</a> which will send intents within the Android device. For example:</p>
+<p>Now you can invoke any of the deep links using <a href="../../../Document/0x08a-Testing-Tools.md#adb">adb</a> and the <a href="https://developer.android.com/training/app-links/deep-linking#testing-filters" title="Activity Manager">Activity Manager (am)</a> which will send intents within the Android device. For example:</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>am<span class="w"> </span>start<span class="w"> </span>-W<span class="w"> </span>-a<span class="w"> </span>android.intent.action.VIEW<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;deeplinkdemo://load.html/?message=ok#part1&quot;</span>
 
 Starting:<span class="w"> </span>Intent<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">act</span><span class="o">=</span>android.intent.action.VIEW<span class="w"> </span><span class="nv">dat</span><span class="o">=</span>deeplinkdemo://load.html/?message<span class="o">=</span>ok<span class="w"> </span><span class="o">}</span>
@@ -11900,30 +11882,6 @@ com.android.internal.os.ZygoteInit.main<span class="o">(</span>ZygoteInit.java<s
 <blockquote>
 <p>Sometimes you can even take advantage of other applications that you know interact with your target app. You can reverse engineer the app, (e.g. to extract all strings and filter those which include the target deep links, <code>deeplinkdemo:///load.html</code> in the previous case), or use them as triggers, while hooking the app as previously discussed.</p>
 </blockquote>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/training/app-links/deep-linking#testing-filters" title="Activity Manager">Activity Manager</a></li>
-<li><a href="https://github.com/inesmartins/Android-App-Link-Verification-Tester">Android "App Link Verification" Tester</a></li>
-<li><a href="https://codeshare.frida.re/@leolashkevych/android-deep-link-observer/">Android Deep Link Observer</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#fix-errors">Android Developers Documentation</a></li>
-<li><a href="https://developers.google.com/digital-asset-links/v1/getting-started" title="Digital Asset Link">Digital Asset Link</a></li>
-<li><a href="https://people.cs.vt.edu/gangwang/deep17.pdf">Measuring the Insecurity of Mobile Deep Links of Android</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations" title="Verify Android App Links">Verify Android App Links</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#fix-errors">doesn't verify any Android App Links</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Intent#getData%28%29" title="getData()">getData()</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Intent#getIntent(java.lang.String)" title="getIntent()">getIntent()</a></li>
-<li><a href="https://github.com/inesmartins/Android-App-Link-Verification-Tester#use-an-apk-to-check-for-dals-for-all-app-links">here</a></li>
-<li><a href="https://github.com/FrenchYeti/frida-trick/blob/master/README.md">included the stack trace</a></li>
-<li><a href="https://people.cs.vt.edu/gangwang/deep17.pdf">includes many risks</a></li>
-<li><a href="https://developer.android.com/guide/components/intents-filters.html#DataTest" title="intent-filters - DataTest">intent-filters - DataTest</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#invoke-domain-verification">invoke the domain verification process</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#manual-verification">invoke the verification process manually</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#fix-errors">non-verifiable deep links</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#fix-errors">non-verifiable links</a></li>
-<li><a href="https://developer.android.com/training/app-links/deep-linking">reduced attack surface</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#reset-state">reset the state of the target app's Android App Links on your device</a></li>
-<li><a href="https://developer.android.com/training/app-links/verify-site-associations#review-results">review the verification results</a></li>
-</ul>
 
 
 

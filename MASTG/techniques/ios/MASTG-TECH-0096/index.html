@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -7048,15 +7048,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11535,7 +11517,7 @@
 <li>Reverse engineering a binary or Framework while it's running.</li>
 </ul>
 <p>As you can see, these tasks are rather supportive and/or passive, they'll help us collect data and information that will support other techniques. Therefore, they're normally used in combination with other techniques such as method hooking.</p>
-<p>In the following sections you will be using <a href="/MASTG/Tools/0x08a-Testing-Tools#r2frida">r2frida</a> to retrieve information straight from the app runtime. First start by opening an r2frida session to the target app (e.g. <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a>) that should be running on your iPhone (connected per USB). Use the following command:</p>
+<p>In the following sections you will be using <a href="0x08a-Testing-Tools.md#r2frida">r2frida</a> to retrieve information straight from the app runtime. First start by opening an r2frida session to the target app (e.g. <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a>) that should be running on your iPhone (connected per USB). Use the following command:</p>
 <div class="highlight"><pre><span></span><code>r2<span class="w"> </span>frida://usb//iGoat-Swift
 </code></pre></div>
 <h2 id="memory-maps-and-inspection">Memory Maps and Inspection<a class="headerlink" href="#memory-maps-and-inspection" title="Permanent link">&para;</a></h2>
@@ -11569,7 +11551,7 @@
 0x000000018ea1d000<span class="w"> </span>UIKit
 0x0000000100f60000<span class="w"> </span>Realm
 </code></pre></div>
-<p>As you might expect you can correlate the addresses of the libraries with the memory maps: e.g. the main app binary <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> is located at <code>0x0000000100b7c000</code> and the Realm Framework at <code>0x0000000100f60000</code>.</p>
+<p>As you might expect you can correlate the addresses of the libraries with the memory maps: e.g. the main app binary <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> is located at <code>0x0000000100b7c000</code> and the Realm Framework at <code>0x0000000100f60000</code>.</p>
 <p>You can also use objection to display the same information.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>objection<span class="w"> </span>--gadget<span class="w"> </span>OWASP.iGoat-Swift<span class="w"> </span>explore
 
@@ -11617,8 +11599,8 @@ hits:<span class="w"> </span><span class="m">509</span>
 <span class="o">[</span>0x100d7d332<span class="o">]</span>&gt;<span class="w"> </span>:dm.
 0x0000000100b7c000<span class="w"> </span>-<span class="w"> </span>0x0000000100de0000<span class="w"> </span>r-x<span class="w"> </span>/private/var/containers/Bundle/Application/3ADAF47D-A734-49FA-B274-FBCA66589E67/iGoat-Swift.app/iGoat-Swift
 </code></pre></div>
-<p>As expected, you are located in the region of the main <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> binary (r-x, read and execute). In the previous section, you saw that the main binary is located between <code>0x0000000100b7c000</code> and <code>0x0000000100e97000</code>.</p>
-<p>Now, for this second example, you can search for something that's not in the app binary nor in any loaded library, typically user input. Open the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> app and navigate in the menu to <strong>Authentication</strong> -&gt; <strong>Remote Authentication</strong> -&gt; <strong>Start</strong>. There you'll find a password field that you can overwrite. Write the string "owasp-mstg" but do not click on <strong>Login</strong> just yet. Perform the following two steps.</p>
+<p>As expected, you are located in the region of the main <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> binary (r-x, read and execute). In the previous section, you saw that the main binary is located between <code>0x0000000100b7c000</code> and <code>0x0000000100e97000</code>.</p>
+<p>Now, for this second example, you can search for something that's not in the app binary nor in any loaded library, typically user input. Open the <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> app and navigate in the menu to <strong>Authentication</strong> -&gt; <strong>Remote Authentication</strong> -&gt; <strong>Start</strong>. There you'll find a password field that you can overwrite. Write the string "owasp-mstg" but do not click on <strong>Login</strong> just yet. Perform the following two steps.</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span><span class="w"> </span>owasp-mstg
 hits:<span class="w"> </span><span class="m">1</span>
 0x1c06619c0<span class="w"> </span>hit3_0<span class="w"> </span>owasp-mstg
@@ -11648,7 +11630,7 @@ hits:<span class="w"> </span><span class="m">2</span>
 <p>They are in a different rw- region. Note that searching for the wide versions of strings is sometimes the only way to find them as you'll see in the following section.</p>
 <p>In-memory search can be very useful to quickly know if certain data is located in the main app binary, inside a shared library or in another region. You may also use it to test the behavior of the app regarding how the data is kept in memory. For instance, you could continue the previous example, this time clicking on Login and searching again for occurrences of the data. Also, you may check if you still can find those strings in memory after the login is completed to verify if this <em>sensitive data</em> is wiped from memory after its use.</p>
 <h2 id="memory-dump">Memory Dump<a class="headerlink" href="#memory-dump" title="Permanent link">&para;</a></h2>
-<p>You can dump the app's process memory with <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-jailbroken device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section "<a href="#dynamic-analysis-on-non-jailbroken-devices" title="Dynamic Analysis on Non-Jailbroken Devices">Dynamic Analysis on Non-Jailbroken Devices</a>. To use these tools on a jailbroken phone, simply have frida-server installed and running.</p>
+<p>You can dump the app's process memory with <a href="0x08a-Testing-Tools.md#objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-jailbroken device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section "<a href="#dynamic-analysis-on-non-jailbroken-devices" title="Dynamic Analysis on Non-Jailbroken Devices">Dynamic Analysis on Non-Jailbroken Devices</a>. To use these tools on a jailbroken phone, simply have frida-server installed and running.</p>
 <p>With objection it is possible to dump all memory of the running process on the device by using the command <code>memory dump all</code>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>objection<span class="w"> </span>explore
 
@@ -11701,11 +11683,6 @@ owasp-mstg
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>strings<span class="w"> </span>-e<span class="w"> </span>l<span class="w"> </span>memory_ios<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>owasp-mstg
 owasp-mstg
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Wide_character" title="Wide character">Wide character</a></li>
-</ul>
 
 
 

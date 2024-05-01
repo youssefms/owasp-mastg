@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1515,15 +1515,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11590,15 +11581,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11698,10 +11680,10 @@
 <p>The following is the most basic iOS app testing setup:</p>
 <ul>
 <li>Ideally macOS host computer with admin rights</li>
-<li><a href="/MASTG/Tools/0x08a-Testing-Tools#xcode">Xcode</a> and <a href="/MASTG/Tools/0x08a-Testing-Tools#xcode-command-line-tools">Xcode Command Line Tools</a> installed.</li>
+<li><a href="0x08a-Testing-Tools.md#xcode">Xcode</a> and <a href="0x08a-Testing-Tools.md#xcode-command-line-tools">Xcode Command Line Tools</a> installed.</li>
 <li>Wi-Fi network that permits client-to-client traffic.</li>
 <li>At least one jailbroken iOS device (of the desired iOS version).</li>
-<li><a href="/MASTG/Tools/0x08a-Testing-Tools#burp-suite">Burp Suite</a> or other interception proxy tool.</li>
+<li><a href="0x08a-Testing-Tools.md#burp-suite">Burp Suite</a> or other interception proxy tool.</li>
 </ul>
 <h3 id="obtaining-the-udid-of-an-ios-device">Obtaining the UDID of an iOS device<a class="headerlink" href="#obtaining-the-udid-of-an-ios-device" title="Permanent link">&para;</a></h3>
 <p>The UDID is a 40-digit unique sequence of letters and numbers to identify an iOS device. You can find the UDID of your iOS device on macOS Catalina onwards in the Finder app, as iTunes is not available anymore in Catalina. Open Finder and select the connected iOS device in the sidebar.</p>
@@ -11742,7 +11724,7 @@ $<span class="w"> </span>idevice_id<span class="w"> </span>-l
 <h3 id="testing-on-the-ios-simulator">Testing on the iOS Simulator<a class="headerlink" href="#testing-on-the-ios-simulator" title="Permanent link">&para;</a></h3>
 <p>Unlike the Android emulator, which fully emulates the hardware of an actual Android device, the iOS SDK simulator offers a higher-level <em>simulation</em> of an iOS device. Most importantly, emulator binaries are compiled to x86 code instead of ARM code. Apps compiled for a real device don't run, making the simulator useless for black box analysis and reverse engineering.</p>
 <h3 id="testing-on-an-emulator">Testing on an Emulator<a class="headerlink" href="#testing-on-an-emulator" title="Permanent link">&para;</a></h3>
-<p><a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#corellium">Corellium</a> is the only publicly available iOS emulator. It is an enterprise SaaS solution with a per user license model and does not offer community licenses.</p>
+<p><a href="0x06c-Reverse-Engineering-and-Tampering.md#corellium">Corellium</a> is the only publicly available iOS emulator. It is an enterprise SaaS solution with a per user license model and does not offer community licenses.</p>
 <h3 id="getting-privileged-access">Getting Privileged Access<a class="headerlink" href="#getting-privileged-access" title="Permanent link">&para;</a></h3>
 <p>iOS jailbreaking is often compared to Android rooting, but the process is actually quite different. To explain the difference, we'll first review the concepts of "rooting" and "flashing" on Android.</p>
 <ul>
@@ -11750,9 +11732,9 @@ $<span class="w"> </span>idevice_id<span class="w"> </span>-l
 <li><strong>Flashing custom ROMs</strong>: This allows you to replace the OS that's running on the device after you unlock the bootloader. The bootloader may require an exploit to unlock it.</li>
 </ul>
 <p>On iOS devices, flashing a custom ROM is impossible because the iOS bootloader only allows Apple-signed images to be booted and flashed. This is why even official iOS images can't be installed if they aren't signed by Apple, and it makes iOS downgrades only possible for as long as the previous iOS version is still signed.</p>
-<p>The purpose of jailbreaking is to disable iOS protections (Apple's code signing mechanisms in particular) so that arbitrary unsigned code can run on the device (e.g. custom code or downloaded from alternative app stores such as <a href="/MASTG/Tools/0x08a-Testing-Tools#cydia" title="Cydia&quot; &quot;Cydia">Cydia</a> or <a href="/MASTG/Tools/0x08a-Testing-Tools#sileo" title="Sileo">Sileo</a> "Sileo"). The word "jailbreak" is a colloquial reference to all-in-one tools that automate the disabling process.</p>
+<p>The purpose of jailbreaking is to disable iOS protections (Apple's code signing mechanisms in particular) so that arbitrary unsigned code can run on the device (e.g. custom code or downloaded from alternative app stores such as <a href="0x08a-Testing-Tools.md#cydia" title="Cydia">Cydia</a> or <a href="0x08a-Testing-Tools.md#sileo" title="Sileo">Sileo</a>). The word "jailbreak" is a colloquial reference to all-in-one tools that automate the disabling process.</p>
 <p>Developing a jailbreak for a given version of iOS is not easy. As a security tester, you'll most likely want to use publicly available jailbreak tools. Still, we recommend studying the techniques that have been used to jailbreak various versions of iOS-you'll encounter many interesting exploits and learn a lot about OS internals. For example, Pangu9 for iOS 9.x <a href="https://www.theiphonewiki.com/wiki/Jailbreak_Exploits" title="Jailbreak Exploits">exploited at least five vulnerabilities</a>, including a use-after-free kernel bug (CVE-2015-6794) and an arbitrary file system access vulnerability in the Photos app (CVE-2015-7037).</p>
-<p>Some apps attempt to detect whether the iOS device on which they're running is jailbroken. This is because jailbreaking deactivates some of iOS' default security mechanisms. However, there are several ways to get around these detections, and we'll introduce them in the chapter <a href="/MASTG/iOS/0x06j-Testing-Resiliency-Against-Reverse-Engineering">iOS Anti-Reversing Defenses</a>.</p>
+<p>Some apps attempt to detect whether the iOS device on which they're running is jailbroken. This is because jailbreaking deactivates some of iOS' default security mechanisms. However, there are several ways to get around these detections, and we'll introduce them in the chapter <a href="../0x06j-Testing-Resiliency-Against-Reverse-Engineering/">"iOS Anti-Reversing Defenses"</a>.</p>
 <h4 id="benefits-of-jailbreaking">Benefits of Jailbreaking<a class="headerlink" href="#benefits-of-jailbreaking" title="Permanent link">&para;</a></h4>
 <p>End users often jailbreak their devices to tweak the iOS system's appearance, add new features, and install third-party apps from unofficial app stores. For a security tester, however, jailbreaking an iOS device has even more benefits. They include, but aren't limited to, the following:</p>
 <ul>
@@ -11794,20 +11776,6 @@ $<span class="w"> </span>idevice_id<span class="w"> </span>-l
 <blockquote>
 <p>Note that any modification you make to your device is at your own risk. While jailbreaking is typically safe, things can go wrong and you may end up bricking your device. No other party except yourself can be held accountable for any damage.</p>
 </blockquote>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://appledb.dev/" title="Apple DB">Apple DB</a></li>
-<li><a href="https://appledb.dev/" title="AppleDB">AppleDB</a></li>
-<li><a href="https://www.theiphonewiki.com/wiki/Checkm8_Exploit" title="Checkm8 exploit">Checkm8 exploit</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/DeviceDrivers/Conceptual/IOKitFundamentals/TheRegistry/TheRegistry.html" title="I/O Registry Explorer">I/O Registry Explorer</a></li>
-<li><a href="https://ipsw.me" title="IPSW Downloads">IPSW Downloads</a></li>
-<li><a href="https://www.theiphonewiki.com/wiki/Jailbreak_Exploits" title="Jailbreak Exploits">Jailbreak Exploits</a></li>
-<li><a href="https://www.reddit.com/r/jailbreak/" title="Reddit Jailbreak">Reddit Jailbreak</a></li>
-<li><a href="https://www.redmondpie.com/" title="Redmone Pie">Redmone Pie</a></li>
-<li><a href="https://www.theiphonewiki.com/" title="The iPhone Wiki">The iPhone Wiki</a></li>
-<li><a href="https://ios.cfw.guide/saving-blobs/">cfw iOS Guide - Saving Blobs</a></li>
-<li><a href="https://github.com/libimobiledevice/ideviceinstaller">ideviceinstaller</a></li>
-</ul>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4166,15 +4166,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11532,15 +11523,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11747,7 +11729,7 @@ wkWebView.loadFileURL(scenario1Url, allowingReadAccessTo: scenario1Url)
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>If it's possible to load local files via a WebView, the app might be vulnerable to directory traversal attacks. This would allow access to all files within the sandbox or even to escape the sandbox with full access to the file system (if the device is jailbroken). It should therefore be verified if a user can change the filename or path from which the file is loaded, and they shouldn't be able to edit the loaded file.</p>
 <p>To simulate an attack, you may inject your own JavaScript into the WebView with an interception proxy or simply by using dynamic instrumentation. Attempt to access local storage and any native methods and properties that might be exposed to the JavaScript context.</p>
-<p>In a real-world scenario, JavaScript can only be injected through a permanent backend Cross-Site Scripting vulnerability or a MITM attack. See the OWASP <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="XSS (Cross-Site Scripting) Prevention Cheat Sheet">XSS Prevention Cheat Sheet</a> and the chapter "<a href="/MASTG/iOS/0x06g-Testing-Network-Communication">iOS Network Communication</a>" for more information.</p>
+<p>In a real-world scenario, JavaScript can only be injected through a permanent backend Cross-Site Scripting vulnerability or a MITM attack. See the OWASP <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="XSS (Cross-Site Scripting) Prevention Cheat Sheet">XSS Prevention Cheat Sheet</a> and the chapter "<a href="../../../Document/0x06g-Testing-Network-Communication.md">iOS Network Communication</a>" for more information.</p>
 <p>For what concerns this section we will learn about:</p>
 <ul>
 <li>Checking how WebViews are loaded</li>
@@ -11811,24 +11793,6 @@ wkWebView.loadFileURL(scenario1Url, allowingReadAccessTo: scenario1Url)
 
 allowFileAccessFromFileURLs:<span class="w">  </span><span class="m">1</span>
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/foundation/nsbundle/1411540-urlforresource?language=objc" title="NSBundle URLForResource:withExtension:">NSBundle URLForResource:withExtension:</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/nsbundle/1410989-pathforresource" title="NSBundle pathForResource:ofType:">NSBundle pathForResource:ofType:</a></li>
-<li><a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html#//apple_ref/doc/uid/TP40007899-CH6-SW2" title="Phone Links: Turning telephone number detection off">Phone Links: Turning telephone number detection off</a></li>
-<li><a href="https://developer.apple.com/documentation/swift/string/3126736-init" title="String init(contentsOf:encoding:)">String init(contentsOf:encoding:)</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiwebview/1617941-loaddata?language=objc" title="UIWebView loadData:MIMEType:textEncodingName:baseURL:">UIWebView loadData:MIMEType:textEncodingName:baseURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiwebview/1617979-loadhtmlstring?language=objc" title="UIWebView loadHTMLString:baseURL:">UIWebView loadHTMLString:baseURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/webkit/wkwebview/1415011-loaddata?language=objc" title="WKWebView loadData:MIMEType:textEncodingName:baseURL:">WKWebView loadData:MIMEType:textEncodingName:baseURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/webkit/wkwebview/1414973-loadfileurl?language=objc" title="WKWebView loadFileURL:allowingReadAccessToURL:">WKWebView loadFileURL:allowingReadAccessToURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/webkit/wkwebview/1415004-loadhtmlstring?language=objc" title="WKWebView loadHTMLString:baseURL:">WKWebView loadHTMLString:baseURL:</a></li>
-<li><a href="https://github.com/WebKit/webkit/blob/master/Source/WebKit/UIProcess/API/Cocoa/WKPreferences.mm#L470" title="WebKit WKPreferences.mm Line 470">WebKit WKPreferences.mm Line 470</a></li>
-<li><a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/blob/master/WheresMyBrowser/UIWebViewController.swift#L219" title="Where's My Browser? UIWebViewController.swift Line 219">Where's My Browser? UIWebViewController.swift Line 219</a></li>
-<li><a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/blob/master/WheresMyBrowser/WKWebViewController.swift#L186" title="Where's My Browser? WKWebViewController.swift Line 186">Where's My Browser? WKWebViewController.swift Line 186</a></li>
-<li><a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/blob/master/WheresMyBrowser/WKWebViewController.swift#L196" title="Where's My Browser? WKWebViewController.swift Line 196">Where's My Browser? WKWebViewController.swift Line 196</a></li>
-<li><a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/" title="Where's My Browser?">Where's My Browser?</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="XSS (Cross-Site Scripting) Prevention Cheat Sheet">XSS (Cross-Site Scripting) Prevention Cheat Sheet</a></li>
-</ul>
 
 
 

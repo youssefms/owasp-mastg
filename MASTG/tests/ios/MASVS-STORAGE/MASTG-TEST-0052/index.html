@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3472,15 +3472,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11616,15 +11607,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11782,7 +11764,7 @@
 <blockquote>
 <p>Note that tools like iMazing don't copy data directly from the device. They try to extract data from the backups they create. Therefore, getting all the app data that's stored on the iOS device is impossible: not all folders are included in backups. Use a jailbroken device or repackage the app with Frida and use a tool like objection to access all the data and files.</p>
 </blockquote>
-<p>If you added the Frida library to the app and repackaged it as described in "Dynamic Analysis on Non-Jailbroken Devices" (from the "Tampering and Reverse Engineering on iOS" chapter), you can use <a href="https://github.com/sensepost/objection" title="objection">objection</a> to transfer files directly from the app's data directory or <a href="https://github.com/sensepost/objection/wiki/Using-objection#getting-started-ios-edition" title="Getting started iOS edition">read files in objection</a> as explained in the chapter "Basic Security Testing on iOS", section "<a href="/MASTG/iOS/0x06b-iOS-Security-Testing#host-device-data-transfer" title="Host-Device Data Transfer&quot; &quot;Host-Device Data Transfer">Host-Device Data Transfer</a>".</p>
+<p>If you added the Frida library to the app and repackaged it as described in "Dynamic Analysis on Non-Jailbroken Devices" (from the "Tampering and Reverse Engineering on iOS" chapter), you can use <a href="https://github.com/sensepost/objection" title="objection">objection</a> to transfer files directly from the app's data directory or <a href="https://github.com/sensepost/objection/wiki/Using-objection#getting-started-ios-edition" title="Getting started iOS edition">read files in objection</a> as explained in the chapter "Basic Security Testing on iOS", section "<a href="../../../Document/0x06b-iOS-Security-Testing.md#host-device-data-transfer" title="Host-Device Data Transfer">Host-Device Data Transfer</a>".</p>
 <p>The Keychain contents can be dumped during dynamic analysis. On a jailbroken device, you can use <a href="https://github.com/ptoomey3/Keychain-Dumper/" title="Keychain Dumper">Keychain dumper</a> as described in the chapter "Basic Security Testing on iOS".</p>
 <p>The path to the Keychain file is</p>
 <div class="highlight"><pre><span></span><code>/private/var/Keychains/keychain-2.db
@@ -11908,21 +11890,6 @@ Time:<span class="w"> </span><span class="m">0</span>.013s
 <ol>
 <li>Cache can be also disabled by setting the Cache Policy to <a href="https://developer.apple.com/documentation/foundation/urlcache/storagepolicy/notallowed" title="URLCachePolicy notAllowed">.notAllowed</a>. It will disable storing Cache in any fashion, either in memory or on disk.</li>
 </ol>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/localauthentication/accessing_keychain_items_with_face_id_or_touch_id" title="Accessing Keychain Items with Face ID or Touch ID">Accessing Keychain Items with Face ID or Touch ID</a></li>
-<li><a href="https://developer.apple.com/library/content/samplecode/GenericKeychain/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007797-Intro-DontLinkElementID_2" title="GenericKeyChain">GenericKeyChain</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Using-objection#getting-started-ios-edition" title="Getting started iOS edition">Getting started iOS edition</a></li>
-<li><a href="https://github.com/ptoomey3/Keychain-Dumper/" title="Keychain Dumper">Keychain Dumper</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Notes-About-The-Keychain-Dumper" title="Notes About The Keychain Dumper">Notes About The Keychain Dumper</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html#encrypting-stored-keys" title="OWASP Cryptographic Storage Cheat Sheet: Encrypting Stored Keys">OWASP Cryptographic Storage Cheat Sheet: Encrypting Stored Keys</a></li>
-<li><a href="https://github.com/sensepost/objection/wiki/Patching-iOS-Applications" title="Objection">Objection</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/urlcache/1417802-removeallcachedresponses" title="URLCache removeAllCachedResponses">URLCache removeAllCachedResponses</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/urlcache/storagepolicy/notallowed" title="URLCachePolicy notAllowed">URLCachePolicy notAllowed</a></li>
-<li><a href="https://imazing.com" title="iMazing">iMazing</a></li>
-<li><a href="https://github.com/sensepost/objection" title="objection">objection</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/urlsessionconfiguration/1410529-ephemeral" title="urlsessionconfiguration ephemeral">urlsessionconfiguration ephemeral</a></li>
-</ul>
 
 
 

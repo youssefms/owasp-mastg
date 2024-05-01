@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2607,15 +2607,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing for Java Objects Exposed Through WebViews</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#java-objects-exposed-through-webviews" title="Java Objects Exposed Through WebViews&quot; &quot;Java Objects Exposed Through WebViews">Java objects exposed through WebViews</a> check the app for WebViews having JavaScript enabled and determine whether the WebView is creating any JavaScript interfaces aka. "JavaScript Bridges". Finally, check whether an attacker could potentially inject malicious JavaScript code.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#java-objects-exposed-through-webviews" title="Java Objects Exposed Through WebViews">Java objects exposed through WebViews</a> check the app for WebViews having JavaScript enabled and determine whether the WebView is creating any JavaScript interfaces aka. "JavaScript Bridges". Finally, check whether an attacker could potentially inject malicious JavaScript code.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>The following example shows how <code>addJavascriptInterface</code> is used to bridge a Java Object and JavaScript in a WebView:</p>
 <div class="highlight"><pre><span></span><code><span class="n">WebView</span><span class="w"> </span><span class="n">webview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebView</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
@@ -11591,10 +11573,6 @@
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Dynamic analysis of the app can show you which HTML or JavaScript files are loaded and which vulnerabilities are present. The procedure for exploiting the vulnerability starts with producing a JavaScript payload and injecting it into the file that the app is requesting. The injection can be accomplished via a MITM attack or direct modification of the file if it is stored in external storage. The whole process can be accomplished via Drozer and weasel (MWR's advanced exploitation payload), which can install a full agent, injecting a limited agent into a running process or connecting a reverse shell as a Remote Access Tool (RAT).</p>
 <p>A full description of the attack is included in the blog article <a href="https://labs.withsecure.com/publications/webview-addjavascriptinterface-remote-code-execution/" title="WebView addJavascriptInterface Remote Code Execution">"WebView addJavascriptInterface Remote Code Execution"</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://labs.withsecure.com/publications/webview-addjavascriptinterface-remote-code-execution/" title="WebView addJavascriptInterface Remote Code Execution">WebView addJavascriptInterface Remote Code Execution</a></li>
-</ul>
 
 
 

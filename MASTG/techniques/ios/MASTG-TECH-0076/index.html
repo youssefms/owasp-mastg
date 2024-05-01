@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6610,15 +6610,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11380,15 +11371,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11420,7 +11402,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11503,7 +11485,7 @@
 </blockquote>
 <h2 id="objective-c">Objective-C<a class="headerlink" href="#objective-c" title="Permanent link">&para;</a></h2>
 <p>In addition to the techniques learned in the "<a href="#disassembling-and-decompiling" title="Disassembling and Decompiling">Disassembling and Decompiling</a>" section, for this section you'll need some understanding of the <a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime" title="Objective-C runtime">Objective-C runtime</a>. For instance, functions like <code>_objc_msgSend</code> or <code>_objc_release</code> are specially meaningful for the Objective-C runtime.</p>
-<p>We will be using the <a href="/MASTG/Tools/0x08b-Reference-Apps#ios-uncrackable-l1">UnCrackable App for iOS Level 1</a>, which has the simple goal of finding a <em>secret string</em> hidden somewhere in the binary. The application has a single home screen and a user can interact via inputting custom strings in the provided text field.</p>
+<p>We will be using the <a href="../../../apps/ios/MASTG-APP-0025/" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a>, which has the simple goal of finding a <em>secret string</em> hidden somewhere in the binary. The application has a single home screen and a user can interact via inputting custom strings in the provided text field.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/manual_reversing_app_home_screen2.png" width="400px" /></p>
 <p>When the user inputs the wrong string, the application shows a pop-up with the "Verification Failed" message.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/manual_reversing_app_wrong_input.png" width="400px" /></p>
@@ -11529,12 +11511,6 @@
 <p>In our first step, we observed that the application verifies the input string only when the UI button is pressed. Thus, analyzing the <code>buttonClick</code> function is an obvious target. As earlier mentioned, this function also contains the string we see in the pop-ups. At line 29 a decision is being made, which is based on the result of <code>isEqualString</code> (output saved in <code>uVar1</code> at line 23). The input for the comparison is coming from the text input field (from the user) and the value of the <code>label</code>. Therefore, we can assume that the hidden flag is stored in that label.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/manual_reversing_ghidra_buttonclick_decompiled.png" width="600px" /></p>
 <p>Now we have followed the complete flow and have all the information about the application flow. We also concluded that the hidden flag is present in a text label and in order to determine the value of the label, we need to revisit <code>viewDidLoad</code> function, and understand what is happening in the native function identified. Analysis of the native function is discussed in "<a href="#reviewing-disassembled-native-code" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>".</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle" title="Managing Your App's Life Cycle">Managing Your App's Life Cycle</a></li>
-<li><a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime" title="Objective-C runtime">Objective-C runtime</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload" title="viewDidLoad()">viewDidLoad()</a></li>
-</ul>
 
 
 

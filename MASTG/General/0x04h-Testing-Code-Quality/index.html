@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1203,15 +1203,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11734,15 +11725,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12088,37 +12070,6 @@ $<span class="w"> </span>am<span class="w"> </span>start<span class="w"> </span>
 <h3 id="stack-smashing-protection">Stack Smashing Protection<a class="headerlink" href="#stack-smashing-protection" title="Permanent link">&para;</a></h3>
 <p><a href="https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries">Stack canaries</a> help prevent stack buffer overflow attacks by storing a hidden integer value on the stack right before the return pointer. This value is then validated before the return statement of the function is executed. A buffer overflow attack often overwrites a region of memory in order to overwrite the return pointer and take over the program flow. If stack canaries are enabled, they will be overwritten as well and the CPU will know that the memory has been tampered with.</p>
 <p>Stack buffer overflow is a type of the more general programming vulnerability known as <a href="https://en.wikipedia.org/wiki/Buffer_overflow">buffer overflow</a> (or buffer overrun). Overfilling a buffer on the stack is more likely to <strong>derail program execution</strong> than overfilling a buffer on the heap because the stack contains the return addresses for all active function calls.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Automatic_Reference_Counting">ARC (Automatic Reference Counting)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization">ASLR (Address Space Layout Randomization)</a></li>
-<li><a href="https://www.zerodayinitiative.com/advisories/ZDI-17-110/" title="Adobe Flash Mediaplayer example">Adobe Flash Mediaplayer example</a></li>
-<li><a href="https://blog.oversecured.com/Exploiting-memory-corruption-vulnerabilities-on-Android/#example-of-the-vulnerability-in-paypal%E2%80%99s-apps">An example</a></li>
-<li><a href="https://portswigger.net/burp/" title="Burp Suite">Burp Suite</a></li>
-<li><a href="https://owasp.org/www-community/attacks/csrf" title="Cross-Site Request Forgery (CSRF)">Cross-Site Request Forgery (CSRF)</a></li>
-<li><a href="https://labs.detectify.com/2015/02/20/finding-an-xss-in-an-html-based-android-application/" title="Finding an XSS in an HTML-based Android application">Finding an XSS in an HTML-based Android application</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Garbage Collection (GC)</a></li>
-<li><a href="https://hackerone.com/reports/189793" title="HackerOne report - [Android] XSS via start ContentActivity">HackerOne report - [Android] XSS via start ContentActivity</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Manual_memory_management">Manual memory management</a></li>
-<li><a href="https://blog.nettitude.com/uk/qnap-android-dont-provide" title="Nettitude Blog - QNAP Android: Don't Over Provide">Nettitude Blog - QNAP Android: Don't Over Provide</a></li>
-<li><a href="https://owasp.org/www-community/Fuzzing" title="OWASP Fuzzing Guide">OWASP Fuzzing Guide</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="OWASP XSS Prevention Cheat Sheet">OWASP XSS Prevention Cheat Sheet</a></li>
-<li><a href="https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html">Objective-C</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Position-independent_code">PIC (Position Independent Code)</a></li>
-<li><a href="https://code.google.com/archive/p/rough-auditing-tool-for-security/downloads" title="RATS - Rough auditing tool for security">RATS - Rough auditing tool for security</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Stack_buffer_overflow#Stack_canaries">Stack canaries</a></li>
-<li><a href="https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html">Swift</a></li>
-<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting.html" title="Testing for Reflected Cross site scripting">Testing for Reflected Cross site scripting</a></li>
-<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/07-Testing_for_XML_Injection" title="Testing for XML Injection">Testing for XML Injection</a></li>
-<li><a href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_%28XXE%29_Processing" title="XML eXternal Entity attack (XXE)">XML eXternal Entity attack (XXE)</a></li>
-<li><a href="https://superevr.com/blog/2011/xss-in-skype-for-ios" title="XSS in Skype for iOS">XSS in Skype for iOS</a></li>
-<li><a href="https://blog.ostorlab.co/android-sql-contentProvider-sql-injections.html">Yahoo's weather mobile application</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Buffer_overflow">buffer overflow</a></li>
-<li><a href="https://fragmentedpodcast.com/episodes/064/">here</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik#Improved_GC">improved version of GC</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Memory_leak">memory leaks</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Memory_safety">memory safety</a></li>
-</ul>
 
 
 

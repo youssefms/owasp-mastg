@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3106,15 +3106,6 @@
   <a href="#effectiveness-assessment" class="md-nav__link">
     <span class="md-ellipsis">
       Effectiveness Assessment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11430,15 +11421,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11484,7 +11466,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 08, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11563,7 +11545,7 @@ The following methods describe different approaches to bypass debugger detection
 <li>Changing the environment: Android is an open environment. If nothing else works, you can modify the operating system to subvert the assumptions the developers made when designing the anti-debugging tricks.</li>
 </ul>
 <h3 id="bypassing-example-uncrackable-app-for-android-level-2">Bypassing Example: UnCrackable App for Android Level 2<a class="headerlink" href="#bypassing-example-uncrackable-app-for-android-level-2" title="Permanent link">&para;</a></h3>
-<p>When dealing with obfuscated apps, you'll often find that developers purposely "hide away" data and functionality in native libraries. You'll find an example of this in <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l2">level 2 of the "UnCrackable App for Android</a>.</p>
+<p>When dealing with obfuscated apps, you'll often find that developers purposely "hide away" data and functionality in native libraries. You'll find an example of this in <a href="../../../../apps/android/MASTG-APP-0004/" title="UnCrackable App for Android Level 2">UnCrackable App for Android Level 2</a>.</p>
 <p>At first glance, the code looks like the prior challenge. A class called <code>CodeCheck</code> is responsible for verifying the code entered by the user. The actual check appears to occur in the <code>bar</code> method, which is declared as a <em>native</em> method.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">sg.vantagepoint.uncrackable2</span><span class="p">;</span>
 
@@ -11601,10 +11583,6 @@ The following methods describe different approaches to bypass debugger detection
 <li>What is your subjective assessment of the difficulty of bypassing the mechanisms?</li>
 </ul>
 <p>If anti-debugging mechanisms are missing or too easily bypassed, make suggestions in line with the effectiveness criteria above. These suggestions may include adding more detection mechanisms and better integration of existing mechanisms with other defenses.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://mas.owasp.org/crackmes/Android#android-uncrackable-l2" title="Solutions Android Crackme Level 2">Solutions Android Crackme Level 2</a></li>
-</ul>
 
 
 

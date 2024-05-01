@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6175,15 +6175,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11434,15 +11425,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11578,9 +11560,9 @@ Load<span class="w"> </span><span class="nb">command</span><span class="w"> </sp
 crypto<span class="w">   </span><span class="nb">true</span>
 </code></pre></div>
 <p>In order to retrieve the unencrypted version, you can use <a href="https://github.com/AloneMonkey/frida-ios-dump" title="frida-ios-dump">frida-ios-dump</a>. It will extract the unencrypted version from memory while the application is running on the device.</p>
-<p>First, configure <a href="/MASTG/Tools/0x08a-Testing-Tools#frida-ios-dump">Frida-ios-dump</a> <code>dump.py</code>:</p>
+<p>First, configure <a href="0x08a-Testing-Tools.md#frida-ios-dump">Frida-ios-dump</a> <code>dump.py</code>:</p>
 <ul>
-<li>set it to use <code>localhost</code> with port <code>2222</code> when using <a href="/MASTG/Tools/0x08a-Testing-Tools#iproxy">iproxy</a>, or to the actual IP address and port of the device from which you want to dump the binary.</li>
+<li>set it to use <code>localhost</code> with port <code>2222</code> when using <a href="0x08a-Testing-Tools.md#iproxy">iproxy</a>, or to the actual IP address and port of the device from which you want to dump the binary.</li>
 <li>update the default username (<code>User = 'root'</code>) and password (<code>Password = 'alpine'</code>) in <code>dump.py</code> to the ones you have set.</li>
 </ul>
 <p>Enumerate the apps installed on the device by running <code>python dump.py -l</code>:</p>
@@ -11594,7 +11576,7 @@ crypto<span class="w">   </span><span class="nb">true</span>
 <span class="w">   </span>...
 </code></pre></div>
 <p>You can dump the selected app, for example Telegram, by running <code>python dump.py ph.telegra.Telegraph</code></p>
-<p>After a couple of seconds, the <code>Telegram.ipa</code> file will be created in your current directory. You can validate the success of the dump by removing the app and reinstalling it (e.g. using <a href="/MASTG/Tools/0x08a-Testing-Tools#ios-deploy">ios-deploy</a> <code>ios-deploy -b Telegram.ipa</code>). Note that this will only work on jailbroken devices, as otherwise the signature won't be valid.</p>
+<p>After a couple of seconds, the <code>Telegram.ipa</code> file will be created in your current directory. You can validate the success of the dump by removing the app and reinstalling it (e.g. using <a href="0x08a-Testing-Tools.md#ios-deploy">ios-deploy</a> <code>ios-deploy -b Telegram.ipa</code>). Note that this will only work on jailbroken devices, as otherwise the signature won't be valid.</p>
 <p>You can verify that the app binary is now unencrypted:</p>
 <div class="highlight"><pre><span></span><code>rabin2<span class="w"> </span>-I<span class="w"> </span>Payload/Telegram<span class="w"> </span>X.app/Telegram<span class="w"> </span>X<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>crypto
 crypto<span class="w">   </span><span class="nb">false</span>
@@ -11602,7 +11584,7 @@ crypto<span class="w">   </span><span class="nb">false</span>
 <h2 id="thinning-the-app-binary">Thinning the App Binary<a class="headerlink" href="#thinning-the-app-binary" title="Permanent link">&para;</a></h2>
 <p>The app binary may contain multiple architectures, such as <code>armv7</code> (32-bit) and <code>arm64</code> (64-bit). That is called a "fat binary".</p>
 <p>One example is the <a href="https://github.com/prateek147/DVIA/">Damn Vulnerable iOS App DVIA v1</a> to demonstrate this.</p>
-<p>Unzip the app and run <a href="/MASTG/Tools/0x08a-Testing-Tools#otool">otool</a>:</p>
+<p>Unzip the app and run <a href="0x08a-Testing-Tools.md#otool">otool</a>:</p>
 <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>DamnVulnerableiOSApp.ipa
 <span class="nb">cd</span><span class="w"> </span>Payload/DamnVulnerableIOSApp.app
 otool<span class="w"> </span>-hv<span class="w"> </span>DamnVulnerableIOSApp
@@ -11620,13 +11602,6 @@ MH_MAGIC_64<span class="w">    </span>ARM64<span class="w">        </span>ALL<sp
 <p>To ease the app analysis, it's recommended create a so-called thin binary, which contains one architecture only:</p>
 <div class="highlight"><pre><span></span><code>lipo<span class="w"> </span>-thin<span class="w"> </span>armv7<span class="w"> </span>DamnVulnerableIOSApp<span class="w"> </span>-output<span class="w"> </span>DVIA32
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://support.corellium.com/en/articles/6181345-testing-third-party-ios-apps">Corellium</a>)</li>
-<li><a href="https://github.com/prateek147/DVIA/">Damn Vulnerable iOS App DVIA v1</a></li>
-<li><a href="https://www.npmjs.com/package/itms-services" title="ITMS services asset downloader">ITMS services asset downloader</a></li>
-<li><a href="https://github.com/AloneMonkey/frida-ios-dump" title="frida-ios-dump">frida-ios-dump</a></li>
-</ul>
 
 
 

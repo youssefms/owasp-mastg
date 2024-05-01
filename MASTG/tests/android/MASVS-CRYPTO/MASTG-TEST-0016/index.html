@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2068,15 +2068,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11551,14 +11533,7 @@ Pseudo-random number generators <a href="https://www.securecoding.cert.org/confl
 <p>Once an attacker knows what type of weak pseudo-random number generator (PRNG) is used, it can be trivial to write a proof-of-concept to generate the next random value based on previously observed ones, as it was <a href="https://franklinta.com/2014/08/31/predicting-the-next-math-random-in-java/" title="Predicting the next Math.random() in Java">done for Java Random</a>. In case of very weak custom random generators it may be possible to observe the pattern statistically. Although the recommended approach would anyway be to decompile the APK and inspect the algorithm (see Static Analysis).</p>
 <p>If you want to test for randomness, you can try to capture a large set of numbers and check with the Burp's <a href="https://portswigger.net/burp/documentation/desktop/tools/sequencer" title="Burp\'s Sequencer">sequencer</a> to see how good the quality of the randomness is.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#method-tracing">method tracing</a> on the mentioned classes and methods to determine input / output values being used.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://portswigger.net/burp/documentation/desktop/tools/sequencer" title="Burp's Sequencer">Burp's Sequencer</a></li>
-<li><a href="https://www.securecoding.cert.org/confluence/display/java/MSC02-J.+Generate+strong+random+numbers" title="Generation of Strong Random Numbers">Generation of Strong Random Numbers</a></li>
-<li><a href="https://franklinta.com/2014/08/31/predicting-the-next-math-random-in-java/" title="Predicting the next Math.random() in Java">Predicting the next Math.random() in Java</a></li>
-<li><a href="https://www.securecoding.cert.org/confluence/display/java/MSC63-J.+Ensure+that+SecureRandom+is+properly+seeded" title="Proper seeding of SecureRandom">Proper seeding of SecureRandom</a></li>
-</ul>
+<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on the mentioned classes and methods to determine input / output values being used.</p>
 
 
 

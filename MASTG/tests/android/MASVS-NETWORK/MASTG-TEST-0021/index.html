@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2343,15 +2343,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11538,15 +11529,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11676,17 +11658,17 @@
 </blockquote>
 <h3 id="verifying-the-target-sdk-version">Verifying the Target SDK Version<a class="headerlink" href="#verifying-the-target-sdk-version" title="Permanent link">&para;</a></h3>
 <p>Applications targeting Android 7.0 (API level 24) or higher will use a <strong>default Network Security Configuration that doesn't trust any user supplied CAs</strong>, reducing the possibility of MITM attacks by luring users to install malicious CAs.</p>
-<p><a href="/MASTG/Android/0x05b-Android-Security-Testing#exploring-the-app-package">Decode the app using apktool</a> and verify that the <code>targetSdkVersion</code> in apktool.yml is equal to or higher than <code>24</code>.</p>
+<p><a href="../../../Document/0x05b-Android-Security-Testing.md#exploring-the-app-package">Decode the app using apktool</a> and verify that the <code>targetSdkVersion</code> in apktool.yml is equal to or higher than <code>24</code>.</p>
 <div class="highlight"><pre><span></span><code>grep targetSdkVersion UnCrackable-Level3/apktool.yml
   targetSdkVersion: &#39;28&#39;
 </code></pre></div>
 <p>However, even if <code>targetSdkVersion &gt;=24</code>, the developer can disable default protections by using a custom Network Security Configuration defining a custom trust anchor <strong>forcing the app to trust user supplied CAs</strong>. See <a href="#analyzing-custom-trust-anchors">"Analyzing Custom Trust Anchors"</a>.</p>
 <h3 id="analyzing-custom-trust-anchors">Analyzing Custom Trust Anchors<a class="headerlink" href="#analyzing-custom-trust-anchors" title="Permanent link">&para;</a></h3>
-<p>Search for the <a href="/MASTG/Android/0x05g-Testing-Network-Communication#android-network-security-configuration">Network Security Configuration</a> file and inspect any custom <code>&lt;trust-anchors&gt;</code> defining <code>&lt;certificates src="user"&gt;</code> (which should be avoided).</p>
+<p>Search for the <a href="../../../Document/0x05g-Testing-Network-Communication.md#android-network-security-configuration">Network Security Configuration</a> file and inspect any custom <code>&lt;trust-anchors&gt;</code> defining <code>&lt;certificates src="user"&gt;</code> (which should be avoided).</p>
 <p>You should carefully analyze the <a href="https://developer.android.com/training/articles/security-config#ConfigInheritance">precedence of entries</a>:</p>
 <ul>
 <li>If a value is not set in a <code>&lt;domain-config&gt;</code> entry or in a parent <code>&lt;domain-config&gt;</code>, the configurations in place will be based on the <code>&lt;base-config&gt;</code></li>
-<li>If not defined in this entry, the <a href="/MASTG/Android/0x05g-Testing-Network-Communication#default-configurations">default configurations</a> will be used.</li>
+<li>If not defined in this entry, the <a href="../../../Document/0x05g-Testing-Network-Communication.md#default-configurations">default configurations</a> will be used.</li>
 </ul>
 <p>Take a look at this example of a Network Security Configuration for an app targeting Android 9 (API level 28):</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
@@ -11702,7 +11684,7 @@
 </code></pre></div>
 <p>Some observations:</p>
 <ul>
-<li>There's no <code>&lt;base-config&gt;</code>, meaning that the <a href="/MASTG/Android/0x05g-Testing-Network-Communication#default-configurations">default configuration</a> for Android 9 (API level 28) or higher will be used for all other connections (only <code>system</code> CA will be trusted in principle).</li>
+<li>There's no <code>&lt;base-config&gt;</code>, meaning that the <a href="../../../Document/0x05g-Testing-Network-Communication.md#default-configurations">default configuration</a> for Android 9 (API level 28) or higher will be used for all other connections (only <code>system</code> CA will be trusted in principle).</li>
 <li>However, the <code>&lt;domain-config&gt;</code> overrides the default configuration allowing the app to trust both <code>system</code> and <code>user</code> CAs for the indicated <code>&lt;domain&gt;</code> (owasp.org).</li>
 <li>This doesn't affect subdomains because of <code>includeSubdomains="false"</code>.</li>
 </ul>
@@ -11784,15 +11766,7 @@
 <li>Go to the <strong>Certificate</strong> tab, check <strong>Generate a CA-signed certificate with a specific hostname</strong>, and type in an invalid hostname, e.g., example.org.</li>
 <li>Run your application. If you're able to see HTTPS traffic, your application is accepting all hostnames.</li>
 </ul>
-<p>If you're still not able to see any decrypted HTTPS traffic, your application might be implementing <a href="/MASTG/General/0x04f-Testing-Network-Communication#restricting-trust-identity-pinning">certificate pinning</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/training/articles/security-ssl.html" title="Android Documentation - SSL">Android Documentation - SSL</a></li>
-<li><a href="https://cwe.mitre.org/data/definitions/295.html" title="CWE-295: Improper Certificate Validation">CWE-295: Improper Certificate Validation</a></li>
-<li><a href="https://saschafahl.de/static/paper/androidssl2012.pdf" title="Hunting Down Broken SSL in Android Apps">Hunting Down Broken SSL in Android Apps</a></li>
-<li><a href="https://github.com/apache/cordova-android/blob/master/framework/src/org/apache/cordova/engine/SystemWebViewClient.java" title="TLS errors ignoring by Apache Cordova in WebView">TLS errors ignoring by Apache Cordova in WebView</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config#ConfigInheritance">precedence of entries</a></li>
-</ul>
+<p>If you're still not able to see any decrypted HTTPS traffic, your application might be implementing <a href="../../../Document/0x04f-Testing-Network-Communication.md#restricting-trust-identity-pinning">certificate pinning</a>.</p>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3830,15 +3830,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11466,15 +11457,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11608,8 +11590,8 @@
 </ul>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <h3 id="server-certificate-pinning">Server certificate pinning<a class="headerlink" href="#server-certificate-pinning" title="Permanent link">&para;</a></h3>
-<p>Follow the instructions from the Dynamic Analysis section of <a href="">Testing Endpoint Identity Verification</a>. If doing so doesn't lead to traffic being proxied, it may mean that certificate pinning is actually implemented and all security measures are in place. Does the same happen for all domains?</p>
-<p>As a quick smoke test, you can try to bypass certificate pinning using <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">objection</a> as described in <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#bypassing-certificate-pinning">Bypassing Certificate Pinning</a>. Pinning related APIs being hooked by objection should appear in objection's output.</p>
+<p>Follow the instructions from the Dynamic Analysis section of <a href="../MASTG-TEST-0067/">"Testing Endpoint Identity Verification</a>. If doing so doesn't lead to traffic being proxied, it may mean that certificate pinning is actually implemented and all security measures are in place. Does the same happen for all domains?</p>
+<p>As a quick smoke test, you can try to bypass certificate pinning using <a href="../../../Document/0x08a-Testing-Tools.md#objection">objection</a> as described in <a href="../../../Document/0x06b-iOS-Security-Testing.md#bypassing-certificate-pinning">"Bypassing Certificate Pinning"</a>. Pinning related APIs being hooked by objection should appear in objection's output.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/ios_ssl_pinning_bypass.png" width="100%" /></p>
 <p>However, keep in mind that:</p>
 <ul>
@@ -11629,17 +11611,6 @@
 <p>Second way of storing the certificate (and possibly password) is to use the Keychain. Upon first login, the application should download the personal certificate and store it securely in the Keychain.</p>
 <p>Sometimes applications have one certificate that is hardcoded and use it for the first login and then the personal certificate is downloaded. In this case, check if it's possible to still use the 'generic' certificate to connect to the server.</p>
 <p>Once you have extracted the certificate from the application (e.g. using Frida), add it as client certificate in Burp, and you will be able to intercept the traffic.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/AFNetworking/AFNetworking" title="AfNetworking">AfNetworking</a></li>
-<li><a href="https://github.com/Alamofire/Alamofire" title="AlamoFire">AlamoFire</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2232/_index.html#//apple_ref/doc/uid/DTS40012884-CH1-SECNSURLCONNECTION" title="HTTPS Server Trust Evaluation">HTTPS Server Trust Evaluation</a></li>
-<li><a href="https://developer.apple.com/news/?id=g9ejcf8y" title="Identity Pinning: How to configure server certificates for your app">Identity Pinning: How to configure server certificates for your app</a></li>
-<li><a href="https://github.com/datatheorem/TrustKit" title="TrustKit">TrustKit</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/nsurlconnectiondelegate/1414078-connection?language=objc" title="connection:willSendRequestForAuthenticationChallenge:">connection:willSendRequestForAuthenticationChallenge:</a></li>
-<li><a href="https://github.com/Alamofire/Alamofire/blob/master/Documentation/AdvancedUsage.md#security">documentation</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/master/agent/src/ios/pinning.ts">supported by objection</a></li>
-</ul>
 
 
 

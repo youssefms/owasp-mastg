@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1168,15 +1168,6 @@
   <a href="#testing-user-education-on-security-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       Testing User Education on Security Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11626,15 +11617,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11828,7 +11810,7 @@
 <p>The app passes the test as long as the developer has complied with the app marketplace guidelines and included the required labels and explanations. The developer's disclosures in the app marketpace should be stored as evidence, so that you can later use it to determine potential violations of privacy or data protection.</p>
 <h3 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h3>
 <p>As an optional step, you can also provide some kind of evidence as part of this test. For instance, if you're testing an iOS app you can easily enable app activity recording and export a <a href="https://developer.apple.com/documentation/network/privacy_management/inspecting_app_activity_data">Privacy Report</a> that contains detailed app access to different resources such as photos, contacts, camera, microphone, network connections, etc.</p>
-<p>A dynamic analysis has many advantages for testing other MASVS categories and it provides very useful information that you can use to <a href="/MASTG/iOS/0x06g-Testing-Network-Communication">test network communication</a> for MASVS-NETWORK or when <a href="/MASTG/iOS/0x06h-Testing-Platform-Interaction">testing app interaction with the platform</a> for MASVS-PLATFORM. While testing these other categories, you might have taken similar measurements using other testing tools. You can also provide this as evidence for this test.</p>
+<p>A dynamic analysis has many advantages for testing other MASVS categories and it provides very useful information that you can use to <a href="0x06g-Testing-Network-Communication.md">test network communication</a> for MASVS-NETWORK or when <a href="0x06h-Testing-Platform-Interaction.md">testing app interaction with the platform</a> for MASVS-PLATFORM. While testing these other categories, you might have taken similar measurements using other testing tools. You can also provide this as evidence for this test.</p>
 <blockquote>
 <p>Though the information available should be compared against what the app is actually meant to do, this will be far from a trivial task that could take from several days to weeks to finish depending on your resources and the capabilities of your automated tools. These tests also heavily depends on the app functionality and context and should be ideally performed on a white box setup working very closely with the app developers.</p>
 </blockquote>
@@ -11862,33 +11844,6 @@
 <li>Software Licenses in Plain English - <a href="https://tldrlegal.com/">https://tldrlegal.com/</a></li>
 <li>Apple's approach to access private data - <a href="https://developer.apple.com/design/human-interface-guidelines/privacy">https://developer.apple.com/design/human-interface-guidelines/privacy</a></li>
 <li>Android app permissions best practices - <a href="https://developer.android.com/training/permissions/requesting.html#explain">https://developer.android.com/training/permissions/requesting.html#explain</a></li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/9859455#privacy_policy">Android App Privacy Policy</a></li>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/10787469">Android Data Safety Section on Google Play</a></li>
-<li><a href="https://developer.android.com/privacy/best-practices">Android Privacy Best Practices</a></li>
-<li><a href="https://appdefensealliance.dev/">App Defense Alliance (ADA)</a></li>
-<li><a href="https://developer.apple.com/documentation/apptrackingtransparency">App Tracking Transparency Framework</a></li>
-<li><a href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.02042022-1.pdf">Consumer Software Cybersecurity Labeling</a></li>
-<li><a href="https://developer.android.com/guide/topics/data/collect-share">Data Safety Section</a></li>
-<li><a href="https://www.enisa.europa.eu/publications/privacy-and-data-protection-in-mobile-applications" title="ENISA - Privacy and data protection in mobile applications">ENISA - Privacy and data protection in mobile applications</a></li>
-<li><a href="https://drive.google.com/file/d/1cp7zrqJuVkftJ0DARNN40Ga_m_tEhIrQ/view?usp=sharing">Engineering Privacy in Smartphone Apps: A Technical Guideline Catalog for App Developers" by Majid Hatamian</a></li>
-<li><a href="https://gdpr-info.eu/" title="GDPR">GDPR</a></li>
-<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdBl_eCNcUeUVDiB2duiJLZ5s4AV5AhDVuOz_1u8S9qhcXF5g/viewform" title="Google Play - Independent Security Review form">Google Play - Independent Security Review form</a></li>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/10144311?hl=en-GB#1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;87&amp;9&amp;zippy=%2Cexamples-of-common-violations" title="Google Play Console Help - Examples of Common Privacy Violations">Google Play Console Help - Examples of Common Privacy Violations</a></li>
-<li><a href="https://appdefensealliance.dev/masa">MASA (Mobile Application Security Assessment)</a></li>
-<li><a href="https://www.apple.com/privacy/labels/">Nutrition Labels</a></li>
-<li><a href="https://www.youtube.com/watch?v=J7TM0Yy0aTQ">Preparing your app for the new Data safety section in Google Play</a></li>
-<li><a href="https://developer.apple.com/app-store/app-privacy-details/">Privacy Details</a></li>
-<li><a href="https://developer.apple.com/documentation/network/privacy_management/inspecting_app_activity_data">Privacy Report</a></li>
-<li><a href="https://ieeexplore.ieee.org/document/7163220">Protection Goals for Privacy Engineering</a></li>
-<li><a href="https://developer.android.com/guide/topics/data/collect-share">Safety Section</a></li>
-<li><a href="https://ieeexplore.ieee.org/document/7163220#sec2e">The Three Axes</a></li>
-<li><a href="https://support.google.com/googleplay/android-developer/answer/10144311?hl=en-GB#1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;87&amp;9&amp;zippy=%2Cexamples-of-common-violations">common privacy violations</a></li>
-<li><a href="https://developer.apple.com/documentation/healthkit/protecting_user_privacy#3705073">iOS App Privacy Policy</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy">iOS Privacy Best Practices</a></li>
-<li><a href="https://developer.apple.com/app-store/app-privacy-details/">iOS Privacy Details Section on the App Store</a></li>
 </ul>
 
 

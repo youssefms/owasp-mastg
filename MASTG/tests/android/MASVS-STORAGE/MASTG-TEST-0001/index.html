@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1781,15 +1781,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11650,7 +11632,7 @@
 <li>Check both internal and external local storage for any files created by the application that contain sensitive data.</li>
 <li>Identify development files, backup files, and old files that shouldn't be included with a production release.</li>
 <li>Determine whether SQLite databases are available and whether they contain sensitive information. SQLite databases are stored in <code>/data/data/&lt;package-name&gt;/databases</code>.</li>
-<li>Identify if SQLite databases are encrypted. If so, determine how the database password is generated and stored and if this is sufficiently protected as described in the "<a href="/MASTG/Android/0x05d-Testing-Data-Storage#storing-a-cryptographic-key-techniques">Storing a Key</a>" section of the Keystore overview.</li>
+<li>Identify if SQLite databases are encrypted. If so, determine how the database password is generated and stored and if this is sufficiently protected as described in the "<a href="../../../Document/0x05d-Testing-Data-Storage.md#storing-a-cryptographic-key-techniques">Storing a Key</a>" section of the Keystore overview.</li>
 <li>Check Shared Preferences that are stored as XML files (in <code>/data/data/&lt;package-name&gt;/shared_prefs</code>) for sensitive information. Shared Preferences are insecure and unencrypted by default. Some apps might opt to use <a href="https://github.com/scottyab/secure-preferences" title="Secure-preferences encrypts the values of Shared Preferences">secure-preferences</a> to encrypt the values stored in Shared Preferences.</li>
 <li>Check the permissions of the files in <code>/data/data/&lt;package-name&gt;</code>. Only the user and group created when you installed the app (e.g., u0_a82) should have user read, write, and execute permissions (<code>rwx</code>). Other users should not have permission to access files, but they may have execute permissions for directories.</li>
 <li>Check for the usage of any Firebase Real-time databases and attempt to identify if they are misconfigured by making the following network call:<ul>
@@ -11658,12 +11640,6 @@
 </ul>
 </li>
 <li>Determine whether a Realm database is available in <code>/data/data/&lt;package-name&gt;/files/</code>, whether it is unencrypted, and whether it contains sensitive information. By default, the file extension is <code>realm</code> and the file name is <code>default</code>. Inspect the Realm database with the <a href="https://github.com/realm/realm-browser-osx" title="Realm Browser for macOS">Realm Browser</a>.</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/realm/realm-browser-osx" title="Realm Browser for macOS">Realm Browser for macOS</a></li>
-<li><a href="https://github.com/scottyab/secure-preferences" title="Secure-preferences encrypts the values of Shared Preferences">Secure-preferences encrypts the values of Shared Preferences</a></li>
-<li><a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedFile"><code>EncryptedFile</code></a>/<a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences"><code>EncryptedSharedPreferences</code></a></li>
 </ul>
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6787,15 +6787,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11398,15 +11389,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11438,7 +11420,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11533,7 +11515,7 @@
 <span class="nt">&lt;/dict&gt;</span>
 <span class="nt">&lt;/plist&gt;</span>
 </code></pre></div>
-<p>Apply the entitlement with <a href="" title="codesign">codesign</a>:</p>
+<p>Apply the entitlement with <a href="../../../tools/ios/MASTG-TOOL-0101/" title="codesign">codesign</a>:</p>
 <div class="highlight"><pre><span></span><code>codesign<span class="w"> </span>-s<span class="w"> </span>-<span class="w"> </span>--entitlements<span class="w"> </span>entitlements.plist<span class="w"> </span>-f<span class="w"> </span>debugserver
 </code></pre></div>
 <p>Copy the modified binary to any directory on the test device. The following examples use usbmuxd to forward a local port through USB.</p>
@@ -11608,7 +11590,7 @@ Attaching<span class="w"> </span>to<span class="w"> </span>process<span class="w
 </code></pre></div>
 <p>Typing <code>image list</code> gives a list of main executable and all dependent libraries.</p>
 <h2 id="debugging-release-apps">Debugging Release Apps<a class="headerlink" href="#debugging-release-apps" title="Permanent link">&para;</a></h2>
-<p>In the previous section we learned about how to setup a debugging environment on an iOS device using LLDB. In this section we will use this information and learn how to debug a 3rd party release application. We will continue using the <a href="" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> and solve it using a debugger.</p>
+<p>In the previous section we learned about how to setup a debugging environment on an iOS device using LLDB. In this section we will use this information and learn how to debug a 3rd party release application. We will continue using the <a href="../../../apps/ios/MASTG-APP-0025/" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> and solve it using a debugger.</p>
 <p>In contrast to a debug build, the code compiled for a release build is optimized to achieve maximum performance and minimum binary build size. As a general best practice, most of the debug symbols are stripped for a release build, adding a layer of complexity when reverse engineering and debugging the binaries.</p>
 <p>Due to the absence of the debug symbols, symbol names are missing from the backtrace outputs and setting breakpoints by simply using function names is not possible. Fortunately, debuggers also support setting breakpoints directly on memory addresses. Further in this section we will learn how to do so and eventually solve the crackme challenge.</p>
 <p>Some groundwork is needed before setting a breakpoint using memory addresses. It requires determining two offsets:</p>
@@ -11622,7 +11604,7 @@ Attaching<span class="w"> </span>to<span class="w"> </span>process<span class="w
 <p>The final breakpoint address to be used in the debugger is the sum of the above two addresses (Breakpoint offset + ASLR shift offset). This approach assumes that the image base address (discussed shortly) used by the disassembler and iOS is the same, which is true most of the time.</p>
 <p>When a binary is opened in a disassembler like Ghidra, it loads a binary by emulating the respective operating system's loader. The address at which the binary is loaded is called <em>image base address</em>. All the code and symbols inside this binary can be addressed using a constant address offset from this image base address. In Ghidra, the image base address can be obtained by determining the address of the start of a Mach-O file. In this case, it is 0x100000000.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_ghidra_image_base_address.png" width="100%" /></p>
-<p>From our previous analysis of the <a href="" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> in "<a href="#manual-reversed-code-review">Manual (Reversed) Code Review</a>" section, the value of the hidden string is stored in a label with the <code>hidden</code> flag set. In the disassembly, the text value of this label is stored in register <code>X21</code>, stored via <code>mov</code> from <code>X0</code>, at offset 0x100004520. This is our <em>breakpoint offset</em>.</p>
+<p>From our previous analysis of the <a href="../../../apps/ios/MASTG-APP-0025/" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> in "<a href="#manual-reversed-code-review">Manual (Reversed) Code Review</a>" section, the value of the hidden string is stored in a label with the <code>hidden</code> flag set. In the disassembly, the text value of this label is stored in register <code>X21</code>, stored via <code>mov</code> from <code>X0</code>, at offset 0x100004520. This is our <em>breakpoint offset</em>.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_ghidra_breakpoint.png" width="100%" /></p>
 <p>For the second address, we need to determine the <em>ASLR shift offset</em> for a given process. The ASLR offset can be determined by using the LLDB command <code>image list -o -f</code>. The output is shown in the screenshot below.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_lldb_image_list.png" width="100%" /></p>
@@ -11634,13 +11616,6 @@ Attaching<span class="w"> </span>to<span class="w"> </span>process<span class="w
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_lldb_breakpoint_solution.png" width="100%" /></p>
 <p>Voila, the crackme can be easily solved aided by static analysis and a debugger. There are plethora of features implemented in LLDB, including changing the value of the registers, changing values in the process memory and even <a href="https://lldb.llvm.org/use/python.html" title="LLDB - Python Scripting">automating tasks using Python scripts</a>.</p>
 <p>Officially Apple recommends use of LLDB for debugging purposes, but GDB can be also used on iOS. The techniques discussed above are applicable while debugging using GDB as well, provided the LLDB specific commands are <a href="https://lldb.llvm.org/use/map.html" title="GDB to LLDB command map">changed to GDB commands</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://web.archive.org/web/20190223224236/https://iphonedevwiki.net/index.php/Debugserver" title="Debug Server on the iPhone Dev Wiki">Debug Server on the iPhone Dev Wiki</a></li>
-<li><a href="https://lldb.llvm.org/use/map.html" title="GDB to LLDB command map">GDB to LLDB command map</a></li>
-<li><a href="https://lldb.llvm.org/use/python.html" title="LLDB - Python Scripting">LLDB - Python Scripting</a></li>
-<li><a href="https://github.com/llvm/llvm-project/tree/main/lldb" title="LLDB">LLDB</a></li>
-</ul>
 
 
 

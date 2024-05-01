@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2687,15 +2687,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11742,15 +11733,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11867,7 +11849,7 @@
   <h1>Testing for Sensitive Functionality Exposure Through IPC</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#sensitive-functionality-exposure-through-ipc" title="Sensitive Functionality Exposure Through IPC&quot; &quot;Sensitive Functionality Exposure Through IPC">sensitive functionality exposure through IPC</a> mechanisms you should first enumerate all the IPC mechanisms the app uses and then try to identify whether sensitive data is leaked when the mechanisms are used.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#sensitive-functionality-exposure-through-ipc" title="Sensitive Functionality Exposure Through IPC">sensitive functionality exposure through IPC</a> mechanisms you should first enumerate all the IPC mechanisms the app uses and then try to identify whether sensitive data is leaked when the mechanisms are used.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>We start by looking at the AndroidManifest.xml, where all activities, services, and content providers included in the app must be declared (otherwise the system won't recognize them and they won't run).</p>
 <ul>
@@ -11883,7 +11865,7 @@
 <p>In the following, we use two example apps and give examples of identifying vulnerable IPC components:</p>
 <ul>
 <li><a href="https://github.com/mwrlabs/drozer/releases/download/2.3.4/sieve.apk" title="Sieve: Vulnerable Password Manager">"Sieve"</a></li>
-<li><a href="/MASTG/Tools/0x08b-Reference-Apps#insecurebankv2">Android Insecure Bank</a></li>
+<li><a href="../../../Document/0x08b-Reference-Apps.md#insecurebankv2">"Android Insecure Bank"</a></li>
 </ul>
 <h3 id="activities">Activities<a class="headerlink" href="#activities" title="Permanent link">&para;</a></h3>
 <h4 id="inspect-the-androidmanifest">Inspect the AndroidManifest<a class="headerlink" href="#inspect-the-androidmanifest" title="Permanent link">&para;</a></h4>
@@ -11983,7 +11965,7 @@
 </code></pre></div>
 <p>BroadcastReceivers should use the <code>android:permission</code> attribute;  otherwise, other applications can invoke them. You can use <code>Context.sendBroadcast(intent, receiverPermission);</code> to specify permissions a receiver must have to <a href="https://developer.android.com/reference/android/content/Context#sendBroadcast%28android.content.Intent,%20java.lang.String%29" title="SendBroadcast">read the broadcast</a>. You can also set an explicit application package name that limits the components this Intent will resolve to. If left as the default value (null), all components in all applications will be considered. If non-null, the Intent can match only the components in the given application package.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can enumerate IPC components with <a href="/MASTG/Tools/0x08a-Testing-Tools#mobsf" title="MobSF&quot; &quot;MobSF">MobSF</a>. To list all exported IPC components, upload the APK file and the components collection will be displayed in the following screen:</p>
+<p>You can enumerate IPC components with <a href="../../../Document/0x08a-Testing-Tools.md#mobsf" title="MobSF">MobSF</a>. To list all exported IPC components, upload the APK file and the components collection will be displayed in the following screen:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05h/MobSF_Show_Components.png" width="100%" /></p>
 <h3 id="content-providers">Content Providers<a class="headerlink" href="#content-providers" title="Permanent link">&para;</a></h3>
 <p>The "Sieve" application implements a vulnerable content provider. To list the content providers exported by the Sieve app, execute the following command:</p>
@@ -11991,7 +11973,7 @@
 Provider<span class="o">{</span>34a20d5<span class="w"> </span>com.mwr.example.sieve/.FileBackupProvider<span class="o">}</span>
 Provider<span class="o">{</span>64f10ea<span class="w"> </span>com.mwr.example.sieve/.DBContentProvider<span class="o">}</span>
 </code></pre></div>
-<p>Once identified, you can use <a href="/MASTG/Tools/0x08a-Testing-Tools#jadx" title="jadx&quot; &quot;jadx">jadx</a> to reverse engineer the app and analyze the source code of the exported content providers to identify potential vulnerabilities.</p>
+<p>Once identified, you can use <a href="../../../Document/0x08a-Testing-Tools.md#jadx" title="jadx">jadx</a> to reverse engineer the app and analyze the source code of the exported content providers to identify potential vulnerabilities.</p>
 <p>To identify the corresponding class of a content provider, use the following information:</p>
 <ul>
 <li>Package Name: <code>com.mwr.example.sieve</code>.</li>
@@ -12060,7 +12042,7 @@ E:<span class="w"> </span>activity<span class="w"> </span><span class="o">(</spa
 <li>It have an <code>intent-filter</code> sub declaration.</li>
 <li>It have the attribute <code>android:exported</code> to <code>0xffffffff</code>.</li>
 </ul>
-<p>You can also use <a href="/MASTG/Tools/0x08a-Testing-Tools#jadx" title="jadx&quot; &quot;jadx">jadx</a> to identify exported activities in the file <code>AndroidManifest.xml</code> using the criteria described above:</p>
+<p>You can also use <a href="../../../Document/0x08a-Testing-Tools.md#jadx" title="jadx">jadx</a> to identify exported activities in the file <code>AndroidManifest.xml</code> using the criteria described above:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span><span class="w"> </span><span class="na">package=</span><span class="s">&quot;com.mwr.example.sieve&quot;</span><span class="nt">&gt;</span>
 ...
@@ -12141,7 +12123,7 @@ E:<span class="w"> </span>receiver<span class="w"> </span><span class="o">(</spa
 <li>It has an <code>intent-filter</code> sub declaration.</li>
 <li>It has the attribute <code>android:exported</code> set to <code>0xffffffff</code>.</li>
 </ul>
-<p>You can also use <a href="/MASTG/Tools/0x08a-Testing-Tools#jadx" title="jadx&quot; &quot;jadx">jadx</a> to identify exported broadcast receivers in the file <code>AndroidManifest.xml</code> using the criteria described above:</p>
+<p>You can also use <a href="../../../Document/0x08a-Testing-Tools.md#jadx" title="jadx">jadx</a> to identify exported broadcast receivers in the file <code>AndroidManifest.xml</code> using the criteria described above:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span><span class="w"> </span><span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span><span class="w"> </span><span class="na">package=</span><span class="s">&quot;com.android.insecurebankv2&quot;</span><span class="nt">&gt;</span>
 ...
@@ -12160,8 +12142,8 @@ E:<span class="w"> </span>receiver<span class="w"> </span><span class="o">(</spa
 ...
 <span class="nt">&lt;/manifest&gt;</span>
 </code></pre></div>
-<p>The above example from the vulnerable banking application <a href="/MASTG/Tools/0x08b-Reference-Apps#insecurebankv2" title="Vulnerable applications for Android&quot; &quot;Vulnerable applications for Android">InsecureBankv2</a> shows that only the broadcast receiver named <code>com.android.insecurebankv2.MyBroadCastReceiver</code> is exported.</p>
-<p>Now that you know that there is an exported broadcast receiver, you can dive deeper and reverse engineer the app using <a href="/MASTG/Tools/0x08a-Testing-Tools#jadx" title="jadx&quot; &quot;jadx">jadx</a>. This will allow you to analyze the source code searching for potential vulnerabilities that you could later try to exploit. The source code of the exported broadcast receiver is the following:</p>
+<p>The above example from the vulnerable banking application <a href="../../../Document/0x08b-Reference-Apps.md#insecurebankv2" title="Vulnerable applications for Android">InsecureBankv2</a> shows that only the broadcast receiver named <code>com.android.insecurebankv2.MyBroadCastReceiver</code> is exported.</p>
+<p>Now that you know that there is an exported broadcast receiver, you can dive deeper and reverse engineer the app using <a href="../../../Document/0x08a-Testing-Tools.md#jadx" title="jadx">jadx</a>. This will allow you to analyze the source code searching for potential vulnerabilities that you could later try to exploit. The source code of the exported broadcast receiver is the following:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.android.insecurebankv2</span><span class="p">;</span>
 <span class="p">...</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyBroadCastReceiver</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BroadcastReceiver</span><span class="w"> </span><span class="p">{</span>
@@ -12225,15 +12207,6 @@ Intent<span class="w"> </span><span class="o">{</span><span class="w"> </span><s
 <span class="m">121</span>:<span class="w"> </span><span class="nv">act</span><span class="o">=</span>theBroadcast<span class="w"> </span><span class="nv">flg</span><span class="o">=</span>0x400010<span class="w"> </span><span class="o">(</span>has<span class="w"> </span>extras<span class="o">)</span>
 <span class="m">144</span>:<span class="w"> </span><span class="nv">act</span><span class="o">=</span>theBroadcast<span class="w"> </span><span class="nv">flg</span><span class="o">=</span>0x400010<span class="w"> </span><span class="o">(</span>has<span class="w"> </span>extras<span class="o">)</span>
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/topics/manifest/intent-filter-element.html" title="IntentFilterElement">IntentFilterElement</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/provider-element.html" title="ProviderElement">ProviderElement</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/receiver-element.html" title="ReceiverElement">ReceiverElement</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Context#sendBroadcast%28android.content.Intent,%20java.lang.String%29" title="SendBroadcast">SendBroadcast</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/service-element.html" title="ServiceElement">ServiceElement</a></li>
-<li><a href="https://github.com/mwrlabs/drozer/releases/download/2.3.4/sieve.apk" title="Sieve: Vulnerable Password Manager">Sieve: Vulnerable Password Manager</a></li>
-</ul>
 
 
 

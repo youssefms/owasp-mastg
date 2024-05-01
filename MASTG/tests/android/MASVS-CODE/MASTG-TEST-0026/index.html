@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2802,15 +2802,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11466,15 +11457,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11591,7 +11573,7 @@
   <h1>Testing Implicit Intents</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>When testing for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#implicit-intents">implicit intents</a> you need to check if they are vulnerable to injection attacks or potentially leaking sensitive data.</p>
+<p>When testing for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#implicit-intents">implicit intents</a> you need to check if they are vulnerable to injection attacks or potentially leaking sensitive data.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>Inspect the Android Manifest and look for any <code>&lt;intent&gt;</code> signatures defined inside <a href="https://developer.android.com/guide/topics/manifest/queries-element" title="Android queries"><queries> blocks</a> (which specify the set of other apps an app intends to interact with), check if it contains any system actions (e.g. <code>android.intent.action.GET_CONTENT</code>, <code>android.intent.action.PICK</code>, <code>android.media.action.IMAGE_CAPTURE</code>, etc.) and browse the source code for their occurrence.</p>
 <p>For example, the following <code>Intent</code> doesn't specify any concrete component, meaning that it's an implicit intent. It sets the action <code>android.intent.action.GET_CONTENT</code> to ask the user for input data and then the app starts the intent by <code>startActivityForResult</code> and specifying an image chooser.</p>
@@ -11687,12 +11669,6 @@
 </code></pre></div>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>A convenient way to dynamically test for implicit intents, especially to identify potentially leaked sensitive data, is to use Frida or frida-trace and hook the <code>startActivityForResult</code> and <code>onActivityResult</code> methods and inspect the provided intents and the data they contain.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://blog.oversecured.com/Interception-of-Android-implicit-intents" title="Current attacks on implicit intents"> Current attacks on implicit intents</a></li>
-<li><a href="https://developer.android.com/reference/android/content/ContentProvider" title="Android ContentProvider">Android ContentProvider</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/queries-element" title="Android queries">Android queries</a></li>
-</ul>
 
 
 

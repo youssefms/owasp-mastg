@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5214,15 +5214,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11482,15 +11473,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11592,7 +11574,7 @@
 
   <h1>Basic Network Monitoring/Sniffing</h1>
 
-<p><a href="https://blog.dornea.nu/2015/02/20/android-remote-sniffing-using-tcpdump-nc-and-wireshark/" title="Android remote sniffing using Tcpdump, nc and Wireshark">Remotely sniffing all Android traffic in real-time is possible</a> with <a href="/MASTG/Tools/0x08a-Testing-Tools#tcpdump">tcpdump</a>, netcat (nc), and <a href="/MASTG/Tools/0x08a-Testing-Tools#wireshark">Wireshark</a>. First, make sure that you have the latest version of <a href="https://www.androidtcpdump.com/">Android tcpdump</a> on your phone. Here are the <a href="https://wladimir-tm4pda.github.io/porting/tcpdump.html" title="Installing tcpdump">installation steps</a>:</p>
+<p><a href="https://blog.dornea.nu/2015/02/20/android-remote-sniffing-using-tcpdump-nc-and-wireshark/" title="Android remote sniffing using Tcpdump, nc and Wireshark">Remotely sniffing all Android traffic in real-time is possible</a> with <a href="0x08a-Testing-Tools.md#tcpdump">tcpdump</a>, netcat (nc), and <a href="0x08a-Testing-Tools.md#wireshark">Wireshark</a>. First, make sure that you have the latest version of <a href="https://www.androidtcpdump.com/">Android tcpdump</a> on your phone. Here are the <a href="https://wladimir-tm4pda.github.io/porting/tcpdump.html" title="Installing tcpdump">installation steps</a>:</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>root
 adb<span class="w"> </span>remount
 adb<span class="w"> </span>push<span class="w"> </span>/wherever/you/put/tcpdump<span class="w"> </span>/system/xbin/tcpdump
@@ -11682,16 +11664,6 @@ listening<span class="w"> </span>on<span class="w"> </span>wlan0,<span class="w"
 <p><img src="../../../../../assets/Images/Chapters/0x05b/FCM_Intercept.png" width="100%" /></p>
 <h3 id="end-to-end-encryption-for-push-notifications">End-to-End Encryption for Push Notifications<a class="headerlink" href="#end-to-end-encryption-for-push-notifications" title="Permanent link">&para;</a></h3>
 <p>As an additional layer of security, push notifications can be encrypted by using <a href="https://github.com/google/capillary" title="Capillary">Capillary</a>. Capillary is a library to simplify the sending of end-to-end (E2E) encrypted push messages from Java-based application servers to Android clients.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://blog.dornea.nu/2015/02/20/android-remote-sniffing-using-tcpdump-nc-and-wireshark/" title="Android remote sniffing using Tcpdump, nc and Wireshark">Android remote sniffing using Tcpdump, nc and Wireshark</a></li>
-<li><a href="https://www.androidtcpdump.com/">Android tcpdump</a></li>
-<li><a href="https://github.com/google/capillary" title="Capillary">Capillary</a></li>
-<li><a href="https://firebase.google.com/docs/cloud-messaging/server#choose" title="Differences of HTTP and XMPP in FCM">Differences of HTTP and XMPP in FCM</a></li>
-<li><a href="https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref" title="Firebase via XMPP">Firebase via XMPP</a></li>
-<li><a href="https://stackoverflow.com/a/28018008" title="How can I remount my Android/system as read-write in a bash script using adb?">How can I remount my Android/system as read-write in a bash script using adb?</a></li>
-<li><a href="https://wladimir-tm4pda.github.io/porting/tcpdump.html" title="Installing tcpdump">Installing tcpdump</a></li>
-</ul>
 
 
 

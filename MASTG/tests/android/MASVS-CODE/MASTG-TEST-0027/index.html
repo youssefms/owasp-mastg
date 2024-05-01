@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2823,15 +2823,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11466,15 +11457,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11591,7 +11573,7 @@
   <h1>Testing for URL Loading in WebViews</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>In order to test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#url-loading-in-webviews" title="URL Loading in WebViews&quot; &quot;URL Loading in WebViews">URL loading in WebViews</a> you need to carefully analyze <a href="https://developer.android.com/guide/webapps/webview#HandlingNavigation" title="Handling page navigation">handling page navigation</a>, especially when users might be able to navigate away from a trusted environment. The default and safest behavior on Android is to let the default web browser open any link that the user might click inside the WebView. However, this default logic can be modified by configuring a <code>WebViewClient</code> which allows navigation requests to be handled by the app itself.</p>
+<p>In order to test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#url-loading-in-webviews" title="URL Loading in WebViews">URL loading in WebViews</a> you need to carefully analyze <a href="https://developer.android.com/guide/webapps/webview#HandlingNavigation" title="Handling page navigation">handling page navigation</a>, especially when users might be able to navigate away from a trusted environment. The default and safest behavior on Android is to let the default web browser open any link that the user might click inside the WebView. However, this default logic can be modified by configuring a <code>WebViewClient</code> which allows navigation requests to be handled by the app itself.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <h3 id="check-for-page-navigation-handling-override">Check for Page Navigation Handling Override<a class="headerlink" href="#check-for-page-navigation-handling-override" title="Permanent link">&para;</a></h3>
 <p>To test if the app is overriding the default page navigation logic by configuring a <code>WebViewClient</code> you should search for and inspect the following interception callback functions:</p>
@@ -11622,12 +11604,6 @@
 </code></pre></div>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>A convenient way to dynamically test deep linking is to use Frida or frida-trace and hook the <code>shouldOverrideUrlLoading</code>, <code>shouldInterceptRequest</code> methods while using the app and clicking on links within the WebView. Be sure to also hook other related <a href="https://developer.android.com/reference/android/net/Uri" title="Uri class"><code>Uri</code></a> methods such as <code>getHost</code>, <code>getScheme</code> or <code>getPath</code> which are typically used to inspect the requests and match known patterns or deny lists.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/webapps/webview#HandlingNavigation" title="Handling page navigation">Handling page navigation</a></li>
-<li><a href="https://developer.android.com/reference/android/net/Uri" title="Uri class">Uri class</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebViewClient" title="WebViewClient">WebViewClient</a></li>
-</ul>
 
 
 

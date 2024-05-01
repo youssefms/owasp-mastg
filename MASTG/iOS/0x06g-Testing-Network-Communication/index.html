@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1578,15 +1578,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11548,15 +11539,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11846,41 +11828,6 @@
 <p><code>URLSession</code> was built upon the <code>Network</code> framework and utilizes the same transport services. The class also uses TLS 1.3 by default, if the endpoint is HTTPS.</p>
 <p><strong><code>URLSession</code> should be used for HTTP and HTTPS connections, instead of utilizing the <code>Network</code> framework directly.</strong> The <code>URLSession</code> class natively supports both URL schemes and is optimized for such connections. It requires less boilerplate code, reducing the possibility for errors and ensuring secure connections by default. The <code>Network</code> framework should only be used when there are low-level and/or advanced networking requirements.</p>
 <p>The official Apple documentation includes examples of using the <code>Network</code> framework to <a href="https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework" title="Implementing netcat with Network Framework">implement netcat</a> and <code>URLSession</code> to <a href="https://developer.apple.com/documentation/foundation/url_loading_system/fetching_website_data_into_memory" title="Fetching Website Data into Memory">fetch website data into memory</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.nowsecure.com/blog/2017/08/31/security-analysts-guide-nsapptransportsecurity-nsallowsarbitraryloads-app-transport-security-ats-exceptions/" title="A guide to ATS">A guide to ATS</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/plist/info/NSAppTransportSecurity" title="API Reference NSAppTransportSecurity">API Reference NSAppTransportSecurity</a></li>
-<li><a href="https://developer.apple.com/documentation/security/secure_transport" title="API Reference Secure Transport">API Reference Secure Transport</a></li>
-<li><a href="https://developer.apple.com/forums/thread/53314">ATS and SSL pinning / own CA</a></li>
-<li><a href="https://developer.apple.com/forums/thread/79662">ATS and iOS enterprise apps with private networks</a></li>
-<li><a href="https://developer.apple.com/forums/thread/66417">ATS and local IP addresses</a></li>
-<li><a href="https://developer.apple.com/forums/thread/69197">ATS impact on apps use 3rd party libraries</a></li>
-<li><a href="https://support.apple.com/en-gb/guide/security/sec100a75d12/web#sec8b087b1f7">According to Apple</a></li>
-<li><a href="https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity">App Transport Security (ATS)</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW34" title="App Transport Security dictionary primary keys">App Transport Security dictionary primary keys</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW44" title="App Transport Security dictionary primary keys">App Transport Security dictionary primary keys</a></li>
-<li><a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections#3138482">Apple Developer Documentation</a></li>
-<li><a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections">Apple Developer Documentation</a></li>
-<li><a href="https://developer.apple.com/news/?id=jxky8h89">Apple's best practices</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW54">Availability of ATS for Remote and Local Connections</a></li>
-<li><a href="https://developer.apple.com/documentation/security/certificate_key_and_trust_services">Certificate, Key, and Trust Services</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/url_loading_system/fetching_website_data_into_memory" title="Fetching Website Data into Memory">Fetching Website Data into Memory</a></li>
-<li><a href="https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework" title="Implementing netcat with Network Framework">Implementing netcat with Network Framework</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html" title="Information Property List Key Reference: Cocoa Keys">Information Property List Key Reference: Cocoa Keys</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2018/715" title="Introducing Network.framework: A modern alternative to Sockets">Introducing Network.framework: A modern alternative to Sockets</a></li>
-<li><a href="https://developer.apple.com/documentation/network">Network</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/url_loading_system/handling_an_authentication_challenge/performing_manual_server_trust_authentication">Performing Manual Server Trust Authentication</a></li>
-<li><a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections">Preventing Insecure Network Connections</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/NetworkingTopics/Articles/UsingSocketsandSocketStreams.html">Sockets API</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/url_loading_system">URL Loading System</a></li>
-<li><a href="https://developer.apple.com/reference/foundation/urlsession">URLSession</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW55">Using ATS in Apple Frameworks</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2015/711/?time=321">Watch ATS Introductory Video from the Apple WWDC 2015</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/urlsession"><code>URLSession</code></a></li>
-<li><a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections#3138464">minimum security requirements</a></li>
-<li><a href="https://support.apple.com/en-us/HT209143">operating system Trust Store</a></li>
-<li><a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections#3138036">requires justification</a></li>
-</ul>
 
 
 

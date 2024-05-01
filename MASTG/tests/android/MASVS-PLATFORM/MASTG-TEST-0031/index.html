@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2565,15 +2565,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing JavaScript Execution in WebViews</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#javascript-execution-in-webviews" title="JavaScript Execution in WebViews&quot; &quot;JavaScript Execution in WebViews">JavaScript execution in WebViews</a> check the app for WebView usage and evaluate whether or not each WebView should allow JavaScript execution. If JavaScript execution is required for the app to function normally, then you need to ensure that the app follows the all best practices.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#javascript-execution-in-webviews" title="JavaScript Execution in WebViews">JavaScript execution in WebViews</a> check the app for WebView usage and evaluate whether or not each WebView should allow JavaScript execution. If JavaScript execution is required for the app to function normally, then you need to ensure that the app follows the all best practices.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>To create and use a WebView, an app must create an instance of the <code>WebView</code> class.</p>
 <div class="highlight"><pre><span></span><code><span class="n">WebView</span><span class="w"> </span><span class="n">webview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WebView</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
@@ -11582,13 +11564,6 @@
 <li>the certificate should be pinned.</li>
 </ul>
 </li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting" title="Stored Cross-Site Scripting">Stored Cross-Site Scripting</a></li>
-<li><a href="https://developer.android.com/training/articles/security-tips.html#WebView" title="WebView Best Practices">WebView Best Practices</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView#clearCache%28boolean%29" title="clearCache in WebViews">clearCache in WebViews</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled%28boolean%29" title="setJavaScriptEnabled in WebViews">setJavaScriptEnabled in WebViews</a></li>
 </ul>
 
 

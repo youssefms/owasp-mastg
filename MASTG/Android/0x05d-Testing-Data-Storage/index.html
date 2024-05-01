@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1488,15 +1488,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -12004,15 +11995,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12118,7 +12100,7 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>This chapter discusses the importance of securing sensitive data, like authentication tokens and private information, vital for mobile security. We'll look at Android's APIs for local data storage and share best practices.</p>
 <p>While it's preferable to limit sensitive data on local storage, or avoid it at all whenever possible, practical use cases often necessitate user data storage. For example, to improve user experience, apps cache authentication tokens locally, circumventing the need for complex password entry at each app start. Apps may also need to store personally identifiable information (PII) and other sensitive data.</p>
-<p>Sensitive data can become vulnerable if improperly protected, potentially stored in various locations, including the device or an external SD card. It's important to identify the information processed by the mobile app and classify what counts as sensitive data. Check out the <a href="/MASTG/General/0x04b-Mobile-App-Security-Testing#identifying-sensitive-data" title="Identifying Sensitive Data&quot; &quot;Identifying Sensitive Data">Identifying Sensitive Data</a> section in the "Mobile App Security Testing" chapter for data classification details. Refer to <a href="https://developer.android.com/training/articles/security-tips.html#StoringData" title="Security Tips for Storing Data">Security Tips for Storing Data</a> in the Android developer's guide for comprehensive insights.</p>
+<p>Sensitive data can become vulnerable if improperly protected, potentially stored in various locations, including the device or an external SD card. It's important to identify the information processed by the mobile app and classify what counts as sensitive data. Check out the <a href="0x04b-Mobile-App-Security-Testing.md#identifying-sensitive-data" title="Identifying Sensitive Data">"Identifying Sensitive Data"</a> section in the "Mobile App Security Testing" chapter for data classification details. Refer to <a href="https://developer.android.com/training/articles/security-tips.html#StoringData" title="Security Tips for Storing Data">Security Tips for Storing Data</a> in the Android developer's guide for comprehensive insights.</p>
 <p>Sensitive information disclosure risks include potential information decryption, social engineering attacks (if PII is disclosed), account hijacking (if session information or an authentication token is disclosed), and app exploitation with a payment option.</p>
 <p>In addition to data protection, validate and sanitize data from any storage source. This includes checking correct data types and implementing cryptographic controls, such as HMACs, for data integrity.</p>
 <p>Android offers various <a href="https://developer.android.com/training/data-storage" title="Storing Data in Android">data storage</a> methods, tailored to users, developers, and applications. Common persistent storage techniques include:</p>
@@ -12294,7 +12276,7 @@ Finally, it's worth noting that the external storage can be used by an attacker 
 <p>Users are authorized to use a specific cryptographic operation that is associated with one key. In this mode, users must request a separate authorization for each operation that involves the key. Currently, fingerprint authentication is the only way to request such authorization.</p>
 </li>
 </ol>
-<p>The level of security afforded by the Android KeyStore depends on its implementation, which depends on the device. Most modern devices offer a <a href="/MASTG/Android/0x05d-Testing-Data-Storage#hardware-backed-android-keyStore">hardware-backed KeyStore implementation</a>: keys are generated and used in a Trusted Execution Environment (TEE) or a Secure Element (SE), and the operating system can't access them directly. This means that the encryption keys themselves can't be easily retrieved, even from a rooted device. You can verify hardware-backed keys with <a href="/MASTG/Android/0x05d-Testing-Data-Storage#key-attestation">Key Attestation</a>. You can determine whether the keys are inside the secure hardware by checking the return value of the <code>isInsideSecureHardware</code> method, which is part of the <a href="https://developer.android.com/reference/android/security/keystore/KeyInfo.html" title="Class KeyInfo"><code>KeyInfo</code> class</a>.</p>
+<p>The level of security afforded by the Android KeyStore depends on its implementation, which depends on the device. Most modern devices offer a <a href="./#hardware-backed-android-keyStore">hardware-backed KeyStore implementation</a>: keys are generated and used in a Trusted Execution Environment (TEE) or a Secure Element (SE), and the operating system can't access them directly. This means that the encryption keys themselves can't be easily retrieved, even from a rooted device. You can verify hardware-backed keys with <a href="./#key-attestation">Key Attestation</a>. You can determine whether the keys are inside the secure hardware by checking the return value of the <code>isInsideSecureHardware</code> method, which is part of the <a href="https://developer.android.com/reference/android/security/keystore/KeyInfo.html" title="Class KeyInfo"><code>KeyInfo</code> class</a>.</p>
 <blockquote>
 <p>Note that the relevant KeyInfo indicates that secret keys and HMAC keys are insecurely stored on several devices despite private keys being correctly stored on the secure hardware.</p>
 </blockquote>
@@ -12405,13 +12387,13 @@ To create one, use the <code>KeyStore.getInstance("BKS", "BC") method</code>, wh
 <li>[not recommended] stored generated keys in public places (like <code>/sdcard/</code>)</li>
 </ul>
 <h4 id="storing-keys-using-hardware-backed-android-keystore">Storing Keys Using Hardware-backed Android KeyStore<a class="headerlink" href="#storing-keys-using-hardware-backed-android-keystore" title="Permanent link">&para;</a></h4>
-<p>You can use the <a href="/MASTG/Android/0x05d-Testing-Data-Storage#hardware-backed-android-keystore">hardware-backed Android KeyStore</a> if the device is running Android 7.0 (API level 24) and above with available hardware component (Trusted Execution Environment (TEE) or a Secure Element (SE)). You can even verify that the keys are hardware-backed by using the guidelines provided for <a href="/MASTG/Android/0x05d-Testing-Data-Storage#key-attestation">the secure implementation of Key Attestation</a>. If a hardware component is not available and/or support for Android 6.0 (API level 23) and below is required, then you might want to store your keys on a remote server and make them available after authentication.</p>
+<p>You can use the <a href="./#hardware-backed-android-keystore">hardware-backed Android KeyStore</a> if the device is running Android 7.0 (API level 24) and above with available hardware component (Trusted Execution Environment (TEE) or a Secure Element (SE)). You can even verify that the keys are hardware-backed by using the guidelines provided for <a href="./#key-attestation">the secure implementation of Key Attestation</a>. If a hardware component is not available and/or support for Android 6.0 (API level 23) and below is required, then you might want to store your keys on a remote server and make them available after authentication.</p>
 <h4 id="storing-keys-on-the-server">Storing Keys on the Server<a class="headerlink" href="#storing-keys-on-the-server" title="Permanent link">&para;</a></h4>
 <p>It is possible to securely store keys on a key management server, however the app needs to be online to decrypt the data. This might be a limitation for certain mobile app use cases and should be carefully thought through, as this becomes part of the architecture of the app and might highly impact usability.</p>
 <h4 id="deriving-keys-from-user-input">Deriving Keys from User Input<a class="headerlink" href="#deriving-keys-from-user-input" title="Permanent link">&para;</a></h4>
 <p>Deriving a key from a user provided passphrase is a common solution (depending on which Android API level you use), but it also impacts usability, might affect the attack surface and could introduce additional weaknesses.</p>
 <p>Each time the application needs to perform a cryptographic operation, the user's passphrase is needed. Either the user is prompted for it every time, which isn't an ideal user experience, or the passphrase is kept in memory as long as the user is authenticated. Keeping the passphrase in memory is not a best-practice, as any cryptographic material must only be kept in memory while it is being used. Zeroing out a key is often a very challenging task as explained in <a href="#cleaning-out-key-material">"Cleaning out Key Material"</a>.</p>
-<p>Additionally, consider that keys derived from a passphrase have their own weaknesses. For instance, the passwords or passphrases might be reused by the user or easy to guess. Please refer to the <a href="/MASTG/General/0x04g-Testing-Cryptography#weak-key-generation-functions">Testing Cryptography chapter</a> for more information.</p>
+<p>Additionally, consider that keys derived from a passphrase have their own weaknesses. For instance, the passwords or passphrases might be reused by the user or easy to guess. Please refer to the <a href="0x04g-Testing-Cryptography.md#weak-key-generation-functions">Testing Cryptography chapter</a> for more information.</p>
 <h4 id="cleaning-out-key-material">Cleaning out Key Material<a class="headerlink" href="#cleaning-out-key-material" title="Permanent link">&para;</a></h4>
 <p>The key material should be cleared out from memory as soon as it is not need anymore. There are certain limitations of reliably cleaning up secret data in languages with garbage collector (Java) and immutable strings (Swift, Objective-C, Kotlin). <a href="https://docs.oracle.com/en/java/javase/16/security/java-cryptography-architecture-jca-reference-guide.html#GUID-C9F76AFB-6B20-45A7-B84F-96756C8A94B4" title="Java Cryptography Architecture (JCA) Reference Guide">Java Cryptography Architecture Reference Guide</a> suggests using <code>char[]</code> instead of <code>String</code> for storing sensitive data, and nullify array after usage.</p>
 <p>Note that some ciphers do not properly clean up their byte-arrays. For instance, the AES Cipher in BouncyCastle does not always clean up its latest working key, leaving some copies of the byte-array in memory. Next, BigInteger based keys (e.g. private keys) cannot be removed from the heap, nor zeroed out without additional effort. Clearing byte array can be achieved by writing a wrapper which implements <a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/Destroyable.html#destroy--">Destroyable</a>.</p>
@@ -12522,53 +12504,6 @@ You can create log files in several ways. The following list includes two classe
 <p>For this reason all notification usage should be inspected for confidential or high risk information that could be used by malicious applications.</p>
 <h3 id="keyboard-cache">Keyboard Cache<a class="headerlink" href="#keyboard-cache" title="Permanent link">&para;</a></h3>
 <p>When users enter information in input fields, the software automatically suggests data. This feature can be very useful for messaging apps. However, the keyboard cache may disclose sensitive information when the user selects an input field that takes this type of information.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://source.android.com/docs/security/features/keystore" title="AOSP Hardware-based KeyStore">AOSP Hardware-based KeyStore</a></li>
-<li><a href="https://www.threatfabric.com/blogs/alien_the_story_of_cerberus_demise.html" title="Alien Malware">Alien Malware</a></li>
-<li><a href="https://developer.android.com/reference/java/security/KeyStore.html" title="Android AndroidKeyStore API">Android AndroidKeyStore API</a></li>
-<li><a href="https://developer.android.com/reference/android/security/KeyChain.html" title="Android KeyChain">Android KeyChain</a></li>
-<li><a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="Android SharedPreference API">Android SharedPreference API</a></li>
-<li><a href="https://developer.android.com/guide/topics/data/autobackup.html" title="Auto Backup for Apps">Auto Backup for Apps</a></li>
-<li><a href="https://android-developers.googleblog.com/2018/10/building-titan-better-security-through.html" title="Building a Titan: Better security through a tiny chip">Building a Titan: Better security through a tiny chip</a></li>
-<li><a href="https://developer.android.com/training/articles/security-key-attestation#certificate_status" title="Certificate Revocation Status List">Certificate Revocation Status List</a></li>
-<li><a href="https://developer.android.com/training/articles/security-key-attestation#certificate_schema" title="Certificate extension data schema">Certificate extension data schema</a></li>
-<li><a href="https://developer.android.com/reference/android/security/keystore/KeyInfo.html" title="Class KeyInfo">Class KeyInfo</a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/Destroyable.html#destroy--">Destroyable</a></li>
-<li><a href="https://github.com/shivsahni/FireBaseScanner" title="Firebase Scanner">Firebase Scanner</a></li>
-<li><a href="https://developer.android.com/training/articles/security-key-attestation#root_certificate" title="Google Hardware Attestation Root Certificate">Google Hardware Attestation Root Certificate</a></li>
-<li><a href="https://developer.android.com/training/articles/security-key-attestation#root_certificate" title="Google Hardware Attestation Root certificate">Google Hardware Attestation Root certificate</a></li>
-<li><a href="https://github.com/googlesamples/android-key-attestation/blob/master/server/src/main/java/com/android/example/KeyAttestationExample.java" title="Google Sample Code For Android Key Attestation">Google Sample Code For Android Key Attestation</a></li>
-<li><a href="https://github.com/tozny/java-aes-crypto" title="Java AES Crypto">Java AES Crypto</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/16/security/java-cryptography-architecture-jca-reference-guide.html#GUID-C9F76AFB-6B20-45A7-B84F-96756C8A94B4" title="Java Cryptography Architecture (JCA) Reference Guide">Java Cryptography Architecture (JCA) Reference Guide</a></li>
-<li><a href="https://research.checkpoint.com/2020/new-joker-variant-hits-google-play-with-an-old-trick/" title="Joker Malware">Joker Malware</a></li>
-<li><a href="https://developer.android.com/training/articles/security-key-attestation" title="Key Attestation">Key Attestation</a></li>
-<li><a href="https://developer.android.com/guide/topics/data/keyvaluebackup.html" title="Key/Value Backup">Key/Value Backup</a></li>
-<li><a href="https://developer.android.com/reference/android/util/Log.html" title="Log Class">Log Class</a></li>
-<li><a href="https://developer.android.com/reference/java/util/logging/Logger.html" title="Logger Class">Logger Class</a></li>
-<li><a href="https://blog.checkpoint.com/2018/08/12/man-in-the-disk-a-new-attack-surface-for-android-apps/" title="Man in the disk">Man in the disk</a></li>
-<li><a href="https://nelenkov.blogspot.sg/2013/08/credential-storage-enhancements-android-43.html" title="Nikolay Elenvok - Credential storage enhancements in Android 4.3">Nikolay Elenvok - Credential storage enhancements in Android 4.3</a></li>
-<li><a href="https://developer.android.com/reference/kotlin/android/service/notification/NotificationListenerService" title="NotificationListenerService">NotificationListenerService</a></li>
-<li><a href="https://developer.android.com/guide/topics/ui/notifiers/notifications" title="Notifications Overview">Notifications Overview</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html#encrypting-stored-keys" title="OWASP Cryptographic Storage Cheat Sheet: Encrypting Stored Keys">OWASP Cryptographic Storage Cheat Sheet: Encrypting Stored Keys</a></li>
-<li><a href="https://mongodb.com/docs/realm/sdk/java/" title="Realm Database">Realm Database</a></li>
-<li><a href="https://www.zetetic.net/sqlcipher/sqlcipher-for-android/" title="SQL Cipher">SQL Cipher</a></li>
-<li><a href="https://www.zetetic.net/sqlcipher/sqlcipher-for-android/" title="SQLCipher">SQLCipher</a></li>
-<li><a href="https://developer.android.com/training/data-storage/sqlite" title="SQLite Documentation">SQLite Documentation</a></li>
-<li><a href="https://www.sqlite.org/tempfiles.html" title="SQLite Journal files">SQLite Journal files</a></li>
-<li><a href="https://www.sqlite.org/lockingv3.html" title="SQLite Lock Files">SQLite Lock Files</a></li>
-<li><a href="https://developer.android.com/training/articles/security-tips.html#StoringData" title="Security Tips for Storing Data">Security Tips for Storing Data</a></li>
-<li><a href="https://developer.android.com/training/data-storage/shared-preferences" title="Shared Preferences">Shared Preferences</a></li>
-<li><a href="https://developer.android.com/training/data-storage" title="Storing Data in Android">Storing Data in Android</a></li>
-<li><a href="https://github.com/cossacklabs/themis" title="Themis cryptographic library">Themis cryptographic library</a></li>
-<li><a href="https://www.androidauthority.com/use-android-keystore-store-passwords-sensitive-information-623779/" title="Use Android KeyStore">Use Android KeyStore</a></li>
-<li><a href="https://developer.android.com/training/data-storage#filesExternal" title="Using External Storage">Using External Storage</a></li>
-<li><a href="https://developer.android.com/training/data-storage#filesInternal" title="Using Internal Storage">Using Internal Storage</a></li>
-<li><a href="https://developer.android.com/reference/android/security/keystore/WrappedKeyEntry" title="WrappedKeyEntry">WrappedKeyEntry</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/application-element.html#allowbackup" title="allowBackup attribute">allowBackup attribute</a></li>
-<li><a href="https://developer.android.com/jetpack/androidx/releases/security" title="androidx.security.crypto API reference">androidx.security.crypto API reference</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Shoulder_surfing_%28computer_security%29">shoulder surfing</a></li>
-</ul>
 
 
 

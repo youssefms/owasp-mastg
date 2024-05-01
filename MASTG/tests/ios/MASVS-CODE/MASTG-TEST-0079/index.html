@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4207,15 +4207,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11548,9 +11530,9 @@
 <ul>
 <li>If you use object persistence to store sensitive information on the device, then make sure that the data is encrypted: either at the database level, or specifically at the value level.</li>
 <li>Need to guarantee the integrity of the information? Use an HMAC mechanism or sign the information stored. Always verify the HMAC/signature before processing the actual information stored in the objects.</li>
-<li>Make sure that keys used in the two notions above are safely stored in the KeyChain and well protected. See the chapter "<a href="/MASTG/iOS/0x06d-Testing-Data-Storage">Data Storage on iOS</a>" for more details.</li>
+<li>Make sure that keys used in the two notions above are safely stored in the KeyChain and well protected. See the chapter "<a href="../../../Document/0x06d-Testing-Data-Storage.md">Data Storage on iOS</a>" for more details.</li>
 <li>Ensure that the data within the deserialized object is carefully validated before it is actively used (e.g., no exploit of business/application logic is possible).</li>
-<li>Do not use persistence mechanisms that use <a href="https://developer.apple.com/library/archive/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html" title="Objective-C Runtime Reference">Runtime Reference</a> to serialize/deserialize objects in high-risk applications, as the attacker might be able to manipulate the steps to execute business logic via this mechanism (see the chapter "<a href="/MASTG/iOS/0x06j-Testing-Resiliency-Against-Reverse-Engineering">iOS Anti-Reversing Defenses</a>" for more details).</li>
+<li>Do not use persistence mechanisms that use <a href="https://developer.apple.com/library/archive/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html" title="Objective-C Runtime Reference">Runtime Reference</a> to serialize/deserialize objects in high-risk applications, as the attacker might be able to manipulate the steps to execute business logic via this mechanism (see the chapter "<a href="../../../Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md">iOS Anti-Reversing Defenses</a>" for more details).</li>
 <li>Note that in Swift 2 and beyond, a <a href="https://developer.apple.com/documentation/swift/mirror" title="Mirror">Mirror</a> can be used to read parts of an object, but cannot be used to write against the object.</li>
 </ul>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
@@ -11558,11 +11540,6 @@
 <ul>
 <li>For the actual persistence: Use the techniques described in the "Data Storage on iOS" chapter.</li>
 <li>For the serialization itself: Use a debug build or use Frida / objection to see how the serialization methods are handled (e.g., whether the application crashes or extra information can be extracted by enriching the objects).</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/swift/mirror" title="Mirror">Mirror</a></li>
-<li><a href="https://developer.apple.com/library/archive/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html" title="Objective-C Runtime Reference">Objective-C Runtime Reference</a></li>
 </ul>
 
 

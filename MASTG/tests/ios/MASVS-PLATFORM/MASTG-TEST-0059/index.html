@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3939,15 +3939,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11582,14 +11564,10 @@
 <li>Background the application by hitting the <strong>Home</strong> button on your iOS device.</li>
 <li>Verify that a default image is shown as the top view element instead of the view containing the sensitive information.</li>
 </ol>
-<p>If required, you may also collect evidence by performing steps 1 to 3 on a jailbroken device or a non-jailbroken device after <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#dynamic-analysis-on-non-jailbroken-devices">repackaging the app with the Frida Gadget</a>. After that, connect to the iOS device <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#accessing-the-device-shell">per SSH</a> or <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#host-device-data-transfer">by other means</a> and navigate to the Snapshots directory. The location may differ on each iOS version but it's usually inside the app's Library directory. For instance, on iOS 14.5 the Snapshots directory is located at:</p>
+<p>If required, you may also collect evidence by performing steps 1 to 3 on a jailbroken device or a non-jailbroken device after <a href="../../../Document/0x06c-Reverse-Engineering-and-Tampering.md#dynamic-analysis-on-non-jailbroken-devices">repackaging the app with the Frida Gadget</a>. After that, connect to the iOS device <a href="../../../Document/0x06b-iOS-Security-Testing.md#accessing-the-device-shell">per SSH</a> or <a href="../../../Document/0x06b-iOS-Security-Testing.md#host-device-data-transfer">by other means</a> and navigate to the Snapshots directory. The location may differ on each iOS version but it's usually inside the app's Library directory. For instance, on iOS 14.5 the Snapshots directory is located at:</p>
 <div class="highlight"><pre><span></span><code>/var/mobile/Containers/Data/Application/$APP_ID/Library/SplashBoard/Snapshots/sceneID:$APP_NAME-default/
 </code></pre></div>
 <p>The screenshots inside that folder should not contain any sensitive information.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622997-applicationdidenterbackground"><code>applicationDidEnterBackground</code></a></li>
-</ul>
 
 
 

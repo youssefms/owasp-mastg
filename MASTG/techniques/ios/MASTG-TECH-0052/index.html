@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6124,15 +6124,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11528,7 +11510,7 @@
 
 <p>One of the most common things you do when testing an app is accessing the device shell. In this section we'll see how to access the iOS shell both remotely from your host computer with/without a USB cable and locally from the device itself.</p>
 <h2 id="remote-shell">Remote Shell<a class="headerlink" href="#remote-shell" title="Permanent link">&para;</a></h2>
-<p>In contrast to Android where you can easily access the device shell using the adb tool, on iOS you only have the option to access the remote shell via SSH. This also means that your iOS device must be jailbroken in order to connect to its shell from your host computer. For this section we assume that you've properly jailbroken your device and have either <a href="/MASTG/Tools/0x08a-Testing-Tools#cydia">Cydia</a> (see screenshot below) or <a href="/MASTG/Tools/0x08a-Testing-Tools#sileo">Sileo</a> installed. In the rest of the guide we will reference to Cydia, but the same packages should be available in Sileo.</p>
+<p>In contrast to Android where you can easily access the device shell using the adb tool, on iOS you only have the option to access the remote shell via SSH. This also means that your iOS device must be jailbroken in order to connect to its shell from your host computer. For this section we assume that you've properly jailbroken your device and have either <a href="0x08a-Testing-Tools.md#cydia">Cydia</a> (see screenshot below) or <a href="0x08a-Testing-Tools.md#sileo">Sileo</a> installed. In the rest of the guide we will reference to Cydia, but the same packages should be available in Sileo.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/cydia.png" width="300px" /></p>
 <p>In order to enable SSH access to your iOS device you can install the OpenSSH package. Once installed, be sure to connect both devices to the same Wi-Fi network and take a note of the device IP address, which you can find in the <strong>Settings -&gt; Wi-Fi</strong> menu and tapping once on the info icon of the network you're connected to.</p>
 <p>You can now access the remote device's shell by running <code>ssh root@&lt;device_ip_address&gt;</code>, which will log you in as the root user:</p>
@@ -11558,8 +11540,8 @@ iPhone:~<span class="w"> </span>root#
 <li>Save and exit</li>
 </ol>
 <h2 id="connect-to-a-device-via-ssh-over-usb">Connect to a Device via SSH over USB<a class="headerlink" href="#connect-to-a-device-via-ssh-over-usb" title="Permanent link">&para;</a></h2>
-<p>During a real black box test, a reliable Wi-Fi connection may not be available. In this situation, you can use <a href="/MASTG/Tools/0x08a-Testing-Tools#usbmuxd">usbmuxd</a> to connect to your device's SSH server via USB.</p>
-<p>Connect macOS to an iOS device by installing and starting <a href="/MASTG/Tools/0x08a-Testing-Tools#iproxy">iproxy</a>:</p>
+<p>During a real black box test, a reliable Wi-Fi connection may not be available. In this situation, you can use <a href="0x08a-Testing-Tools.md#usbmuxd">usbmuxd</a> to connect to your device's SSH server via USB.</p>
+<p>Connect macOS to an iOS device by installing and starting <a href="0x08a-Testing-Tools.md#iproxy">iproxy</a>:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>libimobiledevice
 $<span class="w"> </span>iproxy<span class="w"> </span><span class="m">2222</span><span class="w"> </span><span class="m">22</span>
 waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>connection
@@ -11583,11 +11565,6 @@ iPhone:~<span class="w"> </span>root#
 <p>On your host computer run the following command and, when asked, enter the password of the <code>root</code> user of the iOS device:</p>
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>root@localhost
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://iphonedevwiki.net/index.php/SSH_Over_USB" title="Making iproxy run automatically in the background on OS X">Making iproxy run automatically in the background on OS X</a></li>
-<li><a href="https://chariz.com/get/newterm" title="NewTerm 2">NewTerm 2</a></li>
-</ul>
 
 
 

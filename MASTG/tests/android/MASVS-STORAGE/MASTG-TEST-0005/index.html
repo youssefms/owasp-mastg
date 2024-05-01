@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1844,15 +1844,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11547,11 +11529,6 @@
 <p>Search for any usage of the <code>NotificationManager</code> class which might be an indication of some form of notification management. If the class is being used, the next step would be to understand how the application is <a href="https://developer.android.com/training/notify-user/build-notification#SimpleNotification" title="Create a Notification">generating the notifications</a> and which data ends up being shown.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Run the application and start tracing all calls to functions related to the notifications creation, e.g. <code>setContentTitle</code> or <code>setContentText</code> from <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder"><code>NotificationCompat.Builder</code></a>. Observe the trace in the end and evaluate if it contains any sensitive information which another app might have eavesdropped.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/training/notify-user/build-notification#SimpleNotification" title="Create a Notification">Create a Notification</a></li>
-<li><a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder"><code>NotificationCompat.Builder</code></a></li>
-</ul>
 
 
 

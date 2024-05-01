@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -7847,15 +7847,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11434,15 +11425,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11561,7 +11543,7 @@
 <p>For example, if the app has an exported Activity that leaks sensitive information we can invoke it with the Drozer module <code>app.activity.start</code>:</p>
 <div class="highlight"><pre><span></span><code>dz&gt;<span class="w"> </span>run<span class="w"> </span>app.activity.start<span class="w"> </span>--component<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;component<span class="w"> </span>name&gt;
 </code></pre></div>
-<p>This previous command will start the activity, hopefully leaking some sensitive information. Drozer has modules for every type of IPC mechanism. Download <a href="/MASTG/Tools/0x08b-Reference-Apps#insecurebankv2">InsecureBankv2</a> if you would like to try the modules with an intentionally vulnerable application that illustrates common problems related to IPC endpoints. Pay close attention to the modules in the scanner category as they are very helpful automatically detecting vulnerabilities even in system packages, specially if you are using a ROM provided by your cellphone company. Even <a href="https://issuetracker.google.com/u/0/issues/36965126" title="SQL injection in Android">SQL injection vulnerabilities in system packages by Google</a> have been identified in the past with drozer.</p>
+<p>This previous command will start the activity, hopefully leaking some sensitive information. Drozer has modules for every type of IPC mechanism. Download <a href="0x08b-Reference-Apps.md#insecurebankv2">InsecureBankv2</a> if you would like to try the modules with an intentionally vulnerable application that illustrates common problems related to IPC endpoints. Pay close attention to the modules in the scanner category as they are very helpful automatically detecting vulnerabilities even in system packages, specially if you are using a ROM provided by your cellphone company. Even <a href="https://issuetracker.google.com/u/0/issues/36965126" title="SQL injection in Android">SQL injection vulnerabilities in system packages by Google</a> have been identified in the past with drozer.</p>
 <h2 id="other-drozer-commands">Other Drozer commands<a class="headerlink" href="#other-drozer-commands" title="Permanent link">&para;</a></h2>
 <p>Here's a non-exhaustive list of commands you can use to start exploring on Android:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># List all the installed packages</span>
@@ -11596,19 +11578,6 @@ $<span class="w"> </span>dz&gt;<span class="w"> </span>run<span class="w"> </spa
 <ul>
 <li><a href="https://labs.withsecure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf" title="Drozer User Guide">Official drozer User Guide</a>.</li>
 <li><a href="https://github.com/FSecureLABS/drozer" title="GitHub repo">drozer GitHub page</a></li>
-<li><a href="https://github.com/FSecureLABS/drozer/wiki" title="drozer Wiki">drozer Wiki</a></li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://fi5t.xyz/en/posts/drozer-on-mac/" title="(not)Unique experience blog - Installing Drozer on macOS Catalina">(not)Unique experience blog - Installing Drozer on macOS Catalina</a></li>
-<li><a href="https://labs.withsecure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf" title="Drozer User Guide">Drozer User Guide</a></li>
-<li><a href="https://labs.withsecure.com/tools/drozer/" title="Drozer Website">Drozer Website</a></li>
-<li><a href="https://github.com/FSecureLABS/drozer" title="Drozer on GitHub">Drozer on GitHub</a></li>
-<li><a href="https://github.com/FSecureLABS/drozer" title="GitHub repo">GitHub repo</a></li>
-<li><a href="https://labs.withsecure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf" title="Infrastructure Mode">Infrastructure Mode</a></li>
-<li><a href="https://issuetracker.google.com/u/0/issues/36965126" title="SQL injection in Android">SQL injection in Android</a></li>
-<li><a href="https://labs.withsecure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf" title="Starting a Session">Starting a Session</a></li>
-<li><a href="https://github.com/FSecureLABS/drozer/releases/" title="drozer GitHub releases">drozer GitHub releases</a></li>
 <li><a href="https://github.com/FSecureLABS/drozer/wiki" title="drozer Wiki">drozer Wiki</a></li>
 </ul>
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11609,11 +11609,11 @@
   <h1>Testing Object Persistence</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#object-persistence" title="Object Persistence&quot; &quot;Object Persistence">object persistence</a> being used for storing sensitive information on the device, first identify all instances of object serialization and check if they carry any sensitive data. If yes, check if is properly protected against eavesdropping or unauthorized modification.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#object-persistence" title="Object Persistence">object persistence</a> being used for storing sensitive information on the device, first identify all instances of object serialization and check if they carry any sensitive data. If yes, check if is properly protected against eavesdropping or unauthorized modification.</p>
 <p>There are a few generic remediation steps that you can always take:</p>
 <ol>
-<li>Make sure that sensitive data has been encrypted and HMACed/signed after serialization/persistence. Evaluate the signature or HMAC before you use the data. See the chapter "<a href="/MASTG/Android/0x05e-Testing-Cryptography">Android Cryptographic APIs</a>" for more details.</li>
-<li>Make sure that the keys used in step 1 can't be extracted easily. The user and/or application instance should be properly authenticated/authorized to obtain the keys. See the chapter "<a href="/MASTG/Android/0x05d-Testing-Data-Storage">Data Storage on Android</a>" for more details.</li>
+<li>Make sure that sensitive data has been encrypted and HMACed/signed after serialization/persistence. Evaluate the signature or HMAC before you use the data. See the chapter "<a href="../../../Document/0x05e-Testing-Cryptography.md">Android Cryptographic APIs</a>" for more details.</li>
+<li>Make sure that the keys used in step 1 can't be extracted easily. The user and/or application instance should be properly authenticated/authorized to obtain the keys. See the chapter "<a href="../../../Document/0x05d-Testing-Data-Storage.md">Data Storage on Android</a>" for more details.</li>
 <li>Make sure that the data within the de-serialized object is carefully validated before it is actively used (e.g., no exploit of business/application logic).</li>
 </ol>
 <p>For high-risk applications that focus on availability, we recommend that you use <code>Serializable</code> only when the serialized classes are stable. Second, we recommend not using reflection-based persistence because</p>
@@ -11621,7 +11621,7 @@
 <li>the attacker could find the method's signature via the String-based argument</li>
 <li>the attacker might be able to manipulate the reflection-based steps to execute business logic.</li>
 </ul>
-<p>See the chapter "<a href="/MASTG/Android/0x05j-Testing-Resiliency-Against-Reverse-Engineering">Android Anti-Reversing Defenses</a>" for more details.</p>
+<p>See the chapter "<a href="../../../Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md">Android Anti-Reversing Defenses</a>" for more details.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <h3 id="object-serialization">Object Serialization<a class="headerlink" href="#object-serialization" title="Permanent link">&para;</a></h3>
 <p>Search the source code for the following keywords:</p>
@@ -11651,7 +11651,7 @@
 <li><code>import org.codehaus.jackson</code> for the older version.</li>
 </ul>
 <h3 id="orm">ORM<a class="headerlink" href="#orm" title="Permanent link">&para;</a></h3>
-<p>When you use an ORM library, make sure that the data is stored in an encrypted database and the class representations are individually encrypted before storing it. See the chapters "<a href="/MASTG/Android/0x05d-Testing-Data-Storage">Data Storage on Android</a>" and "<a href="/MASTG/Android/0x05e-Testing-Cryptography">Android Cryptographic APIs</a>" for more details. You can check for the following keywords in the corresponding libraries:</p>
+<p>When you use an ORM library, make sure that the data is stored in an encrypted database and the class representations are individually encrypted before storing it. See the chapters "<a href="../../../Document/0x05d-Testing-Data-Storage.md">Data Storage on Android</a>" and "<a href="../../../Document/0x05e-Testing-Cryptography.md">Android Cryptographic APIs</a>" for more details. You can check for the following keywords in the corresponding libraries:</p>
 <p><strong><code>OrmLite</code></strong> Search the source code for the following keywords:</p>
 <ul>
 <li><code>import com.j256.*</code></li>

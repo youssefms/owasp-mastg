@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4250,15 +4250,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11784,15 +11775,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12192,11 +12174,11 @@ if let url = URL(string: &quot;itms-apps://itunes.apple.com/app/id\(appStoreId)&
 <li>We can also know from where it was called, as expected from <code>-[UIApplication _applicationOpenURLAction:payload:origin:]</code>.</li>
 <li>The method returns <code>0x1</code> which means <code>YES</code> (<a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc#return-value" title="application:openURL:options: Return Value">the delegate successfully handled the request</a>).</li>
 </ul>
-<p>The call was successful and we see now that the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat">iGoat</a> app was open:</p>
+<p>The call was successful and we see now that the <a href="../../../Document/0x08b-Reference-Apps.md#igoat">iGoat</a> app was open:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06h/iGoat_opened_via_url_scheme.jpg" width="400px" /></p>
 <p>Notice that we can also see that the caller (source application) was Safari if we look in the upper-left corner of the screenshot.</p>
 <h4 id="dynamically-opening-the-link-from-the-app-itself">Dynamically Opening the Link from the App Itself<a class="headerlink" href="#dynamically-opening-the-link-from-the-app-itself" title="Permanent link">&para;</a></h4>
-<p>It is also interesting to see which other methods get called on the way. To change the result a little bit we will call the same URL scheme from the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat">iGoat</a> app itself. We will use again ObjC method observer and the Frida REPL:</p>
+<p>It is also interesting to see which other methods get called on the way. To change the result a little bit we will call the same URL scheme from the <a href="../../../Document/0x08b-Reference-Apps.md#igoat">iGoat</a> app itself. We will use again ObjC method observer and the Frida REPL:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="w"> </span><span class="nx">frida</span><span class="w"> </span><span class="o">-</span><span class="nx">U</span><span class="w"> </span><span class="nx">iGoat</span><span class="o">-</span><span class="nx">Swift</span><span class="w"> </span><span class="o">--</span><span class="nx">codeshare</span><span class="w"> </span><span class="nx">mrmacete</span><span class="o">/</span><span class="nx">objc</span><span class="o">-</span><span class="nx">method</span><span class="o">-</span><span class="nx">observer</span>
 
 <span class="p">[</span><span class="nx">iPhone</span><span class="o">::</span><span class="nx">iGoat</span><span class="o">-</span><span class="nx">Swift</span><span class="p">]</span><span class="o">-&gt;</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">openURL</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -12389,8 +12371,8 @@ if let url = URL(string: &quot;itms-apps://itunes.apple.com/app/id\(appStoreId)&
 </ul>
 <p>The <a href="https://github.com/fuzzdb-project/fuzzdb" title="FuzzDB">FuzzDB</a> project offers fuzzing dictionaries that you can use as payloads.</p>
 <h4 id="using-frida_1">Using Frida<a class="headerlink" href="#using-frida_1" title="Permanent link">&para;</a></h4>
-<p>Doing this with Frida is pretty easy, as explained in this <a href="https://grepharder.github.io/blog/0x03_learning_about_universal_links_and_fuzzing_url_schemes_on_ios_with_frida.html" title="Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida">blog post</a> to see an example that fuzzes the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> app (working on iOS 11.1.2).</p>
-<p>Before running the fuzzer we need the URL schemes as inputs. From the static analysis we know that the <a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> app supports the following URL scheme and parameters: <code>iGoat://?contactNumber={0}&amp;message={0}</code>.</p>
+<p>Doing this with Frida is pretty easy, as explained in this <a href="https://grepharder.github.io/blog/0x03_learning_about_universal_links_and_fuzzing_url_schemes_on_ios_with_frida.html" title="Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida">blog post</a> to see an example that fuzzes the <a href="../../../Document/0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> app (working on iOS 11.1.2).</p>
+<p>Before running the fuzzer we need the URL schemes as inputs. From the static analysis we know that the <a href="../../../Document/0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> app supports the following URL scheme and parameters: <code>iGoat://?contactNumber={0}&amp;message={0}</code>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida<span class="w"> </span>-U<span class="w"> </span>SpringBoard<span class="w"> </span>-l<span class="w"> </span>ios-url-scheme-fuzzing.js
 <span class="o">[</span>iPhone::SpringBoard<span class="o">]</span>-&gt;<span class="w"> </span>fuzz<span class="o">(</span><span class="s2">&quot;iGoat&quot;</span>,<span class="w"> </span><span class="s2">&quot;iGoat://?contactNumber={0}&amp;message={0}&quot;</span><span class="o">)</span>
 Watching<span class="w"> </span><span class="k">for</span><span class="w"> </span>crashes<span class="w"> </span>from<span class="w"> </span>iGoat...
@@ -12442,31 +12424,6 @@ Opened<span class="w"> </span>URL:<span class="w"> </span>iGoat://?contactNumber
 OK!
 </code></pre></div>
 <p>The script will detect if a crash occurred. On this run it did not detect any crashed but for other apps this could be the case. We would be able to inspect the crash reports in <code>/private/var/mobile/Library/Logs/CrashReporter</code> or in <code>/tmp</code> if it was moved by the script.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://ios.gadgethacks.com/news/always-updated-list-ios-app-url-scheme-names-0184033/" title="Always-Updated List of iOS App URL Scheme Names">Always-Updated List of iOS App URL Scheme Names</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl?language=objc#discussion" title="Discussion about UIApplication canOpenURL:">Discussion about UIApplication canOpenURL:</a></li>
-<li><a href="https://www.frida.re/docs/javascript-api/#rpc" title="Frida's RPC (JavaScript API)">Frida's RPC (JavaScript API)</a></li>
-<li><a href="https://github.com/fuzzdb-project/fuzzdb" title="FuzzDB">FuzzDB</a></li>
-<li><a href="https://grepharder.github.io/blog/0x03_learning_about_universal_links_and_fuzzing_url_schemes_on_ios_with_frida.html" title="Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida">Learning about Universal Links and Fuzzing URL Schemes on iOS with Frida</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/nsstring/1407803-isequaltostring" title="NSString isEqualToString:">NSString isEqualToString:</a></li>
-<li><a href="https://codeshare.frida.re/@mrmacete/objc-method-observer/" title="ObjC method observer">ObjC method observer</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW7" title="Registering Custom URL Schemes">Registering Custom URL Schemes</a></li>
-<li><a href="https://github.com/peter-iakovlev/Telegram-iOS/blob/87e0a33ac438c1d702f2a0b75bf21f26866e346f/Telegram-iOS/AppDelegate.swift#L1250" title="Telegram's AppDelegate.swift Line 1250">Telegram's AppDelegate.swift Line 1250</a></li>
-<li><a href="https://github.com/peter-iakovlev/Telegram-iOS/blob/87e0a33ac438c1d702f2a0b75bf21f26866e346f/Telegram-iOS/AppDelegate.swift#L1270" title="Telegram's AppDelegate.swift Line 1270">Telegram's AppDelegate.swift Line 1270</a></li>
-<li><a href="https://github.com/TelegramMessenger/Telegram-iOS/blob/master/Telegram/Telegram-iOS/Info.plist#L233" title="Telegram's Info.plist Line 63">Telegram's Info.plist Line 63</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl?language=objc" title="UIApplication canOpenURL:">UIApplication canOpenURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/1622961-openurl?language=objc" title="UIApplication openURL:">UIApplication openURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/1648685-openurl?language=objc" title="UIApplication openURL:options:completionHandler:">UIApplication openURL:options:completionHandler:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622964-application?language=objc" title="UIApplicationDelegate application:handleOpenURL:">UIApplicationDelegate application:handleOpenURL:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc" title="UIApplicationDelegate application:openURL:options:">UIApplicationDelegate application:openURL:options:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623073-application" title="UIApplicationDelegate application:openURL:sourceApplication:annotation:">UIApplicationDelegate application:openURL:sourceApplication:annotation:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/openurloptionskey" title="UIApplicationOpenURLOptionsKey">UIApplicationOpenURLOptionsKey</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/openurloptionskey/1623128-sourceapplication" title="UIApplicationOpenURLOptionsSourceApplicationKey">UIApplicationOpenURLOptionsSourceApplicationKey</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc#return-value" title="application:openURL:options: Return Value">application:openURL:options: Return Value</a></li>
-<li><a href="https://github.com/OWASP/iGoat-Swift" title="iGoat-Swift">iGoat-Swift</a></li>
-<li><a href="https://codeshare.frida.re/@dki/ios-url-scheme-fuzzing/" title="iOS URL Scheme Fuzzing Script">iOS URL Scheme Fuzzing Script</a></li>
-</ul>
 
 
 

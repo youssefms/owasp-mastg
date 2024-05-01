@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1506,15 +1506,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11488,15 +11479,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11600,7 +11582,7 @@
 
 <h1 id="ios-cryptographic-apis">iOS Cryptographic APIs<a class="headerlink" href="#ios-cryptographic-apis" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>In the <a href="/MASTG/General/0x04g-Testing-Cryptography">Mobile App Cryptography</a> chapter, we introduced general cryptography best practices and described typical issues that can occur when cryptography is used incorrectly. In this chapter, we'll go into more detail on iOS's cryptography APIs. We'll show how to identify usage of those APIs in the source code and how to interpret cryptographic configurations. When reviewing code, make sure to compare the cryptographic parameters used with the current best practices linked from this guide.</p>
+<p>In the <a href="0x04g-Testing-Cryptography.md">"Mobile App Cryptography"</a> chapter, we introduced general cryptography best practices and described typical issues that can occur when cryptography is used incorrectly. In this chapter, we'll go into more detail on iOS's cryptography APIs. We'll show how to identify usage of those APIs in the source code and how to interpret cryptographic configurations. When reviewing code, make sure to compare the cryptographic parameters used with the current best practices linked from this guide.</p>
 <p>Apple provides libraries that include implementations of most common cryptographic algorithms. <a href="https://developer.apple.com/library/content/documentation/Security/Conceptual/cryptoservices/GeneralPurposeCrypto/GeneralPurposeCrypto.html" title="Apple Cryptographic Services Guide">Apple's Cryptographic Services Guide</a> is a great reference. It contains generalized documentation of how to use standard libraries to initialize and use cryptographic primitives, information that is useful for source code analysis.</p>
 <h3 id="cryptokit">CryptoKit<a class="headerlink" href="#cryptokit" title="Permanent link">&para;</a></h3>
 <p>Apple CryptoKit was released with iOS 13 and is built on top of Apple's native cryptographic library corecrypto which is <a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3856">FIPS 140-2 validated</a>. The Swift framework provides a strongly typed API interface, has effective memory management, conforms to equatable, and supports generics. CryptoKit contains secure algorithms for hashing, symmetric-key cryptography, and public-key cryptography. The framework can also utilize the hardware based key manager from the Secure Enclave.</p>
@@ -11733,7 +11715,7 @@ func testKeyDerivation() {
 <li><em>Source: <a href="https://stackoverflow.com/questions/8569555/pbkdf2-using-commoncrypto-on-ios" title="PBKDF2 using CommonCrypto on iOS">https://stackoverflow.com/questions/8569555/pbkdf2-using-commoncrypto-on-ios</a>, tested in the test suite of the <code>Arcane</code> library</em></li>
 </ul>
 <p>When you need to store the key, it is recommended to use the Keychain as long as the protection class chosen is not <code>kSecAttrAccessibleAlways</code>. Storing keys in any other location, such as the <code>NSUserDefaults</code>, property list files or by any other sink from Core Data or Realm, is usually less secure than using the KeyChain.
-Even when the sync of Core Data or Realm is protected by using <code>NSFileProtectionComplete</code> data protection class, we still recommend using the KeyChain. See the chapter <a href="/MASTG/iOS/0x06d-Testing-Data-Storage">Data Storage on iOS</a> for more details.</p>
+Even when the sync of Core Data or Realm is protected by using <code>NSFileProtectionComplete</code> data protection class, we still recommend using the KeyChain. See the chapter <a href="../0x06d-Testing-Data-Storage/">"Data Storage on iOS"</a> for more details.</p>
 <p>The KeyChain supports two type of storage mechanisms: a key is either secured by an encryption key stored in the secure enclave or the key itself is within the secure enclave. The latter only holds when you use an ECDH signing key. See the <a href="https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave" title="Secure Enclave">Apple Documentation</a> for more details on its implementation.</p>
 <p>The last three options consist of using hardcoded encryption keys in the source code, having a predictable key derivation function based on stable attributes, and storing generated keys in places that are shared with other applications. Using hardcoded encryption keys is obviously not the way to go, as this would mean that every instance of the application uses the same encryption key. An attacker needs only to do the work once in order to extract the key from the source code (whether stored natively or in Objective-C/Swift). Consequently, the attacker can decrypt any other data that was encrypted by the application.
 Next, when you have a predictable key derivation function based on identifiers which are accessible to other applications, the attacker only needs to find the KDF and apply it to the device in order to find the key. Lastly, storing symmetric encryption keys publicly also is highly discouraged.</p>
@@ -11745,43 +11727,6 @@ Next, when you have a predictable key derivation function based on identifiers w
 <h3 id="random-number-generator">Random Number Generator<a class="headerlink" href="#random-number-generator" title="Permanent link">&para;</a></h3>
 <p>Apple provides a <a href="https://developer.apple.com/reference/security/randomization_services" title="Randomization Services">Randomization Services</a> API, which generates cryptographically secure random numbers.</p>
 <p>The Randomization Services API uses the <code>SecRandomCopyBytes</code> function to generate numbers. This is a wrapper function for the <code>/dev/random</code> device file, which provides cryptographically secure pseudorandom values from 0 to 255. Make sure that all random numbers are generated with this API. There is no reason for developers to use a different one.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/aerogear/aerogear-ios-crypto" title="Aerogera-ios-crypto">Aerogera-ios-crypto</a></li>
-<li><a href="https://developer.apple.com/documentation/cryptokit" title="Apple CryptoKit from Apple Developer Documentation">Apple CryptoKit from Apple Developer Documentation</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/Security/Conceptual/cryptoservices/GeneralPurposeCrypto/GeneralPurposeCrypto.html" title="Apple Cryptographic Services Guide">Apple Cryptographic Services Guide</a></li>
-<li><a href="https://github.com/onmyway133/Arcane" title="Arcane">Arcane</a></li>
-<li><a href="https://github.com/kelp404/CocoaSecurity" title="CocoaSecurity">CocoaSecurity</a></li>
-<li><a href="https://opensource.apple.com/source/CommonCrypto/CommonCrypto-36064/CommonCrypto/CommonCryptor.h.auto.html" title="CommonCrypto.h">CommonCrypto.h</a></li>
-<li><a href="https://github.com/krzyzanowskim/CryptoSwift" title="CryptoSwift">CryptoSwift</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc19/709/" title="Cryptography and Your Apps from WWDC 2019 session 709">Cryptography and Your Apps from WWDC 2019 session 709</a></li>
-<li><a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3856">FIPS 140-2 validated</a></li>
-<li><a href="https://opensource.apple.com/source/CommonCrypto/CommonCrypto-60074/include/CommonCryptorSPI.h" title="GCM in CC">GCM in CC</a></li>
-<li><a href="https://github.com/henrinormak/Heimdall" title="Heimdall">Heimdall</a></li>
-<li><a href="https://www.hackingwithswift.com/example-code/cryptokit/how-to-calculate-the-sha-hash-of-a-string-or-data-instance" title="How to calculate the SHA hash of a String or Data instance from Hacking with Swift">How to calculate the SHA hash of a String or Data instance from Hacking with Swift</a></li>
-<li><a href="https://github.com/iosdevzone/IDZSwiftCommonCrypto" title="IDZSwiftCommonCrypto">IDZSwiftCommonCrypto</a></li>
-<li><a href="https://security.googleblog.com/2018/08/introducing-tink-cryptographic-software.html" title="Introducing Tink">Introducing Tink</a></li>
-<li><a href="https://download.libsodium.org/doc/installation" title="LibSodium docs">LibSodium docs</a></li>
-<li><a href="https://github.com/hohl/MIHCrypto" title="MIHCrypto">MIHCrypto</a></li>
-<li><a href="https://github.com/gabriel/NAChloride" title="NAChloride">NAChloride</a></li>
-<li><a href="https://github.com/ideawu/Objective-C-RSA" title="Objective-C-RSA">Objective-C-RSA</a></li>
-<li><a href="https://github.com/ZewoGraveyard/OpenSSL" title="OpenSSL">OpenSSL</a></li>
-<li><a href="https://www.openssl.org/" title="OpenSSL">OpenSSL</a></li>
-<li><a href="https://stackoverflow.com/questions/8569555/pbkdf2-using-commoncrypto-on-ios" title="PBKDF2 using CommonCrypto on iOS">PBKDF2 using CommonCrypto on iOS</a></li>
-<li><a href="https://developer.apple.com/documentation/cryptokit/performing_common_cryptographic_operations" title="Performing Common Cryptographic Operations from Apple Developer Documentation">Performing Common Cryptographic Operations from Apple Developer Documentation</a></li>
-<li><a href="https://github.com/RNCryptor/RNCryptor" title="RNCryptor">RNCryptor</a></li>
-<li><a href="https://developer.apple.com/reference/security/randomization_services" title="Randomization Services">Randomization Services</a></li>
-<li><a href="https://developer.apple.com/documentation/security/seckey" title="SecKey">SecKey</a></li>
-<li><a href="https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave" title="Secure Enclave">Secure Enclave</a></li>
-<li><a href="https://github.com/jedisct1/swift-sodium" title="Swift-sodium">Swift-sodium</a></li>
-<li><a href="https://github.com/TakeScoop/SwiftyRSA" title="SwiftyRSA">SwiftyRSA</a></li>
-<li><a href="https://github.com/cossacklabs/themis/wiki/Objective-C-Howto" title="Themis wiki">Themis wiki</a></li>
-<li><a href="https://github.com/cossacklabs/themis" title="Themis">Themis</a></li>
-<li><a href="https://github.com/google/tink" title="Tink at GitHub">Tink at GitHub</a></li>
-<li><a href="https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/using_keys_for_encryption" title="Using keys for encryption">Using keys for encryption</a></li>
-<li><a href="https://github.com/cisco/cjose" title="cjose">cjose</a></li>
-<li><a href="https://github.com/mochtu/libsodium-ios" title="libsodium ios">libsodium ios</a></li>
-</ul>
 
 
 

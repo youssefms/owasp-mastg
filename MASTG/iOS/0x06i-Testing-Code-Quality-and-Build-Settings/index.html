@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1689,15 +1689,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11686,15 +11677,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11799,7 +11781,7 @@
 <h1 id="ios-code-quality-and-build-settings">iOS Code Quality and Build Settings<a class="headerlink" href="#ios-code-quality-and-build-settings" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <h3 id="app-signing">App Signing<a class="headerlink" href="#app-signing" title="Permanent link">&para;</a></h3>
-<p><a href="/MASTG/iOS/0x06a-Platform-Overview#code-signing">Code signing</a> your app assures users that the app has a known source and hasn't been modified since it was last signed. Before your app can integrate app services, be installed on a non-jailbroken device, or be submitted to the App Store, it must be signed with a certificate issued by Apple. For more information on how to request certificates and code sign your apps, review the <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html" title="App Distribution Guide">App Distribution Guide</a>.</p>
+<p><a href="../0x06a-Platform-Overview/#code-signing">Code signing</a> your app assures users that the app has a known source and hasn't been modified since it was last signed. Before your app can integrate app services, be installed on a non-jailbroken device, or be submitted to the App Store, it must be signed with a certificate issued by Apple. For more information on how to request certificates and code sign your apps, review the <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html" title="App Distribution Guide">App Distribution Guide</a>.</p>
 <h3 id="third-party-libraries">Third-Party Libraries<a class="headerlink" href="#third-party-libraries" title="Permanent link">&para;</a></h3>
 <p>iOS applications often make use of third party libraries which accelerate development as the developer has to write less code in order to solve a problem. However, third party libraries may contain vulnerabilities, incompatible licensing, or malicious content. Additionally, it is difficult for organizations and developers to manage application dependencies, including monitoring library releases and applying available security patches.</p>
 <p>There are three widely used package management tools <a href="https://swift.org/package-manager" title="Swift Package Manager on Swift.org">Swift Package Manager</a>, <a href="https://github.com/Carthage/Carthage" title="Carthage on GitHub">Carthage</a>, and <a href="https://cocoapods.org" title="CocoaPods.org">CocoaPods</a>:</p>
@@ -11821,7 +11803,7 @@
 </ul>
 <p>Please note that this issue can hold on multiple levels: When you use webviews with JavaScript running in the webview, the JavaScript libraries can have these issues as well. The same holds for plugins/libraries for Cordova, React-native and Xamarin apps.</p>
 <h3 id="memory-corruption-bugs">Memory Corruption Bugs<a class="headerlink" href="#memory-corruption-bugs" title="Permanent link">&para;</a></h3>
-<p>iOS applications have various ways to run into <a href="/MASTG/General/0x04h-Testing-Code-Quality#memory-corruption-bugs">memory corruption bugs</a>: first there are the native code issues which have been mentioned in the general Memory Corruption Bugs section. Next, there are various unsafe operations with both Objective-C and Swift to actually wrap around native code which can create issues. Last, both Swift and Objective-C implementations can result in memory leaks due to retaining objects which are no longer in use.</p>
+<p>iOS applications have various ways to run into <a href="0x04h-Testing-Code-Quality.md#memory-corruption-bugs">memory corruption bugs</a>: first there are the native code issues which have been mentioned in the general Memory Corruption Bugs section. Next, there are various unsafe operations with both Objective-C and Swift to actually wrap around native code which can create issues. Last, both Swift and Objective-C implementations can result in memory leaks due to retaining objects which are no longer in use.</p>
 <p>Learn more:</p>
 <ul>
 <li><a href="https://developer.ibm.com/tutorials/mo-ios-memory/">https://developer.ibm.com/tutorials/mo-ios-memory/</a></li>
@@ -11829,20 +11811,20 @@
 <li><a href="https://medium.com/zendesk-engineering/ios-identifying-memory-leaks-using-the-xcode-memory-graph-debugger-e84f097b9d15">https://medium.com/zendesk-engineering/ios-identifying-memory-leaks-using-the-xcode-memory-graph-debugger-e84f097b9d15</a></li>
 </ul>
 <h3 id="binary-protection-mechanisms">Binary Protection Mechanisms<a class="headerlink" href="#binary-protection-mechanisms" title="Permanent link">&para;</a></h3>
-<p>Detecting the presence of <a href="/MASTG/General/0x04h-Testing-Code-Quality#binary-protection-mechanisms">binary protection mechanisms</a> heavily depend on the language used for developing the application.</p>
+<p>Detecting the presence of <a href="0x04h-Testing-Code-Quality.md#binary-protection-mechanisms">binary protection mechanisms</a> heavily depend on the language used for developing the application.</p>
 <p>Although Xcode enables all binary security features by default, it may be relevant to verify this for old applications or to check for compiler flag misconfigurations. The following features are applicable:</p>
 <ul>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#position-independent-code">PIE (Position Independent Executable)</a>:<ul>
+<li><a href="0x04h-Testing-Code-Quality.md#position-independent-code"><strong>PIE (Position Independent Executable)</strong></a>:<ul>
 <li>PIE applies to executable binaries (Mach-O type <code>MH_EXECUTE</code>).</li>
 <li>However it's not applicable for libraries (Mach-O type <code>MH_DYLIB</code>).</li>
 </ul>
 </li>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#memory-management">Memory management</a>:<ul>
+<li><a href="0x04h-Testing-Code-Quality.md#memory-management"><strong>Memory management</strong></a>:<ul>
 <li>Both pure Objective-C, Swift and hybrid binaries should have ARC (Automatic Reference Counting) enabled.</li>
-<li>For C/C++ libraries, the developer is responsible for doing proper <a href="/MASTG/General/0x04h-Testing-Code-Quality#manual-memory-management">manual memory management</a>. See <a href="/MASTG/General/0x04h-Testing-Code-Quality#memory-corruption-bugs">Memory Corruption Bugs</a>.</li>
+<li>For C/C++ libraries, the developer is responsible for doing proper <a href="0x04h-Testing-Code-Quality.md#manual-memory-management">manual memory management</a>. See <a href="0x04h-Testing-Code-Quality.md#memory-corruption-bugs">"Memory Corruption Bugs"</a>.</li>
 </ul>
 </li>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#stack-smashing-protection">Stack Smashing Protection</a>: For pure Objective-C binaries, this should always be enabled. Since Swift is designed to be memory safe, if a library is purely written in Swift, and stack canaries weren’t enabled, the risk will be minimal.</li>
+<li><a href="0x04h-Testing-Code-Quality.md#stack-smashing-protection"><strong>Stack Smashing Protection</strong></a>: For pure Objective-C binaries, this should always be enabled. Since Swift is designed to be memory safe, if a library is purely written in Swift, and stack canaries weren’t enabled, the risk will be minimal.</li>
 </ul>
 <p>Learn more:</p>
 <ul>
@@ -11876,7 +11858,7 @@
 </ol>
 <p>See the <a href="https://developer.apple.com/library/mac/qa/qa1788/_index.html" title="Technical Q&amp;A QA1788 Building a Position Independent Executable">Technical Q&amp;A QA1788 Building a Position Independent Executable</a>.</p>
 <h3 id="debuggable-apps">Debuggable Apps<a class="headerlink" href="#debuggable-apps" title="Permanent link">&para;</a></h3>
-<p>Apps can be made <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#debugging">debuggable</a> by adding the <a href="https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues" title="Resolving common notarization issues"><code>get-task-allow</code></a> key to the app entitlements file and setting it to <code>true</code>.</p>
+<p>Apps can be made <a href="0x06c-Reverse-Engineering-and-Tampering.md#debugging">debuggable</a> by adding the <a href="https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues" title="Resolving common notarization issues"><code>get-task-allow</code></a> key to the app entitlements file and setting it to <code>true</code>.</p>
 <p>While debugging is a useful feature when developing an app, it has to be turned off before releasing apps to the App Store or within an enterprise program. To do that you need to determine the mode in which your app is to be generated to check the flags in the environment:</p>
 <ul>
 <li>Select the build settings of the project</li>
@@ -12052,29 +12034,6 @@ func request(url: URL, completion: @escaping (Result&lt;MSTG, RequestError&gt;) 
     task.resume()
 }
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html" title="Adopting Cocoa Design Patterns">Adopting Cocoa Design Patterns</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html" title="App Distribution Guide">App Distribution Guide</a></li>
-<li><a href="https://developer.apple.com/documentation/xcode/building-your-app-to-include-debugging-information" title="Building Your App to Include Debugging Information">Building Your App to Include Debugging Information</a></li>
-<li><a href="https://github.com/Carthage/Carthage" title="Carthage on GitHub">Carthage on GitHub</a></li>
-<li><a href="https://cocoapods.org" title="CocoaPods.org">CocoaPods.org</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/ErrorHandling/ErrorHandling.html" title="Dealing with Errors">Dealing with Errors</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html" title="Error Handling in Swift">Error Handling in Swift</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Exceptions/Tasks/HandlingExceptions.html" title="Handling Exceptions">Handling Exceptions</a></li>
-<li><a href="https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift">How to use Result in Swift 5</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/MachOTopics/1-Articles/dynamic_code.html">Mach-O Programming Topics - Position-Independent Code</a></li>
-<li><a href="https://github.com/aidansteele/osx-abi-macho-file-format-reference">OS X ABI Mach-O File Format Reference</a></li>
-<li><a href="https://sensepost.com/blog/2021/on-ios-binary-protections/">On iOS Binary Protections</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Exceptions/Tasks/RaisingExceptions.html#//apple_ref/doc/uid/20000058-BBCCFIBF" title="Raising exceptions">Raising exceptions</a></li>
-<li><a href="https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues" title="Resolving common notarization issues">Resolving common notarization issues</a></li>
-<li><a href="https://developer.apple.com/documentation/swift/result">Result</a></li>
-<li><a href="https://support.apple.com/en-gb/guide/security/sec15bfe098e/web">Security of runtime process in iOS and iPadOS</a></li>
-<li><a href="https://swift.org/package-manager" title="Swift Package Manager on Swift.org">Swift Package Manager on Swift.org</a></li>
-<li><a href="https://developer.apple.com/documentation/xcode/swift-packages" title="Swift Packages Documentation">Swift Packages Documentation</a></li>
-<li><a href="https://developer.apple.com/library/mac/qa/qa1788/_index.html" title="Technical Q&amp;A QA1788 Building a Position Independent Executable">Technical Q&amp;A QA1788 Building a Position Independent Executable</a></li>
-<li><a href="https://www.swiftbysundell.com/posts/the-power-of-result-types-in-swift">The power of Result types in Swift</a></li>
-</ul>
 
 
 

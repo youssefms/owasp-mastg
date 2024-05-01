@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5359,15 +5359,6 @@
   <a href="#native-code" class="md-nav__link">
     <span class="md-ellipsis">
       Native Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11398,15 +11389,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11523,12 +11505,6 @@
 <p>It is important to know, the list of strings obtained using the above tools can be very big, as it also includes the various class and package names used in the application. Going through the complete list, specially for big binaries, can be very cumbersome. Thus, it is recommended to start with keyword-based searching and go through the list only when keyword search does not help. Some generic keywords which can be a good starting point are - password, key, and secret. Other useful keywords specific to the context of the app can be obtained while you are using the app itself. For instance, imagine that the app has as login form, you can take note of the displayed placeholder or title text of the input fields and use that as an entry point for your static analysis.</p>
 <h2 id="native-code">Native Code<a class="headerlink" href="#native-code" title="Permanent link">&para;</a></h2>
 <p>In order to extract strings from native code used in an Android application, you can use GUI tools such as Ghidra or <a href="https://github.com/radareorg/iaito" title="iaito">iaito</a> or rely on CLI-based tools such as the <em>strings</em> Unix utility (<code>strings &lt;path_to_binary&gt;</code>) or radare2's rabin2 (<code>rabin2 -zz &lt;path_to_binary&gt;</code>). When using the CLI-based ones you can take advantage of other tools such as grep (e.g. in conjunction with regular expressions) to further filter and analyze the results.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="http://www.newandroidbook.com/tools/dextra.html" title="Dextra">Dextra</a></li>
-<li><a href="https://github.com/radareorg/iaito" title="iaito">iaito</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik/dex-format#file-layout" title="string identifiers list">string identifiers list</a></li>
-</ul>
 
 
 

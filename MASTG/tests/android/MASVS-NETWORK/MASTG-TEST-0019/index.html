@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2274,15 +2274,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11484,15 +11475,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11615,7 +11597,7 @@
 <h3 id="testing-network-api-usage">Testing Network API Usage<a class="headerlink" href="#testing-network-api-usage" title="Permanent link">&para;</a></h3>
 <p>Next, even when using a low-level API which is supposed to make secure connections (such as <code>SSLSocket</code>), be aware that it has to be securely implemented. For instance, <code>SSLSocket</code> <strong>doesn't</strong> verify the hostname. Use <code>getDefaultHostnameVerifier</code> to verify the hostname. The Android developer documentation includes a <a href="https://developer.android.com/training/articles/security-ssl.html#WarningsSslSocket" title="Warnings About Using SSLSocket Directly">code example</a>.</p>
 <h3 id="testing-for-cleartext-traffic">Testing for Cleartext Traffic<a class="headerlink" href="#testing-for-cleartext-traffic" title="Permanent link">&para;</a></h3>
-<p>Next, you should ensure that the app is not allowing cleartext HTTP traffic. Since Android 9 (API level 28) cleartext HTTP traffic is blocked by default (thanks to the <a href="/MASTG/Android/0x05g-Testing-Network-Communication#default-configurations">default Network Security Configuration</a>) but there are multiple ways in which an application can still send it:</p>
+<p>Next, you should ensure that the app is not allowing cleartext HTTP traffic. Since Android 9 (API level 28) cleartext HTTP traffic is blocked by default (thanks to the <a href="../../../Document/0x05g-Testing-Network-Communication.md#default-configurations">default Network Security Configuration</a>) but there are multiple ways in which an application can still send it:</p>
 <ul>
 <li>Setting the <a href="https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic" title="Android documentation - usesCleartextTraffic flag"><code>android:usesCleartextTraffic</code></a> attribute of the <code>&lt;application&gt;</code> tag in the AndroidManifest.xml file. Note that this flag is ignored in case the Network Security Configuration is configured.</li>
 <li>Configuring the Network Security Configuration to enable cleartext traffic by setting the <code>cleartextTrafficPermitted</code> attribute to true on <code>&lt;domain-config&gt;</code> elements.</li>
@@ -11627,27 +11609,16 @@
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Intercept the tested app's incoming and outgoing network traffic and make sure that this traffic is encrypted. You can intercept network traffic in any of the following ways:</p>
 <ul>
-<li>Capture all HTTP(S) and Websocket traffic with an interception proxy like <a href="/MASTG/Tools/0x08a-Testing-Tools#owasp-zap">OWASP ZAP</a> or <a href="/MASTG/Tools/0x08a-Testing-Tools#burp-suite">Burp Suite</a> and make sure all requests are made via HTTPS instead of HTTP.</li>
+<li>Capture all HTTP(S) and Websocket traffic with an interception proxy like <a href="../../../Document/0x08a-Testing-Tools.md#owasp-zap">OWASP ZAP</a> or <a href="../../../Document/0x08a-Testing-Tools.md#burp-suite">Burp Suite</a> and make sure all requests are made via HTTPS instead of HTTP.</li>
 <li>Interception proxies like Burp and OWASP ZAP will show HTTP(S) traffic only. You can, however, use a Burp plugin such as <a href="https://github.com/summitt/Burp-Non-HTTP-Extension" title="Burp-non-HTTP-Extension">Burp-non-HTTP-Extension</a> or the tool <a href="https://github.com/jrmdev/mitm_relay" title="mitm-relay">mitm-relay</a> to decode and visualize communication via XMPP and other protocols.</li>
 </ul>
 <blockquote>
-<p>Some applications may not work with proxies like Burp and OWASP ZAP because of Certificate Pinning. In such a scenario, please check <a href="">Testing Custom Certificate Stores and Certificate Pinning</a>.</p>
+<p>Some applications may not work with proxies like Burp and OWASP ZAP because of Certificate Pinning. In such a scenario, please check <a href="../MASTG-TEST-0022/">"Testing Custom Certificate Stores and Certificate Pinning"</a>.</p>
 </blockquote>
 <p>For more details refer to:</p>
 <ul>
-<li><a href="/MASTG/General/0x04f-Testing-Network-Communication#intercepting-traffic-on-the-network-layer">Intercepting Traffic on the Network Layer</a> from chapter "Mobile App Network Communication"</li>
-<li><a href="/MASTG/Android/0x05b-Android-Security-Testing#setting-up-a-network-testing-environment">Setting up a Network Testing Environment</a> from chapter "Android Basic Security Testing"</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic" title="Android documentation - usesCleartextTraffic flag">Android documentation - usesCleartextTraffic flag</a></li>
-<li><a href="https://github.com/summitt/Burp-Non-HTTP-Extension" title="Burp-non-HTTP-Extension">Burp-non-HTTP-Extension</a></li>
-<li><a href="https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection.html" title="HttpsURLConnection">HttpsURLConnection</a></li>
-<li><a href="https://developer.android.com/reference/javax/net/ssl/SSLSocket.html" title="SSLSocket">SSLSocket</a></li>
-<li><a href="https://developer.android.com/training/articles/security-ssl.html">Security with HTTPS and SSL</a></li>
-<li><a href="https://developer.android.com/reference/java/net/Socket" title="Socket class">Socket class</a></li>
-<li><a href="https://developer.android.com/training/articles/security-ssl.html#WarningsSslSocket" title="Warnings About Using SSLSocket Directly">Warnings About Using SSLSocket Directly</a></li>
-<li><a href="https://github.com/jrmdev/mitm_relay" title="mitm-relay">mitm-relay</a></li>
+<li><a href="../../../Document/0x04f-Testing-Network-Communication.md#intercepting-traffic-on-the-network-layer">"Intercepting Traffic on the Network Layer"</a> from chapter "Mobile App Network Communication"</li>
+<li><a href="../../../Document/0x05b-Android-Security-Testing.md#setting-up-a-network-testing-environment">"Setting up a Network Testing Environment"</a> from chapter "Android Basic Security Testing"</li>
 </ul>
 
 

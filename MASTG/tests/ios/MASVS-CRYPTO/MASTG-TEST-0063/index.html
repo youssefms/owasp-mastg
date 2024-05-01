@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3593,15 +3593,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11558,12 +11540,6 @@
 <p>Note: if other mechanisms are used for random numbers in the code, verify that these are either wrappers around the APIs mentioned above or review them for their secure-randomness. Often this is too hard, which means you can best stick with the implementation above.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>If you want to test for randomness, you can try to capture a large set of numbers and check with <a href="https://portswigger.net/burp/documentation/desktop/tools/sequencer" title="Sequencer">Burp's sequencer plugin</a> to see how good the quality of the randomness is.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/reference/security/1399291-secrandomcopybytes?language=objc" title="SecRandomCopyBytes (Objective-C)">SecRandomCopyBytes (Objective-C)</a></li>
-<li><a href="https://developer.apple.com/reference/security/1399291-secrandomcopybytes" title="SecRandomCopyBytes (Swift)">SecRandomCopyBytes (Swift)</a></li>
-<li><a href="https://portswigger.net/burp/documentation/desktop/tools/sequencer" title="Sequencer">Sequencer</a></li>
-</ul>
 
 
 

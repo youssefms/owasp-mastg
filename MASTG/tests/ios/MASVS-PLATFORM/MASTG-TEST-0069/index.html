@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4028,15 +4028,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11550,15 +11541,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11723,7 +11705,7 @@
 </code></pre></div>
 <p>and then search for the Entitlements key region (<code>&lt;key&gt;Entitlements&lt;/key&gt;</code>).</p>
 <h3 id="review-entitlements-embedded-in-the-compiled-app-binary">Review Entitlements Embedded in the Compiled App Binary<a class="headerlink" href="#review-entitlements-embedded-in-the-compiled-app-binary" title="Permanent link">&para;</a></h3>
-<p>If you only have the app's IPA or simply the installed app on a jailbroken device, you normally won't be able to find <code>.entitlements</code> files. This could be also the case for the <code>embedded.mobileprovision</code> file. Still, you should be able to extract the entitlements property lists from the app binary yourself (which you've previously obtained as explained in the "iOS Basic Security Testing" chapter, section <a href="/MASTG/iOS/0x06b-iOS-Security-Testing#acquiring-the-app-binary">Acquiring the App Binary</a>).</p>
+<p>If you only have the app's IPA or simply the installed app on a jailbroken device, you normally won't be able to find <code>.entitlements</code> files. This could be also the case for the <code>embedded.mobileprovision</code> file. Still, you should be able to extract the entitlements property lists from the app binary yourself (which you've previously obtained as explained in the "iOS Basic Security Testing" chapter, section <a href="../../../Document/0x06b-iOS-Security-Testing.md#acquiring-the-app-binary">"Acquiring the App Binary"</a>).</p>
 <p>The following steps should work even when targeting an encrypted binary. If for some reason they don't, you'll have to decrypt and extract the app with e.g. Clutch (if compatible with your iOS version), frida-ios-dump or similar.</p>
 <h4 id="extracting-the-entitlements-plist-from-the-app-binary">Extracting the Entitlements Plist from the App Binary<a class="headerlink" href="#extracting-the-entitlements-plist-from-the-app-binary" title="Permanent link">&para;</a></h4>
 <p>If you have the app binary on your computer, one approach is to use binwalk to extract (<code>-e</code>) all XML files (<code>-y=xml</code>):</p>
@@ -11848,22 +11830,6 @@ RET:<span class="w"> </span>0x4
 <p>Next, there is a <em>visual</em> way to inspect the status of some app permissions when using the iPhone/iPad by opening "Settings" and scrolling down until you find the app you're interested in. When clicking on it, this will open the "ALLOW APP_NAME TO ACCESS" screen. However, not all permissions might be displayed yet. You will have to trigger them in order to be listed on that screen.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06h/settings_allow_screen.png" width="100%" /></p>
 <p>For example, in the previous example, the "Location" entry was not being listed until we triggered the permission dialogue for the first time. Once we did it, no matter if we allowed the access or not, the the "Location" entry will be displayed.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/corebluetooth/cbcentralmanager?language=objc" title="CBCentralManager">CBCentralManager</a></li>
-<li><a href="https://developer.apple.com/documentation/corebluetooth/cbmanager/1648600-state?language=objc" title="CBManager state">CBManager state</a></li>
-<li><a href="https://developer.apple.com/documentation/corelocation/clauthorizationstatus/authorizedwheninuse" title="CLAuthorizationStatus.authorizedWhenInUse">CLAuthorizationStatus.authorizedWhenInUse</a></li>
-<li><a href="https://developer.apple.com/documentation/corelocation/cllocationmanager/1423648-locationservicesenabled?language=objc" title="CLLocationManager locationServicesEnabled">CLLocationManager locationServicesEnabled</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy/accessing_protected_resources?language=objc#3037319" title="Check for Authorization">Check for Authorization</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax" title="Cryptographic Message Syntax">Cryptographic Message Syntax</a></li>
-<li><a href="https://developer.apple.com/documentation/corelocation/adding_location_services_to_your_app" title="Getting the availability of Core Location services">Getting the availability of Core Location services</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Glob_%28programming%29" title="Glob (programming)">Glob (programming)</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-PROFILESENTITLEMENTS" title="Inspecting a profile's entitlements">Inspecting a profile's entitlements</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW24" title="NSCameraUsageDescription">NSCameraUsageDescription</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW76" title="NSHealthClinicalHealthRecordsShareUsageDescription">NSHealthClinicalHealthRecordsShareUsageDescription</a></li>
-<li><a href="https://github.com/peter-iakovlev/Telegram-iOS/blob/77ee5c4dabdd6eb5f1e2ff76219edf7e18b45c00/Telegram-iOS/Telegram-iOS-AppStoreLLC.entitlements" title="Telegram-iOS-AppStoreLLC.entitlements original file">Telegram-iOS-AppStoreLLC.entitlements original file</a></li>
-<li><a href="https://www.frida.re/docs/frida-trace/" title="frida-trace">frida-trace</a></li>
-</ul>
 
 
 

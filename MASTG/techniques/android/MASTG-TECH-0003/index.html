@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5041,15 +5041,6 @@
   <a href="#testing-instant-apps" class="md-nav__link">
     <span class="md-ellipsis">
       Testing Instant Apps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11434,15 +11425,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11553,7 +11535,7 @@
 </ul>
 <p>Beware that you do not have control over these sites and you cannot guarantee what they do in the future. Only use them if it's your only option left.</p>
 <h2 id="using-gplaycli">Using gplaycli<a class="headerlink" href="#using-gplaycli" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="/MASTG/Tools/0x08a-Testing-Tools#gplaycli">gplaycli</a> to download (<code>-d</code>) the selected APK by specifying its AppID (add <code>-p</code> to show a progress bar and <code>-v</code> for verbosity):</p>
+<p>You can use <a href="0x08a-Testing-Tools.md#gplaycli">gplaycli</a> to download (<code>-d</code>) the selected APK by specifying its AppID (add <code>-p</code> to show a progress bar and <code>-v</code> for verbosity):</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>gplaycli<span class="w"> </span>-p<span class="w"> </span>-v<span class="w"> </span>-d<span class="w"> </span>com.google.android.keep
 <span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>GPlayCli<span class="w"> </span>version<span class="w"> </span><span class="m">3</span>.26<span class="w"> </span><span class="o">[</span>Python3.7.4<span class="o">]</span>
 <span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Configuration<span class="w"> </span>file<span class="w"> </span>is<span class="w"> </span>~/.config/gplaycli/gplaycli.conf
@@ -11588,7 +11570,7 @@
 <li>Only a reduced number of permissions can be used, which are documented at <a href="https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle?tenant=irina#request-supported-permissions" title="Permission documentation for Android Instant Apps">Android Instant app documentation</a>.</li>
 </ul>
 <p>The combination of these can lead to insecure decisions, such as: stripping too much of the authorization/authentication/confidentiality logic from an app, which allows for information leakage.</p>
-<p>Note: Instant apps require an App Bundle. App Bundles are described in the "<a href="/MASTG/Android/0x05a-Platform-Overview#app-bundles">App Bundles</a>" section of the "Android Platform Overview" chapter.</p>
+<p>Note: Instant apps require an App Bundle. App Bundles are described in the "<a href="0x05a-Platform-Overview.md#app-bundles">App Bundles</a>" section of the "Android Platform Overview" chapter.</p>
 <p><strong>Static Analysis Considerations:</strong></p>
 <p>Static analysis can be either done after reverse engineering a downloaded instant app, or by analyzing the App Bundle. When you analyze the App Bundle, check the Android Manifest to see whether <code>dist:module dist:instant="true"</code> is set for a given module (either the base or a specific module with <code>dist:module</code> set). Next, check for the various entry points, which entry points are set (by means of <code>&lt;data android:path="&lt;/PATH/HERE&gt;" /&gt;</code>).</p>
 <p>Now follow the entry points, like you would do for any Activity and check:</p>
@@ -11621,15 +11603,6 @@
 <li>There are any data which require privacy controls and whether these controls are in place.</li>
 <li>All communications are sufficiently secured.</li>
 <li>When you need more functionalities, are the right security controls downloaded as well for these functionalities?</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/Domilopment/apk-extractor" title="APK Extractor">APK Extractor</a></li>
-<li><a href="https://apkmirror.com" title="APKMirror">APKMirror</a></li>
-<li><a href="https://apkpure.com" title="APKPure">APKPure</a></li>
-<li><a href="https://developer.android.com/topic/google-play-instant/overview" title="Google Play Instant">Google Play Instant</a></li>
-<li><a href="https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle?tenant=irina#request-supported-permissions" title="Permission documentation for Android Instant Apps">Permission documentation for Android Instant Apps</a></li>
-<li><a href="https://github.com/matlink/gplaycli/blob/3.26/gplaycli/gplaycli.py#L106" title="gplaycli Fallback Token">gplaycli Fallback Token</a></li>
 </ul>
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -7553,15 +7553,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11434,15 +11425,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11474,7 +11456,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11567,7 +11549,7 @@
 <h2 id="installing-frida-on-android">Installing Frida on Android<a class="headerlink" href="#installing-frida-on-android" title="Permanent link">&para;</a></h2>
 <p>In order to set up Frida on your Android device:</p>
 <ul>
-<li>If your device is not rooted, you can also use Frida, please refer to section "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#dynamic-analysis-on-non-rooted-devices" title="Dynamic Analysis on Non-Rooted Devices&quot; &quot;Dynamic Analysis on Non-Rooted Devices">Dynamic Analysis on Non-Rooted Devices</a>" of the "Reverse Engineering and Tampering" chapter.</li>
+<li>If your device is not rooted, you can also use Frida, please refer to section "<a href="0x05c-Reverse-Engineering-and-Tampering.md#dynamic-analysis-on-non-rooted-devices" title="Dynamic Analysis on Non-Rooted Devices">Dynamic Analysis on Non-Rooted Devices</a>" of the "Reverse Engineering and Tampering" chapter.</li>
 <li>If you have a rooted device, simply follow the <a href="https://www.frida.re/docs/android/" title="Frida - Setting up your Android device">official instructions</a> or follow the hints below.</li>
 </ul>
 <p>We assume a rooted device here unless otherwise noted. Download the frida-server binary from the <a href="https://github.com/frida/frida/releases">Frida releases page</a>. Make sure that you download the right frida-server binary for the architecture of your Android device or emulator: x86, x86_64, arm or arm64. Make sure that the server version (at least the major version number) matches the version of your local Frida installation. PyPI usually installs the latest version of Frida. If you're unsure which version is installed, you can check with the Frida command line tool:</p>
@@ -11633,7 +11615,7 @@ adb<span class="w"> </span>shell<span class="w"> </span><span class="s2">&quot;s
 <span class="p">});</span>
 </code></pre></div>
 <p>The above script calls <code>Java.perform</code> to make sure that your code gets executed in the context of the Java VM. It instantiates a wrapper for the <code>android.app.Activity</code> class via <code>Java.use</code> and overwrites the <code>onResume</code> function. The new <code>onResume</code> function implementation prints a notice to the console and calls the original <code>onResume</code> method by invoking <code>this.onResume</code> every time an activity is resumed in the app.</p>
-<p>The <a href="#jadx">JADX decompiler</a> (v1.3.3 and above) can generate Frida snippets through its graphical code browser. To use this feature, open the APK or DEX with <code>jadx-gui</code>, browse to the target method, right click the method name, and select "Copy as frida snippet (f)". For example using the MASTG <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a>:</p>
+<p>The <a href="#jadx">JADX decompiler</a> (v1.3.3 and above) can generate Frida snippets through its graphical code browser. To use this feature, open the APK or DEX with <code>jadx-gui</code>, browse to the target method, right click the method name, and select "Copy as frida snippet (f)". For example using the MASTG <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a>:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x08a/jadx_copy_frida_snippet.png" width="100%" /></p>
 <p>The above steps place the following output in the pasteboard, which you can then paste in a JavaScript file and feed into <code>frida -U -l</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;sg.vantagepoint.a.a&quot;</span><span class="p">);</span>
@@ -11688,16 +11670,6 @@ adb<span class="w"> </span>shell<span class="w"> </span><span class="s2">&quot;s
 <span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">android</span><span class="p">.</span><span class="na">view</span><span class="p">.</span><span class="na">View</span><span class="p">.</span><span class="na">cancelPendingInputEvents</span><span class="p">()</span>
 <span class="p">...</span>
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.frida.re/docs/javascript-api/#interceptor" title="Frida - Interceptor API">Frida - Interceptor API</a></li>
-<li><a href="https://www.frida.re/docs/javascript-api/#java" title="Frida - Java API">Frida - Java API</a></li>
-<li><a href="https://www.frida.re/docs/javascript-api/#memory" title="Frida - Memory API">Frida - Memory API</a></li>
-<li><a href="https://www.frida.re/docs/android/" title="Frida - Setting up your Android device">Frida - Setting up your Android device</a></li>
-<li><a href="https://github.com/frida/frida/releases">Frida releases page</a></li>
-<li><a href="https://www.frida.re/docs/javascript-api/">JavaScript API</a></li>
-<li><a href="https://github.com/frida/frida-python/issues/70" title="Support for tracing high-level methods of Java Classes via patterns">Support for tracing high-level methods of Java Classes via patterns</a></li>
-</ul>
 
 
 

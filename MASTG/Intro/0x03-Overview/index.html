@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -854,15 +854,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11594,15 +11585,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11699,7 +11681,7 @@
 <h2 id="how-to-use-the-mobile-application-security-project">How to Use the Mobile Application Security Project<a class="headerlink" href="#how-to-use-the-mobile-application-security-project" title="Permanent link">&para;</a></h2>
 <p>First, the Project recommends that your mobile app security strategies should be based on the <a href="https://mas.owasp.org/MASVS/">OWASP Mobile Application Security <em>Verification Standard</em> (MASVS)</a>, which defines a mobile app security model and lists generic security requirements for mobile apps. MASVS is designed to be used by architects, developers, testers, security professionals, and consumers to define and understand the qualities of a secure mobile app. After you have determined how OWASP MASVS applies to your mobile app's security model, the Project suggests that you use the <a href="https://mas.owasp.org/MASTG/">OWASP Mobile Application Security <em>Testing Guide</em> (MASTG)</a>. The Testing Guide maps to the same basic set of security requirements offered by the MASVS and depending on the context, they can be used individually or combined to achieve different objectives.</p>
 <p><img src="../../../assets/Images/Chapters/0x03/owasp-mobile-overview.png" alt="image" width="50%" /></p>
-<p>For example, the MASVS requirements can be used in an app's planning and architecture design stages while the checklist and testing guide may serve as a baseline for manual security testing or as a template for automated security tests during or after development. In the <a href="/MASTG/General/0x04b-Mobile-App-Security-Testing">Mobile App Security Testing</a> chapter we'll describe how you can apply the checklist and MASTG to a mobile app penetration test.</p>
+<p>For example, the MASVS requirements can be used in an app's planning and architecture design stages while the checklist and testing guide may serve as a baseline for manual security testing or as a template for automated security tests during or after development. In the <a href="0x04b-Mobile-App-Security-Testing.md">"Mobile App Security Testing"</a> chapter we'll describe how you can apply the checklist and MASTG to a mobile app penetration test.</p>
 <h2 id="whats-covered-in-the-mobile-testing-guide">What's Covered in the Mobile Testing Guide<a class="headerlink" href="#whats-covered-in-the-mobile-testing-guide" title="Permanent link">&para;</a></h2>
 <p>Throughout this guide, we will focus on apps for Android and iOS running on smartphones. These platforms are currently dominating the market and also run on other device classes including tablets, smartwatches, smart TVs, automotive infotainment units, and other embedded systems. Even if these additional device classes are out of scope, you can still apply most of the knowledge and testing techniques described in this guide with some deviance depending on the target device.</p>
 <p>Given the vast amount of mobile app frameworks available it would be impossible to cover all of them exhaustively. Therefore, we focus on <em>native</em> apps on each operating system. However, the same techniques are also useful when dealing with web or hybrid apps (ultimately, no matter the framework, every app is based on native components).</p>
@@ -11707,13 +11689,13 @@
 <p>The MASTG contains descriptions of all requirements specified in the MASVS. The MASTG contains the following main sections:</p>
 <ol>
 <li>
-<p>The <a href="/MASTG/General/0x04a-Mobile-App-Taxonomy">General Testing Guide</a> contains a mobile app security testing methodology and general vulnerability analysis techniques as they apply to mobile app security. It also contains additional technical test cases that are OS-independent, such as authentication and session management, network communications, and cryptography.</p>
+<p>The <a href="0x04a-Mobile-App-Taxonomy.md">General Testing Guide</a> contains a mobile app security testing methodology and general vulnerability analysis techniques as they apply to mobile app security. It also contains additional technical test cases that are OS-independent, such as authentication and session management, network communications, and cryptography.</p>
 </li>
 <li>
-<p>The <a href="/MASTG/Android/0x05a-Platform-Overview">Android Testing Guide</a> covers mobile security testing for the Android platform, including security basics, security test cases, reverse engineering techniques and prevention, and tampering techniques and prevention.</p>
+<p>The <a href="0x05a-Platform-Overview.md">Android Testing Guide</a> covers mobile security testing for the Android platform, including security basics, security test cases, reverse engineering techniques and prevention, and tampering techniques and prevention.</p>
 </li>
 <li>
-<p>The <a href="/MASTG/iOS/0x06a-Platform-Overview">iOS Testing Guide</a> covers mobile security testing for the iOS platform, including an overview of the iOS OS, security testing, reverse engineering techniques and prevention, and tampering techniques and prevention.</p>
+<p>The <a href="0x06a-Platform-Overview.md">iOS Testing Guide</a> covers mobile security testing for the iOS platform, including an overview of the iOS OS, security testing, reverse engineering techniques and prevention, and tampering techniques and prevention.</p>
 </li>
 </ol>
 <h2 id="how-security-personnel-should-address-mobile-security-testing">How Security Personnel Should Address Mobile Security Testing<a class="headerlink" href="#how-security-personnel-should-address-mobile-security-testing" title="Permanent link">&para;</a></h2>
@@ -11747,11 +11729,6 @@
 <p>This protection from injection and memory management issues doesn't mean that app developers can get away with writing sloppy code. Following security best practices results in hardened (secure) release builds that are resilient against tampering. Free security features offered by compilers and mobile SDKs help increase security and mitigate attacks.</p>
 <h3 id="masvs-resilience-anti-tampering-and-anti-reversing">MASVS-RESILIENCE: Anti-Tampering and Anti-Reversing<a class="headerlink" href="#masvs-resilience-anti-tampering-and-anti-reversing" title="Permanent link">&para;</a></h3>
 <p>There are three things you should never bring up in polite conversations: religion, politics, and code obfuscation. Many security experts dismiss client-side protections outright. However, software protection controls are widely used in the mobile app world, so security testers need ways to deal with these protections. We believe there's a benefit to client-side protections if they are employed with a clear purpose and realistic expectations in mind and aren't used to replace security controls.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://mas.owasp.org/MASTG/">OWASP Mobile Application Security <em>Testing Guide</em> (MASTG)</a></li>
-<li><a href="https://mas.owasp.org/MASVS/">OWASP Mobile Application Security <em>Verification Standard</em> (MASVS)</a></li>
-</ul>
 
 
 

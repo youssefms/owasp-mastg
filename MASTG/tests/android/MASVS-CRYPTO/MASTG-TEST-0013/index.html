@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2005,15 +2005,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11472,7 +11454,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11550,7 +11532,7 @@
 <li>specifications for a key generator (such as <code>KeyGenParameterSpec</code>, <code>KeyPairGeneratorSpec</code>, <code>KeyPairGenerator</code>, <code>KeyGenerator</code>, <code>KeyProperties</code>, etc.)</li>
 <li>classes importing <code>java.security.*</code>, <code>javax.crypto.*</code>, <code>android.security.*</code>, <code>android.security.keystore.*</code></li>
 </ul>
-<p>Check also the <a href="/MASTG/General/0x04g-Testing-Cryptography#common-configuration-issues">list of common cryptographic configuration issues</a>.</p>
+<p>Check also the <a href="../../../Document/0x04g-Testing-Cryptography.md#common-configuration-issues">list of common cryptographic configuration issues</a>.</p>
 <p>For each identified instance verify if the used symmetric keys:</p>
 <ul>
 <li>are not part of the application resources</li>
@@ -11558,18 +11540,14 @@
 <li>are not hardcoded in code</li>
 </ul>
 <p>For each hardcoded symmetric key, verify that is not used in security-sensitive contexts as the only method of encryption.</p>
-<p>As an example we illustrate how to locate the use of a hardcoded encryption key. First <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#disassembling-and-decompiling">disassemble and decompile</a> the app to obtain Java code, e.g. by using <a href="">jadx</a>.</p>
+<p>As an example we illustrate how to locate the use of a hardcoded encryption key. First <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#disassembling-and-decompiling">disassemble and decompile</a> the app to obtain Java code, e.g. by using <a href="../../../../tools/android/MASTG-TOOL-0018/">jadx</a>.</p>
 <p>Now search the files for the usage of the <code>SecretKeySpec</code> class, e.g. by simply recursively grepping on them or using jadx search function:</p>
 <div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;SecretKeySpec&quot;</span>
 </code></pre></div>
 <p>This will return all classes using the <code>SecretKeySpec</code> class. Now examine those files and trace which variables are used to pass the key material. The figure below shows the result of performing this assessment on a production ready application. We can clearly locate the use of a static encryption key that is hardcoded and initialized in the static byte array <code>Encrypt.keyBytes</code>.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x5e/static_encryption_key.png" width="600px"/></p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="/MASTG/Tools/0x08a-Testing-Tools#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a></li>
-</ul>
+<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
 
 
 

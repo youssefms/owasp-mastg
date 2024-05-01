@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11343,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11413,7 +11413,7 @@
 
   <h1>Reviewing Decompiled Java Code</h1>
 
-<p>Following the example from <a href="#decompiling-java-code">"Decompiling Java Code"</a>, we assume that you've successfully decompiled and opened the <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a> in IntelliJ. As soon as IntelliJ has indexed the code, you can browse it just like you'd browse any other Java project. Note that many of the decompiled packages, classes, and methods have weird one-letter names; this is because the bytecode has been "minified" with ProGuard at build time. This is a basic type of <a href="/MASTG/General/0x04c-Tampering-and-Reverse-Engineering#obfuscation">obfuscation</a> that makes the bytecode a little more difficult to read, but with a fairly simple app like this one, it won't cause you much of a headache. When you're analyzing a more complex app, however, it can get quite annoying.</p>
+<p>Following the example from <a href="#decompiling-java-code">"Decompiling Java Code"</a>, we assume that you've successfully decompiled and opened the <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> in IntelliJ. As soon as IntelliJ has indexed the code, you can browse it just like you'd browse any other Java project. Note that many of the decompiled packages, classes, and methods have weird one-letter names; this is because the bytecode has been "minified" with ProGuard at build time. This is a basic type of <a href="0x04c-Tampering-and-Reverse-Engineering.md#obfuscation">obfuscation</a> that makes the bytecode a little more difficult to read, but with a fairly simple app like this one, it won't cause you much of a headache. When you're analyzing a more complex app, however, it can get quite annoying.</p>
 <p>When analyzing obfuscated code, annotating class names, method names, and other identifiers as you go along is a good practice. Open the <code>MainActivity</code> class in the package <code>sg.vantagepoint.uncrackable1</code>. The method <code>verify</code> is called when you tap the "verify" button. This method passes the user input to a static method called <code>a.a</code>, which returns a boolean value. It seems plausible that <code>a.a</code> verifies user input, so we'll refactor the code to reflect this.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/check_input.jpg" width="100%" /></p>
 <p>Right-click the class name (the first <code>a</code> in <code>a.a</code>) and select Refactor -&gt; Rename from the drop-down menu (or press Shift-F6). Change the class name to something that makes more sense given what you know about the class so far. For example, you could call it "Validator" (you can always revise the name later). <code>a.a</code> now becomes <code>Validator.a</code>. Follow the same procedure to rename the static method <code>a</code> to <code>check_input</code>.</p>
@@ -11449,7 +11449,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Now you're getting somewhere: it's simply standard AES-ECB. Looks like the Base64 string stored in <code>arrby1</code> in <code>check_input</code> is a ciphertext. It is decrypted with 128bit AES, then compared with the user input. As a bonus task, try to decrypt the extracted ciphertext and find the secret value!</p>
-<p>A faster way to get the decrypted string is to add dynamic analysis. We'll revisit <a href="/MASTG/Tools/0x08b-Reference-Apps#android-uncrackable-l1">UnCrackable App for Android Level 1</a> later to show how (e.g. in the Debugging section), so don't delete the project yet!</p>
+<p>A faster way to get the decrypted string is to add dynamic analysis. We'll revisit <a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> later to show how (e.g. in the Debugging section), so don't delete the project yet!</p>
 
 
 

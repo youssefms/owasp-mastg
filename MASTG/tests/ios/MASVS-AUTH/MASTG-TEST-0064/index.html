@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3664,15 +3664,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11545,7 +11527,7 @@
   <h1>Testing Local Authentication</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The usage of frameworks in an app can be detected by analyzing the app binary's list of shared dynamic libraries. This can be done by using <a href="/MASTG/Tools/0x08a-Testing-Tools#otool">otool</a>:</p>
+<p>The usage of frameworks in an app can be detected by analyzing the app binary's list of shared dynamic libraries. This can be done by using <a href="../../../Document/0x08a-Testing-Tools.md#otool">otool</a>:</p>
 <div class="highlight"><pre><span></span><code>otool<span class="w"> </span>-L<span class="w"> </span>&lt;AppName&gt;.app/&lt;AppName&gt;
 </code></pre></div>
 <p>If <code>LocalAuthentication.framework</code> is used in an app, the output will contain both of the following lines (remember that <code>LocalAuthentication.framework</code> uses <code>Security.framework</code> under the hood):</p>
@@ -11579,10 +11561,6 @@ is accessible.</p>
 <span class="o">(</span>agent<span class="o">)</span><span class="w"> </span><span class="o">[</span>3mhtws9x47q<span class="o">]</span><span class="w"> </span>Biometrics<span class="w"> </span>bypass<span class="w"> </span>hook<span class="w"> </span><span class="nb">complete</span>
 </code></pre></div>
 <p>If vulnerable, the module will automatically bypass the login form.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/sensepost/objection/wiki/Understanding-the-iOS-Biometrics-Bypass" title="Understanding the iOS Biometrics Bypass">Understanding the iOS Biometrics Bypass</a></li>
-</ul>
 
 
 

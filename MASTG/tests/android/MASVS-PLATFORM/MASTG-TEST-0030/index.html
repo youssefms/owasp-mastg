@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2544,15 +2544,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing for Vulnerable Implementation of PendingIntent</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>When testing <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#pending-intents">Pending Intents</a> you must ensure that they are immutable and that the app explicitly specifies the exact package, action, and component that will receive the base intent.</p>
+<p>When testing <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#pending-intents">Pending Intents</a> you must ensure that they are immutable and that the app explicitly specifies the exact package, action, and component that will receive the base intent.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>To identify vulnerable implementations, static analysis can be performed by looking for API calls used for obtaining a <code>PendingIntent</code>. Such APIs are listed below:</p>
 <div class="highlight"><pre><span></span><code><span class="n">PendingIntent</span><span class="w"> </span><span class="nf">getActivity</span><span class="p">(</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">Intent</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
@@ -11553,7 +11535,7 @@
 <span class="n">PendingIntent</span><span class="w"> </span><span class="nf">getForegroundService</span><span class="p">(</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">Intent</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
 <span class="n">PendingIntent</span><span class="w"> </span><span class="nf">getService</span><span class="p">(</span><span class="n">Context</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">Intent</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
 </code></pre></div>
-<p>Once any of the above function is spotted, check the implementation of the base intent and the <code>PendingIntent</code> for the security pitfalls listed in the <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#pending-intents">Pending Intents</a> section.</p>
+<p>Once any of the above function is spotted, check the implementation of the base intent and the <code>PendingIntent</code> for the security pitfalls listed in the <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#pending-intents">Pending Intents</a> section.</p>
 <p>For example, in <a href="https://android.googlesource.com/platform/frameworks/base/+/6ae2bd0e59636254c32896f7f01379d1d704f42d" title="A-156959408">A-156959408</a>(CVE-2020-0389), the base intent is implicit and also the <code>PendingIntent</code> is mutable, thus making it exploitable.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">Notification</span><span class="w"> </span><span class="nf">createSaveNotification</span><span class="p">(</span><span class="n">Uri</span><span class="w"> </span><span class="n">uri</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Intent</span><span class="w"> </span><span class="n">viewIntent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="na">ACTION_VIEW</span><span class="p">)</span>
@@ -11592,10 +11574,6 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>This approach can be helpful when dealing with applications with large code bases, where determining the control flow can sometimes be tricky.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://android.googlesource.com/platform/frameworks/base/+/6ae2bd0e59636254c32896f7f01379d1d704f42d" title="A-156959408">A-156959408</a></li>
-</ul>
 
 
 

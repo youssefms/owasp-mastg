@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3502,15 +3502,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11466,15 +11457,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11606,7 +11588,7 @@
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>There are several approaches and tools available for dynamically testing the memory of an iOS app for sensitive data.</p>
 <h3 id="retrieving-and-analyzing-a-memory-dump">Retrieving and Analyzing a Memory Dump<a class="headerlink" href="#retrieving-and-analyzing-a-memory-dump" title="Permanent link">&para;</a></h3>
-<p>Whether you are using a jailbroken or a non-jailbroken device, you can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. You can find a detailed explanation of this process in the section "<a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#memory-dump" title="Memory Dump&quot; &quot;Memory Dump">Memory Dump</a>", in the chapter "Tampering and Reverse Engineering on iOS".</p>
+<p>Whether you are using a jailbroken or a non-jailbroken device, you can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. You can find a detailed explanation of this process in the section "<a href="../../../Document/0x06c-Reverse-Engineering-and-Tampering.md#memory-dump" title="Memory Dump">Memory Dump</a>", in the chapter "Tampering and Reverse Engineering on iOS".</p>
 <p>After the memory has been dumped (e.g. to a file called "memory"), depending on the nature of the data you're looking for, you'll need a set of different tools to process and analyze that memory dump. For instance, if you're focusing on strings, it might be sufficient for you to execute the command <code>strings</code> or <code>rabin2 -zz</code> to extract those strings.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># using strings</span>
 $<span class="w"> </span>strings<span class="w"> </span>memory<span class="w"> </span>&gt;<span class="w"> </span>strings.txt
@@ -11633,13 +11615,8 @@ Usage:<span class="w"> </span>/<span class="o">[</span>!bf<span class="o">]</spa
 ...
 </code></pre></div>
 <h3 id="runtime-memory-analysis">Runtime Memory Analysis<a class="headerlink" href="#runtime-memory-analysis" title="Permanent link">&para;</a></h3>
-<p>By using <a href="/MASTG/Tools/0x08a-Testing-Tools#r2frida">r2frida</a> you can analyze and inspect the app's memory while running and without needing to dump it. For example, you may run the previous search commands from r2frida and search the memory for a string, hexadecimal values, etc. When doing so, remember to prepend the search command (and any other r2frida specific commands) with a backslash <code>:</code> after starting the session with <code>r2 frida://usb//&lt;name_of_your_app&gt;</code>.</p>
-<p>For more information, options and approaches, please refer to section "<a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering#in-memory-search" title="In-Memory Search&quot; &quot;In-Memory Search">In-Memory Search</a>" in the chapter "Tampering and Reverse Engineering on iOS".</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a></li>
-<li><a href="https://github.com/sensepost/objection" title="Objection">Objection</a></li>
-</ul>
+<p>By using <a href="../../../Document/0x08a-Testing-Tools.md#r2frida">r2frida</a> you can analyze and inspect the app's memory while running and without needing to dump it. For example, you may run the previous search commands from r2frida and search the memory for a string, hexadecimal values, etc. When doing so, remember to prepend the search command (and any other r2frida specific commands) with a backslash <code>:</code> after starting the session with <code>r2 frida://usb//&lt;name_of_your_app&gt;</code>.</p>
+<p>For more information, options and approaches, please refer to section "<a href="../../../Document/0x06c-Reverse-Engineering-and-Tampering.md#in-memory-search" title="In-Memory Search">In-Memory Search</a>" in the chapter "Tampering and Reverse Engineering on iOS".</p>
 
 
 

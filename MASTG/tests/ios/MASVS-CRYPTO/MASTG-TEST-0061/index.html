@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -3568,15 +3568,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11448,15 +11439,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11578,7 +11560,7 @@
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>For each of the libraries that are used by the application, the used algorithms and cryptographic configurations need to be verified to make sure they are not deprecated and used correctly.</p>
 <p>Pay attention to how-to-be-removed key-holding datastructures and plain-text data structures are defined. If the keyword <code>let</code> is used, then you create an immutable structure which is harder to wipe from memory. Make sure that it is part of a parent structure which can be easily removed from memory (e.g. a <code>struct</code> that lives temporally).</p>
-<p>Ensure that the best practices outlined in the "<a href="/MASTG/General/0x04g-Testing-Cryptography">Cryptography for Mobile Apps</a>" chapter are followed. Look at <a href="/MASTG/General/0x04g-Testing-Cryptography#identifying-insecure-and/or-deprecated-cryptographic-algorithms">insecure and deprecated algorithms</a> and <a href="/MASTG/General/0x04g-Testing-Cryptography#common-configuration-issues">common configuration issues</a>.</p>
+<p>Ensure that the best practices outlined in the "<a href="../../../Document/0x04g-Testing-Cryptography.md">Cryptography for Mobile Apps</a>" chapter are followed. Look at <a href="../../../Document/0x04g-Testing-Cryptography.md#identifying-insecure-and/or-deprecated-cryptographic-algorithms">insecure and deprecated algorithms</a> and <a href="../../../Document/0x04g-Testing-Cryptography.md#common-configuration-issues">common configuration issues</a>.</p>
 <h3 id="commoncryptor">CommonCryptor<a class="headerlink" href="#commoncryptor" title="Permanent link">&para;</a></h3>
 <p>If the app uses standard cryptographic implementations provided by Apple, the easiest way to determine the status of the related algorithm is to check for calls to functions from <code>CommonCryptor</code>, such as <code>CCCrypt</code> and <code>CCCryptorCreate</code>. The <a href="https://opensource.apple.com/source/CommonCrypto/CommonCrypto-36064/CommonCrypto/CommonCryptor.h" title="CommonCryptor.h">source code</a> contains the signatures of all functions of CommonCryptor.h. For instance, <code>CCCryptorCreate</code> has following signature:</p>
 <div class="highlight"><pre><span></span><code><span class="n">CCCryptorStatus</span><span class="w"> </span><span class="nf">CCCryptorCreate</span><span class="p">(</span>
@@ -11604,13 +11586,6 @@ Note that functions which are noted in chapter "Cryptography for Mobile Apps" as
 </li>
 <li><strong>Determine the version being used</strong>: Always check the version of the library being used and check whether there is a new version available in which possible vulnerabilities or shortcomings are patched. Even without a newer version of a library, it can be the case that cryptographic functions have not been reviewed yet. Therefore we always recommend using a library that has been validated or ensure that you have the ability, knowledge and experience to do validation yourself.</li>
 <li><strong>By hand?</strong>: We recommend not to roll your own crypto, nor to implement known cryptographic functions yourself.</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://opensource.apple.com/source/CommonCrypto/CommonCrypto-36064/CommonCrypto/CommonCryptor.h" title="CommonCryptor.h">CommonCryptor.h</a></li>
-<li><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" title="MobSF">MobSF</a></li>
-<li><a href="https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile" title="cartfile">cartfile</a></li>
-<li><a href="https://guides.cocoapods.org/syntax/podfile.html" title="podfile">podfile</a></li>
 </ul>
 
 

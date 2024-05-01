@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2757,15 +2757,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,11 +11525,11 @@
   <h1>Testing for Injection Flaws</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/General/0x04h-Testing-Code-Quality#injection-flaws" title="Injection Flaws&quot; &quot;Injection Flaws">injection flaws</a> you need to first rely on other tests and check for functionality that might have been exposed:</p>
+<p>To test for <a href="../../../Document/0x04h-Testing-Code-Quality.md#injection-flaws" title="Injection Flaws">injection flaws</a> you need to first rely on other tests and check for functionality that might have been exposed:</p>
 <ul>
-<li><a href="">Testing Deep Links</a></li>
-<li><a href="">Testing for Sensitive Functionality Exposure Through IPC</a></li>
-<li><a href="">Testing for Overlay Attacks</a></li>
+<li><a href="../../MASVS-PLATFORM/MASTG-TEST-0028/">"Testing Deep Links"</a></li>
+<li><a href="../../MASVS-PLATFORM/MASTG-TEST-0029/">"Testing for Sensitive Functionality Exposure Through IPC"</a></li>
+<li><a href="../../MASVS-PLATFORM/MASTG-TEST-0035/">"Testing for Overlay Attacks"</a></li>
 </ul>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>An example of a vulnerable IPC mechanism is shown below.</p>
@@ -11613,13 +11595,6 @@
 <p>SQL injection can be exploited with the following command. Instead of getting the record for Bob only, the user can retrieve all data.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># content query --uri content://sg.vp.owasp_mobile.provider.College/students --where &quot;name=&#39;Bob&#39;) OR 1=1--&#39;&#39;&quot;</span>
 </code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/ragunathjawahar/android-saripaar" title="Android Saripaar v2">Android Saripaar v2</a></li>
-<li><a href="https://stackoverflow.com/questions/11241690/regex-for-checking-if-a-string-is-strictly-alphanumeric" title="Input Validation">Input Validation</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html" title="OWASP Input Validation Cheat Sheet">OWASP Input Validation Cheat Sheet</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html" title="OWASP SQL Injection Prevention Cheat Sheet">OWASP SQL Injection Prevention Cheat Sheet</a></li>
-</ul>
 
 
 

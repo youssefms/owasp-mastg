@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1942,15 +1942,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11484,15 +11475,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11655,7 +11637,7 @@
 </code></pre></div>
 <p>This doesn't, however, guarantee that the content will be overwritten at runtime. To optimize the bytecode, the compiler will analyze and decide not to overwrite data because it will not be used afterwards (i.e., it is an unnecessary operation). Even if the code is in the compiled DEX, the optimization may occur during the just-in-time or ahead-of-time compilation in the VM.</p>
 <p>There is no silver bullet for this problem because different solutions have different consequences. For example, you may perform additional calculations (e.g., XOR the data into a dummy buffer), but you'll have no way to know the extent of the compiler's optimization analysis. On the other hand, using the overwritten data outside the compiler's scope (e.g., serializing it in a temp file) guarantees that it will be overwritten but obviously impacts performance and maintenance.</p>
-<p>Then, using <code>Arrays.fill</code> to overwrite the data is a bad idea because the method is an obvious hooking target (see the chapter "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a>" for more details).</p>
+<p>Then, using <code>Arrays.fill</code> to overwrite the data is a bad idea because the method is an obvious hooking target (see the chapter "<a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more details).</p>
 <p>The final issue with the above example is that the content was overwritten with zeroes only. You should try to overwrite critical objects with random data or content from non-critical objects. This will make it really difficult to construct scanners that can identify sensitive data on the basis of its management.</p>
 <p>Below is an improved version of the previous example:</p>
 <p>Example in Java:</p>
@@ -11829,7 +11811,7 @@
 <p>Static analysis will help you identify potential problems, but it can't provide statistics about how long data has been exposed in memory, nor can it help you identify problems in closed-source dependencies. This is where dynamic analysis comes into play.</p>
 <p>There are various ways to analyze the memory of a process, e.g. live analysis via a debugger/dynamic instrumentation and analyzing one or more memory dumps.</p>
 <h3 id="retrieving-and-analyzing-a-memory-dump">Retrieving and Analyzing a Memory Dump<a class="headerlink" href="#retrieving-and-analyzing-a-memory-dump" title="Permanent link">&para;</a></h3>
-<p>Whether you are using a rooted or a non-rooted device, you can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. You can find a detailed explanation of this process in the section "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#memory-dump" title="Memory Dump&quot; &quot;Memory Dump">Memory Dump</a>", in the chapter "Tampering and Reverse Engineering on Android".</p>
+<p>Whether you are using a rooted or a non-rooted device, you can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. You can find a detailed explanation of this process in the section "<a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#memory-dump" title="Memory Dump">Memory Dump</a>", in the chapter "Tampering and Reverse Engineering on Android".</p>
 <p>After the memory has been dumped (e.g. to a file called "memory"), depending on the nature of the data you're looking for, you'll need a set of different tools to process and analyze that memory dump. For instance, if you're focusing on strings, it might be sufficient for you to execute the command <code>strings</code> or <code>rabin2 -zz</code> to extract those strings.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># using strings</span>
 $<span class="w"> </span>strings<span class="w"> </span>memory<span class="w"> </span>&gt;<span class="w"> </span>strings.txt
@@ -11856,9 +11838,9 @@ Usage:<span class="w"> </span>/<span class="o">[</span>!bf<span class="o">]</spa
 ...
 </code></pre></div>
 <h3 id="runtime-memory-analysis">Runtime Memory Analysis<a class="headerlink" href="#runtime-memory-analysis" title="Permanent link">&para;</a></h3>
-<p>Instead of dumping the memory to your host computer, you can alternatively use <a href="/MASTG/Tools/0x08a-Testing-Tools#r2frida">r2frida</a>. With it, you can analyze and inspect the app's memory while it's running.
+<p>Instead of dumping the memory to your host computer, you can alternatively use <a href="../../../Document/0x08a-Testing-Tools.md#r2frida">r2frida</a>. With it, you can analyze and inspect the app's memory while it's running.
 For example, you may run the previous search commands from r2frida and search the memory for a string, hexadecimal values, etc. When doing so, remember to prepend the search command (and any other r2frida specific commands) with a backslash <code>:</code> after starting the session with <code>r2 frida://usb//&lt;name_of_your_app&gt;</code>.</p>
-<p>For more information, options and approaches, please refer to section "<a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#in-memory-search" title="In-Memory Search&quot; &quot;In-Memory Search">In-Memory Search</a>" in the chapter "Tampering and Reverse Engineering on Android".</p>
+<p>For more information, options and approaches, please refer to section "<a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#in-memory-search" title="In-Memory Search">In-Memory Search</a>" in the chapter "Tampering and Reverse Engineering on Android".</p>
 <h3 id="explicitly-dumping-and-analyzing-the-java-heap">Explicitly Dumping and Analyzing the Java Heap<a class="headerlink" href="#explicitly-dumping-and-analyzing-the-java-heap" title="Permanent link">&para;</a></h3>
 <p>For rudimentary analysis, you can use Android Studio's built-in tools. They are on the <em>Android Monitor</em> tab. To dump memory, select the device and app you want to analyze and click <em>Dump Java Heap</em>. This will create a <em>.hprof</em> file in the <em>captures</em> directory, which is on the app's project path.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05d/Dump_Java_Heap.png" width="100%" /></p>
@@ -11895,13 +11877,6 @@ For example, you may run the previous search commands from r2frida and search th
 <li>etc.</li>
 </ul>
 <p>Repeating tests and memory dumps will help you obtain statistics about the length of data exposure. Furthermore, observing the way a particular memory segment (e.g., a byte array) changes may lead you to some otherwise unrecognizable sensitive data (more on this in the "Remediation" section below).</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://eclipse.org/mat/downloads.php" title="Eclipse Memory Analyzer Tool">Eclipse Memory Analyzer Tool</a></li>
-<li><a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a></li>
-<li><a href="https://github.com/sensepost/objection" title="Objection">Objection</a></li>
-<li><a href="https://www.nowsecure.com/resources/secure-mobile-development/coding-practices/securely-store-sensitive-data-in-ram/" title="Securely store sensitive data in RAM">Securely store sensitive data in RAM</a></li>
-</ul>
 
 
 

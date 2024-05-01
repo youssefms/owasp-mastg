@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2355,15 +2355,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11520,15 +11511,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11649,7 +11631,7 @@
 <h3 id="network-security-configuration">Network Security Configuration<a class="headerlink" href="#network-security-configuration" title="Permanent link">&para;</a></h3>
 <p>Inspect the Network Security Configuration looking for any <code>&lt;pin-set&gt;</code> elements. Check their <code>expiration</code> date, if any. If expired, certificate pinning will be disabled for the affected domains.</p>
 <blockquote>
-<p><strong>Testing Tip</strong>: If a certificate pinning validation check has failed, the following event should be logged in the <a href="/MASTG/Android/0x05b-Android-Security-Testing#monitoring-system-logs">system logs</a>:</p>
+<p><strong>Testing Tip</strong>: If a certificate pinning validation check has failed, the following event should be logged in the <a href="../../../Document/0x05b-Android-Security-Testing.md#monitoring-system-logs">system logs</a>:</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>I/X509Util:<span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>validate<span class="w"> </span>the<span class="w"> </span>certificate<span class="w"> </span>chain,<span class="w"> </span>error:<span class="w"> </span>Pin<span class="w"> </span>verification<span class="w"> </span>failed
 </code></pre></div>
@@ -11773,8 +11755,8 @@
 </code></pre></div>
 <p>After decompressing the APK file, Cordova/Phonegap files will be located in the /assets/www folder. The 'plugins' folder will give you the visibility of the plugins used. We will need to search for this methods in the JavaScript code of the application to confirm its usage.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>Follow the instructions from <a href="">Testing Endpoint Identify Verification &gt; Dynamic Analysis</a>. If doing so doesn't lead to traffic being proxied, it may mean that certificate pinning is actually implemented and all security measures are in place. Does the same happen for all domains?</p>
-<p>As a quick smoke test, you can try to bypass certificate pinning using <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">objection</a> as described in <a href="/MASTG/Android/0x05b-Android-Security-Testing#bypassing-certificate-pinning">Bypassing Certificate Pinning</a>. Pinning related APIs being hooked by objection should appear in objection's output.</p>
+<p>Follow the instructions from <a href="../MASTG-TEST-0021/">"Testing Endpoint Identify Verification &gt; Dynamic Analysis"</a>. If doing so doesn't lead to traffic being proxied, it may mean that certificate pinning is actually implemented and all security measures are in place. Does the same happen for all domains?</p>
+<p>As a quick smoke test, you can try to bypass certificate pinning using <a href="../../../Document/0x08a-Testing-Tools.md#objection">objection</a> as described in <a href="../../../Document/0x05b-Android-Security-Testing.md#bypassing-certificate-pinning">"Bypassing Certificate Pinning"</a>. Pinning related APIs being hooked by objection should appear in objection's output.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05b/android_ssl_pinning_bypass.png" width="600px"/></p>
 <p>However, keep in mind that:</p>
 <ul>
@@ -11782,13 +11764,6 @@
 <li>if nothing is hooked, that doesn't necessarily mean that the app doesn't implement pinning.</li>
 </ul>
 <p>In both cases, the app or some of its components might implement custom pinning in a way that is <a href="https://github.com/sensepost/objection/blob/master/agent/src/android/pinning.ts">supported by objection</a>. Please check the static analysis section for specific pinning indicators and more in-depth testing.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/EddyVerbruggen/SSLCertificateChecker-PhoneGap-Plugin" title="PhoneGap SSL Certificate Checker plugin">PhoneGap SSL Certificate Checker plugin</a></li>
-<li><a href="https://github.com/OWASP/owasp-mastg/raw/master/Samples/Android/02_CertificatePinning/certificatePinningXamarin.apk" title="Xamarin app with certificate pinning">Xamarin app with certificate pinning</a></li>
-<li><a href="https://github.com/square/okhttp/wiki/HTTPS" title="okhttp library">okhttp library</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/master/agent/src/android/pinning.ts">supported by objection</a></li>
-</ul>
 
 
 

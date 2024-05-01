@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2649,15 +2649,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing WebViews Cleanup</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#webviews-cleanup" title="WebViews Cleanup&quot; &quot;WebViews Cleanup">WebViews cleanup</a> you should inspect all APIs related to WebView data deletion and try to fully track the data deletion process.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#webviews-cleanup" title="WebViews Cleanup">WebViews cleanup</a> you should inspect all APIs related to WebView data deletion and try to fully track the data deletion process.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>Start by identifying the usage of the following WebView APIs and carefully validate the mentioned best practices.</p>
 <ul>
@@ -11604,16 +11586,6 @@
 <li>Session Storage</li>
 <li>Web Data</li>
 <li>Service Worker</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/reference/android/webkit/CookieManager#removeAllCookies(android.webkit.ValueCallback%3Cjava.lang.Boolean%3E)">CookieManager.removeAllCookies</a></li>
-<li><a href="https://github.com/mozilla-mobile/focus-android/blob/v8.17.1/app/src/main/java/org/mozilla/focus/webview/SystemWebView.kt#L220" title="Firefox Focus for Android">Firefox Focus for Android</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebSettings" title="WebSettings">WebSettings</a></li>
-<li><a href="https://github.com/mozilla-mobile/focus-android/blob/v8.17.1/app/src/main/java/org/mozilla/focus/utils/FileUtils.kt"><code>FileUtils</code></a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebStorage#deleteAllData"><code>WebStorage.deleteAllData</code></a></li>
-<li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/java.io.-file/delete-recursively.html"><code>java.io.File.deleteRecursively</code></a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView#clearCache(boolean)" title="clearCache in WebViews">clearCache in WebViews</a></li>
 </ul>
 
 

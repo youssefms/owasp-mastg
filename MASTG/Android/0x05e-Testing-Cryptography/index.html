@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1266,15 +1266,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11518,15 +11509,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11630,12 +11612,12 @@
 
 <h1 id="android-cryptographic-apis">Android Cryptographic APIs<a class="headerlink" href="#android-cryptographic-apis" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>In the chapter <a href="/MASTG/General/0x04g-Testing-Cryptography">Mobile App Cryptography</a>, we introduced general cryptography best practices and described typical issues that can occur when cryptography is used incorrectly. In this chapter, we'll go into more detail on Android's cryptography APIs. We'll show how to identify usage of those APIs in the source code and how to interpret cryptographic configurations. When reviewing code, make sure to compare the cryptographic parameters used with the current best practices, as linked in this guide.</p>
+<p>In the chapter <a href="0x04g-Testing-Cryptography.md">"Mobile App Cryptography"</a>, we introduced general cryptography best practices and described typical issues that can occur when cryptography is used incorrectly. In this chapter, we'll go into more detail on Android's cryptography APIs. We'll show how to identify usage of those APIs in the source code and how to interpret cryptographic configurations. When reviewing code, make sure to compare the cryptographic parameters used with the current best practices, as linked in this guide.</p>
 <p>We can identify key components of cryptography system on Android:</p>
 <ul>
-<li><a href="/MASTG/Android/0x05e-Testing-Cryptography#security-provider">Security Provider</a></li>
-<li>KeyStore - see the section <a href="/MASTG/Android/0x05d-Testing-Data-Storage#keystore">KeyStore</a> in the "Testing Data Storage" chapter</li>
-<li>KeyChain - see the section <a href="/MASTG/Android/0x05d-Testing-Data-Storage#keychain">KeyChain</a> in the "Testing Data Storage" chapter</li>
+<li><a href="./#security-provider">Security Provider</a></li>
+<li>KeyStore - see the section <a href="../0x05d-Testing-Data-Storage/#keystore">KeyStore</a> in the "Testing Data Storage" chapter</li>
+<li>KeyChain - see the section <a href="../0x05d-Testing-Data-Storage/#keychain">KeyChain</a> in the "Testing Data Storage" chapter</li>
 </ul>
 <p>Android cryptography APIs are based on the Java Cryptography Architecture (JCA). JCA separates the interfaces and implementation, making it possible to include several <a href="https://developer.android.com/reference/java/security/Provider.html" title="Android Security Providers">security providers</a> that can implement sets of cryptographic algorithms. Most of the JCA interfaces and classes are defined in the <code>java.security.*</code> and <code>javax.crypto.*</code> packages. In addition, there are Android specific packages <code>android.security.*</code> and <code>android.security.keystore.*</code>.</p>
 <p>KeyStore and KeyChain provide APIs for storing and using keys (behind the scene, KeyChain API uses KeyStore system). These systems allow to administer the full lifecycle of the cryptographic keys. Requirements and guidance for implementation of cryptographic key management can be found in <a href="https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html" title="Key Management Cheat Sheet">Key Management Cheat Sheet</a>. We can identify following phases:</p>
@@ -11647,18 +11629,18 @@
 <li>deleting a key</li>
 </ul>
 <blockquote>
-<p>Please note that storing of a key is analyzed in the chapter <a href="/MASTG/Android/0x05d-Testing-Data-Storage">Testing Data Storage</a>.</p>
+<p>Please note that storing of a key is analyzed in the chapter <a href="../0x05d-Testing-Data-Storage/">"Testing Data Storage"</a>.</p>
 </blockquote>
 <p>These phases are managed by the Keystore/KeyChain system. However how the system works depends on how the application developer implemented it. For the analysis process you should focus on functions which are used by the application developer. You should identify and verify the following functions:</p>
 <ul>
-<li><a href="/MASTG/Android/0x05e-Testing-Cryptography#key-generation">Key generation</a></li>
-<li><a href="/MASTG/Android/0x05e-Testing-Cryptography#random-number-generation">Random number generation</a></li>
+<li><a href="./#key-generation">Key generation</a></li>
+<li><a href="./#random-number-generation">Random number generation</a></li>
 <li>Key rotation</li>
 </ul>
 <p>Apps that target modern API levels, went through the following changes:</p>
 <ul>
 <li>For Android 7.0 (API level 24) and above <a href="https://android-developers.googleblog.com/2016/06/security-crypto-provider-deprecated-in.html" title="Security provider Crypto deprecated in Android N">the Android Developer blog shows that</a>:<ul>
-<li>It is recommended to stop specifying a security provider. Instead, always use a <a href="/MASTG/Android/0x05e-Testing-Cryptography#updating-provider">patched security provider</a>.</li>
+<li>It is recommended to stop specifying a security provider. Instead, always use a <a href="./#updating-provider">patched security provider</a>.</li>
 <li>The support for the <code>Crypto</code> provider has dropped and the provider is deprecated. The same applies to its <code>SHA1PRNG</code> for secure random.</li>
 </ul>
 </li>
@@ -11681,7 +11663,7 @@
 <h3 id="general-recommendations">General Recommendations<a class="headerlink" href="#general-recommendations" title="Permanent link">&para;</a></h3>
 <p>The following list of recommendations should be considered during app examination:</p>
 <ul>
-<li>You should ensure that the best practices outlined in the <a href="/MASTG/General/0x04g-Testing-Cryptography">Cryptography for Mobile Apps</a> chapter are followed.</li>
+<li>You should ensure that the best practices outlined in the <a href="0x04g-Testing-Cryptography.md">"Cryptography for Mobile Apps"</a> chapter are followed.</li>
 <li>You should ensure that security provider has the latest updates - <a href="https://developer.android.com/training/articles/security-gms-provider" title="Updating security provider">Updating security provider</a>.</li>
 <li>You should stop specifying a security provider and use the default implementation (AndroidOpenSSL, Conscrypt).</li>
 <li>You should stop using Crypto security provider and its <code>SHA1PRNG</code> as they are deprecated.</li>
@@ -11745,7 +11727,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <span class="n">SecretKey</span><span class="w"> </span><span class="n">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyGenerator</span><span class="p">.</span><span class="na">generateKey</span><span class="p">();</span>
 </code></pre></div>
 <p>The <code>KeyGenParameterSpec</code> indicates that the key can be used for encryption and decryption, but not for other purposes, such as signing or verifying. It further specifies the block mode (CBC), padding (PKCS #7), and explicitly specifies that randomized encryption is required (this is the default). Next, we enter <code>AndroidKeyStore</code> as the name of the provider in the <code>KeyGenerator.getInstance</code> call to ensure that the keys are stored in the Android KeyStore.</p>
-<p>GCM is another AES block mode that provides additional security benefits over other, older modes. In addition to being cryptographically more secure, it also provides authentication. When using CBC (and other modes), authentication would need to be performed separately, using HMACs (see the <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on Android</a> chapter). Note that GCM is the only mode of AES that <a href="https://developer.android.com/training/articles/keystore.html#SupportedCiphers" title="Supported Ciphers in AndroidKeyStore">does not support padding</a>.</p>
+<p>GCM is another AES block mode that provides additional security benefits over other, older modes. In addition to being cryptographically more secure, it also provides authentication. When using CBC (and other modes), authentication would need to be performed separately, using HMACs (see the <a href="0x05c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on Android"</a> chapter). Note that GCM is the only mode of AES that <a href="https://developer.android.com/training/articles/keystore.html#SupportedCiphers" title="Supported Ciphers in AndroidKeyStore">does not support padding</a>.</p>
 <p>Attempting to use the generated key in violation of the above spec would result in a security exception.</p>
 <p>Here's an example of using that key to encrypt:</p>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">AES_MODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">KEY_ALGORITHM_AES</span>
@@ -11798,7 +11780,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <span class="n">KeyPair</span><span class="w"> </span><span class="n">keyPair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyPairGenerator</span><span class="p">.</span><span class="na">generateKeyPair</span><span class="p">();</span>
 </code></pre></div>
 <p>This sample creates the RSA key pair with a key size of 4096-bit (i.e. modulus size). Elliptic Curve (EC) keys can also be generated in a similar way. However as of Android 11 (API level 30), <a href="https://developer.android.com/guide/topics/security/cryptography#SupportedCipher">AndroidKeyStore does not support encryption or decryption with EC keys</a>. They can only be used for signatures.</p>
-<p>A symmetric encryption key can be generated from the passphrase by using the Password Based Key Derivation Function version 2 (PBKDF2). This cryptographic protocol is designed to generate cryptographic keys, which can be used for cryptography purpose. Input parameters for the algorithm are adjusted according to <a href="/MASTG/General/0x04g-Testing-Cryptography#weak-key-generation-functions">weak key generation function</a> section. The code listing below illustrates how to generate a strong encryption key based on a password.</p>
+<p>A symmetric encryption key can be generated from the passphrase by using the Password Based Key Derivation Function version 2 (PBKDF2). This cryptographic protocol is designed to generate cryptographic keys, which can be used for cryptography purpose. Input parameters for the algorithm are adjusted according to <a href="0x04g-Testing-Cryptography.md#weak-key-generation-functions">weak key generation function</a> section. The code listing below illustrates how to generate a strong encryption key based on a password.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">SecretKey</span><span class="w"> </span><span class="nf">generateStrongAESKey</span><span class="p">(</span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">keyLength</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">//Initialize objects and variables for later use</span>
@@ -11818,27 +11800,11 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <blockquote>
 <p>Note that if you take a rooted device or a patched (e.g. repackaged) application into account as a threat to the data, it might be better to encrypt the salt with a key that is placed in the <code>AndroidKeystore</code>. The Password-Based Encryption (PBE) key is generated using the recommended <code>PBKDF2WithHmacSHA1</code> algorithm, until Android 8.0 (API level 26). For higher API levels, it is best to use <code>PBKDF2withHmacSHA256</code>, which will end up with a longer hash value.</p>
 </blockquote>
-<p>Note: there is a widespread false believe that the NDK should be used to hide cryptographic operations and hardcoded keys. However, using this mechanism is not effective. Attackers can still use tools to find the mechanism used and make dumps of the key in memory. Next, the control flow can be analyzed with e.g. radare2 and the keys extracted with the help of Frida or the combination of both: <a href="/MASTG/Tools/0x08a-Testing-Tools#r2frida">r2frida</a> (see sections <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#disassembling-native-code" title="Disassembling Native Code&quot; &quot;Disassembling Native Code">Disassembling Native Code</a>, <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#memory-dump" title="Memory Dump&quot; &quot;Memory Dump">Memory Dump</a> and <a href="/MASTG/Android/0x05c-Reverse-Engineering-and-Tampering#in-memory-search" title="In-Memory Search&quot; &quot;In-Memory Search">In-Memory Search</a> in the chapter "Tampering and Reverse Engineering on Android" for more details). From Android 7.0 (API level 24) onward, it is not allowed to use private APIs, instead: public APIs need to be called, which further impacts the effectiveness of hiding it away as described in the <a href="https://android-developers.googleblog.com/2016/06/android-changes-for-ndk-developers.html" title="Android changes for NDK developers">Android Developers Blog</a></p>
+<p>Note: there is a widespread false believe that the NDK should be used to hide cryptographic operations and hardcoded keys. However, using this mechanism is not effective. Attackers can still use tools to find the mechanism used and make dumps of the key in memory. Next, the control flow can be analyzed with e.g. radare2 and the keys extracted with the help of Frida or the combination of both: <a href="0x08a-Testing-Tools.md#r2frida">r2frida</a> (see sections <a href="0x05c-Reverse-Engineering-and-Tampering.md#disassembling-native-code" title="Disassembling Native Code">"Disassembling Native Code"</a>, <a href="0x05c-Reverse-Engineering-and-Tampering.md#memory-dump" title="Memory Dump">"Memory Dump"</a> and <a href="0x05c-Reverse-Engineering-and-Tampering.md#in-memory-search" title="In-Memory Search">"In-Memory Search"</a> in the chapter "Tampering and Reverse Engineering on Android" for more details). From Android 7.0 (API level 24) onward, it is not allowed to use private APIs, instead: public APIs need to be called, which further impacts the effectiveness of hiding it away as described in the <a href="https://android-developers.googleblog.com/2016/06/android-changes-for-ndk-developers.html" title="Android changes for NDK developers">Android Developers Blog</a></p>
 <h3 id="random-number-generation">Random number generation<a class="headerlink" href="#random-number-generation" title="Permanent link">&para;</a></h3>
 <p>Cryptography requires secure pseudo random number generation (PRNG). Standard Java classes as <code>java.util.Random</code> do not provide sufficient randomness and in fact may make it possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.</p>
 <p>In general, <code>SecureRandom</code> should be used. However, if the Android versions below Android 4.4 (API level 19) are supported, additional care needs to be taken in order to work around the bug in Android 4.1-4.3 (API level 16-18) versions that <a href="https://android-developers.googleblog.com/2013/08/some-securerandom-thoughts.html" title="Some SecureRandom Thoughts">failed to properly initialize the PRNG</a>.</p>
 <p>Most developers should instantiate <code>SecureRandom</code> via the default constructor without any arguments. Other constructors are for more advanced uses and, if used incorrectly, can lead to decreased randomness and security. The PRNG provider backing <code>SecureRandom</code> uses the <code>SHA1PRNG</code> from <code>AndroidOpenSSL</code> (Conscrypt) provider.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/reference/java/security/Provider.html" title="Android Security Providers">Android Security Providers</a></li>
-<li><a href="https://android-developers.googleblog.com/2016/06/android-changes-for-ndk-developers.html" title="Android changes for NDK developers">Android changes for NDK developers</a></li>
-<li><a href="https://developer.android.com/guide/topics/security/cryptography#SupportedCipher">AndroidKeyStore does not support encryption or decryption with EC keys</a></li>
-<li><a href="https://www.bouncycastle.org/java.html" title="Bouncy Castle in Java">Bouncy Castle in Java</a></li>
-<li><a href="https://github.com/google/conscrypt#android" title="Conscrypt - A Java Security Provider">Conscrypt - A Java Security Provider</a></li>
-<li><a href="https://android-developers.googleblog.com/2018/03/cryptography-changes-in-android-p.html" title="Cryptography Changes in Android P">Cryptography Changes in Android P</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.1" title="Cryptography updates">Cryptography updates</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html" title="Key Management Cheat Sheet">Key Management Cheat Sheet</a></li>
-<li><a href="https://developer.android.com/about/versions/10/behavior-changes-all#security" title="Security Changes in Android 10">Security Changes in Android 10</a></li>
-<li><a href="https://android-developers.googleblog.com/2016/06/security-crypto-provider-deprecated-in.html" title="Security provider Crypto deprecated in Android N">Security provider Crypto deprecated in Android N</a></li>
-<li><a href="https://android-developers.googleblog.com/2013/08/some-securerandom-thoughts.html" title="Some SecureRandom Thoughts">Some SecureRandom Thoughts</a></li>
-<li><a href="https://developer.android.com/training/articles/keystore.html#SupportedCiphers" title="Supported Ciphers in AndroidKeyStore">Supported Ciphers in AndroidKeyStore</a></li>
-<li><a href="https://developer.android.com/training/articles/security-gms-provider" title="Updating security provider">Updating security provider</a></li>
-</ul>
 
 
 

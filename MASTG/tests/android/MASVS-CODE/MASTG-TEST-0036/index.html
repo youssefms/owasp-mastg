@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2841,15 +2841,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing Enforced Updating</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#enforced-updating" title="Enforced Updating&quot; &quot;Enforced Updating">enforced updating</a> you need to check if the app has support for in-app updates and validate if it's properly enforced so that the user is not able to continue using the app without updating it first.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#enforced-updating" title="Enforced Updating">enforced updating</a> you need to check if the app has support for in-app updates and validate if it's properly enforced so that the user is not able to continue using the app without updating it first.</p>
 <h2 id="static-analysis">Static analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>The code sample below shows the example of an app-update:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//Part 1: check for update</span>
@@ -11617,10 +11599,6 @@
 <p>In order to test for proper updating: try downloading an older version of the application with a security vulnerability, either by a release from the developers or by using a third party app-store.
 Next, verify whether or not you can continue to use the application without updating it. If an update prompt is given, verify if you can still use the application by canceling the prompt or otherwise circumventing it through normal application usage. This includes validating whether the backend will stop calls to vulnerable backends and/or whether the vulnerable app-version itself is blocked by the backend.
 Lastly, see if you can play with the version number of a man-in-the-middled app and see how the backend responds to this (and if it is recorded at all for instance).</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/guide/app-bundle/in-app-updates" title="Support in-app updates">Support in-app updates</a></li>
-</ul>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -2628,15 +2628,6 @@
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11418,15 +11409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11543,7 +11525,7 @@
   <h1>Testing for Overlay Attacks</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>To test for <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#overlay-attacks" title="Overlay Attacks&quot; &quot;Overlay Attacks">overlay attacks</a> you need to check the app for usage of certain APIs and attributed typically used to protect against overlay attacks as well as check the Android version that app is targeting.</p>
+<p>To test for <a href="../../../Document/0x05h-Testing-Platform-Interaction.md#overlay-attacks" title="Overlay Attacks">overlay attacks</a> you need to check the app for usage of certain APIs and attributed typically used to protect against overlay attacks as well as check the Android version that app is targeting.</p>
 <p>To mitigate these attacks please carefully read the general guidelines about Android View security in the <a href="https://developer.android.com/reference/android/view/View#security" title="View Security">Android Developer Documentation</a>. For instance, the so-called <em>touch filtering</em> is a common defense against tapjacking, which contributes to safeguarding users against these vulnerabilities, usually in combination with other techniques and considerations as we introduce in this section.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>To start your static analysis you can check the app for the following methods and attributes (non-exhaustive list):</p>
@@ -11559,19 +11541,6 @@
 <ul>
 <li><a href="https://github.com/FSecureLABS/tapjacking-poc" title="Tapjacking POC">Tapjacking POC</a>: This APK creates a simple overlay which sits on top of the testing application.</li>
 <li><a href="https://github.com/DEVizzi/Invisible-Keyboard" title="Invisible Keyboard">Invisible Keyboard</a>: This APK creates multiple overlays on the keyboard to capture keystrokes. This is one of the exploit demonstrated in Cloak and Dagger attacks.</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#all-aw" title="Alert Windows">Alert Windows</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#all-aw" title="Alert windows">Alert windows</a></li>
-<li><a href="https://developer.android.com/reference/android/view/MotionEvent.html#FLAG_WINDOW_IS_OBSCURED" title="FLAG_WINDOW_IS_OBSCURED">FLAG_WINDOW_IS_OBSCURED</a></li>
-<li><a href="https://developer.android.com/reference/android/view/MotionEvent.html#FLAG_WINDOW_IS_PARTIALLY_OBSCURED" title="FLAG_WINDOW_IS_PARTIALLY_OBSCURED">FLAG_WINDOW_IS_PARTIALLY_OBSCURED</a></li>
-<li><a href="https://github.com/DEVizzi/Invisible-Keyboard" title="Invisible Keyboard">Invisible Keyboard</a></li>
-<li><a href="https://github.com/FSecureLABS/tapjacking-poc" title="Tapjacking POC">Tapjacking POC</a></li>
-<li><a href="https://developer.android.com/reference/android/view/View#security" title="View Security">View Security</a></li>
-<li><a href="https://developer.android.com/reference/android/view/View#attr_android:filterTouchesWhenObscured" title="android:filterTouchesWhenObscured">android:filterTouchesWhenObscured</a></li>
-<li><a href="https://developer.android.com/reference/android/view/View#onFilterTouchEventForSecurity%28android.view.MotionEvent%29" title="onFilterTouchEventForSecurity">onFilterTouchEventForSecurity</a></li>
-<li><a href="https://developer.android.com/reference/android/view/View.html#setFilterTouchesWhenObscured%28boolean%29" title="setFilterTouchesWhenObscured">setFilterTouchesWhenObscured</a></li>
 </ul>
 
 

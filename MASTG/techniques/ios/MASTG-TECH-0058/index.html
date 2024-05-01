@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -6259,15 +6259,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11434,15 +11425,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11474,7 +11456,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 28, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11586,7 +11568,7 @@ iGoat-Swift
 <li><code>_CodeSignature/</code> contains a plist file with a signature over all files in the bundle.</li>
 <li><code>Frameworks/</code> contains the app native libraries as .dylib or .framework files.</li>
 <li><code>PlugIns/</code> may contain app extensions as .appex files (not present in the example).</li>
-<li><a href="/MASTG/Tools/0x08b-Reference-Apps#igoat-swift">iGoat-Swift</a> is the app binary containing the app’s code. Its name is the same as the bundle's name minus the .app extension.</li>
+<li><a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> is the app binary containing the app’s code. Its name is the same as the bundle's name minus the .app extension.</li>
 <li>Various resources such as images/icons, <code>*.nib</code> files (storing the user interfaces of iOS app), localized content (<code>&lt;language&gt;.lproj</code>), text files, audio files, etc.</li>
 </ul>
 <h2 id="the-infoplist-file">The Info.plist File<a class="headerlink" href="#the-infoplist-file" title="Permanent link">&para;</a></h2>
@@ -11605,15 +11587,15 @@ plistutil<span class="w"> </span>-i<span class="w"> </span>Info.plist<span class
 </code></pre></div>
 <p>Here's a non-exhaustive list of some info and the corresponding keywords that you can easily search for in the <code>Info.plist</code> file by just inspecting the file or by using <code>grep -i &lt;keyword&gt; Info.plist</code>:</p>
 <ul>
-<li>App permissions Purpose Strings: <code>UsageDescription</code> (see "<a href="/MASTG/iOS/0x06h-Testing-Platform-Interaction">iOS Platform APIs</a>")</li>
-<li>Custom URL schemes: <code>CFBundleURLTypes</code> (see "<a href="/MASTG/iOS/0x06h-Testing-Platform-Interaction">iOS Platform APIs</a>")</li>
-<li>Exported/imported <em>custom document types</em>: <code>UTExportedTypeDeclarations</code> / <code>UTImportedTypeDeclarations</code> (see "<a href="/MASTG/iOS/0x06h-Testing-Platform-Interaction">iOS Platform APIs</a>")</li>
-<li>App Transport Security (ATS) configuration: <code>NSAppTransportSecurity</code> (see "<a href="/MASTG/iOS/0x06g-Testing-Network-Communication">iOS Network Communication</a>")</li>
+<li>App permissions Purpose Strings: <code>UsageDescription</code> (see "<a href="0x06h-Testing-Platform-Interaction.md">iOS Platform APIs</a>")</li>
+<li>Custom URL schemes: <code>CFBundleURLTypes</code> (see "<a href="0x06h-Testing-Platform-Interaction.md">iOS Platform APIs</a>")</li>
+<li>Exported/imported <em>custom document types</em>: <code>UTExportedTypeDeclarations</code> / <code>UTImportedTypeDeclarations</code> (see "<a href="0x06h-Testing-Platform-Interaction.md">iOS Platform APIs</a>")</li>
+<li>App Transport Security (ATS) configuration: <code>NSAppTransportSecurity</code> (see "<a href="0x06g-Testing-Network-Communication.md">iOS Network Communication</a>")</li>
 </ul>
 <p>Please refer to the mentioned chapters to learn more about how to test each of these points.</p>
 <h2 id="app-binary">App Binary<a class="headerlink" href="#app-binary" title="Permanent link">&para;</a></h2>
 <p>iOS app binaries are fat binaries (they can be deployed on all devices 32- and 64-bit). In contrast to Android, where you can actually decompile the app binary to Java code, the iOS app binaries can only be disassembled.</p>
-<p>Refer to the chapter <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on iOS</a> for more details.</p>
+<p>Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on iOS</a> for more details.</p>
 <h2 id="native-libraries">Native Libraries<a class="headerlink" href="#native-libraries" title="Permanent link">&para;</a></h2>
 <p>iOS apps can make their codebase modular by using different elements. In the MASTG we will refer to all of them as native libraries, but they can come in different forms:</p>
 <ul>
@@ -11624,7 +11606,7 @@ plistutil<span class="w"> </span>-i<span class="w"> </span>Info.plist<span class
 <li><a href="https://developer.apple.com/videos/play/wwdc2019/416/">Binary Frameworks (<code>XCFrameworks</code>)</a>: Xcode 11 supports distributing binary libraries using the <code>XCFrameworks</code> format which is a new way to bundle up multiple variants of a Framework, e.g. for any of the platforms that Xcode supports (including simulator and devices). They can also bundle up static libraries (and their corresponding headers) and support binary distribution of Swift and C-based code. <code>XCFrameworks</code> can be <a href="https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages">distributed as Swift Packages</a>.</li>
 <li><a href="https://developer.apple.com/documentation/swift_packages">Swift Packages</a>: Xcode 11 add supports for Swift packages, which are reusable components of Swift, Objective-C, Objective-C++, C, or C++ code that developers can use in their projects and are distributed as source code. Since Xcode 12 they can also <a href="https://developer.apple.com/videos/play/wwdc2020/10169/">bundle resources</a>, such as images, storyboards, and other files. Since Package libraries are <a href="https://developer.apple.com/videos/play/wwdc2019/408/?time=739">static by default</a>. Xcode compiles them, and the packages they depend on, and then links and combines everything into the application.</li>
 </ul>
-<p>You can view native libraries in <a href="" title="Grapefruit">Grapefruit</a> by clicking on the Modules icon in the left menu bar:</p>
+<p>You can view native libraries in <a href="../../../tools/ios/MASTG-TOOL-0061/" title="Grapefruit">Grapefruit</a> by clicking on the Modules icon in the left menu bar:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_modules.png" width="100%" /></p>
 <p>And get a more detailed view including their imports/exports:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_modules_detail.png" width="100%" /></p>
@@ -11646,22 +11628,10 @@ Regular<span class="w">           </span><span class="m">420</span><span class="
 ...
 </code></pre></div>
 <p>Please note that this might not be the complete list of native code elements being used by the app as some can be part of the source code, meaning that they'll be compiled in the app binary and therefore cannot be found as standalone libraries or Frameworks in the <code>Frameworks</code> folder.</p>
-<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to the chapter <a href="/MASTG/iOS/0x06c-Reverse-Engineering-and-Tampering">Tampering and Reverse Engineering on iOS</a> for more information about how to reverse engineer Frameworks.</p>
+<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on iOS</a> for more information about how to reverse engineer Frameworks.</p>
 <h2 id="other-app-resources">Other App Resources<a class="headerlink" href="#other-app-resources" title="Permanent link">&para;</a></h2>
 <p>It is normally worth taking a look at the rest of the resources and files that you may find in the Application Bundle (.app) inside the IPA as some times they contain additional goodies like encrypted databases, certificates, etc.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_db_view.png" width="100%" /></p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/videos/play/wwdc2019/416/">Binary Frameworks (<code>XCFrameworks</code>)</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-PROJ_CONFIG-APPS_WITH_DEPENDENCIES_BETWEEN_FRAMEWORKS">Frameworks</a></li>
-<li><a href="https://developer.apple.com/documentation/bundleresources/information_property_list?language=objc" title="Information Property List">Information Property List</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html#//apple_ref/doc/uid/TP40001873-SW1">Static and Dynamic Libraries</a></li>
-<li><a href="https://developer.apple.com/documentation/swift_packages">Swift Packages</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2020/10169/">bundle resources</a></li>
-<li><a href="https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages">distributed as Swift Packages</a></li>
-<li><a href="https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-PROJ_CONFIG-APPS_WITH_DEPENDENCIES_BETWEEN_FRAMEWORKS">not supported</a></li>
-<li><a href="https://developer.apple.com/videos/play/wwdc2019/408/?time=739">static by default</a></li>
-</ul>
 
 
 

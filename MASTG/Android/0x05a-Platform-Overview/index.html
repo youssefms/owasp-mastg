@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1596,15 +1596,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -12304,15 +12295,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -12497,7 +12479,7 @@
 <p>Prior to Android 6.0 (API level 23), all permissions an app requested were granted at installation (Install-time permissions). From API level 23 onwards, the user must approve some permissions requests during runtime (Runtime permissions).</p>
 </blockquote>
 <p>Further information is available in the <a href="https://developer.android.com/guide/topics/permissions/overview">Android documentation</a> including several <a href="https://developer.android.com/training/permissions/evaluating">considerations</a> and <a href="https://developer.android.com/training/permissions/usage-notes">best practices</a>.</p>
-<p>To learn how to test app permissions refer to the <a href="/MASTG/Android/0x05h-Testing-Platform-Interaction#app-permissions">Testing App Permissions</a> section in the "Android Platform APIs" chapter.</p>
+<p>To learn how to test app permissions refer to the <a href="../0x05h-Testing-Platform-Interaction/#app-permissions">Testing App Permissions</a> section in the "Android Platform APIs" chapter.</p>
 <h3 id="network-security">Network security<a class="headerlink" href="#network-security" title="Permanent link">&para;</a></h3>
 <h4 id="tls-by-default">TLS by Default<a class="headerlink" href="#tls-by-default" title="Permanent link">&para;</a></h4>
 <p>By default, since Android 9 (API level 28), all network activity is treated as being executed in a hostile environment. This means that the Android system will only allow apps to communicate over a network channel that is established using the Transport Layer Security (TLS) protocol. This protocol effectively encrypts all network traffic and creates a secure channel to a server. It may be the case that you would want to use clear traffic connections for legacy reasons. This can be achieved by adapting the <code>res/xml/network_security_config.xml</code> file in the application.</p>
@@ -12929,91 +12911,6 @@ Apps can be signed from the command line with the 'apksigner' tool provided by t
 <p>Apps can be installed on an Android device from a variety of sources: locally via USB, via Google's official app store (Google Play Store) or from alternative stores.</p>
 <p>Whereas other vendors may review and approve apps before they are actually published, Google will simply scan for known malware signatures; this minimizes the time between the beginning of the publishing process and public app availability.</p>
 <p>Publishing an app is quite straightforward; the main operation is making the signed APK file downloadable. On Google Play, publishing starts with account creation and is followed by app delivery through a dedicated interface. Details are available at <a href="https://play.google.com/console/about/guides/releasewithconfidence/" title="Review the checklists to plan your launch">the official Android documentation</a>.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://source.android.com/security/apksigning/v3" title="APK Signature v3 scheme verification process">APK Signature v3 scheme verification process</a></li>
-<li><a href="https://source.android.com/security/apksigning/v2#verification" title="APK Signature verification process">APK Signature verification process</a></li>
-<li><a href="https://source.android.com/security/apksigning/" title="APK Signing">APK Signing</a></li>
-<li><a href="https://github.com/google/adiantum" title="Adiantum">Adiantum</a></li>
-<li><a href="https://source.android.com/security/encryption/adiantum" title="Adiantum">Adiantum</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bionic_(software)" title="Android (Bionic)">Android (Bionic)</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Android_(operating_system)" title="Android (Operating System)">Android (Operating System)</a></li>
-<li><a href="https://developer.android.com/about/versions/10/privacy" title="Android 10 Privacy Details 1">Android 10 Privacy Details 1</a></li>
-<li><a href="https://developer.android.com/about/versions/10/privacy/changes" title="Android 10 Privacy Details 2">Android 10 Privacy Details 2</a></li>
-<li><a href="https://developer.android.com/about/versions/10/highlights#privacy_for_users" title="Android 10 Privacy Overview">Android 10 Privacy Overview</a></li>
-<li><a href="https://developer.android.com/about/versions/10/behavior-changes-all#security" title="Android 10 Security Details">Android 10 Security Details</a></li>
-<li><a href="https://developer.android.com/about/versions/10/highlights#security" title="Android 10 Security Overview">Android 10 Security Overview</a></li>
-<li><a href="https://developer.android.com/about/versions/11/behavior-changes-all" title="Android 11 Privacy Behavior changes (all apps)">Android 11 Privacy Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/11/behavior-changes-11#privacy" title="Android 11 Privacy Behavior changes (apps targeting version)">Android 11 Privacy Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/11/privacy" title="Android 11 Privacy Overview">Android 11 Privacy Overview</a></li>
-<li><a href="https://developer.android.com/about/versions/11/behavior-changes-all#security" title="Android 11 Security Behavior changes (all apps)">Android 11 Security Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/11/behavior-changes-11#security" title="Android 11 Security Behavior changes (apps targeting version)">Android 11 Security Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/12/behavior-changes-all#security-privacy" title="Android 12 Behavior changes (all apps)">Android 12 Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/12/behavior-changes-12#security-privacy" title="Android 12 Behavior changes (apps targeting version)">Android 12 Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/12/features#security-privacy" title="Android 12 Security and privacy">Android 12 Security and privacy</a></li>
-<li><a href="https://developer.android.com/about/versions/13/behavior-changes-all#privacy" title="Android 13 Privacy Behavior changes (all apps)">Android 13 Privacy Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/13/behavior-changes-13#privacy" title="Android 13 Privacy Behavior changes (apps targeting version)">Android 13 Privacy Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/13/behavior-changes-all#security" title="Android 13 Security Behavior changes (all apps)">Android 13 Security Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/13/behavior-changes-13#security" title="Android 13 Security Behavior changes (apps targeting version)">Android 13 Security Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/13/features#privacy-security" title="Android 13 Security and privacy">Android 13 Security and privacy</a></li>
-<li><a href="https://developer.android.com/about/versions/14/behavior-changes-all#security" title="Android 14 Security Behavior changes (all apps)">Android 14 Security Behavior changes (all apps)</a></li>
-<li><a href="https://developer.android.com/about/versions/14/behavior-changes-14#security" title="Android 14 Security Behavior changes (apps targeting version)">Android 14 Security Behavior changes (apps targeting version)</a></li>
-<li><a href="https://developer.android.com/about/versions/14/summary" title="Android 14 Summary of changes">Android 14 Summary of changes</a></li>
-<li><a href="https://developer.android.com/guide/app-bundle" title="Android App Bundle">Android App Bundle</a></li>
-<li><a href="https://1library.net/document/z33dd47z-android-android-interprocess-communication-thorsten-schreiber-somorovsky-bussmeyer.html" title="Android Binder">Android Binder</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" title="Android Developer Guide for Manifest">Android Developer Guide for Manifest</a></li>
-<li><a href="https://developer.android.com/index.html" title="Android Developer Guide">Android Developer Guide</a></li>
-<li><a href="https://android-developers.googleblog.com/2018/04/dns-over-tls-support-in-android-p.html">Android Developers blog</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik/configure#how_art_works">Android Runtime (ART)</a></li>
-<li><a href="https://source.android.com/security/apksigning/v4">Android developer documentation</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview">Android documentation</a></li>
-<li><a href="https://developer.android.com/training/articles/security-config.html">Android documentation</a></li>
-<li><a href="https://source.android.com/security/verifiedboot">Android documentation</a></li>
-<li><a href="https://developer.android.com/about/versions/oreo/background.html#broadcasts" title="Background Execution Limits">Background Execution Limits</a></li>
-<li><a href="https://developer.android.com/topic/performance/background-optimization" title="Background Optimizations">Background Optimizations</a></li>
-<li><a href="https://source.android.com/devices/architecture/hidl/binder-ipc">Binder IPC</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcasts" title="Broadcasts Overview">Broadcasts Overview</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcasts#changes-system-broadcasts" title="Changes to System Broadcasts">Changes to System Broadcasts</a></li>
-<li><a href="https://source.android.com/docs/setup/about/build-numbers" title="Codenames, tags, and build numbers">Codenames, tags, and build numbers</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Context.html#registerReceiver%28android.content.BroadcastReceiver,%2520android.content.IntentFilter%29" title="Context.registerReceiver">Context.registerReceiver</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik/dalvik-bytecode">Dalvik bytecode</a></li>
-<li><a href="https://developer.android.com/guide/topics/data/install-location.html" title="Define app install location">Define app install location</a></li>
-<li><a href="https://developer.android.com/guide/app-bundle" title="Documentation on App Bundle">Documentation on App Bundle</a></li>
-<li><a href="https://source.android.com/security/encryption/file-based" title="File-Based Encryption">File-Based Encryption</a></li>
-<li><a href="https://developer.android.com/guide/components/fragments" title="Fragment Class">Fragment Class</a></li>
-<li><a href="https://source.android.com/security/encryption/full-disk" title="Full-Disk Encryption">Full-Disk Encryption</a></li>
-<li><a href="https://source.android.com/security/authentication/gatekeeper">GateKeeper</a></li>
-<li><a href="https://source.android.com/security/keystore">Hardware-backed KeyStore</a></li>
-<li><a href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run" title="How Android Apps are run">How Android Apps are run</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcast-exceptions" title="Implicit Broadcast Exceptions">Implicit Broadcast Exceptions</a></li>
-<li><a href="https://developer.android.com/reference/android/content/IntentFilter#setPriority%28int%29" title="IntentFilter.setPriority">IntentFilter.setPriority</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Java_virtual_machine">JVM (Java Virtual Machine)</a></li>
-<li><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="LiveData">LiveData</a></li>
-<li><a href="https://developer.android.com/reference/androidx/localbroadcastmanager/content/LocalBroadcastManager.html" title="LocalBroadcastManager">LocalBroadcastManager</a></li>
-<li><a href="https://source.android.com/devices/tech/perf/lmkd">Low Memory Killer</a></li>
-<li><a href="https://www.openhandsetalliance.com/">Open Handset Alliance</a></li>
-<li><a href="https://android-developers.googleblog.com/2016/07/protecting-android-with-more-linux.html" title="Protecting Android with more Linux kernel defenses">Protecting Android with more Linux kernel defenses</a></li>
-<li><a href="https://play.google.com/console/about/guides/releasewithconfidence/" title="Review the checklists to plan your launch">Review the checklists to plan your launch</a></li>
-<li><a href="https://android-developers.googleblog.com/2017/07/seccomp-filter-in-android-o.html" title="Seccomp filter in Android O">Seccomp filter in Android O</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcasts.html#security-and-best-practices" title="Security Considerations and Best Practices">Security Considerations and Best Practices</a></li>
-<li><a href="https://source.android.com/security/selinux" title="Security-Enhanced Linux in Android">Security-Enhanced Linux in Android</a></li>
-<li><a href="https://developer.android.com/guide/components/broadcasts.html#sending-broadcasts" title="Sending Broadcasts">Sending Broadcasts</a></li>
-<li><a href="https://developer.android.com/training/articles/keystore#HardwareSecurityModule">StrongBox</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels" title="What is API level?">What is API level?</a></li>
-<li><a href="http://androidxref.com/9.0.0_r3/xref/system/core/include/private/android_filesystem_config.h" title="android_filesystem_config.h">android_filesystem_config.h</a></li>
-<li><a href="https://developer.android.com/training/permissions/usage-notes">best practices</a></li>
-<li><a href="https://pierrchen.blogspot.mk/2016/09/an-walk-through-of-android-uidgid-based.html">blog post "An Overview Of Application Sandbox" by Bin Chen</a></li>
-<li><a href="https://secrary.com/android-reversing/android101/">blog post "Android 101" by @_qaz_qaz</a></li>
-<li><a href="http://newandroidbook.com/">book "Android Internals" by Jonathan Levin</a></li>
-<li><a href="https://developer.android.com/studio/command-line/bundletool" title="bundletool">bundletool</a></li>
-<li><a href="https://developer.android.com/training/permissions/evaluating">considerations</a></li>
-<li><a href="https://www.kernel.org/doc/html/latest/filesystems/fsverity.html">fs-verity</a></li>
-<li><a href="http://androidxref.com/9.0.0_r3/xref/frameworks/base/data/etc/platform.xml" title="platform.xml">platform.xml</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/receiver-element" title="receiver element">receiver element</a></li>
-<li><a href="https://developer.android.com/training/package-visibility">reduced package visibility</a></li>
-<li><a href="https://developer.android.com/guide/topics/permissions/overview#types">types</a></li>
-<li><a href="https://source.android.com/devices/architecture/kernel">variation of the Linux Kernel</a></li>
-</ul>
 
 
 

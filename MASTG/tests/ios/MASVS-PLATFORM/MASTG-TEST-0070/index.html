@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4091,15 +4091,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11634,15 +11625,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11909,7 +11891,7 @@
 0x1000df2c9<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">8</span><span class="w"> </span>openURL:
 0x1000df772<span class="w"> </span><span class="m">35</span><span class="w"> </span><span class="m">34</span><span class="w"> </span>openURL:options:completionHandler:
 </code></pre></div>
-<p>As expected, <code>openURL:options:completionHandler:</code> is among the ones found (remember that it might be also present because the app opens custom URL schemes). Next, to ensure that no sensitive information is being leaked you'll have to perform dynamic analysis and inspect the data being transmitted. Please refer to "<a href="" title="Identifying and Hooking the URL Handler Method">Identifying and Hooking the URL Handler Method</a>" for some examples on hooking and tracing this method.</p>
+<p>As expected, <code>openURL:options:completionHandler:</code> is among the ones found (remember that it might be also present because the app opens custom URL schemes). Next, to ensure that no sensitive information is being leaked you'll have to perform dynamic analysis and inspect the data being transmitted. Please refer to "<a href="../MASTG-TEST-0075/#identifying-and-hooking-the-url-handler-method" title="Identifying and Hooking the URL Handler Method">Identifying and Hooking the URL Handler Method</a>" for some examples on hooking and tracing this method.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>If an app is implementing universal links, you should have the following outputs from the static analysis:</p>
 <ul>
@@ -11936,7 +11918,7 @@
 <blockquote>
 <p>To do it from Safari you will have to find an existing link on a website that once clicked, it will be recognized as a Universal Link. This can be a bit time consuming.</p>
 </blockquote>
-<p>Alternatively you can also use Frida for this, see the section "<a href="">Performing URL Requests</a>" for more details.</p>
+<p>Alternatively you can also use Frida for this, see the section "<a href="../MASTG-TEST-0075/#performing-url-requests">Performing URL Requests</a>" for more details.</p>
 <h3 id="identifying-valid-universal-links">Identifying Valid Universal Links<a class="headerlink" href="#identifying-valid-universal-links" title="Permanent link">&para;</a></h3>
 <p>First of all we will see the difference between opening an allowed Universal Link and one that shouldn't be allowed.</p>
 <p>From the <code>apple-app-site-association</code> of apple.com we have seen above we chose the following paths:</p>
@@ -12142,21 +12124,6 @@ dismissInput:<span class="w"> </span><span class="o">()</span><span class="w"> <
 <span class="m">298382</span><span class="w"> </span>ms<span class="w">  </span>restorationHandler:&lt;__NSStackBlock__:<span class="w"> </span>0x16f27a898&gt;
 </code></pre></div>
 <p>This knowledge should help you when testing apps supporting Handoff.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://branch.io/resources/aasa-validator/" title="AASA">AASA</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/Handoff/AdoptingHandoff/AdoptingHandoff.html#//apple_ref/doc/uid/TP40014338-CH2-SW10" title="Adopting Handoff: Web Browser-to-Native App">Adopting Handoff: Web Browser-to-Native App</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/handling_universal_links#3001935" title="An example of handling a universal link">An example of handling a universal link</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/handling_universal_links" title="Handling Universal Links">Handling Universal Links</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html#//apple_ref/doc/uid/TP40014338" title="Handoff Fundamentals: About Handoff">Handoff Fundamentals: About Handoff</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/nsuseractivity?language=objc" title="NSUserActivity">NSUserActivity</a></li>
-<li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW2" title="Preparing Your App to Handle Universal Links">Preparing Your App to Handle Universal Links</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplication/1648685-openurl?language=objc" title="UIApplication openURL:options:completionHandler:">UIApplication openURL:options:completionHandler:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application" title="UIApplicationDelegate application:continueUserActivity:restorationHandler:">UIApplicationDelegate application:continueUserActivity:restorationHandler:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionuniversallinksonly?language=objc" title="UIApplicationOpenURLOptionUniversalLinksOnly">UIApplicationOpenURLOptionUniversalLinksOnly</a></li>
-<li><a href="https://developer.apple.com/documentation/foundation/urlcomponents/1779624-scheme" title="URLComponents scheme">URLComponents scheme</a></li>
-<li><a href="http://www.manpagez.com/man/1/xcrun/" title="xcrun man page">xcrun man page</a></li>
-</ul>
 
 
 

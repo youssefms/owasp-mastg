@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -5221,15 +5221,6 @@
   <a href="#bypass-custom-certificate-pinning-dynamically" class="md-nav__link">
     <span class="md-ellipsis">
       Bypass Custom Certificate Pinning Dynamically
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -11416,15 +11407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11537,11 +11519,11 @@
 <li>Objection: Use the <code>android sslpinning disable</code> command.</li>
 <li>Xposed: Install the <a href="https://github.com/ViRb3/TrustMeAlready" title="TrustMeAlready">TrustMeAlready</a> or <a href="https://github.com/ac-pm/SSLUnpinning_Xposed" title="SSLUnpinning">SSLUnpinning</a> module.</li>
 </ul>
-<p>If you have a rooted device with frida-server installed, you can bypass SSL pinning by running the following <a href="/MASTG/Tools/0x08a-Testing-Tools#objection">Objection</a> command (<a href="#repackaging-apps">repackage your app</a> if you're using a non-rooted device):</p>
+<p>If you have a rooted device with frida-server installed, you can bypass SSL pinning by running the following <a href="0x08a-Testing-Tools.md#objection">Objection</a> command (<a href="#repackaging-apps">repackage your app</a> if you're using a non-rooted device):</p>
 <div class="highlight"><pre><span></span><code>android<span class="w"> </span>sslpinning<span class="w"> </span>disable
 </code></pre></div>
 <p>Here's an example of the output:</p>
-<p><img alt="objection Android SSL Pinning Bypass" src="/MASTG/Android/0x05b/android_ssl_pinning_bypass.png" /></p>
+<p><img alt="objection Android SSL Pinning Bypass" src="Images/Chapters/0x05b/android_ssl_pinning_bypass.png" /></p>
 <p>See also <a href="https://github.com/sensepost/objection/blob/master/objection/console/helpfiles/android.sslpinning.disable.txt">Objection's help on Disabling SSL Pinning for Android</a> for further information and inspect the <a href="https://github.com/sensepost/objection/blob/master/agent/src/android/pinning.ts" title="pinning.ts">pinning.ts</a> file to understand how the bypass works.</p>
 <h2 id="bypass-custom-certificate-pinning-statically">Bypass Custom Certificate Pinning Statically<a class="headerlink" href="#bypass-custom-certificate-pinning-statically" title="Permanent link">&para;</a></h2>
 <p>Somewhere in the application, both the endpoint and the certificate (or its hash) must be defined. After decompiling the application, you can search for:</p>
@@ -11579,20 +11561,6 @@
 <p>For the Builder.add method, you can find the possible methods by running the following grep command: <code>grep -ri java/lang/String;\[Ljava/lang/String;)L ./</code></p>
 <p>This command will search for all methods that take a string and a variable list of strings as arguments, and return a complex object. Depending on the size of the application, this may have one or multiple matches in the code.</p>
 <p>Hook each method with Frida and print the arguments. One of them will print out a domain name and a certificate hash, after which you can modify the arguments to circumvent the implemented pinning.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/iSECPartners/Android-SSL-TrustKiller" title="Android-SSL-TrustKiller">Android-SSL-TrustKiller</a></li>
-<li><a href="https://square.github.io/okhttp/3.x/okhttp/okhttp3/CertificatePinner.Builder.html#add-java.lang.String-java.lang.String...-" title="Builder.add method">Builder.add method</a></li>
-<li><a href="https://serializethoughts.wordpress.com/2016/08/18/bypassing-ssl-pinning-in-android-applications/" title="Bypassing SSL Pinning in Android Applications">Bypassing SSL Pinning in Android Applications</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/master/objection/console/helpfiles/android.sslpinning.disable.txt">Objection's help on Disabling SSL Pinning for Android</a></li>
-<li><a href="https://square.github.io/okhttp/3.x/okhttp/" title="OkHTTP3 documentation">OkHTTP3 documentation</a></li>
-<li><a href="https://codeshare.frida.re/@akabe1/frida-multiple-unpinning/" title="Project: frida-multiple-unpinning">Project: frida-multiple-unpinning</a></li>
-<li><a href="https://github.com/ac-pm/SSLUnpinning_Xposed" title="SSLUnpinning">SSLUnpinning</a></li>
-<li><a href="https://github.com/ViRb3/TrustMeAlready" title="TrustMeAlready">TrustMeAlready</a></li>
-<li><a href="https://www.bouncycastle.org/latest_releases.html" title="https://www.bouncycastle.org/latest_releases.html">https://www.bouncycastle.org/latest_releases.html</a></li>
-<li><a href="https://github.com/sensepost/objection/blob/master/agent/src/android/pinning.ts" title="pinning.ts">pinning.ts</a></li>
-<li><a href="https://blog.nviso.eu/2019/04/02/circumventing-ssl-pinning-in-obfuscated-apps-with-okhttp/">this blog post</a></li>
-</ul>
 
 
 

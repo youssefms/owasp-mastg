@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -1377,15 +1377,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11572,15 +11563,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11715,22 +11697,22 @@ The V3 signature, which is supported by Android 9 (API level 28) and above, give
 <p>Android applications run on a VM where most of the memory corruption issues have been taken care off. This does not mean that there are no memory corruption bugs. Take <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9522" title="CVE in StatsLogEventWrapper">CVE-2018-9522</a> for instance, which is related to serialization issues using Parcels. Next, in native code, we still see the same issues as we explained in the general memory corruption section. Last, we see memory bugs in supporting services, such as with the Stagefright attack as shown <a href="https://www.blackhat.com/docs/us-15/materials/us-15-Drake-Stagefright-Scary-Code-In-The-Heart-Of-Android.pdf" title="Stagefright">at BlackHat</a>.</p>
 <p>Memory leaks are often an issue as well. This can happen for instance when a reference to the <code>Context</code> object is passed around to non-<code>Activity</code> classes, or when you pass references to <code>Activity</code> classes to your helper classes.</p>
 <h3 id="binary-protection-mechanisms">Binary Protection Mechanisms<a class="headerlink" href="#binary-protection-mechanisms" title="Permanent link">&para;</a></h3>
-<p>Detecting the presence of <a href="/MASTG/General/0x04h-Testing-Code-Quality#binary-protection-mechanisms">binary protection mechanisms</a> heavily depend on the language used for developing the application.</p>
+<p>Detecting the presence of <a href="0x04h-Testing-Code-Quality.md#binary-protection-mechanisms">binary protection mechanisms</a> heavily depend on the language used for developing the application.</p>
 <p>In general all binaries should be tested, which includes both the main app executable as well as all libraries/dependencies. However, on Android we will focus on native libraries since the main executables are considered safe as we will see next.</p>
-<p>Android optimizes its Dalvik bytecode from the app DEX files (e.g. classes.dex) and generates a new file containing the native code, usually with an .odex, .oat extension. This <a href="/MASTG/Android/0x05b-Android-Security-Testing#compiled-app-binary">Android compiled binary</a> is wrapped using the <a href="https://refspecs.linuxfoundation.org/elf/gabi4+/contents.html">ELF format</a> which is the format used by Linux and Android to package assembly code.</p>
-<p>The app's <a href="/MASTG/Android/0x05b-Android-Security-Testing#native-libraries">NDK native libraries</a> also <a href="https://developer.android.com/ndk/guides/abis">use the ELF format</a>.</p>
+<p>Android optimizes its Dalvik bytecode from the app DEX files (e.g. classes.dex) and generates a new file containing the native code, usually with an .odex, .oat extension. This <a href="../0x05b-Android-Security-Testing/#compiled-app-binary">Android compiled binary</a> is wrapped using the <a href="https://refspecs.linuxfoundation.org/elf/gabi4+/contents.html">ELF format</a> which is the format used by Linux and Android to package assembly code.</p>
+<p>The app's <a href="../0x05b-Android-Security-Testing/#native-libraries">NDK native libraries</a> also <a href="https://developer.android.com/ndk/guides/abis">use the ELF format</a>.</p>
 <ul>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#position-independent-code">PIE (Position Independent Executable)</a>:<ul>
+<li><a href="0x04h-Testing-Code-Quality.md#position-independent-code"><strong>PIE (Position Independent Executable)</strong></a>:<ul>
 <li>Since Android 7.0 (API level 24), PIC compilation is <a href="https://source.android.com/devices/tech/dalvik/configure">enabled by default</a> for the main executables.</li>
 <li>With Android 5.0 (API level 21), support for non-PIE enabled native libraries was <a href="https://source.android.com/security/enhancements/enhancements50">dropped</a> and since then, PIE is <a href="https://cs.android.com/android/platform/superproject/+/master:bionic/linker/linker_main.cpp;l=430">enforced by the linker</a>.</li>
 </ul>
 </li>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#memory-management">Memory management</a>:<ul>
+<li><a href="0x04h-Testing-Code-Quality.md#memory-management"><strong>Memory management</strong></a>:<ul>
 <li>Garbage Collection will simply run for the main binaries and there's nothing to be checked on the binaries themselves.</li>
-<li>Garbage Collection does not apply to Android native libraries. The developer is responsible for doing proper <a href="/MASTG/General/0x04h-Testing-Code-Quality#manual-memory-management">manual memory management</a>. See <a href="/MASTG/General/0x04h-Testing-Code-Quality#memory-corruption-bugs">Memory Corruption Bugs</a>.</li>
+<li>Garbage Collection does not apply to Android native libraries. The developer is responsible for doing proper <a href="0x04h-Testing-Code-Quality.md#manual-memory-management">manual memory management</a>. See <a href="0x04h-Testing-Code-Quality.md#memory-corruption-bugs">"Memory Corruption Bugs"</a>.</li>
 </ul>
 </li>
-<li><a href="/MASTG/General/0x04h-Testing-Code-Quality#stack-smashing-protection">Stack Smashing Protection</a>:<ul>
+<li><a href="0x04h-Testing-Code-Quality.md#stack-smashing-protection"><strong>Stack Smashing Protection</strong></a>:<ul>
 <li>Android apps get compiled to Dalvik bytecode which is considered memory safe (at least for mitigating buffer overflows). Other frameworks such as Flutter will not compile using stack canaries because of the way their language, in this case Dart, mitigates buffer overflows.</li>
 <li>It must be enabled for Android native libraries but it might be difficult to fully determine it.<ul>
 <li>NDK libraries should have it enabled since the compiler does it by default.</li>
@@ -11778,24 +11760,6 @@ The V3 signature, which is supported by Android 9 (API level 28) and above, give
 <p>Inserting the policy in the <code>if</code> statement with the <code>DEVELOPER_MODE</code> condition is recommended. To disable <code>StrictMode</code>, <code>DEVELOPER_MODE</code> must be disabled for the release build.</p>
 <h3 id="exception-handling">Exception Handling<a class="headerlink" href="#exception-handling" title="Permanent link">&para;</a></h3>
 <p>Exceptions occur when an application gets into an abnormal or error state. Both Java and C++ may throw exceptions. Testing exception handling is about ensuring that the app will handle an exception and transition to a safe state without exposing sensitive information via the UI or the app's logging mechanisms.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.android.com/studio/publish/app-signing.html" title="Android Application Signing">Android Application Signing</a></li>
-<li><a href="https://developer.android.com/ndk/guides">Android NDK</a></li>
-<li><a href="https://developer.android.com/studio/publish/app-signing#considerations" title="Android Signing Considerations">Android Signing Considerations</a></li>
-<li><a href="https://lief-project.github.io/doc/latest/tutorials/10_android_formats.html">Android executable formats</a></li>
-<li><a href="https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md">Android linker changes for NDK developers</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik/configure#how_art_works">Android runtime (ART)</a></li>
-<li><a href="https://developer.android.com/guide/topics/manifest/application-element.html" title="Application element">Application element</a></li>
-<li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9522" title="CVE in StatsLogEventWrapper">CVE in StatsLogEventWrapper</a></li>
-<li><a href="https://refspecs.linuxfoundation.org/elf/gabi4+/contents.html">ELF format</a></li>
-<li><a href="https://www.blackhat.com/docs/us-15/materials/us-15-Drake-Stagefright-Scary-Code-In-The-Heart-Of-Android.pdf" title="Stagefright">Stagefright</a></li>
-<li><a href="https://developer.android.com/reference/android/os/StrictMode.html" title="StrictMode Class">StrictMode Class</a></li>
-<li><a href="https://source.android.com/security/enhancements/enhancements50">dropped</a></li>
-<li><a href="https://source.android.com/devices/tech/dalvik/configure">enabled by default</a></li>
-<li><a href="https://cs.android.com/android/platform/superproject/+/master:bionic/linker/linker_main.cpp;l=430">enforced by the linker</a></li>
-<li><a href="https://developer.android.com/ndk/guides/abis">use the ELF format</a></li>
-</ul>
 
 
 

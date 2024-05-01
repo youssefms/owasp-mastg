@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -11343,7 +11343,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: February 14, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
     <br><br>
     
 
@@ -11413,7 +11413,7 @@
 
   <h1>Logging Sensitive Data from Network Traffic</h1>
 
-<p><a href="">mitmproxy</a> can be used to intercept network traffic from Android apps. This technique is useful for identifying sensitive data that is sent over the network, as well as for identifying potential security vulnerabilities.</p>
+<p><a href="../../../tools/network/MASTG-TOOL-0097/">mitmproxy</a> can be used to intercept network traffic from Android apps. This technique is useful for identifying sensitive data that is sent over the network, as well as for identifying potential security vulnerabilities.</p>
 <p>Once with mitmproxy installed and your device configured to use it, you can create a python script to filter the traffic and extract the sensitive data. For example, the following script will extract all the data sent in the requests and responses only if the data is considered sensitive. For this example we consider sensitive data to be any data that contains the strings "dummyPassword" or "sampleUser", so we include them in the <code>SENSITIVE_STRINGS</code> list.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># mitm_sensitive_logger.py</span>
 

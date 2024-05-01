@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
@@ -4052,15 +4052,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
   
 </li>
       
@@ -11514,15 +11505,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11891,17 +11873,7 @@ error:<span class="w"> </span>0x16f095bf8
 RET:<span class="w"> </span>0x1
 </code></pre></div>
 <p>If you look at the stack trace, you can see how <code>application:openURL:options:</code> called <code>__handleOpenURL:</code>, which called <code>moveItemAtPath:toPath:error:</code>. Notice that we have now this information without having the source code for the target app. The first thing that we had to do was clear: hook <code>application:openURL:options:</code>. Regarding the rest, we had to think a little bit and come up with methods that we could start tracing and are related to the file manager, for example, all methods containing the strings "copy", "move", "remove", etc. until we have found that the one being called was <code>moveItemAtPath:toPath:error:</code>.</p>
-<p>A final thing worth noticing here is that this way of handling incoming files is the same for custom URL schemes. Please refer to the "<a href="">Testing Custom URL Schemes</a>" section for more information.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259" title="System-Declared Uniform Type Identifiers">System-Declared Uniform Type Identifiers</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller/1622009-excludedactivitytypes" title="UIActivityViewController excludedActivityTypes">UIActivityViewController excludedActivityTypes</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller/1622019-init" title="UIActivityViewController init(activityItems:applicationActivities:)">UIActivityViewController init(activityItems:applicationActivities:)</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623112-application?language=objc" title="UIApplicationDelegate application:openURL:options:">UIApplicationDelegate application:openURL:options:</a></li>
-<li><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623073-application?language=objc" title="UIApplicationDelegate application:openURL:sourceApplication:annotation:">UIApplicationDelegate application:openURL:sourceApplication:annotation:</a></li>
-<li><a href="https://stackoverflow.com/questions/21937978/what-are-utimportedtypedeclarations-and-utexportedtypedeclarations-used-for-on-i" title="What are UTImportedTypeDeclarations and UTExportedTypeDeclarations used for on iOS?">What are UTImportedTypeDeclarations and UTExportedTypeDeclarations used for on iOS?</a></li>
-<li><a href="https://github.com/sensepost/objection" title="objection">objection</a></li>
-</ul>
+<p>A final thing worth noticing here is that this way of handling incoming files is the same for custom URL schemes. Please refer to the "<a href="../MASTG-TEST-0075/">Testing Custom URL Schemes</a>" section for more information.</p>
 
 
 
