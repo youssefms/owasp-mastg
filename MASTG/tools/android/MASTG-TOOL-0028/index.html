@@ -11446,7 +11446,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 11, 2024</small></em>
     <br><br>
     
 
@@ -11588,7 +11588,7 @@ Usage:<span class="w"> </span>rabin2<span class="w"> </span><span class="o">[</s
 <p>Use the main <code>r2</code> utility to access the <strong>r2 shell</strong>. You can load DEX binaries just like any other binary:</p>
 <div class="highlight"><pre><span></span><code>r2<span class="w"> </span>classes.dex
 </code></pre></div>
-<p>Enter <code>r2 -h</code> to see all available options. A very commonly used flag is <code>-A</code>, which triggers an analysis after loading the target binary. However, this should be used sparingly and with small binaries as it is very time and resource consuming. You can learn more about this in the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>".</p>
+<p>Enter <code>r2 -h</code> to see all available options. A very commonly used flag is <code>-A</code>, which triggers an analysis after loading the target binary. However, this should be used sparingly and with small binaries as it is very time and resource consuming. You can learn more about this in <a href="../../../techniques/android/MASTG-TECH-0018/" title="Disassembling Native Code">"Disassembling Native Code"</a>.</p>
 <p>Once in the r2 shell, you can also access functions offered by the other radare2 utilities. For example, running <code>i</code> will print the information of the binary, exactly as <code>rabin2 -I</code> does.</p>
 <p>To print all the strings use <code>rabin2 -Z</code> or the command <code>iz</code> (or the less verbose <code>izq</code>) from the r2 shell.</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x000009c8<span class="o">]</span>&gt;<span class="w"> </span>izq
@@ -11685,7 +11685,7 @@ verify_Landroid_view_View__V
 <p>Radare2 offers a <strong>Graph Mode</strong> that is very useful to follow the flow of the code. You can access it from the Visual Mode by typing <code>V</code>:</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05b/r2_graphmode.png" width="100%" /></p>
 <p>This is only a selection of some radare2 commands to start getting some basic information from Android binaries. Radare2 is very powerful and has dozens of commands that you can find on the <a href="https://book.rada.re/basic_commands/intro.html" title="radare2 command documentation">radare2 command documentation</a>. Radare2 will be used throughout the guide for different purposes such as reversing code, debugging or performing binary analysis. We will also use it in combination with other frameworks, especially Frida (see the r2frida section for more information).</p>
-<p>Please refer to the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more detailed use of radare2 on Android, especially when analyzing native libraries. You may also want to read the <a href="https://book.rada.re/" title="Radare2 book">official radare2 book</a>.</p>
+<p>Please refer to <a href="../../../techniques/android/MASTG-TECH-0018/" title="Disassembling Native Code">"Disassembling Native Code"</a> for more detailed use of radare2 on Android, especially when analyzing native libraries. You may also want to read the <a href="https://book.rada.re/" title="Radare2 book">official radare2 book</a>.</p>
 
 
 

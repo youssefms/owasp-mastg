@@ -11479,7 +11479,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 11, 2024</small></em>
     <br><br>
     
 
@@ -11549,7 +11549,7 @@
 
   <h1>Exploring the App Package</h1>
 
-<p>Once you have collected the package name of the application you want to target, you'll want to start gathering information about it. First, retrieve the IPA as explained in <a href="#obtaining-and-extracting-apps" title="Obtaining and Extracting Apps">Basic Testing Operations - Obtaining and Extracting Apps</a>.</p>
+<p>Once you have collected the package name of the application you want to target, you'll want to start gathering information about it. First, retrieve the IPA as explained in <a href="../MASTG-TECH-0054/" title="Obtaining and Extracting Apps">"Obtaining and Extracting Apps"</a>.</p>
 <p>You can unzip the IPA using the standard <code>unzip</code> or any other ZIP utility. Inside you'll find a <code>Payload</code> folder containing the so-called Application Bundle (.app). The following is an example in the following output, note that it was truncated for better readability and overview:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-1<span class="w"> </span>Payload/iGoat-Swift.app
 rutger.html
@@ -11618,13 +11618,14 @@ plistutil<span class="w"> </span>-i<span class="w"> </span>Info.plist<span class
 <p>Please refer to the mentioned chapters to learn more about how to test each of these points.</p>
 <h2 id="app-binary">App Binary<a class="headerlink" href="#app-binary" title="Permanent link">&para;</a></h2>
 <p>iOS app binaries are fat binaries (they can be deployed on all devices 32- and 64-bit). In contrast to Android, where you can actually decompile the app binary to Java code, the iOS app binaries can only be disassembled.</p>
-<p>Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on iOS</a> for more details.</p>
 <h2 id="native-libraries">Native Libraries<a class="headerlink" href="#native-libraries" title="Permanent link">&para;</a></h2>
 <p>iOS apps can make their codebase modular by using different elements. In the MASTG we will refer to all of them as native libraries, but they can come in different forms:</p>
 <ul>
-<li><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html#//apple_ref/doc/uid/TP40001873-SW1">Static and Dynamic Libraries</a>:</li>
+<li><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html#//apple_ref/doc/uid/TP40001873-SW1">Static and Dynamic Libraries</a>:<ul>
 <li>Static Libraries can be used and will be compiled in the app binary.</li>
 <li>Dynamic Libraries (typically having the <code>.dylib</code> extension) are also used but must be part of a framework bundle. Standalone Dynamic Libraries are <a href="https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-PROJ_CONFIG-APPS_WITH_DEPENDENCIES_BETWEEN_FRAMEWORKS">not supported</a> on iOS, watchOS, or tvOS, except for the system Swift libraries provided by Xcode.</li>
+</ul>
+</li>
 <li><a href="https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-PROJ_CONFIG-APPS_WITH_DEPENDENCIES_BETWEEN_FRAMEWORKS">Frameworks</a> (since iOS 8). A Framework is a hierarchical directory that encapsulates a dynamic library, header files, and resources, such as storyboards, image files, and localized strings, into a single package.</li>
 <li><a href="https://developer.apple.com/videos/play/wwdc2019/416/">Binary Frameworks (<code>XCFrameworks</code>)</a>: Xcode 11 supports distributing binary libraries using the <code>XCFrameworks</code> format which is a new way to bundle up multiple variants of a Framework, e.g. for any of the platforms that Xcode supports (including simulator and devices). They can also bundle up static libraries (and their corresponding headers) and support binary distribution of Swift and C-based code. <code>XCFrameworks</code> can be <a href="https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages">distributed as Swift Packages</a>.</li>
 <li><a href="https://developer.apple.com/documentation/swift_packages">Swift Packages</a>: Xcode 11 add supports for Swift packages, which are reusable components of Swift, Objective-C, Objective-C++, C, or C++ code that developers can use in their projects and are distributed as source code. Since Xcode 12 they can also <a href="https://developer.apple.com/videos/play/wwdc2020/10169/">bundle resources</a>, such as images, storyboards, and other files. Since Package libraries are <a href="https://developer.apple.com/videos/play/wwdc2019/408/?time=739">static by default</a>. Xcode compiles them, and the packages they depend on, and then links and combines everything into the application.</li>
@@ -11651,7 +11652,7 @@ Regular<span class="w">           </span><span class="m">420</span><span class="
 ...
 </code></pre></div>
 <p>Please note that this might not be the complete list of native code elements being used by the app as some can be part of the source code, meaning that they'll be compiled in the app binary and therefore cannot be found as standalone libraries or Frameworks in the <code>Frameworks</code> folder.</p>
-<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on iOS</a> for more information about how to reverse engineer Frameworks.</p>
+<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to  for more information about how to reverse engineer Frameworks.</p>
 <h2 id="other-app-resources">Other App Resources<a class="headerlink" href="#other-app-resources" title="Permanent link">&para;</a></h2>
 <p>It is normally worth taking a look at the rest of the resources and files that you may find in the Application Bundle (.app) inside the IPA as some times they contain additional goodies like encrypted databases, certificates, etc.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_db_view.png" width="100%" /></p>

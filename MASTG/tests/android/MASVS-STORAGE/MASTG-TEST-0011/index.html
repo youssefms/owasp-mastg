@@ -11543,7 +11543,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 11, 2024</small></em>
     <br><br>
     
 
@@ -11660,7 +11660,7 @@
 </code></pre></div>
 <p>This doesn't, however, guarantee that the content will be overwritten at runtime. To optimize the bytecode, the compiler will analyze and decide not to overwrite data because it will not be used afterwards (i.e., it is an unnecessary operation). Even if the code is in the compiled DEX, the optimization may occur during the just-in-time or ahead-of-time compilation in the VM.</p>
 <p>There is no silver bullet for this problem because different solutions have different consequences. For example, you may perform additional calculations (e.g., XOR the data into a dummy buffer), but you'll have no way to know the extent of the compiler's optimization analysis. On the other hand, using the overwritten data outside the compiler's scope (e.g., serializing it in a temp file) guarantees that it will be overwritten but obviously impacts performance and maintenance.</p>
-<p>Then, using <code>Arrays.fill</code> to overwrite the data is a bad idea because the method is an obvious hooking target (see the chapter "<a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more details).</p>
+<p>Then, using <code>Arrays.fill</code> to overwrite the data is a bad idea because the method is an obvious hooking target (see <a href="../../techniques/android/MASTG-TECH-0043.md" title="Disassembling Native Code">"Method Hooking"</a> for more details).</p>
 <p>The final issue with the above example is that the content was overwritten with zeroes only. You should try to overwrite critical objects with random data or content from non-critical objects. This will make it really difficult to construct scanners that can identify sensitive data on the basis of its management.</p>
 <p>Below is an improved version of the previous example:</p>
 <p>Example in Java:</p>

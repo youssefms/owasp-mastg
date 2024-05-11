@@ -11497,7 +11497,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 11, 2024</small></em>
     <br><br>
     
 
@@ -11625,7 +11625,7 @@ drwxr-xr-x<span class="w">    </span><span class="m">9</span><span class="w"> </
 <p>Please refer to the mentioned chapters to learn more about how to test each of these points.</p>
 <h2 id="app-binary">App Binary<a class="headerlink" href="#app-binary" title="Permanent link">&para;</a></h2>
 <p>The app binary (<code>classes.dex</code>) can be found in the root directory of the app package. It is a so-called DEX (Dalvik Executable) file that contains compiled Java code. Due to its nature, after applying some conversions you'll be able to use a decompiler to produce Java code. We've also seen the folder <code>smali</code> that was obtained after we run apktool. This contains the disassembled Dalvik bytecode in an intermediate language called smali, which is a human-readable representation of the Dalvik executable.</p>
-<p>Refer to the section "<a href="0x05c-Reverse-Engineering-and-Tampering.md#reviewing-decompiled-java-code" title="Reviewing Decompiled Java Code">Reviewing Decompiled Java Code</a>" in the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer DEX files.</p>
+<p>Refer to <a href="../MASTG-TECH-0023/" title="Reviewing Decompiled Java Code">"Reviewing Decompiled Java Code"</a> for more information about how to reverse engineer DEX files.</p>
 <h2 id="compiled-app-binary">Compiled App Binary<a class="headerlink" href="#compiled-app-binary" title="Permanent link">&para;</a></h2>
 <p>In some cases it might be useful to retrieve the compiled app binary (.odex).</p>
 <p>First get the path to the app's data directory:</p>
@@ -11654,7 +11654,7 @@ File<span class="w">    </span>...<span class="w">  </span>libdatabase_sqlcipher
 File<span class="w">    </span>...<span class="w">  </span>libstlport_shared.so
 File<span class="w">    </span>...<span class="w">  </span>libsqlcipher_android.so
 </code></pre></div>
-<p>For now this is all information you can get about the native libraries unless you start reverse engineering them, which is done using a different approach than the one used to reverse the app binary as this code cannot be decompiled but only disassembled. Refer to the section "<a href="0x05c-Reverse-Engineering-and-Tampering.md#reviewing-disassembled-native-code" title="Reviewing Disassemble Native Code">Reviewing Disassemble Native Code</a>" in the chapter "<a href="0x05c-Reverse-Engineering-and-Tampering.md">Tampering and Reverse Engineering on Android</a>" for more information about how to reverse engineer these libraries.</p>
+<p>For now this is all information you can get about the native libraries unless you start reverse engineering them, which is done using a different approach than the one used to reverse the app binary as this code cannot be decompiled but only disassembled. Refer to <a href="../MASTG-TECH-0024/" title="Reviewing Disassembled Native Code">"Reviewing Disassembled Native Code"</a> for more information about how to reverse engineer these libraries.</p>
 <h2 id="other-app-resources">Other App Resources<a class="headerlink" href="#other-app-resources" title="Permanent link">&para;</a></h2>
 <p>It is normally worth taking a look at the rest of the resources and files that you may find in the root folder of the APK as some times they contain additional goodies like key stores, encrypted databases, certificates, etc.</p>
 
