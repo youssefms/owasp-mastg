@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -12116,7 +12116,7 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <li>Reactive techniques allow the application to detect the presence of a debugger and have a chance to diverge from normal behavior.</li>
 </ul>
 <h4 id="using-ptrace">Using ptrace<a class="headerlink" href="#using-ptrace" title="Permanent link">&para;</a></h4>
-<p>As seen in chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md#debugging">"Tampering and Reverse Engineering on iOS"</a>, the iOS XNU kernel implements a <code>ptrace</code> system call that's lacking most of the functionality required to properly debug a process (e.g. it allows attaching/stepping but not read/write of memory and registers).</p>
+<p>As seen in <a href="../../techniques/ios/MASTG-TECH-0084/" title="Debugging">"Debugging"</a>, the iOS XNU kernel implements a <code>ptrace</code> system call that's lacking most of the functionality required to properly debug a process (e.g. it allows attaching/stepping but not read/write of memory and registers).</p>
 <p>Nevertheless, the iOS implementation of the <code>ptrace</code> syscall contains a nonstandard and very useful feature: preventing the debugging of processes. This feature is implemented as the <code>PT_DENY_ATTACH</code> request, as described in the <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/ptrace.2.html" title="PTRACE(2)">official BSD System Calls Manual</a>. In simple words, it ensures that no other debugger can attach to the calling process; if a debugger attempts to attach, the process will terminate. Using <code>PT_DENY_ATTACH</code> is a fairly well-known anti-debugging technique, so you may encounter it often during iOS pentests.</p>
 <blockquote>
 <p>Before diving into the details, it is important to know that <code>ptrace</code> is not part of the public iOS API. Non-public APIs are prohibited, and the App Store may reject apps that include them. Because of this, <code>ptrace</code> is not directly called in the code; it's called when a <code>ptrace</code> function pointer is obtained via <code>dlsym</code>.</p>
@@ -12155,7 +12155,7 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <h3 id="file-integrity-checks">File Integrity Checks<a class="headerlink" href="#file-integrity-checks" title="Permanent link">&para;</a></h3>
 <p>There are two common approaches to check file integrity: using application source code integrity checks and using file storage integrity checks.</p>
 <h4 id="application-source-code-integrity-checks">Application Source Code Integrity Checks<a class="headerlink" href="#application-source-code-integrity-checks" title="Permanent link">&para;</a></h4>
-<p>In the <a href="0x06c-Reverse-Engineering-and-Tampering.md#debugging">"Tampering and Reverse Engineering on iOS"</a> chapter, we discussed the iOS IPA application signature check. We also saw that determined reverse engineers can bypass this check by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.</p>
+<p>In <a href="../../techniques/ios/MASTG-TECH-0084/">"Debugging"</a>, we discuss the iOS IPA application signature check. We also learn that determined reverse engineers can bypass this check by re-packaging and re-signing an app using a developer or enterprise certificate. One way to make this harder is to add a custom check that determines whether the signatures still match at runtime.</p>
 <p>Apple takes care of integrity checks with DRM. However, additional controls (such as in the example below) are possible. The <code>mach_header</code> is parsed to calculate the start of the instruction data, which is used to generate the signature. Next, the signature is compared to the given signature. Make sure that the generated signature is stored or coded somewhere else.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">xyz</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">mach_header</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">header</span><span class="p">;</span>
@@ -12263,7 +12263,6 @@ Changing<span class="w"> </span>the<span class="w"> </span><span class="k">retur
 <li>Patch the anti reverse engineering functionality. Disable the unwanted behavior by patching the binary through usage of radare2/<a href="https://github.com/radareorg/iaito" title="iaito">iaito</a> or Ghidra.</li>
 <li>Use Frida or Cydia Substrate to hook file system APIs on the Objective-C/Swift or native layers. Return a handle to the original file, not the modified file.</li>
 </ol>
-<p>Refer to the chapter <a href="0x06c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on iOS"</a> for examples of patching and code injection.</p>
 <h4 id="frida-detection">Frida Detection<a class="headerlink" href="#frida-detection" title="Permanent link">&para;</a></h4>
 <p>Frida runs under the name of frida-server in its default configuration (injected mode) on a jailbroken device. When you explicitly attach to a target app (e.g. via frida-trace or the Frida CLI), Frida injects a frida-agent into the memory of the app. Therefore, you may expect to find it there after attaching to the app (and not before). On Android, verifying this is pretty straightforward as you can simply grep for the string "frida" in the memory maps of the process ID in the <code>proc</code> directory (<code>/proc/&lt;pid&gt;/maps</code>).
 However, on iOS the <code>proc</code> directory is not available, but you can list the loaded dynamic libraries in an app with the function <code>_dyld_image_count</code>.</p>
@@ -12346,7 +12345,7 @@ mov        rbp, rsp
 <h4 id="control-flow-flattening">Control Flow Flattening<a class="headerlink" href="#control-flow-flattening" title="Permanent link">&para;</a></h4>
 <p>Control flow flattening replaces original code with a more complex representation. The transformation breaks the body of a function into basic blocks and puts them all inside a single infinite loop with a switch statement that controls the program flow. This makes the program flow significantly harder to follow because it removes the natural conditional constructs that usually make the code easier to read.</p>
 <p><img src="../../../assets/Images/Chapters/0x06j/control-flow-flattening.png" width="600px"></p>
-<p>The image shows how control flow flattening alters code. See <a href="http://ac.inf.elte.hu/Vol_030_2009/003.pdf">"Obfuscating C++ programs via control flow flattening"</a> for more information.</p>
+<p>The image shows how control flow flattening alters code. See <a href="https://web.archive.org/web/20240414202600/http://ac.inf.elte.hu/Vol_030_2009/003.pdf">"Obfuscating C++ programs via control flow flattening"</a> for more information.</p>
 <h4 id="dead-code-injection">Dead Code Injection<a class="headerlink" href="#dead-code-injection" title="Permanent link">&para;</a></h4>
 <p>This technique makes the program's control flow more complex by injecting dead code into the program. Dead code is a stub of code that doesn’t affect the original program’s behaviour but increases the overhead for the reverse engineering process.</p>
 <h4 id="string-encryption">String Encryption<a class="headerlink" href="#string-encryption" title="Permanent link">&para;</a></h4>
@@ -12471,7 +12470,7 @@ mov        rbp, rsp
     <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../javascripts/tablesort.min.js"></script>
       

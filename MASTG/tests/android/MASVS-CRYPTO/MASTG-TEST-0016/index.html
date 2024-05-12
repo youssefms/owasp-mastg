@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -11477,7 +11477,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 08, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 13, 2024</small></em>
     <br><br>
     
 
@@ -11556,7 +11556,7 @@ Pseudo-random number generators <a href="https://www.securecoding.cert.org/confl
 <p>Once an attacker knows what type of weak pseudo-random number generator (PRNG) is used, it can be trivial to write a proof-of-concept to generate the next random value based on previously observed ones, as it was <a href="https://franklinta.com/2014/08/31/predicting-the-next-math-random-in-java/" title="Predicting the next Math.random() in Java">done for Java Random</a>. In case of very weak custom random generators it may be possible to observe the pattern statistically. Although the recommended approach would anyway be to decompile the APK and inspect the algorithm (see Static Analysis).</p>
 <p>If you want to test for randomness, you can try to capture a large set of numbers and check with the Burp's <a href="https://portswigger.net/burp/documentation/desktop/tools/sequencer" title="Burp\'s Sequencer">sequencer</a> to see how good the quality of the randomness is.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on the mentioned classes and methods to determine input / output values being used.</p>
+<p>You can use <a href="../../../../techniques/android/MASTG-TECH-0033/" title="Method Tracing">method tracing</a> on the mentioned classes and methods to determine input / output values being used.</p>
 
 
 
@@ -11662,7 +11662,7 @@ Pseudo-random number generators <a href="https://www.securecoding.cert.org/confl
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../../../javascripts/tablesort.min.js"></script>
       

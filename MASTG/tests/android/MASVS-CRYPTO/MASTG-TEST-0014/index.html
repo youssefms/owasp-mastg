@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -11481,7 +11481,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 08, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 13, 2024</small></em>
     <br><br>
     
 
@@ -11564,7 +11564,7 @@
 <p>Identify that all calls to getInstance use default <code>provider</code> of security services by not specifying it (it means AndroidOpenSSL aka Conscrypt). <code>Provider</code> can only be specified in <code>KeyStore</code> related code (in that situation <code>KeyStore</code> should be provided as <code>provider</code>). If other <code>provider</code> is specified it should be verified according to situation and business case (i.e. Android API version), and <code>provider</code> should be examined against potential vulnerabilities.  </p>
 <p>Ensure that the best practices outlined in the "<a href="../../../Document/0x04g-Testing-Cryptography.md">Cryptography for Mobile Apps</a>" chapter are followed. Look at <a href="../../../Document/0x04g-Testing-Cryptography.md#identifying-insecure-and/or-deprecated-cryptographic-algorithms">insecure and deprecated algorithms</a> and <a href="../../../Document/0x04g-Testing-Cryptography.md#common-configuration-issues">common configuration issues</a>.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
+<p>You can use <a href="../../../../techniques/android/MASTG-TECH-0033/" title="Method Tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
 
 
 
@@ -11670,7 +11670,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../../../javascripts/tablesort.min.js"></script>
       

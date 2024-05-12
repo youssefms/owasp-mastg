@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -11366,7 +11366,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 13, 2024</small></em>
     <br><br>
     
 
@@ -11439,7 +11439,7 @@
 <p>As discussed earlier in this chapter, iOS applications can also contain native code (C/C++ code) and it can be traced using the <code>frida-trace</code> CLI as well. For example, you can trace calls to the <code>open</code> function by running the following command:</p>
 <div class="highlight"><pre><span></span><code>frida-trace<span class="w"> </span>-U<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;open&quot;</span><span class="w"> </span>sg.vp.UnCrackable1
 </code></pre></div>
-<p>The overall approach and further improvisation for tracing native code using Frida is similar to the one discussed in the Android "<a href="0x05c-Reverse-Engineering-and-Tampering.md#tracing" title="Tracing">Tracing</a>" section.</p>
+<p>The overall approach and further improvisation for tracing native code using Frida is similar to the one discussed in <a href="../../android/MASTG-TECH-0034/" title="Native Code Tracing">"Native Code Tracing"</a>.</p>
 <p>Unfortunately, there are no tools such as <code>strace</code> or <code>ftrace</code> available to trace syscalls or function calls of an iOS app. Only <code>DTrace</code> exists, which is a very powerful and versatile tracing tool, but it's only available for MacOS and not for iOS.</p>
 
 
@@ -11546,7 +11546,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../../javascripts/tablesort.min.js"></script>
       

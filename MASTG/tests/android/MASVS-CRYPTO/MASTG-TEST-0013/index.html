@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -11477,7 +11477,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 13, 2024</small></em>
     <br><br>
     
 
@@ -11563,14 +11563,14 @@
 <li>are not hardcoded in code</li>
 </ul>
 <p>For each hardcoded symmetric key, verify that is not used in security-sensitive contexts as the only method of encryption.</p>
-<p>As an example we illustrate how to locate the use of a hardcoded encryption key. First <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#disassembling-and-decompiling">disassemble and decompile</a> the app to obtain Java code, e.g. by using <a href="../../../../tools/android/MASTG-TOOL-0018/">jadx</a>.</p>
+<p>As an example we illustrate how to locate the use of a hardcoded encryption key. First <a href="../../../../techniques/android/MASTG-TECH-0017/" title="Decompiling Java Code">disassemble and decompile</a> the app to obtain Java code, e.g. by using <a href="../../../../tools/android/MASTG-TOOL-0018/">jadx</a>.</p>
 <p>Now search the files for the usage of the <code>SecretKeySpec</code> class, e.g. by simply recursively grepping on them or using jadx search function:</p>
 <div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;SecretKeySpec&quot;</span>
 </code></pre></div>
 <p>This will return all classes using the <code>SecretKeySpec</code> class. Now examine those files and trace which variables are used to pass the key material. The figure below shows the result of performing this assessment on a production ready application. We can clearly locate the use of a static encryption key that is hardcoded and initialized in the static byte array <code>Encrypt.keyBytes</code>.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x5e/static_encryption_key.png" width="600px"/></p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
-<p>You can use <a href="../../../Document/0x05c-Reverse-Engineering-and-Tampering.md#method-tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
+<p>You can use <a href="../../../../techniques/android/MASTG-TECH-0033/" title="Method Tracing">method tracing</a> on cryptographic methods to determine input / output values such as the keys that are being used. Monitor file system access while cryptographic operations are being performed to assess where key material is written to or read from. For example, monitor the file system by using the <a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only">API monitor</a> of <a href="../../../Document/0x08a-Testing-Tools.md#RMS-Runtime-Mobile-Security">RMS - Runtime Mobile Security</a>.</p>
 
 
 
@@ -11676,7 +11676,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../../../javascripts/tablesort.min.js"></script>
       

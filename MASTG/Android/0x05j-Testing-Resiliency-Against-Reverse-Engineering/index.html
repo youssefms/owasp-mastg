@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -12325,7 +12325,7 @@ com.topjohnwu.magisk
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Missing Google Over-The-Air (OTA) certificates is another sign of a custom ROM: on stock Android builds, <a href="https://www.netspi.com/blog/technical/mobile-application-penetration-testing/android-root-detection-techniques/" title="Android Root Detection Techniques">OTA updates Google's public certificates</a>.</p>
+<p>Missing Google Over-The-Air (OTA) certificates is another sign of a custom ROM: on stock Android builds, <a href="https://www.netspi.com/blog/technical-blog/mobile-application-penetration-testing/android-root-detection-techniques/" title="Android Root Detection Techniques">OTA updates Google's public certificates</a>.</p>
 <h3 id="anti-debugging">Anti-Debugging<a class="headerlink" href="#anti-debugging" title="Permanent link">&para;</a></h3>
 <p>Debugging is a highly effective way to analyze runtime app behavior. It allows the reverse engineer to step through the code, stop app execution at arbitrary points, inspect the state of variables, read and modify memory, and a lot more.</p>
 <p>Anti-debugging features can be preventive or reactive. As the name implies, preventive anti-debugging prevents the debugger from attaching in the first place; reactive anti-debugging involves detecting debuggers and reacting to them in some way (e.g., terminating the app or triggering hidden behavior). The "more-is-better" rule applies: to maximize effectiveness, defenders combine multiple methods of prevention and detection that operate on different API layers and are well distributed throughout the app.</p>
@@ -12599,8 +12599,8 @@ Exiting
 <h3 id="file-integrity-checks">File Integrity Checks<a class="headerlink" href="#file-integrity-checks" title="Permanent link">&para;</a></h3>
 <p>There are two topics related to file integrity:</p>
 <ol>
-<li><em>Code integrity checks:</em> In the <a href="0x05c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on Android"</a> chapter, we discussed Android's APK code signature check. We also saw that determined reverse engineers can easily bypass this check by re-packaging and re-signing an app. To make this bypassing process more involved, a protection scheme can be augmented with CRC checks on the app bytecode, native libraries, and important data files. These checks can be implemented on both the Java and the native layer. The idea is to have additional controls in place so that the app only runs correctly in its unmodified state, even if the code signature is valid.</li>
-<li><em>The file storage integrity checks:</em> The integrity of files that the application stores on the SD card or public storage and the integrity of key-value pairs that are stored in <code>SharedPreferences</code> should be protected.</li>
+<li>Code integrity checks: You can use CRC checks as an additional protection layer for the app bytecode, native libraries, and important data files. This way the app would only run correctly in its unmodified state, even if the code signature is valid.</li>
+<li>File storage integrity checks: The integrity of files that the application stores on the SD card or public storage and the integrity of key-value pairs that are stored in <code>SharedPreferences</code> should be protected.</li>
 </ol>
 <h4 id="sample-implementation-application-source-code">Sample Implementation - Application Source Code<a class="headerlink" href="#sample-implementation-application-source-code" title="Permanent link">&para;</a></h4>
 <p>Integrity checks often calculate a checksum or hash over selected files. Commonly protected files include</p>
@@ -13088,7 +13088,7 @@ TelephonyManager.getVoiceMailNumber()                   15552175049             
     <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../javascripts/tablesort.min.js"></script>
       

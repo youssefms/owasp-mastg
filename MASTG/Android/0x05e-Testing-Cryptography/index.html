@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -11750,7 +11750,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <span class="n">SecretKey</span><span class="w"> </span><span class="n">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyGenerator</span><span class="p">.</span><span class="na">generateKey</span><span class="p">();</span>
 </code></pre></div>
 <p>The <code>KeyGenParameterSpec</code> indicates that the key can be used for encryption and decryption, but not for other purposes, such as signing or verifying. It further specifies the block mode (CBC), padding (PKCS #7), and explicitly specifies that randomized encryption is required (this is the default). Next, we enter <code>AndroidKeyStore</code> as the name of the provider in the <code>KeyGenerator.getInstance</code> call to ensure that the keys are stored in the Android KeyStore.</p>
-<p>GCM is another AES block mode that provides additional security benefits over other, older modes. In addition to being cryptographically more secure, it also provides authentication. When using CBC (and other modes), authentication would need to be performed separately, using HMACs (see the <a href="0x05c-Reverse-Engineering-and-Tampering.md">"Tampering and Reverse Engineering on Android"</a> chapter). Note that GCM is the only mode of AES that <a href="https://developer.android.com/training/articles/keystore.html#SupportedCiphers" title="Supported Ciphers in AndroidKeyStore">does not support padding</a>.</p>
+<p>GCM is an AES mode that provides <a href="https://en.wikipedia.org/wiki/Authenticated_encryption" title="Authenticated encryption">authenticated encryption</a>, enhancing security by integrating encryption and data authentication into a single process, unlike older modes such as CBC that require separate mechanisms such as HMACs. In addition, GCM does not require padding, which simplifies implementation and minimizes vulnerabilities.</p>
 <p>Attempting to use the generated key in violation of the above spec would result in a security exception.</p>
 <p>Here's an example of using that key to encrypt:</p>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">AES_MODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">KEY_ALGORITHM_AES</span>
@@ -11823,7 +11823,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <blockquote>
 <p>Note that if you take a rooted device or a patched (e.g. repackaged) application into account as a threat to the data, it might be better to encrypt the salt with a key that is placed in the <code>AndroidKeystore</code>. The Password-Based Encryption (PBE) key is generated using the recommended <code>PBKDF2WithHmacSHA1</code> algorithm, until Android 8.0 (API level 26). For higher API levels, it is best to use <code>PBKDF2withHmacSHA256</code>, which will end up with a longer hash value.</p>
 </blockquote>
-<p>Note: there is a widespread false believe that the NDK should be used to hide cryptographic operations and hardcoded keys. However, using this mechanism is not effective. Attackers can still use tools to find the mechanism used and make dumps of the key in memory. Next, the control flow can be analyzed with e.g. radare2 and the keys extracted with the help of Frida or the combination of both: <a href="0x08a-Testing-Tools.md#r2frida">r2frida</a> (see sections <a href="0x05c-Reverse-Engineering-and-Tampering.md#disassembling-native-code" title="Disassembling Native Code">"Disassembling Native Code"</a>, <a href="0x05c-Reverse-Engineering-and-Tampering.md#memory-dump" title="Memory Dump">"Memory Dump"</a> and <a href="0x05c-Reverse-Engineering-and-Tampering.md#in-memory-search" title="In-Memory Search">"In-Memory Search"</a> in the chapter "Tampering and Reverse Engineering on Android" for more details). From Android 7.0 (API level 24) onward, it is not allowed to use private APIs, instead: public APIs need to be called, which further impacts the effectiveness of hiding it away as described in the <a href="https://android-developers.googleblog.com/2016/06/android-changes-for-ndk-developers.html" title="Android changes for NDK developers">Android Developers Blog</a></p>
+<p>Note: there is a widespread false believe that the NDK should be used to hide cryptographic operations and hardcoded keys. However, using this mechanism is not effective. Attackers can still use tools to find the mechanism used and make dumps of the key in memory. Next, the control flow can be analyzed with e.g. radare2 and the keys extracted with the help of Frida or the combination of both: <a href="../../tools/generic/MASTG-TOOL-0036/" title="r2frida">r2frida</a> (see <a href="../../techniques/android/MASTG-TECH-0018/" title="Disassembling Native Code">"Disassembling Native Code"</a>, <a href="../../techniques/android/MASTG-TECH-0044/#memory-dump" title="Memory Dump">"Memory Dump"</a> and <a href="../../techniques/android/MASTG-TECH-0044/#in-memory-search" title="In-Memory Search">"In-Memory Search"</a> for more details). From Android 7.0 (API level 24) onward, it is not allowed to use private APIs, instead: public APIs need to be called, which further impacts the effectiveness of hiding it away as described in the <a href="https://android-developers.googleblog.com/2016/06/android-changes-for-ndk-developers.html" title="Android changes for NDK developers">Android Developers Blog</a></p>
 <h3 id="random-number-generation">Random number generation<a class="headerlink" href="#random-number-generation" title="Permanent link">&para;</a></h3>
 <p>Cryptography requires secure pseudo random number generation (PRNG). Standard Java classes as <code>java.util.Random</code> do not provide sufficient randomness and in fact may make it possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.</p>
 <p>In general, <code>SecureRandom</code> should be used. However, if the Android versions below Android 4.4 (API level 19) are supported, additional care needs to be taken in order to work around the bug in Android 4.1-4.3 (API level 16-18) versions that <a href="https://android-developers.googleblog.com/2013/08/some-securerandom-thoughts.html" title="Some SecureRandom Thoughts">failed to properly initialize the PRNG</a>.</p>
@@ -11933,7 +11933,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
     <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../javascripts/tablesort.min.js"></script>
       
