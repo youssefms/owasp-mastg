@@ -11366,7 +11366,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
     <br><br>
     
 
@@ -11466,7 +11466,7 @@ cacheDir<span class="w">            </span>/data/local/tmp
 jniEnv<span class="w">              </span>0x7d30a43c60
 </code></pre></div>
 <p>Search all symbols of a certain module with <code>:is &lt;lib&gt;</code>, e.g. <code>:is libnative-lib.so</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>s<span class="w"> </span>libnative-lib.so
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:is<span class="w"> </span>libnative-lib.so
 
 <span class="o">[</span>0x00000000<span class="o">]</span>&gt;
 </code></pre></div>
@@ -11480,10 +11480,10 @@ jniEnv<span class="w">              </span>0x7d30a43c60
 0x7d1c49954c<span class="w"> </span>f<span class="w"> </span>Java_sg_vantagepoint_helloworldjni_MainActivity_stringFromJNI
 </code></pre></div>
 <blockquote>
-<p>For big binaries it's recommended to pipe the output to the internal less program by appending <code>~..</code>, i.e. <code>\ii libandroid_runtime.so~..</code> (if not, for this binary, you'd get almost 2500 lines printed to your terminal).</p>
+<p>For big binaries it's recommended to pipe the output to the internal less program by appending <code>~..</code>, i.e. <code>:ii libandroid_runtime.so~..</code> (if not, for this binary, you'd get almost 2500 lines printed to your terminal).</p>
 </blockquote>
 <p>The next thing you might want to look at are the <strong>currently loaded</strong> Java classes:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>c~sg.vantagepoint.helloworldjni
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:ic~sg.vantagepoint.helloworldjni
 sg.vantagepoint.helloworldjni.MainActivity
 </code></pre></div>
 <p>List class fields:</p>

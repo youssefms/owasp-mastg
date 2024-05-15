@@ -11461,7 +11461,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
     <br><br>
     
 
@@ -11590,8 +11590,8 @@ libc++.1.dylib<span class="w">                    </span>0x1847c0000<span class=
 </code></pre></div>
 <h2 id="in-memory-search">In-Memory Search<a class="headerlink" href="#in-memory-search" title="Permanent link">&para;</a></h2>
 <p>In-memory search is a very useful technique to test for sensitive data that might be present in the app memory.</p>
-<p>See r2frida's help on the search command (<code>\/?</code>) to learn about the search command and get a list of options. The following shows only a subset of them:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span>?
+<p>See r2frida's help on the search command (<code>:/?</code>) to learn about the search command and get a list of options. The following shows only a subset of them:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/?
 <span class="w"> </span>/<span class="w">      </span>search
 <span class="w"> </span>/j<span class="w">     </span>search<span class="w"> </span>json
 <span class="w"> </span>/w<span class="w">     </span>search<span class="w"> </span>wide
@@ -11600,13 +11600,13 @@ libc++.1.dylib<span class="w">                    </span>0x1847c0000<span class=
 <span class="w"> </span>/xj<span class="w">    </span>search<span class="w"> </span>hex<span class="w"> </span>json
 ...
 </code></pre></div>
-<p>You can adjust your search by using the search settings <code>\e~search</code>. For example, <code>\e search.quiet=true;</code> will print only the results and hide search progress:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\e</span>~search
+<p>You can adjust your search by using the search settings <code>:e~search</code>. For example, <code>:e search.quiet=true;</code> will print only the results and hide search progress:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:e~search
 e<span class="w"> </span>search.in<span class="o">=</span>perm:r--
 e<span class="w"> </span>search.quiet<span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 <p>For now, we'll continue with the defaults and concentrate on string search. In this first example, you can start by searching for something that you know should be located in the main binary of the app:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span><span class="w"> </span>iGoat
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/<span class="w"> </span>iGoat
 Searching<span class="w"> </span><span class="m">5</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">69</span><span class="w"> </span><span class="m">47</span><span class="w"> </span>6f<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">74</span>
 Searching<span class="w"> </span><span class="m">5</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span>0x0000000100b7c000-0x0000000100de0000<span class="o">]</span>
 ...
@@ -11624,7 +11624,7 @@ hits:<span class="w"> </span><span class="m">509</span>
 </code></pre></div>
 <p>As expected, you are located in the region of the main <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> binary (r-x, read and execute). In the previous section, you saw that the main binary is located between <code>0x0000000100b7c000</code> and <code>0x0000000100e97000</code>.</p>
 <p>Now, for this second example, you can search for something that's not in the app binary nor in any loaded library, typically user input. Open the <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a> app and navigate in the menu to <strong>Authentication</strong> -&gt; <strong>Remote Authentication</strong> -&gt; <strong>Start</strong>. There you'll find a password field that you can overwrite. Write the string "owasp-mstg" but do not click on <strong>Login</strong> just yet. Perform the following two steps.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span><span class="w"> </span>owasp-mstg
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/<span class="w"> </span>owasp-mstg
 hits:<span class="w"> </span><span class="m">1</span>
 0x1c06619c0<span class="w"> </span>hit3_0<span class="w"> </span>owasp-mstg
 </code></pre></div>
@@ -11636,7 +11636,7 @@ hits:<span class="w"> </span><span class="m">1</span>
 <p>Now you know that the string is located in a rw- (read and write) region of the memory map.</p>
 <p>Additionally, you can search for occurrences of the <a href="https://en.wikipedia.org/wiki/Wide_character" title="Wide character">wide version of the string</a> (<code>/w</code>) and, again, check their memory regions:</p>
 <blockquote>
-<p>This time we run the <code>\dm.</code> command for all <code>@@</code> hits matching the glob <code>hit5_*</code>.</p>
+<p>This time we run the <code>:dm.</code> command for all <code>@@</code> hits matching the glob <code>hit5_*</code>.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>/w<span class="w"> </span>owasp-mstg
 Searching<span class="w"> </span><span class="m">20</span><span class="w"> </span>bytes:<span class="w"> </span>6f<span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">77</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">73</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="m">00</span><span class="w"> </span>2d<span class="w"> </span><span class="m">00</span><span class="w"> </span>6d<span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">73</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">67</span><span class="w"> </span><span class="m">00</span>
@@ -11646,7 +11646,7 @@ hits:<span class="w"> </span><span class="m">2</span>
 0x1020d1280<span class="w"> </span>hit5_0<span class="w"> </span>6f0077006100730070002d006d00730074006700
 0x1030c9c85<span class="w"> </span>hit5_1<span class="w"> </span>6f0077006100730070002d006d00730074006700
 
-<span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\d</span>m.@@<span class="w"> </span>hit5_*
+<span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:dm.@@<span class="w"> </span>hit5_*
 0x0000000102000000<span class="w"> </span>-<span class="w"> </span>0x0000000102100000<span class="w"> </span>rw-
 0x0000000103084000<span class="w"> </span>-<span class="w"> </span>0x00000001030cc000<span class="w"> </span>rw-
 </code></pre></div>

@@ -11366,7 +11366,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
     <br><br>
     
 
@@ -11456,7 +11456,7 @@ cwd<span class="w">                 </span>/
 </code></pre></div>
 <p>Search all symbols of a certain module with <code>:is &lt;lib&gt;</code>, e.g. <code>:is libboringssl.dylib</code>.</p>
 <p>The following does a case-insensitive search (grep) for symbols including "aes" (<code>~+aes</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>s<span class="w"> </span>libboringssl.dylib~+aes
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:is<span class="w"> </span>libboringssl.dylib~+aes
 0x1863d6ed8<span class="w"> </span>s<span class="w"> </span>EVP_aes_128_cbc
 0x1863d6ee4<span class="w"> </span>s<span class="w"> </span>EVP_aes_192_cbc
 0x1863d6ef0<span class="w"> </span>s<span class="w"> </span>EVP_aes_256_cbc
@@ -11476,7 +11476,7 @@ cwd<span class="w">                 </span>/
 <p>For big binaries it's recommended to pipe the output to the internal less program by appending <code>~..</code>, i.e. <code>:ii iGoat-Swift~..</code> (if not, for this binary, you'd get almost 5000 lines printed to your terminal).</p>
 </blockquote>
 <p>The next thing you might want to look at are the classes:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>c~+passcode
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:ic~+passcode
 PSPasscodeField
 _UITextFieldPasscodeCutoutBackground
 UIPasscodeField
@@ -11484,7 +11484,7 @@ PasscodeFieldCell
 ...
 </code></pre></div>
 <p>List class fields:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x19687256c<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>c<span class="w"> </span>UIPasscodeField
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x19687256c<span class="o">]</span>&gt;<span class="w"> </span>:ic<span class="w"> </span>UIPasscodeField
 0x000000018eec6680<span class="w"> </span>-<span class="w"> </span>becomeFirstResponder
 0x000000018eec5d78<span class="w"> </span>-<span class="w"> </span>appendString:
 0x000000018eec6650<span class="w"> </span>-<span class="w"> </span>canBecomeFirstResponder
@@ -11515,7 +11515,7 @@ PasscodeFieldCell
 </code></pre></div>
 <p>Finally, instead of doing a full memory search for strings, you may want to retrieve the strings from a certain binary and filter them, as you'd do <em>offline</em> with radare2. For this you have to find the binary, seek to it and then run the <code>:iz</code> command.</p>
 <blockquote>
-<p>It's recommended to apply a filter with a keyword <code>~&lt;keyword&gt;</code>/<code>~+&lt;keyword&gt;</code> to minimize the terminal output. If just want to explore all results you can also pipe them to the internal less <code>\iz~..</code>.</p>
+<p>It's recommended to apply a filter with a keyword <code>~&lt;keyword&gt;</code>/<code>~+&lt;keyword&gt;</code> to minimize the terminal output. If just want to explore all results you can also pipe them to the internal less <code>:iz~..</code>.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:il~iGoa
 0x00000001006b8000<span class="w"> </span>iGoat-Swift

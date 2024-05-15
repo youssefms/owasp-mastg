@@ -11461,7 +11461,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
     <br><br>
     
 
@@ -11548,8 +11548,8 @@
 </blockquote>
 <p>Once in the r2frida session, all commands start with <code>:</code>. For example, in radare2 you'd run <code>i</code> to display the binary information, but in r2frida you'd use <code>:i</code>.</p>
 <h3 id="memory-maps-and-inspection">Memory Maps and Inspection<a class="headerlink" href="#memory-maps-and-inspection" title="Permanent link">&para;</a></h3>
-<p>You can retrieve the app's memory maps by running <code>\dm</code>. The output in Android can get very long (e.g. between 1500 and 2000 lines), to narrow your search and see only what directly belongs to the app apply a grep (<code>~</code>) by package name <code>\dm~&lt;package_name&gt;</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\d</span>m~sg.vantagepoint.helloworldjni
+<p>You can retrieve the app's memory maps by running <code>:dm</code>. The output in Android can get very long (e.g. between 1500 and 2000 lines), to narrow your search and see only what directly belongs to the app apply a grep (<code>~</code>) by package name <code>:dm~&lt;package_name&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:dm~sg.vantagepoint.helloworldjni
 0x000000009b2dc000<span class="w"> </span>-<span class="w"> </span>0x000000009b361000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-/data/app/sg.vantagepoint.helloworldjni-1/oat/arm64/base.art<span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x000000009b361000<span class="w"> </span>-<span class="w"> </span>0x000000009b36e000<span class="w"> </span>---<span class="w"> </span>/dev/ashmem/dalvik-/data/app/sg.vantagepoint.helloworldjni-1/oat/arm64/base.art<span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x000000009b36e000<span class="w"> </span>-<span class="w"> </span>0x000000009b371000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-/data/app/sg.vantagepoint.helloworldjni-1/oat/arm64/base.art<span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
@@ -11565,9 +11565,9 @@
 0x0000007dbd23c000<span class="w"> </span>-<span class="w"> </span>0x0000007dbd247000<span class="w"> </span>r--<span class="w"> </span>/data/app/sg.vantagepoint.helloworldjni-1/base.apk
 0x0000007dc05db000<span class="w"> </span>-<span class="w"> </span>0x0000007dc05dc000<span class="w"> </span>r--<span class="w"> </span>/data/app/sg.vantagepoint.helloworldjni-1/oat/arm64/base.art
 </code></pre></div>
-<p>While you're searching or exploring the app memory, you can always verify where you're located at each moment (where your current offset is located) in the memory map. Instead of noting and searching for the memory address in this list you can simply run <code>\dm.</code>. You'll find an example in the following section "In-Memory Search".</p>
-<p>If you're only interested in the modules (binaries and libraries) that the app has loaded, you can use the command <code>\il</code> to list them all:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\i</span>l
+<p>While you're searching or exploring the app memory, you can always verify where you're located at each moment (where your current offset is located) in the memory map. Instead of noting and searching for the memory address in this list you can simply run <code>:dm.</code>. You'll find an example in the following section "In-Memory Search".</p>
+<p>If you're only interested in the modules (binaries and libraries) that the app has loaded, you can use the command <code>:il</code> to list them all:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:il
 0x000000558b1fd000<span class="w"> </span>app_process64
 0x0000007dbc859000<span class="w"> </span>libandroid_runtime.so
 0x0000007dbf5d7000<span class="w"> </span>libbinder.so
@@ -11605,8 +11605,8 @@ libnative-lib.so<span class="w">                                 </span>0x7d1c49
 <p>You can even directly see the size and the path to that binary in the Android file system.</p>
 <h3 id="in-memory-search">In-Memory Search<a class="headerlink" href="#in-memory-search" title="Permanent link">&para;</a></h3>
 <p>In-memory search is a very useful technique to test for sensitive data that might be present in the app memory.</p>
-<p>See r2frida's help on the search command (<code>\/?</code>) to learn about the search command and get a list of options. The following shows only a subset of them:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span>?
+<p>See r2frida's help on the search command (<code>:/?</code>) to learn about the search command and get a list of options. The following shows only a subset of them:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/?
 <span class="w"> </span>/<span class="w">      </span>search
 <span class="w"> </span>/j<span class="w">     </span>search<span class="w"> </span>json
 <span class="w"> </span>/w<span class="w">     </span>search<span class="w"> </span>wide
@@ -11615,13 +11615,13 @@ libnative-lib.so<span class="w">                                 </span>0x7d1c49
 <span class="w"> </span>/xj<span class="w">    </span>search<span class="w"> </span>hex<span class="w"> </span>json
 ...
 </code></pre></div>
-<p>You can adjust your search by using the search settings <code>\e~search</code>. For example, <code>\e search.quiet=true;</code> will print only the results and hide search progress:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\e</span>~search
+<p>You can adjust your search by using the search settings <code>:e~search</code>. For example, <code>:e search.quiet=true;</code> will print only the results and hide search progress:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:e~search
 e<span class="w"> </span>search.in<span class="o">=</span>perm:r--
 e<span class="w"> </span>search.quiet<span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 <p>For now, we'll continue with the defaults and concentrate on string search. This app is actually very simple, it loads the string "Hello from C++" from its native library and displays it to us. You can start by searching for "Hello" and see what r2frida finds:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span><span class="w"> </span>Hello
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/<span class="w"> </span>Hello
 Searching<span class="w"> </span><span class="m">5</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">48</span><span class="w"> </span><span class="m">65</span><span class="w"> </span>6c<span class="w"> </span>6c<span class="w"> </span>6f
 ...
 hits:<span class="w"> </span><span class="m">11</span>
@@ -11637,8 +11637,8 @@ hits:<span class="w"> </span><span class="m">11</span>
 0x7d39d2024d<span class="w"> </span>hit0_9<span class="w"> </span>Hello<span class="p">;</span>
 0x7d3aa4d274<span class="w"> </span>hit0_10<span class="w"> </span>Hello
 </code></pre></div>
-<p>Now you'd like to know where these addresses actually are. You may do so by running the <code>\dm.</code> command for all <code>@@</code> hits matching the glob <code>hit0_*</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\d</span>m.@@<span class="w"> </span>hit0_*
+<p>Now you'd like to know where these addresses actually are. You may do so by running the <code>:dm.</code> command for all <code>@@</code> hits matching the glob <code>hit0_*</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:dm.@@<span class="w"> </span>hit0_*
 0x0000000013100000<span class="w"> </span>-<span class="w"> </span>0x0000000013140000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-main<span class="w"> </span>space<span class="w"> </span><span class="o">(</span>region<span class="w"> </span>space<span class="o">)</span><span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x0000000013100000<span class="w"> </span>-<span class="w"> </span>0x0000000013140000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-main<span class="w"> </span>space<span class="w"> </span><span class="o">(</span>region<span class="w"> </span>space<span class="o">)</span><span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x0000000013100000<span class="w"> </span>-<span class="w"> </span>0x0000000013140000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-main<span class="w"> </span>space<span class="w"> </span><span class="o">(</span>region<span class="w"> </span>space<span class="o">)</span><span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
@@ -11651,8 +11651,8 @@ hits:<span class="w"> </span><span class="m">11</span>
 0x0000007d396bc000<span class="w"> </span>-<span class="w"> </span>0x0000007d3a998000<span class="w"> </span>r--<span class="w"> </span>/system/framework/arm64/boot-framework.vdex
 0x0000007d3a998000<span class="w"> </span>-<span class="w"> </span>0x0000007d3aa9c000<span class="w"> </span>r--<span class="w"> </span>/system/framework/arm64/boot-ext.vdex
 </code></pre></div>
-<p>Additionally, you can search for occurrences of the <a href="https://en.wikipedia.org/wiki/Wide_character" title="Wide character">wide version of the string</a> (<code>\/w</code>) and, again, check their memory regions:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span>w<span class="w"> </span>Hello
+<p>Additionally, you can search for occurrences of the <a href="https://en.wikipedia.org/wiki/Wide_character" title="Wide character">wide version of the string</a> (<code>:/w</code>) and, again, check their memory regions:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/w<span class="w"> </span>Hello
 Searching<span class="w"> </span><span class="m">10</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">48</span><span class="w"> </span><span class="m">00</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">00</span><span class="w"> </span>6c<span class="w"> </span><span class="m">00</span><span class="w"> </span>6c<span class="w"> </span><span class="m">00</span><span class="w"> </span>6f<span class="w"> </span><span class="m">00</span>
 hits:<span class="w"> </span><span class="m">6</span>
 0x13102acc<span class="w"> </span>hit1_0<span class="w"> </span>480065006c006c006f00
@@ -11662,7 +11662,7 @@ hits:<span class="w"> </span><span class="m">6</span>
 0x7d30bb9568<span class="w"> </span>hit1_4<span class="w"> </span>480065006c006c006f00
 0x7d30bb9a68<span class="w"> </span>hit1_5<span class="w"> </span>480065006c006c006f00
 
-<span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\d</span>m.@@<span class="w"> </span>hit1_*
+<span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:dm.@@<span class="w"> </span>hit1_*
 0x0000000013100000<span class="w"> </span>-<span class="w"> </span>0x0000000013140000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-main<span class="w"> </span>space<span class="w"> </span><span class="o">(</span>region<span class="w"> </span>space<span class="o">)</span><span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x0000000013100000<span class="w"> </span>-<span class="w"> </span>0x0000000013140000<span class="w"> </span>rw-<span class="w"> </span>/dev/ashmem/dalvik-main<span class="w"> </span>space<span class="w"> </span><span class="o">(</span>region<span class="w"> </span>space<span class="o">)</span><span class="w"> </span><span class="o">(</span>deleted<span class="o">)</span>
 0x0000007d30a00000<span class="w"> </span>-<span class="w"> </span>0x0000007d30c00000<span class="w"> </span>rw-

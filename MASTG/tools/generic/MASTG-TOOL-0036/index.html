@@ -11369,7 +11369,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: October 01, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
     <br><br>
     
 
@@ -11473,8 +11473,8 @@ pointerSize<span class="w">         </span><span class="m">8</span>
 codeSigningPolicy<span class="w">   </span>optional
 isDebuggerAttached<span class="w">  </span><span class="nb">false</span>
 </code></pre></div>
-<p>To search in memory for a specific keyword, you may use the search command <code>\/</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span><span class="w"> </span>unacceptable
+<p>To search in memory for a specific keyword, you may use the search command <code>:/</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/<span class="w"> </span>unacceptable
 Searching<span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">75</span><span class="w"> </span>6e<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">62</span><span class="w"> </span>6c<span class="w"> </span><span class="m">65</span>
 Searching<span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span>0x0000561f05ebf000-0x0000561f05eca000<span class="o">]</span>
 ...
@@ -11484,7 +11484,7 @@ hits:<span class="w"> </span><span class="m">23</span>
 0x561f0732a91a<span class="w"> </span>hit12_1<span class="w"> </span>unacceptableSearching<span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">75</span><span class="w"> </span>6e<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">61</span>
 </code></pre></div>
 <p>To output the search results in JSON format, we simply add <code>j</code> to our previous search command (just as we do in the r2 shell). This can be used in most of the commands:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\/</span>j<span class="w"> </span>unacceptable
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:/j<span class="w"> </span>unacceptable
 Searching<span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes:<span class="w"> </span><span class="m">75</span><span class="w"> </span>6e<span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">63</span><span class="w"> </span><span class="m">65</span><span class="w"> </span><span class="m">70</span><span class="w"> </span><span class="m">74</span><span class="w"> </span><span class="m">61</span><span class="w"> </span><span class="m">62</span><span class="w"> </span>6c<span class="w"> </span><span class="m">65</span>
 Searching<span class="w"> </span><span class="m">12</span><span class="w"> </span>bytes<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span>0x0000561f05ebf000-0x0000561f05eca000<span class="o">]</span>
 ...
@@ -11519,8 +11519,8 @@ hits:<span class="w"> </span><span class="m">23</span>
 <p>To list or set a breakpoint use the command db. This is useful when analyzing/modifying memory:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:db
 </code></pre></div>
-<p>Finally, remember that you can also run Frida JavaScript code with <code>\.</code> plus the name of the script:</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span><span class="se">\.</span><span class="w"> </span>agent.js
+<p>Finally, remember that you can also run Frida JavaScript code with <code>:.</code> plus the name of the script:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>0x00000000<span class="o">]</span>&gt;<span class="w"> </span>:.<span class="w"> </span>agent.js
 </code></pre></div>
 <p>You can find more examples on <a href="https://github.com/enovella/r2frida-wiki" title="Using r2frida">how to use r2frida</a> on their Wiki project.</p>
 
