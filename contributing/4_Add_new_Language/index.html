@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -189,7 +189,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -11176,15 +11176,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#in-the-mastg" class="md-nav__link">
-    <span class="md-ellipsis">
-      In the MASTG
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11423,15 +11414,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#in-the-mastg" class="md-nav__link">
-    <span class="md-ellipsis">
-      In the MASTG
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -11529,24 +11511,8 @@
 <blockquote>
 <p>🇯🇵 A translation of the MASTG into Japanese is available on Github: <a href="https://github.com/coky-t/owasp-mstg-ja">https://github.com/coky-t/owasp-mstg-ja</a>. Thanks to @coky-t for pushing this forward!</p>
 </blockquote>
-<p>That said, we **strongly encourage further translations of the MASVS as it is much easier to maintain and you'll get a translated <a href="https://github.com/OWASP/owasp-mastg/releases/latest">Mobile App Security Checklists</a> mapping to the MASTG for free.</p>
 <h2 id="masvs-translations">MASVS Translations<a class="headerlink" href="#masvs-translations" title="Permanent link">&para;</a></h2>
-<p>To add a new language you have to follow the steps from both sections below.</p>
-<ol>
-<li>Create a folder with the language of choice, e.g. <code>Document-ja</code>.</li>
-<li>Copy an existing <code>metadata.md</code> from another language and modify it for the new language.</li>
-<li>Add the language to the list of languages in <code>export.py</code></li>
-<li>Update <code>.github/workflows/docgenerator.yml</code> and add the action steps for the new language.</li>
-<li>Update <code>../LANGS.md</code> to include the new language.</li>
-<li>Extend the <code>../README.md</code> with the newly available language.</li>
-<li>Release the MASVS.</li>
-</ol>
-<h2 id="in-the-mastg">In the MASTG<a class="headerlink" href="#in-the-mastg" title="Permanent link">&para;</a></h2>
-<p>IMPORTANT: only after releasing the MASVS!</p>
-<ol>
-<li>Add the new language to <code>src/scripts/gen_all_excel.sh</code>.</li>
-<li>Push and verify that the new Checklist is correctly generated for the new language.</li>
-</ol>
+<p>Starting with MASVS v2.0.0, translations will no longer be included to focus on the development of MASTG v2.0.0. We encourage the community to create and maintain their own translations. Thank you to all the past translators who generously volunteered their time and expertise to make the MASVS accessible to non-English speaking communities. We truly appreciate your contributions and hope to continue working together in the future. The past MASVS v1.5.0 translations are still available in the <a href="https://github.com/OWASP/owasp-masvs/releases/tag/v1.5.0">MASVS repo</a>.</p>
 
 
 
@@ -11649,7 +11615,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="../../javascripts/tablesort.min.js"></script>
       
