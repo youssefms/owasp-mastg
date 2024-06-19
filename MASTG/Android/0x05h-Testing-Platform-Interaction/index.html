@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -12049,7 +12049,7 @@
 <li><a href="https://developer.android.com/guide/topics/permissions/overview#install-time" title="Install-time permissions"><strong>Install-time permissions</strong></a>: grant limited access to restricted data or let the app perform restricted actions that minimally affect the system or other apps. They are granted automatically at installation time (Android 6.0 (API level 23) or higher).<ul>
 <li>Protection Level: <code>normal</code>. Grants apps access to isolated application-level features with minimal risk to other apps, the user, and the system. Example: <code>android.permission.INTERNET</code></li>
 <li>Protection Level: <code>signature</code>. Granted only to apps signed with the same certificate as the one used to sign the declaring app. Example: <code>android.permission.ACCESS_MOCK_LOCATION</code></li>
-<li>Protection Level: <code>systemOrSignature</code>. Reserved for system-embedded apps or those signed with the same certificate as the one used to sign the declaring app. Example: <code>android.permission.ACCESS_DOWNLOAD_MANAGER</code>. Old synonym for <code>signature|privileged</code>. Deprecated in API level 23.</li>
+<li>Protection Level: <code>signatureOrSystem</code>. Reserved for system-embedded apps or those signed with the same certificate as the one used to sign the declaring app. Example: <code>android.permission.ACCESS_DOWNLOAD_MANAGER</code>. Old synonym for <code>signature|privileged</code>. Deprecated in API level 23.</li>
 </ul>
 </li>
 <li><a href="https://developer.android.com/training/permissions/requesting" title="Request runtime permissions"><strong>Runtime permissions</strong></a>: require prompting the user at runtime for explicit approval.<ul>
@@ -12128,7 +12128,7 @@
 <tr>
 <td></td>
 <td><code>android.permission.SYSTEM_CAMERA</code></td>
-<td>systemOrSignature</td>
+<td>signatureOrSystem</td>
 </tr>
 <tr>
 <td></td>
@@ -12138,6 +12138,16 @@
 <tr>
 <td></td>
 <td><code>android.permission.MOUNT_UNMOUNT_FILESYSTEMS</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.PROVIDE_DEFAULT_ENABLED_CREDENTIAL_SERVICE</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.PROVIDE_REMOTE_CREDENTIALS</code></td>
 <td>signature</td>
 </tr>
 <tr>
@@ -12252,6 +12262,21 @@
 </tr>
 <tr>
 <td></td>
+<td><code>android.permission.MANAGE_ONGOING_CALLS</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.READ_RESTRICTED_STATS</code></td>
+<td>internal</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.BIND_AUTOFILL_SERVICE</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -12337,6 +12362,36 @@
 </tr>
 <tr>
 <td></td>
+<td><code>android.permission.MANAGE_EXTERNAL_STORAGE</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.ACCESS_BLOBS_ACROSS_USERS</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.BLUETOOTH_ADVERTISE</code></td>
+<td>dangerous</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.READ_MEDIA_AUDIO</code></td>
+<td>dangerous</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.READ_MEDIA_IMAGES</code></td>
+<td>dangerous</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.READ_MEDIA_VIDEO</code></td>
+<td>dangerous</td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -12373,6 +12428,26 @@
 <tr>
 <td></td>
 <td><code>android.permission.DEVICE_POWER</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.READ_PRECISE_PHONE_STATE</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.LOG_FOREGROUND_RESOURCE_USE</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.MANAGE_DEFAULT_APPLICATIONS</code></td>
+<td>signature</td>
+</tr>
+<tr>
+<td></td>
+<td><code>android.permission.MANAGE_FACE</code></td>
 <td>signature</td>
 </tr>
 <tr>
