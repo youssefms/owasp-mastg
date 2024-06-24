@@ -12833,7 +12833,7 @@
 <p>Android apps sometimes use insecure pseudorandom number generators (PRNGs) such as <code>java.util.Random</code>, which is essentially a linear congruential generator. This type of PRNG generates a predictable sequence of numbers for any given seed value, making the sequence reproducible and insecure for cryptographic use. In particular, <code>java.util.Random</code> and <code>Math.random()</code> (<a href="https://franklinta.com/2014/08/31/predicting-the-next-math-random-in-java/">the latter</a> simply calling <code>nextDouble()</code> on a static <code>java.util.Random</code> instance) produce identical number sequences when initialized with the same seed across all Java implementations.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Run a <a href="../../../../../techniques/android/MASTG-TECH-0014.md">static analysis</a> tool on the app and look for insecure random APIs.</li>
+<li>Run a <a href="/MASTG/techniques/android/MASTG-TECH-0014">static analysis</a> tool on the app and look for insecure random APIs.</li>
 </ol>
 <h2 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h2>
 <p>The output should contain a list of locations where insecure random APIs are used.</p>
