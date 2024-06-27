@@ -13213,6 +13213,11 @@
 
   <h1>Weakness: Cryptographically Weak Pseudo-Random Number Generator (PRNG)</h1>
 
+<div class="admonition example">
+<p class="admonition-title">BETA</p>
+<p>This is a beta version of the <a href="https://mas.owasp.org/MASWE/">MASWE (Mobile Application Security Weakness Enumeration)</a>. The content is still under development and may change in terms of structure, IDs and content.
+Your feedback and questions are welcome! Please post them to <a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-feedback">MASWE Feedback</a>.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number generator (PRNG)</a> algorithm generates sequences based on a seed that may be predictable. Common implementations are not cryptographically secure. For example, they typically use a linear congruential formula, allowing an attacker to predict future outputs, given enough observed outputs. Therefore, it is not suitable for security-critical applications or protecting sensitive data.</p>
 <h2 id="impact">Impact<a class="headerlink" href="#impact" title="Permanent link">&para;</a></h2>

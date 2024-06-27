@@ -13215,6 +13215,11 @@
 
   <h1>Test: Leakage of Sensitive Data via Logging APIs</h1>
 
+<div class="admonition example">
+<p class="admonition-title">BETA</p>
+<p>This is a beta version of the <a href="https://mas.owasp.org/MASWE/">MASWE (Mobile Application Security Weakness Enumeration)</a>. The content is still under development and may change in terms of structure, IDs and content.
+Your feedback and questions are welcome! Please post them to <a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-feedback">MASWE Feedback</a>.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>On Android platforms, logging APIs like <code>Log</code>, <code>Logger</code>, <code>System.out.print</code>, <code>System.err.print</code>, and <code>java.lang.Throwable#printStackTrace</code> can inadvertently lead to the leakage of sensitive information. Log messages are recorded in logcat, a shared memory buffer, accessible since Android 4.1 (API level 16) only to privileged system applications that declare the <code>READ_LOGS</code> permission. Nonetheless, the vast ecosystem of Android devices includes pre-loaded apps with the <code>READ_LOGS</code> privilege, increasing the risk of sensitive data exposure. Therefore, direct logging to logcat is generally advised against due to its susceptibility to data leaks.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>

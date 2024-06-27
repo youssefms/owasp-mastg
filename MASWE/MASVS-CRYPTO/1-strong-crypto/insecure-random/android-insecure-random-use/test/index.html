@@ -13215,6 +13215,11 @@
 
   <h1>Test: Insecure Random API Usage</h1>
 
+<div class="admonition example">
+<p class="admonition-title">BETA</p>
+<p>This is a beta version of the <a href="https://mas.owasp.org/MASWE/">MASWE (Mobile Application Security Weakness Enumeration)</a>. The content is still under development and may change in terms of structure, IDs and content.
+Your feedback and questions are welcome! Please post them to <a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-feedback">MASWE Feedback</a>.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Android apps sometimes use insecure pseudorandom number generators (PRNGs) such as <code>java.util.Random</code>, which is essentially a linear congruential generator. This type of PRNG generates a predictable sequence of numbers for any given seed value, making the sequence reproducible and insecure for cryptographic use. In particular, <code>java.util.Random</code> and <code>Math.random()</code> (<a href="https://franklinta.com/2014/08/31/predicting-the-next-math-random-in-java/">the latter</a> simply calling <code>nextDouble()</code> on a static <code>java.util.Random</code> instance) produce identical number sequences when initialized with the same seed across all Java implementations.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
