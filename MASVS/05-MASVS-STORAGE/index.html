@@ -11574,6 +11574,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MASVS-STORAGE: Storage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -11583,6 +11594,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13003,6 +13042,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13095,6 +13151,28 @@
 <h1 id="masvs-storage-storage">MASVS-STORAGE: Storage<a class="headerlink" href="#masvs-storage-storage" title="Permanent link">&para;</a></h1>
 <p>Mobile applications handle a wide variety of sensitive data, such as personally identifiable information (PII), cryptographic material, secrets, and API keys, that often need to be stored locally. This sensitive data may be stored in private locations, such as the app's internal storage, or in public folders that are accessible by the user or other apps installed on the device. However, sensitive data can also be unintentionally stored or exposed to publicly accessible locations, typically as a side-effect of using certain APIs or system capabilities such as backups or logs.</p>
 <p>This category is designed to help developers ensure that any sensitive data intentionally stored by the app is properly protected, regardless of the target location. It also covers unintentional leaks that can occur due to improper use of APIs or system capabilities.</p>
+<h2 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h2>
+<style> table { width: 100%; } </style>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/MASVS/controls/MASVS-STORAGE-1">MASVS-STORAGE-1</a></td>
+<td>The app securely stores sensitive data.</td>
+</tr>
+<tr>
+<td><a href="/MASVS/controls/MASVS-STORAGE-2">MASVS-STORAGE-2</a></td>
+<td>The app prevents leakage of sensitive data.</td>
+</tr>
+</tbody>
+</table>
+<!-- \pagebreak -->
 
 
 

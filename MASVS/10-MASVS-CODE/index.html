@@ -11931,6 +11931,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MASVS-CODE: Code Quality
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -11940,6 +11951,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13003,6 +13042,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13095,6 +13151,36 @@
 <h1 id="masvs-code-code-quality">MASVS-CODE: Code Quality<a class="headerlink" href="#masvs-code-code-quality" title="Permanent link">&para;</a></h1>
 <p>Mobile apps have many data entry points, including the UI, IPC, network, and file system, which might receive data that has been inadvertently modified by untrusted actors. By treating this data as untrusted input and properly verifying and sanitizing it before use, developers can prevent classical injection attacks, such as SQL injection, XSS, or insecure deserialization. However, other common coding vulnerabilities, such as memory corruption flaws, are hard to detect in penetration testing but easy to prevent with secure architecture and coding practices. Developers should follow best practices such as the <a href="https://owaspsamm.org/model/">OWASP Software Assurance Maturity Model (SAMM)</a> and <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf">NIST.SP.800-218 Secure Software Development Framework (SSDF)</a> to avoid introducing these flaws in the first place.</p>
 <p>This category covers coding vulnerabilities that arise from external sources such as app data entry points, the OS, and third-party software components. Developers should verify and sanitize all incoming data to prevent injection attacks and bypass of security checks. They should also enforce app updates and ensure that the app runs up-to-date platforms to protect users from known vulnerabilities.</p>
+<h2 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h2>
+<style> table { width: 100%; } </style>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CODE-1">MASVS-CODE-1</a></td>
+<td>The app requires an up-to-date platform version.</td>
+</tr>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CODE-2">MASVS-CODE-2</a></td>
+<td>The app has a mechanism for enforcing app updates.</td>
+</tr>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CODE-3">MASVS-CODE-3</a></td>
+<td>The app only uses software components without known vulnerabilities.</td>
+</tr>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CODE-4">MASVS-CODE-4</a></td>
+<td>The app validates and sanitizes all untrusted inputs.</td>
+</tr>
+</tbody>
+</table>
+<!-- \pagebreak -->
 
 
 

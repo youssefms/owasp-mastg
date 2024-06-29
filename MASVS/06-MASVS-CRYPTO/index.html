@@ -11637,6 +11637,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MASVS-CRYPTO: Cryptography
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -11646,6 +11657,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13003,6 +13042,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13095,6 +13151,28 @@
 <h1 id="masvs-crypto-cryptography">MASVS-CRYPTO: Cryptography<a class="headerlink" href="#masvs-crypto-cryptography" title="Permanent link">&para;</a></h1>
 <p>Cryptography is essential for mobile apps because mobile devices are highly portable and can be easily lost or stolen. This means that an attacker who gains physical access to a device can potentially access all the sensitive data stored on it, including passwords, financial information, and personally identifiable information. Cryptography provides a means of protecting this sensitive data by encrypting it so that it cannot be easily read or accessed by an unauthorized user.</p>
 <p>The purpose of the controls in this category is to ensure that the verified app uses cryptography according to industry best practices, which are typically defined in external standards such as <a href="https://csrc.nist.gov/publications/detail/sp/800-175b/rev-1/final">NIST.SP.800-175B</a> and <a href="https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final">NIST.SP.800-57</a>. This category also focuses on the management of cryptographic keys throughout their lifecycle, including key generation, storage, and protection. Poor key management can compromise even the strongest cryptography, so it is crucial for developers to follow the recommended best practices to ensure the security of their users' sensitive data.</p>
+<h2 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h2>
+<style> table { width: 100%; } </style>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CRYPTO-1">MASVS-CRYPTO-1</a></td>
+<td>The app employs current strong cryptography and uses it according to industry best practices.</td>
+</tr>
+<tr>
+<td><a href="/MASVS/controls/MASVS-CRYPTO-2">MASVS-CRYPTO-2</a></td>
+<td>The app performs key management according to industry best practices.</td>
+</tr>
+</tbody>
+</table>
+<!-- \pagebreak -->
 
 
 
