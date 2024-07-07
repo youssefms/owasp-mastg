@@ -126,6 +126,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basic-apk-installation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -7031,6 +7036,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MASTG-TECH-0005: Installing Apps
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -7040,6 +7056,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-apk-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic APK Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-repackaged-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Repackaged App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-to-a-specific-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing to a Specific Profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-split-apks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Split APKs
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -13748,6 +13817,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-apk-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic APK Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-a-repackaged-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing a Repackaged App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-to-a-specific-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing to a Specific Profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-split-apks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Split APKs
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -13777,7 +13890,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 07, 2024</small></em>
     <br><br>
     
 
@@ -13847,10 +13960,76 @@
 
   <h1>MASTG-TECH-0005: Installing Apps</h1>
 
-<p>Use <code>adb install</code> to install an APK on an emulator or connected device.</p>
-<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>install<span class="w"> </span>path_to_apk
+<h2 id="basic-apk-installation">Basic APK Installation<a class="headerlink" href="#basic-apk-installation" title="Permanent link">&para;</a></h2>
+<p>Use <code>adb install</code> to install an APK on an emulator or connected device. The given path is the path of the APK on the host.</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>install<span class="w"> </span>./myApp.apk
 </code></pre></div>
-<p>Note that if you have the original source code and use Android Studio, you do not need to do this because Android Studio handles the packaging and installation of the app for you.</p>
+<p>If multiple devices are connected, you can specify to install to a connected device (<code>-d</code>), emulator or TCP/IP device (<code>-e</code>) or specific serial number (<code>-s</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install to connected physical device</span>
+adb<span class="w"> </span>-d<span class="w"> </span>install<span class="w"> </span>./myApp.apk
+
+<span class="c1"># Install to emulator</span>
+adb<span class="w"> </span>-e<span class="w"> </span>install<span class="w"> </span>./myApp.apk
+
+<span class="c1"># List all devices</span>
+adb<span class="w"> </span>devices
+List<span class="w"> </span>of<span class="w"> </span>devices<span class="w"> </span>attached
+37081JEHN05882<span class="w">  </span>device
+emulator-5554<span class="w">   </span>device
+
+<span class="c1"># Connect to a specific device</span>
+adb<span class="w"> </span>-s<span class="w"> </span>37081JEHN05882<span class="w"> </span>install<span class="w"> </span>./myApp.apk
+</code></pre></div>
+<p>When installing an app, it also possible to automatically grant all runtime permissions using <code>-g</code>:</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>./myApp.apk
+</code></pre></div>
+<h2 id="installing-a-repackaged-app">Installing a Repackaged App<a class="headerlink" href="#installing-a-repackaged-app" title="Permanent link">&para;</a></h2>
+<p>In case there is already an application installed with the same package name, Android will compare the signatures. If the signatures match, the update will succeed. If the signature is different (for example, after repackaging an APK), the installation will fail.</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>install<span class="w"> </span>./myRepackagedApp.apk
+adb:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>myRepackagedApp.apk:<span class="w"> </span>Failure<span class="w"> </span><span class="o">[</span>INSTALL_FAILED_UPDATE_INCOMPATIBLE:<span class="w"> </span>Existing<span class="w"> </span>package<span class="w"> </span>org.owasp.mastestapp<span class="w"> </span>signatures<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>match<span class="w"> </span>newer<span class="w"> </span>version<span class="p">;</span><span class="w"> </span>ignoring!<span class="o">]</span>
+</code></pre></div>
+<p>To solve this issue, first remove the original application using <code>adb uninstall</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Uninstall based on package name</span>
+adb<span class="w"> </span>uninstall<span class="w"> </span>org.owasp.mastestapp
+
+<span class="c1"># Normal install via adb</span>
+adb<span class="w"> </span>install<span class="w"> </span>./myRepackagedApp.apk
+</code></pre></div>
+<h2 id="installing-to-a-specific-profile">Installing to a Specific Profile<a class="headerlink" href="#installing-to-a-specific-profile" title="Permanent link">&para;</a></h2>
+<p>To install an APK into a specific profile, the APK first has to be pushed to the device, as it is not possible to do this directly using <code>adb install</code>. Note that pushing to <code>/sdcard/</code> may result in permission issues, so use <code>/data/local/tmp</code> to be sure. After pushing the APK to the device, it can be installed using <code>pm install</code> with the <code>--user XX</code> option:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get an overview of available profiles</span>
+adb<span class="w"> </span>shell<span class="w"> </span>pm<span class="w"> </span>list<span class="w"> </span>users
+Users:
+<span class="w">    </span>UserInfo<span class="o">{</span><span class="m">0</span>:Owner:c13<span class="o">}</span><span class="w"> </span>running
+<span class="w">    </span>UserInfo<span class="o">{</span><span class="m">11</span>:Sample<span class="w"> </span>Managed<span class="w"> </span>Profile:1030<span class="o">}</span><span class="w"> </span>running
+
+<span class="c1"># Push to /data/local/tmp/</span>
+adb<span class="w"> </span>push<span class="w"> </span>./myApp.apk<span class="w"> </span>/data/local/tmp/
+
+<span class="c1"># Install with pm install and the --user option</span>
+adb<span class="w"> </span>shell<span class="w"> </span>pm<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span><span class="m">11</span><span class="w"> </span>/data/local/tmp/myRepackagedApp.apk
+</code></pre></div>
+<h2 id="installing-split-apks">Installing Split APKs<a class="headerlink" href="#installing-split-apks" title="Permanent link">&para;</a></h2>
+<p>In case you need to install split APKs, you can use the <code>install-multiple</code> command. Make sure the different split APKs match your device configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Youtube is a split APK</span>
+adb<span class="w"> </span>shell<span class="w"> </span>pm<span class="w"> </span>path<span class="w"> </span>com.google.android.youtube
+package:/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/base.apk
+package:/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.arm64_v8a.apk
+package:/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.en.apk
+package:/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.xxhdpi.apk
+
+<span class="c1"># Obtain the different parts</span>
+adb<span class="w"> </span>pull<span class="w"> </span>/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/base.apk
+adb<span class="w"> </span>pull<span class="w"> </span>/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.arm64_v8a.apk
+adb<span class="w"> </span>pull<span class="w"> </span>/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.en.apk
+adb<span class="w"> </span>pull<span class="w"> </span>/data/app/~~ZLX3UNTF7R2oebU_viP7mw<span class="o">==</span>/com.google.android.youtube-Rhm4GURIQ4twNvR6wxqc6w<span class="o">==</span>/split_config.xxhdpi.apk
+
+<span class="c1"># Uninstall Youtube as a test</span>
+adb<span class="w"> </span>uninstall<span class="w"> </span>com.google.android.youtube
+
+<span class="c1"># Install the split APK files</span>
+adb<span class="w"> </span>install-multiple<span class="w"> </span>base.apk<span class="w"> </span>split_config.arm64_v8a.apk<span class="w"> </span>split_config.en.apk<span class="w"> </span>split_config.xxhdpi.apk
+</code></pre></div>
 
 
 

@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cydia-impactor" class="md-skip">
+        <a href="#sideloadly" class="md-skip">
           Skip to content
         </a>
       
@@ -8223,9 +8223,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cydia-impactor" class="md-nav__link">
+  <a href="#sideloadly" class="md-nav__link">
     <span class="md-ellipsis">
-      Cydia Impactor
+      Sideloadly
     </span>
   </a>
   
@@ -13842,9 +13842,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cydia-impactor" class="md-nav__link">
+  <a href="#sideloadly" class="md-nav__link">
     <span class="md-ellipsis">
-      Cydia Impactor
+      Sideloadly
     </span>
   </a>
   
@@ -13926,7 +13926,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 07, 2024</small></em>
     <br><br>
     
 
@@ -14001,8 +14001,12 @@
 <blockquote>
 <p>Please note that iTunes is no longer available in macOS Catalina. If you are using an older version of macOS, iTunes is still available but since iTunes 12.7 it is not possible to install apps.</p>
 </blockquote>
-<h2 id="cydia-impactor">Cydia Impactor<a class="headerlink" href="#cydia-impactor" title="Permanent link">&para;</a></h2>
-<p><a href="http://www.cydiaimpactor.com/" title="Cydia Impactor">Cydia Impactor</a> was originally created to jailbreak iPhones, but has been rewritten to sign and install IPA packages to iOS devices via sideloading (and even APK files to Android devices). Cydia Impactor is available for Windows, macOS and Linux. A <a href="https://yalujailbreak.net/how-to-use-cydia-impactor/" title="How to use Cydia Impactor">step by step guide and troubleshooting steps are available on yalujailbreak.net</a>.</p>
+<h2 id="sideloadly">Sideloadly<a class="headerlink" href="#sideloadly" title="Permanent link">&para;</a></h2>
+<p><a href="https://sideloadly.io/" title="Sideloadly">Sideloadly</a> allows you to obtain a valid signature for a given IPA file and then install it to a connected iOS device. In addition to signing and installing an IPA file, Sideloadly also allows you to inject tweaks, change the App or Bundle name or make other limited modifications to the IPA metadata. Sideloadly is available on both macOS and Windows.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not use your personal Apple account</p>
+<p>To sign an IPA file, you will need a valid iOS developer account, either free or paid. Both types come with certain restrictions, as explained on the Sideloadly website. We recommend creating a dedicated developer account for signing test applications, and <strong>not</strong> using your personal Apple account.</p>
+</div>
 <h2 id="libimobiledevice">libimobiledevice<a class="headerlink" href="#libimobiledevice" title="Permanent link">&para;</a></h2>
 <p>On Linux and also macOS, you can alternatively use <a href="https://www.libimobiledevice.org/" title="libimobiledevice">libimobiledevice</a>, a cross-platform software protocol library and a set of tools for native communication with iOS devices. This allows you to install apps over a USB connection by executing ideviceinstaller. The connection is implemented with the USB multiplexing daemon <a href="https://www.theiphonewiki.com/wiki/Usbmux" title="Usbmux">usbmuxd</a>, which provides a TCP tunnel over USB.</p>
 <p>The package for libimobiledevice will be available in your Linux package manager. On macOS you can install libimobiledevice via brew:</p>
@@ -14024,7 +14028,7 @@ $<span class="w"> </span>idevicedebug<span class="w"> </span>-d<span class="w"> 
 <div class="highlight"><pre><span></span><code>ipainstaller<span class="w"> </span>App_name.ipa
 </code></pre></div>
 <h2 id="ios-deploy">ios-deploy<a class="headerlink" href="#ios-deploy" title="Permanent link">&para;</a></h2>
-<p>On macOS you can also use the <a href="0x08a-Testing-Tools.md#ios-deploy">ios-deploy</a> tool to install iOS apps from the command line. You'll need to unzip your IPA since ios-deploy uses the app bundles to install apps.</p>
+<p>On macOS you can also use the <a href="/MASTG/tools/ios/MASTG-TOOL-0054/">ios-deploy</a> tool to install iOS apps from the command line. You'll need to unzip your IPA since ios-deploy uses the app bundles to install apps.</p>
 <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>Name.ipa
 ios-deploy<span class="w"> </span>--bundle<span class="w"> </span><span class="s1">&#39;Payload/Name.app&#39;</span><span class="w"> </span>-W<span class="w"> </span>-d<span class="w"> </span>-v
 </code></pre></div>
