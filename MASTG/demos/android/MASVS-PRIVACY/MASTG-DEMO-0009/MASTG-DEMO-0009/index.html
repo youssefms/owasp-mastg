@@ -845,7 +845,7 @@
     
   
   
-    <span class="md-status md-status--draft" title="This page is in draft.">
+    <span class="md-status md-status--new" title="New in this beta!">
     </span>
   
 
@@ -8574,6 +8574,8 @@
       
         
       
+        
+      
     
     
       
@@ -8680,6 +8682,27 @@
   
   <span class="md-ellipsis">
     MASTG-TEST-0203: Leakage of Sensitive Data via Logging APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tests-beta/android/MASVS-STORAGE/MASTG-TEST-0207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MASTG-TEST-0207: Data Stored in the App Sandbox at Runtime
   </span>
   
 
@@ -9013,6 +9036,8 @@
       
         
       
+        
+      
     
     
       
@@ -9161,6 +9186,27 @@
   
   <span class="md-ellipsis">
     MASTG-DEMO-0006: Tracing Common Logging APIs Looking for Secrets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MASVS-STORAGE/MASTG-DEMO-0010/MASTG-DEMO-0010/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MASTG-DEMO-0010: File System Snapshots from Internal Storage
   </span>
   
 
@@ -17097,7 +17143,7 @@
 <div class="highlight"><pre><span></span><code>emulator<span class="w"> </span>-avd<span class="w"> </span>Pixel_3a_API_33_arm64-v8a<span class="w"> </span>-writable-system
 </code></pre></div>
 <p>Run mitmproxy with the custom script for logging sensitive data and dump the relevant traffic to a file.</p>
-<p>Note that the script is preconfigured with data that's already considered sensitive for this application. When running this test in a real-world scenario, you should determine what is considered <a href="../../../../../../Document/0x04b-Mobile-App-Security-Testing.md#identifying-sensitive-data" title="Sensitive Data">sensitive data</a> based on the app's privacy policy and relevant privacy regulations. One recommended way to do this is by checking the app's privacy policy and the App Store Privacy declarations.</p>
+<p>Note that the script is preconfigured with data that's already considered sensitive for this application. When running this test in a real-world scenario, you should determine what is considered <a href="/MASTG/General/0x04b-Mobile-App-Security-Testing#identifying-sensitive-data" title="Sensitive Data">sensitive data</a> based on the app's privacy policy and relevant privacy regulations. One recommended way to do this is by checking the app's privacy policy and the App Store Privacy declarations.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">mitm_sensitive_logger.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
