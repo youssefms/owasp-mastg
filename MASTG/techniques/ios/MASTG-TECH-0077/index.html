@@ -16600,7 +16600,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16727,7 +16727,7 @@
 </code></pre></div>
 <p>To determine the value of the hidden flag we need to know the return value of each of the subsequent function calls identified above. When analyzing the function 0x100006fb4, we can observe that this function is much bigger and more complex than the previous one we analyzed. Function graphs can be very helpful when analyzing complex functions, as it helps into better understanding the control flow of the function. Function graphs can be obtained in Ghidra by clicking the <strong>Display function graph</strong> icon in the sub-menu.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/manual_reversing_ghidra_function_graph.png" width="100%" /></p>
-<p>Manually analyzing all the native functions completely will be time consuming and might not be the wisest approach. In such a scenario using a dynamic analysis approach is highly recommended. For instance, by using the techniques like hooking or simply debugging the application, we can easily determine the returned values. Normally it's a good idea to use a dynamic analysis approach and then fallback to manually analyzing the functions in a feedback loop. This way you can benefit from both approaches at the same time while saving time and reducing effort. Dynamic analysis techniques are discussed in "<a href="#dynamic-analysis" title="Dynamic Analysis">Dynamic Analysis</a>" section.</p>
+<p>Manually analyzing all the native functions completely will be time consuming and might not be the wisest approach. In such a scenario using a <a href="../MASTG-TECH-0067/">dynamic analysis</a> approach is highly recommended. For instance, by using the techniques like hooking or simply debugging the application, we can easily determine the returned values. Normally it's a good idea to use a dynamic analysis approach and then fallback to manually analyzing the functions in a feedback loop. This way you can benefit from both approaches at the same time while saving time and reducing effort.</p>
 
 
 

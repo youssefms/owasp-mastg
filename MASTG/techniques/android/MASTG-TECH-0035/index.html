@@ -16600,7 +16600,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16705,7 +16705,7 @@
 
   <h1>MASTG-TECH-0035: JNI Tracing</h1>
 
-<p>As detailed in section <a href="#reviewing-disassembled-native-code">Reviewing Disassembled Native Code</a>, the first argument passed to every JNI function is a JNI interface pointer. This pointer contains a table of functions that allows native code to access the Android Runtime. Identifying calls to these functions can help with understanding library functionality, such as what strings are created or Java methods are called.</p>
+<p>As detailed in section <a href="../MASTG-TECH-0024/">Reviewing Disassembled Native Code</a>, the first argument passed to every JNI function is a JNI interface pointer. This pointer contains a table of functions that allows native code to access the Android Runtime. Identifying calls to these functions can help with understanding library functionality, such as what strings are created or Java methods are called.</p>
 <p><a href="https://github.com/chame1eon/jnitrace" title="jnitrace">jnitrace</a> is a Frida based tool similar to frida-trace which specifically targets the usage of Android's JNI API by native libraries, providing a convenient way to obtain JNI method traces including arguments and return values.</p>
 <p>You can easily install it by running <code>pip install jnitrace</code> and run it straight away as follows:</p>
 <div class="highlight"><pre><span></span><code>jnitrace<span class="w"> </span>-l<span class="w"> </span>libnative-lib.so<span class="w"> </span>sg.vantagepoint.helloworldjni
@@ -16714,7 +16714,7 @@
 <p>The <code>-l</code> option can be provided multiple times to trace multiple libraries, or <code>*</code> can be provided to trace all libraries. This, however, may provide a lot of output.</p>
 </blockquote>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/jni_tracing_helloworldjni.png" width="100%" /></p>
-<p>In the output you can see the trace of a call to <code>NewStringUTF</code> made from the native code (its return value is then given back to Java code, see section "<a href="#reviewing-disassembled-native-code">Reviewing Disassembled Native Code</a>" for more details). Note how similarly to frida-trace, the output is colorized helping to visually distinguish the different threads.</p>
+<p>In the output you can see the trace of a call to <code>NewStringUTF</code> made from the native code (its return value is then given back to Java code, see section "<a href="../MASTG-TECH-0024/">Reviewing Disassembled Native Code</a>" for more details). Note how similarly to frida-trace, the output is colorized helping to visually distinguish the different threads.</p>
 <p>When tracing JNI API calls you can see the thread ID at the top, followed by the JNI method call including the method name, the input arguments and the return value. In the case of a call to a Java method from native code, the Java method arguments will also be supplied. Finally jnitrace will attempt to use the Frida backtracing library to show where the JNI call was made from.</p>
 <p>To learn more about all options for advanced usage, check the <a href="https://github.com/chame1eon/jnitrace" title="documentation">documentation on the jnitrace GitHub page</a>.</p>
 

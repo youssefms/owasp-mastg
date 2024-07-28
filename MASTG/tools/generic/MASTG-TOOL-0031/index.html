@@ -16603,7 +16603,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16727,7 +16727,7 @@ In contrast, Frida implements code injection by writing code directly into the p
 <p>Frida offers three modes of operation:</p>
 <ol>
 <li>Injected: this is the most common scenario when frida-server is running as a daemon in the iOS or Android device. frida-core is exposed over TCP, listening on localhost:27042 by default. Running in this mode is not possible on devices that are not rooted or jailbroken.</li>
-<li>Embedded: this is the case when your device is not rooted nor jailbroken (you cannot use ptrace as an unprivileged user), you're responsible for the injection of the <a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">frida-gadget</a> library by embedding it into your app, manually or via third-party tools such as <a href="#objection">Objection</a>.</li>
+<li>Embedded: this is the case when your device is not rooted nor jailbroken (you cannot use ptrace as an unprivileged user), you're responsible for the injection of the <a href="https://www.frida.re/docs/gadget/" title="Frida Gadget">frida-gadget</a> library by embedding it into your app, manually or via third-party tools such as <a href="../MASTG-TOOL-0038/">Objection</a>.</li>
 <li>Preloaded: similar to <code>LD_PRELOAD</code> or <code>DYLD_INSERT_LIBRARIES</code>. You can configure the frida-gadget to run autonomously and load a script from the filesystem (e.g. path relative to where the Gadget binary resides).</li>
 </ol>
 <p>Independently of the chosen mode, you can make use of the <a href="https://www.frida.re/docs/javascript-api/" title="Frida JavaScript APIs">Frida JavaScript APIs</a> to interact with the running process and its memory. Some of the fundamental APIs are:</p>

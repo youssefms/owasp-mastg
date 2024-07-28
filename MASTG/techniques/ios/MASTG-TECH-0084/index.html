@@ -16677,7 +16677,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16896,7 +16896,7 @@ Attaching<span class="w"> </span>to<span class="w"> </span>process<span class="w
 <p>The final breakpoint address to be used in the debugger is the sum of the above two addresses (Breakpoint offset + ASLR shift offset). This approach assumes that the image base address (discussed shortly) used by the disassembler and iOS is the same, which is true most of the time.</p>
 <p>When a binary is opened in a disassembler like Ghidra, it loads a binary by emulating the respective operating system's loader. The address at which the binary is loaded is called <em>image base address</em>. All the code and symbols inside this binary can be addressed using a constant address offset from this image base address. In Ghidra, the image base address can be obtained by determining the address of the start of a Mach-O file. In this case, it is 0x100000000.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_ghidra_image_base_address.png" width="100%" /></p>
-<p>From our previous analysis of the <a href="../../../apps/ios/MASTG-APP-0025/" title="UnCrackable App for iOS Level 1">UnCrackable App for iOS Level 1</a> in "<a href="#manual-reversed-code-review">Manual (Reversed) Code Review</a>" section, the value of the hidden string is stored in a label with the <code>hidden</code> flag set. In the disassembly, the text value of this label is stored in register <code>X21</code>, stored via <code>mov</code> from <code>X0</code>, at offset 0x100004520. This is our <em>breakpoint offset</em>.</p>
+<p>The value of the hidden string is stored in a label with the <code>hidden</code> flag set. In the disassembly, the text value of this label is stored in register <code>X21</code>, stored via <code>mov</code> from <code>X0</code>, at offset 0x100004520. This is our <em>breakpoint offset</em>.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_ghidra_breakpoint.png" width="100%" /></p>
 <p>For the second address, we need to determine the <em>ASLR shift offset</em> for a given process. The ASLR offset can be determined by using the LLDB command <code>image list -o -f</code>. The output is shown in the screenshot below.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06c/debugging_lldb_image_list.png" width="100%" /></p>

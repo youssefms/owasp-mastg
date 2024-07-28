@@ -16767,13 +16767,9 @@
 <p>First of all <strong>Create a GitHub account</strong> (a free one is enough) by following <a href="https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account">these steps</a>.</p>
 <p>Our workflow is like this:</p>
 <ol>
-<li>
-<p><strong>Open a <a href="https://docs.github.com/en/discussions">Discussion</a></strong> (for ideas and proposals)
-If your proposal qualifies for the MASTG/MASVS we'll convert it into an "Issue" (the discussion might take a while).</p>
-</li>
-<li>
-<p>MASVS Example: "Add a MASVS-CRYPTO requirement on Key rotation"</p>
-</li>
+<li><strong>Open a <a href="https://docs.github.com/en/discussions">Discussion</a></strong> (for ideas and proposals)
+If your proposal qualifies for the MASTG/MASVS we'll convert it into an "Issue" (the discussion might take a while).</li>
+<li>MASVS Example: "Add a MASVS-CRYPTO requirement on Key rotation"</li>
 <li>
 <p>MASTG Example: "Add a Test case for key rotation"</p>
 </li>
@@ -16787,8 +16783,8 @@ This could be the fix for the mentioned typo, a whole new section or some other 
 <p>Normally, contributors should follow the whole flow. But sometimes it's clear what's needed so we directly go to 2 (open an issue) or even to 3 (open a PR). <strong>We recommend starting with a discussion or directly <a href="../../contact/">contacting us</a></strong> to save you the hurdle of writing and submitting new content that does not qualify so we have to reject it after the work is done.</p>
 <p>If you just have an <strong>specific question</strong> you can post it to (you need a <a href="https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account">GitHub Account</a>):</p>
 <ul>
-<li>https://github.com/OWASP/owasp-masvs/discussions/categories/q-a</li>
-<li>https://github.com/OWASP/owasp-mastg/discussions/categories/q-a</li>
+<li><a href="https://github.com/OWASP/owasp-masvs/discussions/categories/q-a">https://github.com/OWASP/owasp-masvs/discussions/categories/q-a</a></li>
+<li><a href="https://github.com/OWASP/owasp-mastg/discussions/categories/q-a">https://github.com/OWASP/owasp-mastg/discussions/categories/q-a</a></li>
 </ul>
 <p>"GitHub Discussions" are re-posted to <a href="https://owasp.slack.com/messages/project-mobile_omtg/details/">our Slack channel</a>.</p>
 <p>Once you get your answer please <a href="https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#marking-a-comment-as-an-answer">mark it as answered</a>. When you mark a question as an answer, GitHub will highlight the comment and replies to the comment to help visitors quickly find the answer.</p>
@@ -16812,17 +16808,23 @@ This could be the fix for the mentioned typo, a whole new section or some other 
 <p>For this you need an IDE or text editor and git on your machine. We recommend using the free <a href="https://code.visualstudio.com" title="Visual Studio Code">Visual Studio Code editor</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">markdownlint extension</a>.</p>
 <ol>
 <li><a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository">Fork the repo</a>. Forking the repo allows you to make your changes without affecting the original project until you're ready to merge them.</li>
-<li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#about-cloning-a-repository">Clone your fork repo</a> and <a href="https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#remotes-and-forks">add the remote upstream repo</a>, e.g. for owasp-masvs:
-    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your_github_user&gt;/owasp-masvs.git
+<li>
+<p><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository#about-cloning-a-repository">Clone your fork repo</a> and <a href="https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#remotes-and-forks">add the remote upstream repo</a>, e.g. for owasp-masvs:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your_github_user&gt;/owasp-masvs.git
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>owasp-masvs/
 $<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>git@github.com:OWASP/owasp-masvs.git
-</code></pre></div></li>
-<li>Create a branch.
-    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix-issue-1456
-</code></pre></div></li>
-<li>Make your changes.</li>
+</code></pre></div>
+</li>
+<li>
+<p>Create a branch.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix-issue-1456
+</code></pre></div>
+</li>
+<li>
+<p>Make your changes.</p>
+</li>
 <li>Commit and push your changes. This can be done by executing the command <code>git add MYFILE</code> for every file you have modified, followed by <code>git commit -m 'Your Commit Message'</code> to commit the modifications and <code>git push</code> to push your modifications to GitHub.</li>
-<li><a href="#how-to-open-a-pr">Open a PR</a>.</li>
+<li><a href="../3_PRs_and_Reviews/#how-to-open-a-pr">Open a PR</a>.</li>
 </ol>
 
 

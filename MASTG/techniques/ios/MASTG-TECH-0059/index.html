@@ -16600,7 +16600,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16720,7 +16720,7 @@ Bundle:<span class="w"> </span>/private/var/containers/Bundle/Application/3ADAF4
 Application:<span class="w"> </span>/private/var/containers/Bundle/Application/3ADAF47D-A734-49FA-B274-FBCA66589E67/iGoat-Swift.app
 Data:<span class="w"> </span>/private/var/mobile/Containers/Data/Application/8C8E7EB0-BC9B-435B-8EF8-8F5560EB0693
 </code></pre></div>
-<p>Using objection's command <code>env</code> will also show you all the directory information of the app. Connecting to the application with objection is described in the section "<a href="#using-objection" title="Recommended Tools - Objection">Recommended Tools - Objection</a>".</p>
+<p>Using objection's command <code>env</code> will also show you all the directory information of the app. Connecting to the application with objection is described in "<a href="/tools/ios/MASTG-TOOL-0074.md">Using Objection on iOS</a>".</p>
 <div class="highlight"><pre><span></span><code>OWASP.iGoat-Swift<span class="w"> </span>on<span class="w"> </span><span class="o">(</span>iPhone:<span class="w"> </span><span class="m">11</span>.1.2<span class="o">)</span><span class="w"> </span><span class="o">[</span>usb<span class="o">]</span><span class="w"> </span><span class="c1"># env</span>
 
 Name<span class="w">               </span>Path
@@ -16738,42 +16738,56 @@ LibraryDirectory<span class="w">   </span>/var/mobile/Containers/Data/Applicatio
 <p>These folders contain information that must be examined closely during application security assessments (for example when analyzing the stored data for sensitive data).</p>
 <p>Bundle directory:</p>
 <ul>
-<li><strong>AppName.app</strong></li>
+<li><strong>AppName.app</strong><ul>
 <li>This is the Application Bundle as seen before in the IPA, it contains essential application data, static content as well as the application's compiled binary.</li>
 <li>This directory is visible to users, but users can't write to it.</li>
 <li>Content in this directory is not backed up.</li>
 <li>The contents of this folder are used to validate the code signature.</li>
 </ul>
+</li>
+</ul>
 <p>Data directory:</p>
 <ul>
-<li><strong>Documents/</strong></li>
+<li><strong>Documents/</strong><ul>
 <li>Contains all the user-generated data. The application end user initiates the creation of this data.</li>
 <li>Visible to users and users can write to it.</li>
 <li>Content in this directory is backed up.</li>
 <li>The app can disable paths by setting <code>NSURLIsExcludedFromBackupKey</code>.</li>
-<li><strong>Library/</strong></li>
+</ul>
+</li>
+<li><strong>Library/</strong><ul>
 <li>Contains all files that aren't user-specific, such as caches, preferences, cookies, and property list (plist) configuration files.</li>
 <li>iOS apps usually use the <code>Application Support</code> and <code>Caches</code> subdirectories, but the app can create custom subdirectories.</li>
-<li><strong>Library/Caches/</strong></li>
+</ul>
+</li>
+<li><strong>Library/Caches/</strong><ul>
 <li>Contains semi-persistent cached files.</li>
 <li>Invisible to users and users can't write to it.</li>
 <li>Content in this directory is not backed up.</li>
 <li>The OS may delete this directory's files automatically when the app is not running and storage space is running low.</li>
-<li><strong>Library/Application Support/</strong></li>
+</ul>
+</li>
+<li><strong>Library/Application Support/</strong><ul>
 <li>Contains persistent files necessary for running the app.</li>
 <li>Invisible to users and users can't write to it.</li>
 <li>Content in this directory is backed up.</li>
 <li>The app can disable paths by setting <code>NSURLIsExcludedFromBackupKey</code>.</li>
-<li><strong>Library/Preferences/</strong></li>
+</ul>
+</li>
+<li><strong>Library/Preferences/</strong><ul>
 <li>Used for storing properties that can persist even after an application is restarted.</li>
 <li>Information is saved, unencrypted, inside the application sandbox in a plist file called [BUNDLE_ID].plist.</li>
 <li>All the key/value pairs stored using <code>NSUserDefaults</code> can be found in this file.</li>
-<li><strong>tmp/</strong></li>
+</ul>
+</li>
+<li><strong>tmp/</strong><ul>
 <li>Use this directory to write temporary files that do not need to persist between app launches.</li>
 <li>Contains non-persistent cached files.</li>
 <li>Invisible to users.</li>
 <li>Content in this directory is not backed up.</li>
 <li>The OS may delete this directory's files automatically when the app is not running and storage space is running low.</li>
+</ul>
+</li>
 </ul>
 <p>Let's take a closer look at <a href="0x08b-Reference-Apps.md#igoat-swift">iGoat-Swift</a>'s Application Bundle (.app) directory inside the Bundle directory (<code>/var/containers/Bundle/Application/3ADAF47D-A734-49FA-B274-FBCA66589E67/iGoat-Swift.app</code>):</p>
 <div class="highlight"><pre><span></span><code>OWASP.iGoat-Swift<span class="w"> </span>on<span class="w"> </span><span class="o">(</span>iPhone:<span class="w"> </span><span class="m">11</span>.1.2<span class="o">)</span><span class="w"> </span><span class="o">[</span>usb<span class="o">]</span><span class="w"> </span><span class="c1"># ls</span>

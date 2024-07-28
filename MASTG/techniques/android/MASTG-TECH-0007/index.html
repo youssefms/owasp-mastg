@@ -16731,7 +16731,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 11, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16836,7 +16836,7 @@
 
   <h1>MASTG-TECH-0007: Exploring the App Package</h1>
 
-<p>Once you have collected the package name of the application you want to target, you'll want to start gathering information about it. First, retrieve the APK as explained in <a href="#obtaining-and-extracting-apps">"Basic Testing Operations - Obtaining and Extracting Apps"</a>.</p>
+<p>Once you have collected the package name of the application you want to target, you'll want to start gathering information about it. First, retrieve the APK as explained in <a href="../MASTG-TECH-0003/">"Basic Testing Operations - Obtaining and Extracting Apps"</a>.</p>
 <p>APK files are actually ZIP files that can be unpacked using a standard decompression utility such as <code>unzip</code>. However, we recommend using <a href="0x08a-Testing-Tools.md#apktool">apktool</a> which additionally decodes the AndroidManifest.xml and disassembles the app binaries (classes.dex) to smali code:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>apktool<span class="w"> </span>d<span class="w"> </span>UnCrackable-Level3.apk
 $<span class="w"> </span>tree

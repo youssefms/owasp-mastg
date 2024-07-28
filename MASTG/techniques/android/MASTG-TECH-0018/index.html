@@ -16677,7 +16677,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16842,7 +16842,7 @@ Decompiling<span class="w"> </span>to<span class="w"> </span>HelloWord-JNI/src<s
 <li>armeabi-v7a: This ABI extends armeabi to include several CPU instruction set extensions.</li>
 <li>arm64-v8a: ABI for ARMv8-based CPUs that support AArch64, the new 64-bit ARM architecture.</li>
 </ul>
-<p>Most disassemblers can handle any of those architectures. Below, we'll be viewing the armeabi-v7a version (located in <code>HelloWord-JNI/lib/armeabi-v7a/libnative-lib.so</code>) in radare2 and in IDA Pro. See the section "<a href="#reviewing-disassembled-native-code" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>" below to learn on how to proceed when inspecting the disassembled native code.</p>
+<p>Most disassemblers can handle any of those architectures. Below, we'll be viewing the armeabi-v7a version (located in <code>HelloWord-JNI/lib/armeabi-v7a/libnative-lib.so</code>) in radare2 and in IDA Pro. See the section "<a href="../MASTG-TECH-0024/" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>" below to learn on how to proceed when inspecting the disassembled native code.</p>
 <h2 id="radare2">radare2<a class="headerlink" href="#radare2" title="Permanent link">&para;</a></h2>
 <p>To open the file in <a href="0x08a-Testing-Tools.md#radare2">radare2</a> you only have to run <code>r2 -A HelloWord-JNI/lib/armeabi-v7a/libnative-lib.so</code>. The chapter "<a href="0x05b-Android-Security-Testing.md" title="Android Basic Security Testing">Android Basic Security Testing</a>" already introduced radare2. Remember that you can use the flag <code>-A</code> to run the <code>aaa</code> command right after loading the binary in order to analyze all referenced code.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>r2<span class="w"> </span>-A<span class="w"> </span>HelloWord-JNI/lib/armeabi-v7a/libnative-lib.so
@@ -16893,7 +16893,7 @@ Usage:<span class="w"> </span>aa<span class="o">[</span><span class="m">0</span>
 <p>Code analysis is not a quick operation, and not even predictable or taking a linear time to be processed. This makes starting times pretty heavy, compared to just loading the headers and strings information like it’s done by default.</p>
 <p>People that are used to <a href="0x08a-Testing-Tools.md#ida-pro-commercial-tool">IDA</a> or <a href="0x08a-Testing-Tools.md#hopper-commercial-tool">Hopper</a> just load the binary, go out to make a coffee and then when the analysis is done, they start doing the manual analysis to understand what the program is doing. It’s true that those tools perform the analysis in background, and the GUI is not blocked. But this takes a lot of CPU time, and r2 aims to run in many more platforms than just high-end desktop computers.</p>
 </blockquote>
-<p>This said, please see section "<a href="#reviewing-disassembled-native-code" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>" to learn more bout how radare2 can help us performing our reversing tasks much faster. For example, getting the disassembly of a specific function is a trivial task that can be performed in one command.</p>
+<p>This said, please see section "<a href="../MASTG-TECH-0024/">Reviewing Disassembled Native Code</a>" to learn more bout how radare2 can help us performing our reversing tasks much faster. For example, getting the disassembly of a specific function is a trivial task that can be performed in one command.</p>
 <h2 id="ida-pro">IDA Pro<a class="headerlink" href="#ida-pro" title="Permanent link">&para;</a></h2>
 <p>If you own an <a href="0x08a-Testing-Tools.md#ida-pro-commercial-tool">IDA Pro</a> license, open the file and once in the "Load new file" dialog, choose "ELF for ARM (Shared Object)" as the file type (IDA should detect this automatically), and "ARM Little-Endian" as the processor type.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/IDA_open_file.jpg" width="100%" /></p>

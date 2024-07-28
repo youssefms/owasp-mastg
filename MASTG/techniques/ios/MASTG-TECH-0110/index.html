@@ -16677,7 +16677,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: June 24, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16795,8 +16795,8 @@
 </ul>
 <h2 id="intercepting-traffic-using-reflutter">Intercepting Traffic using reFlutter<a class="headerlink" href="#intercepting-traffic-using-reflutter" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Patch the app to enable traffic interception.</li>
-</ol>
+<li>
+<p>Patch the app to enable traffic interception.</p>
 <p>Run the command to patch the app and select the option <strong>Traffic monitoring and interception</strong> and then enter the IP of the machine on which the interception proxy is running.</p>
 <div class="highlight"><pre><span></span><code>$ reflutter demo.ipa
 
@@ -16811,7 +16811,7 @@ Example: (192.168.1.154) etc.
 Please enter your BurpSuite IP: 192.168.29.216
 </code></pre></div>
 <p>This will create a <strong>release.RE.ipa</strong> file in the output folder.</p>
-<ol>
+</li>
 <li>
 <p><a href="../MASTG-TECH-0092/">Sign</a> the patched <strong>release.RE.ipa</strong> with the Apple certificates. This will create a signed ".ipa" file in the output folder.</p>
 </li>
@@ -16854,12 +16854,12 @@ Please enter your BurpSuite IP: 192.168.29.216
 </li>
 <li>
 <p>Run the <a href="../../../tools/generic/MASTG-TOOL-0101/">disable-flutter-tls.js</a> frida script.</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>frida<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>eu.nviso.flutterPinning<span class="w"> </span>-l<span class="w"> </span>disable-flutter-tls.js
 </code></pre></div>
-<ol>
-<li>Start intercepting traffic.</li>
+</li>
+<li>
+<p>Start intercepting traffic.</p>
+</li>
 </ol>
 
 

@@ -16695,7 +16695,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16922,7 +16922,7 @@ hits:<span class="w"> </span><span class="m">2</span>
 <p>They are in a different rw- region. Note that searching for the wide versions of strings is sometimes the only way to find them as you'll see in the following section.</p>
 <p>In-memory search can be very useful to quickly know if certain data is located in the main app binary, inside a shared library or in another region. You may also use it to test the behavior of the app regarding how the data is kept in memory. For instance, you could continue the previous example, this time clicking on Login and searching again for occurrences of the data. Also, you may check if you still can find those strings in memory after the login is completed to verify if this <em>sensitive data</em> is wiped from memory after its use.</p>
 <h2 id="memory-dump">Memory Dump<a class="headerlink" href="#memory-dump" title="Permanent link">&para;</a></h2>
-<p>You can dump the app's process memory with <a href="0x08a-Testing-Tools.md#objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-jailbroken device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section "<a href="#dynamic-analysis-on-non-jailbroken-devices" title="Dynamic Analysis on Non-Jailbroken Devices">Dynamic Analysis on Non-Jailbroken Devices</a>. To use these tools on a jailbroken phone, simply have frida-server installed and running.</p>
+<p>You can dump the app's process memory with <a href="0x08a-Testing-Tools.md#objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-jailbroken device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section "<a href="../MASTG-TECH-0079/">Dynamic Analysis on Non-Jailbroken Devices</a>. To use these tools on a jailbroken phone, simply have frida-server installed and running.</p>
 <p>With objection it is possible to dump all memory of the running process on the device by using the command <code>memory dump all</code>.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>objection<span class="w"> </span>explore
 

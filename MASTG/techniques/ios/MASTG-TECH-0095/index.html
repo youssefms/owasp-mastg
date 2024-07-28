@@ -16659,7 +16659,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16765,7 +16765,7 @@
   <h1>MASTG-TECH-0095: Method Hooking</h1>
 
 <h2 id="frida">Frida<a class="headerlink" href="#frida" title="Permanent link">&para;</a></h2>
-<p>In section <a href="#execution-tracing" title="Execution Tracing">"Execution Tracing"</a> we've used frida-trace when navigating to a website in Safari and found that the <code>initWithURL:</code> method is called to initialize a new URL request object. We can look up the declaration of this method on the <a href="https://developer.apple.com/documentation/foundation/nsbundle/1409352-initwithurl?language=objc" title="Apple Developer Website - initWithURL Instance Method">Apple Developer Website</a>:</p>
+<p>In section <a href="../MASTG-TECH-0085/">"Execution Tracing"</a> we've used frida-trace when navigating to a website in Safari and found that the <code>initWithURL:</code> method is called to initialize a new URL request object. We can look up the declaration of this method on the <a href="https://developer.apple.com/documentation/foundation/nsbundle/1409352-initwithurl?language=objc" title="Apple Developer Website - initWithURL Instance Method">Apple Developer Website</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 </code></pre></div>
 <p>Using this information we can write a Frida script that intercepts the <code>initWithURL:</code> method and prints the URL passed to the method. The full script is below. Make sure you read the code and inline comments to understand what's going on.</p>

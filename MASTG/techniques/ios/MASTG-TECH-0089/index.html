@@ -16659,7 +16659,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 13, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16771,7 +16771,7 @@
 <blockquote>
 <p>The Mach-O backend in Angr is not well-supported, but it works perfectly fine for our case.</p>
 </blockquote>
-<p>While manually analyzing the code in the <a href="#reviewing-disassembled-native-code" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>" section, we reached a point where performing further manual analysis was cumbersome. The function at offset <code>0x1000080d4</code> was identified as the final target which contains the secret string.</p>
+<p>While manually analyzing the code in the <a href="../MASTG-TECH-0077/" title="Reviewing Disassembled Native Code">Reviewing Disassembled Native Code</a>" section, we reached a point where performing further manual analysis was cumbersome. The function at offset <code>0x1000080d4</code> was identified as the final target which contains the secret string.</p>
 <p>If we revisit that function, we can see that it involves multiple sub-function calls and interestingly none of these functions have any dependencies on other library calls or system calls. This is a perfect case to use Angr's concrete execution engine. Follow the steps below to solve this challenge:</p>
 <ul>
 <li>Get the ARM64 version of the binary by running <code>lipo -thin arm64 &lt;app_binary&gt; -output uncrackable.arm64</code> (ARMv7 can be used as well).</li>

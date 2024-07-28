@@ -7890,8 +7890,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Checking How the Links Are Opened">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#final-notes-about-universal-links-and-handoff" class="md-nav__link">
@@ -7899,11 +7898,6 @@
       Final Notes about Universal Links and Handoff
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -16875,8 +16869,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Checking How the Links Are Opened">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#final-notes-about-universal-links-and-handoff" class="md-nav__link">
@@ -16884,11 +16877,6 @@
       Final Notes about Universal Links and Handoff
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -16913,7 +16901,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: April 27, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -17394,7 +17382,7 @@ dismissInput:<span class="w"> </span><span class="o">()</span><span class="w"> <
 </ul>
 <p>You can now keep going and try to trace and verify how the data is being validated. For example, if you have two apps that <em>communicate</em> via universal links you can use this to see if the sending app is leaking sensitive data by hooking these methods in the receiving app. This is especially useful when you don't have the source code as you will be able to retrieve the full URL that you wouldn't see other way as it might be the result of clicking some button or triggering some functionality.</p>
 <p>In some cases, you might find data in <code>userInfo</code> of the <code>NSUserActivity</code> object. In the previous case there was no data being transferred but it might be the case for other scenarios. To see this, be sure to hook the <code>userInfo</code> property or access it directly from the <code>continueUserActivity</code> object in your hook (e.g. by adding a line like this <code>log("userInfo:" + ObjC.Object(args[3]).userInfo().toString());</code>).</p>
-<h5 id="final-notes-about-universal-links-and-handoff">Final Notes about Universal Links and Handoff<a class="headerlink" href="#final-notes-about-universal-links-and-handoff" title="Permanent link">&para;</a></h5>
+<h3 id="final-notes-about-universal-links-and-handoff">Final Notes about Universal Links and Handoff<a class="headerlink" href="#final-notes-about-universal-links-and-handoff" title="Permanent link">&para;</a></h3>
 <p>Universal links and Apple's <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html#//apple_ref/doc/uid/TP40014338" title="Handoff Fundamentals: About Handoff">Handoff feature</a> are related:</p>
 <ul>
 <li>Both rely on the same method when receiving data:</li>

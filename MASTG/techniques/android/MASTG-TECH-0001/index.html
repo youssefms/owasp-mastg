@@ -16743,7 +16743,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16863,7 +16863,7 @@ bullhead:/<span class="w"> </span><span class="c1"># id</span>
 <span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">context</span><span class="o">=</span>u:r:su:s0
 </code></pre></div>
 <blockquote>
-<p>Only if you're working with an emulator you may alternatively restart adb with root permissions with the command <code>adb root</code> so next time you enter <code>adb shell</code> you'll have root access already. This also allows to transfer data bidirectionally between your host computer and the Android file system, even with access to locations where only the root user has access to (via <code>adb push/pull</code>). See more about data transfer in section "<a href="#host-device-data-transfer" title="Host-Device Data Transfer">Host-Device Data Transfer</a>" below.</p>
+<p>Only if you're working with an emulator you may alternatively restart adb with root permissions with the command <code>adb root</code> so next time you enter <code>adb shell</code> you'll have root access already. This also allows to transfer data bidirectionally between your host computer and the Android file system, even with access to locations where only the root user has access to (via <code>adb push/pull</code>). See more about data transfer in section "<a href="../MASTG-TECH-0002/">Host-Device Data Transfer</a>" below.</p>
 </blockquote>
 <h3 id="connect-to-multiple-devices">Connect to Multiple Devices<a class="headerlink" href="#connect-to-multiple-devices" title="Permanent link">&para;</a></h3>
 <p>If you have more than one device, remember to include the <code>-s</code> flag followed by the device serial ID on all your <code>adb</code> commands (e.g. <code>adb -s emulator-5554 shell</code> or <code>adb -s 00b604081540b7c6 shell</code>). You can get a list of all connected devices and their serial IDs by using the following command:</p>
@@ -16885,9 +16885,9 @@ emulator-5554<span class="w">    </span>device
 </blockquote>
 <p>See the full instructions and considerations in the <a href="https://developer.android.com/studio/command-line/adb#wireless" title="Connect to a device over Wi-Fi">Android Developers Documentation</a>.</p>
 <h3 id="connect-to-a-device-via-ssh">Connect to a Device via SSH<a class="headerlink" href="#connect-to-a-device-via-ssh" title="Permanent link">&para;</a></h3>
-<p>If you prefer, you can also enable SSH access. A convenient option is to use <a href="0x08a-Testing-Tools.md#termux">Termux</a>, which you can easily <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">configure to offer SSH access</a> (with password or public key authentication) and start it with the command <code>sshd</code> (starts by default on port 8022). In order to connect to the Termux via SSH you can simply run the command <code>ssh -p 8022 &lt;ip_address&gt;</code> (where <code>ip_address</code> is the actual remote device IP). This option has some additional benefits as it allows to access the file system via SFTP also on port 8022.</p>
+<p>If you prefer, you can also enable SSH access. A convenient option is to use <a href="/tools/android/MASTG-TOOL-0026.md">Termux</a>, which you can easily <a href="https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server" title="Using the SSH server">configure to offer SSH access</a> (with password or public key authentication) and start it with the command <code>sshd</code> (starts by default on port 8022). In order to connect to the Termux via SSH you can simply run the command <code>ssh -p 8022 &lt;ip_address&gt;</code> (where <code>ip_address</code> is the actual remote device IP). This option has some additional benefits as it allows to access the file system via SFTP also on port 8022.</p>
 <h2 id="on-device-shell-app">On-device Shell App<a class="headerlink" href="#on-device-shell-app" title="Permanent link">&para;</a></h2>
-<p>While usually using an on-device shell (terminal emulator) such as <a href="0x08a-Testing-Tools.md#termux">Termux</a> might be very tedious compared to a remote shell, it can prove handy for debugging in case of, for example, network issues or to check some configuration.</p>
+<p>While usually using an on-device shell (terminal emulator) such as <a href="/tools/android/MASTG-TOOL-0026.md">Termux</a> might be very tedious compared to a remote shell, it can prove handy for debugging in case of, for example, network issues or to check some configuration.</p>
 
 
 

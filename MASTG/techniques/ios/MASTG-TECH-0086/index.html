@@ -16600,7 +16600,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16706,7 +16706,7 @@
   <h1>MASTG-TECH-0086: Method Tracing</h1>
 
 <p>Intercepting Objective-C methods is a useful iOS security testing technique. For example, you may be interested in data storage operations or network requests. In the following example, we'll write a simple tracer for logging HTTP(S) requests made via iOS standard HTTP APIs. We'll also show you how to inject the tracer into the Safari web browser.</p>
-<p>In the following examples, we'll assume that you are working on a jailbroken device. If that's not the case, you first need to follow the steps outlined in section <a href="#repackaging-and-re-signing" title="Repackaging and Re-Signing">Repackaging and Re-Signing</a> to repackage the Safari app.</p>
+<p>In the following examples, we'll assume that you are working on a jailbroken device. If that's not the case, you first need to follow the steps outlined in section <a href="../MASTG-TECH-0055/">Repackaging and Re-Signing</a> to repackage the Safari app.</p>
 <p>Frida comes with <code>frida-trace</code>, a function tracing tool. <code>frida-trace</code> accepts Objective-C methods via the <code>-m</code> flag. You can pass it wildcards as well-given <code>-[NSURL *]</code>, for example, <code>frida-trace</code> will automatically install hooks on all <code>NSURL</code> class selectors. We'll use this to get a rough idea about which library functions Safari calls when the user opens a URL.</p>
 <p>Run Safari on the device and make sure the device is connected via USB. Then start <code>frida-trace</code> as follows:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida-trace<span class="w"> </span>-U<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;-[NSURL *]&quot;</span><span class="w"> </span>Safari

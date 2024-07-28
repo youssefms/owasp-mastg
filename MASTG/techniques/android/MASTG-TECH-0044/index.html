@@ -16695,7 +16695,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 15, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16942,7 +16942,7 @@ hits:<span class="w"> </span><span class="m">6</span>
 <p>They are in the same rw- region as one of the previous strings (<code>0x0000007d30a00000</code>). Note that searching for the wide versions of strings is sometimes the only way to find them as you'll see in the following section.</p>
 <p>In-memory search can be very useful to quickly know if certain data is located in the main app binary, inside a shared library or in another region. You may also use it to test the behavior of the app regarding how the data is kept in memory. For instance, you could analyze an app that performs a login and search for occurrences of the user password. Also, you may check if you still can find the password in memory after the login is completed to verify if this sensitive data is wiped from memory after its use.</p>
 <h3 id="memory-dump">Memory Dump<a class="headerlink" href="#memory-dump" title="Permanent link">&para;</a></h3>
-<p>You can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-rooted device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section <a href="#dynamic-analysis-on-non-rooted-devices" title="Dynamic Analysis on Non-Rooted Devices">Dynamic Analysis on Non-Rooted Devices</a>. To use these tools on a rooted phone, simply have frida-server installed and running.</p>
+<p>You can dump the app's process memory with <a href="https://github.com/sensepost/objection" title="Objection">objection</a> and <a href="https://github.com/Nightbringer21/fridump" title="Fridump">Fridump</a>. To take advantage of these tools on a non-rooted device, the Android app must be repackaged with <code>frida-gadget.so</code> and re-signed. A detailed explanation of this process is in the section <a href="../MASTG-TECH-0026/">Dynamic Analysis on Non-Rooted Devices</a>. To use these tools on a rooted phone, simply have frida-server installed and running.</p>
 <blockquote>
 <p>Note: When using these tools, you might get several memory access violation errors which can normally be ignored. These tools inject a Frida agent and try to dump all the mapped memory of the app regardless of the access permissions (read/write/execute). Therefore, when the injected Frida agent tries to read a region that's not readable, it'll return the corresponding <em>memory access violation errors</em>. Refer to previous section "Memory Maps and Inspection" for more details.</p>
 </blockquote>

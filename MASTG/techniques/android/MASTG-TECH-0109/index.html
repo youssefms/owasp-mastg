@@ -16792,8 +16792,8 @@
 </ul>
 <h2 id="intercepting-traffic-using-reflutter">Intercepting Traffic using reFlutter<a class="headerlink" href="#intercepting-traffic-using-reflutter" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Patch the app to enable traffic interception.</li>
-</ol>
+<li>
+<p>Patch the app to enable traffic interception.</p>
 <p>Run the command to patch the app and select the option <strong>Traffic monitoring and interception</strong> and then enter the IP of the machine on which the interception proxy is running.</p>
 <div class="highlight"><pre><span></span><code>$ reflutter demo.apk
 
@@ -16808,13 +16808,13 @@ Example: (192.168.1.154) etc.
 Please enter your BurpSuite IP: 192.168.29.216
 </code></pre></div>
 <p>This will create a <strong>release.RE.apk</strong> file in the output folder.</p>
-<ol>
-<li>Sign the patched <strong>release.RE.apk</strong> file (e.g. using the <a href="https://github.com/patrickfav/uber-apk-signer">uber-apk-signer</a>).</li>
-</ol>
+</li>
+<li>
+<p>Sign the patched <strong>release.RE.apk</strong> file (e.g. using the <a href="https://github.com/patrickfav/uber-apk-signer">uber-apk-signer</a>).</p>
 <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>uber-apk-signer.jar<span class="w"> </span>-a<span class="w"> </span>release.RE.apk<span class="w"> </span>--out<span class="w"> </span>demo-signed
 </code></pre></div>
 <p>This will create a <strong>release.RE-aligned-debugSigned.apk</strong> file in the output folder.</p>
-<ol>
+</li>
 <li>
 <p>Install the signed patched app on the mobile device.</p>
 </li>
@@ -16835,14 +16835,14 @@ Please enter your BurpSuite IP: 192.168.29.216
 </ol>
 <h2 id="intercepting-traffic-using-proxydroid-iptables-with-frida">Intercepting Traffic using ProxyDroid / iptables with Frida<a class="headerlink" href="#intercepting-traffic-using-proxydroid-iptables-with-frida" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Configure <a href="https://blog.nviso.eu/2019/08/13/intercepting-traffic-from-android-flutter-applications/">proxyDroid</a> or iptables rules to redirect requests to Burp.</li>
-</ol>
-<p>If not using proxyDroid, execute the following commands on the rooted Android device to configure iptables to redirect the incoming requests from the application to Burp:
+<li>
+<p>Configure <a href="https://blog.nviso.eu/2019/08/13/intercepting-traffic-from-android-flutter-applications/">proxyDroid</a> or iptables rules to redirect requests to Burp.</p>
+<p>If not using proxyDroid, execute the following commands on the rooted Android device to configure iptables to redirect the incoming requests from the application to Burp:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span>&lt;Your-Proxy-IP&gt;:8080<span class="w"> </span>
 
 $<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span>&lt;Your-Proxy-IP&gt;:8080<span class="w"> </span>
-</code></pre></div></p>
-<ol>
+</code></pre></div>
+</li>
 <li>
 <p>Install the <a href="../../../apps/android/MASTG-APP-0016/">app</a> on the mobile device.</p>
 </li>
@@ -16859,12 +16859,12 @@ $<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </sp
 </li>
 <li>
 <p>Run the <a href="../../../tools/generic/MASTG-TOOL-0101/">disable-flutter-tls.js</a> frida script.</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>frida<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>eu.nviso.flutterPinning<span class="w"> </span>-l<span class="w"> </span>disable-flutter-tls.js
 </code></pre></div>
-<ol>
-<li>Start intercepting traffic.</li>
+</li>
+<li>
+<p>Start intercepting traffic.</p>
+</li>
 </ol>
 
 

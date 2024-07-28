@@ -16713,7 +16713,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: May 01, 2024</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16907,7 +16907,7 @@ main<span class="o">[</span><span class="m">1</span><span class="o">]</span><spa
 <p>This is the plaintext string you're looking for!</p>
 <h2 id="debugging-with-an-ide">Debugging with an IDE<a class="headerlink" href="#debugging-with-an-ide" title="Permanent link">&para;</a></h2>
 <p>Setting up a project in an IDE with the decompiled sources is a neat trick that allows you to set method breakpoints directly in the source code. In most cases, you should be able to single-step through the app and inspect the state of variables with the GUI. The experience won't be perfect, it's not the original source code after all, so you won't be able to set line breakpoints and things will sometimes simply not work correctly. Then again, reversing code is never easy, and efficiently navigating and debugging plain old Java code is a pretty convenient way of doing it. A similar method has been described in the <a href="https://blog.netspi.com/attacking-android-applications-with-debuggers/" title="NetSPI Blog - Attacking Android Applications with Debuggers">NetSPI blog</a>.</p>
-<p>To set up IDE debugging, first create your Android project in IntelliJ and copy the decompiled Java sources into the source folder as described above in the "<a href="#reviewing-decompiled-java-code" title="Reviewing Decompiled Java Code">Reviewing Decompiled Java Code</a>" section. On the device, choose the app as <strong>debug app</strong> on the "Developer options" (<a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> in this tutorial), and make sure you've switched on the "Wait For Debugger" feature.</p>
+<p>To set up IDE debugging, first create your Android project in IntelliJ and copy the decompiled Java sources into the source folder as described above in the "<a href="../MASTG-TECH-0023/">Reviewing Decompiled Java Code</a>" section. On the device, choose the app as <strong>debug app</strong> on the "Developer options" (<a href="../../../apps/android/MASTG-APP-0003/">UnCrackable App for Android Level 1</a> in this tutorial), and make sure you've switched on the "Wait For Debugger" feature.</p>
 <p>Once you tap the app icon from the launcher, it will be suspended in "Wait For Debugger" mode.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x05c/waitfordebugger.png" width="300px" /></p>
 <p>Now you can set breakpoints and attach to the app process with the "Attach Debugger" toolbar button.</p>

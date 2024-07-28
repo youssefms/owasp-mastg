@@ -16695,7 +16695,7 @@
     
 
     
-    <em><small style="color: darkgrey;">Last updated: September 29, 2023</small></em>
+    <em><small style="color: darkgrey;">Last updated: July 28, 2024</small></em>
     <br><br>
     
 
@@ -16804,7 +16804,7 @@
 <p>For most applications, certificate pinning can be bypassed within seconds, but only if the app uses the API functions that are covered by these tools. If the app is implementing SSL Pinning with a custom framework or library, the SSL Pinning must be manually patched and deactivated, which can be time-consuming.</p>
 <p>This section describes various ways to bypass SSL Pinning and gives guidance about what you should do when the existing tools don't work.</p>
 <h2 id="methods-for-jailbroken-and-non-jailbroken-devices">Methods for Jailbroken and Non-jailbroken Devices<a class="headerlink" href="#methods-for-jailbroken-and-non-jailbroken-devices" title="Permanent link">&para;</a></h2>
-<p>If you have a jailbroken device with frida-server installed, you can bypass SSL pinning by running the following <a href="0x08a-Testing-Tools.md#objection">Objection</a> command (<a href="#repackaging-apps">repackage your app</a> if you're using a non-jailbroken device):</p>
+<p>If you have a jailbroken device with frida-server installed, you can bypass SSL pinning by running the following <a href="/tools/ios/MASTG-TOOL-0074.md">Objection</a> command (<a href="../MASTG-TECH-0055/">repackage your app</a> if you're using a non-jailbroken device):</p>
 <div class="highlight"><pre><span></span><code>ios<span class="w"> </span>sslpinning<span class="w"> </span>disable
 </code></pre></div>
 <p>Here's an example of the output:</p>
