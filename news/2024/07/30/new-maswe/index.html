@@ -9,25 +9,23 @@
       
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../../../02/19/new-standard-for-secure-mobile-app-transactions/">
       
       
-        <link rel="next" href="../2023/">
       
-      
-      <link rel="icon" href="../../../assets/logo_circle.png">
+      <link rel="icon" href="../../../../../assets/logo_circle.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
-        <title>2024 - OWASP Mobile Application Security</title>
+        <title>Introducing the new Mobile App Security Weakness Enumeration (MASWE) - OWASP Mobile Application Security</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -99,11 +97,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -139,7 +137,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2024" class="md-skip">
+        <a href="#refactoring-the-mastg" class="md-skip">
           Skip to content
         </a>
       
@@ -155,9 +153,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="OWASP Mobile Application Security" class="md-header__button md-logo" aria-label="OWASP Mobile Application Security" data-md-component="logo">
+    <a href="../../../../.." title="OWASP Mobile Application Security" class="md-header__button md-logo" aria-label="OWASP Mobile Application Security" data-md-component="logo">
       
-  <img src="../../../assets/logo_circle.png" alt="logo">
+  <img src="../../../../../assets/logo_circle.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -174,7 +172,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2024
+              Introducing the new Mobile App Security Weakness Enumeration (MASWE)
             
           </span>
         </div>
@@ -282,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
     
@@ -301,7 +299,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../MASWE/" class="md-tabs__link">
+        <a href="../../../../../MASWE/" class="md-tabs__link">
           
   
     
@@ -321,7 +319,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../MASTG/" class="md-tabs__link">
+        <a href="../../../../../MASTG/" class="md-tabs__link">
           
   
     
@@ -341,7 +339,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../MASVS/" class="md-tabs__link">
+        <a href="../../../../../MASVS/" class="md-tabs__link">
           
   
     
@@ -361,7 +359,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../checklists/" class="md-tabs__link">
+        <a href="../../../../../checklists/" class="md-tabs__link">
           
   
     
@@ -381,7 +379,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../crackmes/" class="md-tabs__link">
+        <a href="../../../../../crackmes/" class="md-tabs__link">
           
   
     
@@ -401,7 +399,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../" class="md-tabs__link">
+        <a href="../../../../" class="md-tabs__link">
           
   
     
@@ -419,7 +417,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../talks/" class="md-tabs__link">
+      <a href="../../../../../talks/" class="md-tabs__link">
         
   
     
@@ -438,7 +436,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../contributing/" class="md-tabs__link">
+        <a href="../../../../../contributing/" class="md-tabs__link">
           
   
     
@@ -458,7 +456,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../donate/" class="md-tabs__link">
+        <a href="../../../../../donate/" class="md-tabs__link">
           
   
     
@@ -476,7 +474,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../contact/" class="md-tabs__link">
+      <a href="../../../../../contact/" class="md-tabs__link">
         
   
     
@@ -505,7 +503,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -516,9 +516,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="OWASP Mobile Application Security" class="md-nav__button md-logo" aria-label="OWASP Mobile Application Security" data-md-component="logo">
+    <a href="../../../../.." title="OWASP Mobile Application Security" class="md-nav__button md-logo" aria-label="OWASP Mobile Application Security" data-md-component="logo">
       
-  <img src="../../../assets/logo_circle.png" alt="logo">
+  <img src="../../../../../assets/logo_circle.png" alt="logo">
 
     </a>
     OWASP Mobile Application Security
@@ -545,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -602,7 +602,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASWE/" class="md-nav__link ">
+            <a href="../../../../../MASWE/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -691,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0001/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -720,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0002/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0003/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0004/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0005/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0006/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0007/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -894,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-STORAGE/MASWE-0008/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-STORAGE/MASWE-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0009/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0010/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1067,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0011/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0011/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1096,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0012/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0012/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1125,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0013/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0013/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1154,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0014/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0014/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1183,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0015/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0015/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1212,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0016/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0016/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1241,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0017/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0017/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1270,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0018/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0018/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0019/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0019/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1328,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0020/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0020/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1357,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0021/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0021/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1386,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0022/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0023/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1444,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0024/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1473,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0025/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0025/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1502,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0026/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0026/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1531,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CRYPTO/MASWE-0027/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CRYPTO/MASWE-0027/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1646,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0028/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0028/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1675,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0029/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0029/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1704,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0030/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0030/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1733,7 +1733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0031/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0031/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1762,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0032/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0032/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1791,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0033/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0033/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1820,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0034/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0034/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0035/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0035/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1878,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0036/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0036/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1907,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0037/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0037/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1936,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0038/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0038/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1965,7 +1965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0039/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0039/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1994,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0040/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0040/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2023,7 +2023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0041/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0041/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2052,7 +2052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0042/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0042/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2081,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0043/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0043/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2110,7 +2110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0044/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0044/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2139,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0045/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0045/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2168,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-AUTH/MASWE-0046/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-AUTH/MASWE-0046/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2257,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0047/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0047/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2286,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0048/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0048/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2315,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0049/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0049/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2344,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0050/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0050/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2373,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0051/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0051/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2402,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-NETWORK/MASWE-0052/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-NETWORK/MASWE-0052/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2523,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0053/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0053/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2552,7 +2552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0054/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0054/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2581,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0055/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0055/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2610,7 +2610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0056/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0056/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2639,7 +2639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0057/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0057/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2668,7 +2668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0058/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0058/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2697,7 +2697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0059/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0059/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2726,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0060/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0060/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2755,7 +2755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0061/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0061/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2784,7 +2784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0062/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0062/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2813,7 +2813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0063/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0063/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2842,7 +2842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0064/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0064/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2871,7 +2871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0065/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0065/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2900,7 +2900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0066/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0066/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2929,7 +2929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0067/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0067/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2958,7 +2958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0068/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0068/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2987,7 +2987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0069/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0069/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3016,7 +3016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0070/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0070/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3045,7 +3045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0071/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0071/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3074,7 +3074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0072/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0072/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3103,7 +3103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0073/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0073/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3132,7 +3132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PLATFORM/MASWE-0074/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PLATFORM/MASWE-0074/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3237,7 +3237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0075/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0075/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3266,7 +3266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0076/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0076/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3295,7 +3295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0077/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0077/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3324,7 +3324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0078/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0078/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3353,7 +3353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0079/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0079/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3382,7 +3382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0080/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0080/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3411,7 +3411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0081/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0081/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3440,7 +3440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0082/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0082/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3469,7 +3469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0083/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0083/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3498,7 +3498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0084/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0084/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3527,7 +3527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0085/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0085/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3556,7 +3556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0086/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0086/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3585,7 +3585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0087/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0087/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3614,7 +3614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-CODE/MASWE-0088/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-CODE/MASWE-0088/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3729,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0089/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0089/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3758,7 +3758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0090/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0090/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3787,7 +3787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0091/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0091/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3816,7 +3816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0092/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0092/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3845,7 +3845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0093/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0093/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3874,7 +3874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0094/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0094/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3903,7 +3903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0095/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0095/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3932,7 +3932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0096/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0096/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3961,7 +3961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0097/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0097/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3990,7 +3990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0098/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0098/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4019,7 +4019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0099/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0099/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4048,7 +4048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0100/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0100/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4077,7 +4077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0101/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0101/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4106,7 +4106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0102/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0102/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4135,7 +4135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0103/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0103/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4164,7 +4164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0104/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0104/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4193,7 +4193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0105/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0105/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4222,7 +4222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0106/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0106/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4251,7 +4251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-RESILIENCE/MASWE-0107/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0107/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4330,7 +4330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASWE/MASVS-PRIVACY/MASWE-0108/" class="md-nav__link">
+      <a href="../../../../../MASWE/MASVS-PRIVACY/MASWE-0108/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4415,7 +4415,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/" class="md-nav__link ">
+            <a href="../../../../../MASTG/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -4498,7 +4498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x01-Foreword/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x01-Foreword/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4519,7 +4519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x02a-Frontispiece/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x02a-Frontispiece/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4540,7 +4540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x02b-MASVS-MASTG-Adoption/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x02b-MASVS-MASTG-Adoption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4561,7 +4561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x02c-Acknowledgements/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x02c-Acknowledgements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4582,7 +4582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x09-Suggested-Reading/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x09-Suggested-Reading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4667,7 +4667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04a-Mobile-App-Taxonomy/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04a-Mobile-App-Taxonomy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4688,7 +4688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04b-Mobile-App-Security-Testing/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04b-Mobile-App-Security-Testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4709,7 +4709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04c-Tampering-and-Reverse-Engineering/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04c-Tampering-and-Reverse-Engineering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4730,7 +4730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04e-Testing-Authentication-and-Session-Management/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04e-Testing-Authentication-and-Session-Management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4751,7 +4751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04f-Testing-Network-Communication/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04f-Testing-Network-Communication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4772,7 +4772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04g-Testing-Cryptography/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04g-Testing-Cryptography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4793,7 +4793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04h-Testing-Code-Quality/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04h-Testing-Code-Quality/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4814,7 +4814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x04i-Testing-User-Privacy-Protection/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x04i-Testing-User-Privacy-Protection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4901,7 +4901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05a-Platform-Overview/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05a-Platform-Overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4922,7 +4922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05b-Android-Security-Testing/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05b-Android-Security-Testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4943,7 +4943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05d-Testing-Data-Storage/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05d-Testing-Data-Storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4964,7 +4964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05e-Testing-Cryptography/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05e-Testing-Cryptography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4985,7 +4985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05f-Testing-Local-Authentication/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05f-Testing-Local-Authentication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5006,7 +5006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05g-Testing-Network-Communication/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05g-Testing-Network-Communication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5027,7 +5027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05h-Testing-Platform-Interaction/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05h-Testing-Platform-Interaction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5048,7 +5048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05i-Testing-Code-Quality-and-Build-Settings/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05i-Testing-Code-Quality-and-Build-Settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5069,7 +5069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x05j-Testing-Resiliency-Against-Reverse-Engineering/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x05j-Testing-Resiliency-Against-Reverse-Engineering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5156,7 +5156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06a-Platform-Overview/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06a-Platform-Overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5177,7 +5177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06b-iOS-Security-Testing/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06b-iOS-Security-Testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5198,7 +5198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06d-Testing-Data-Storage/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06d-Testing-Data-Storage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5219,7 +5219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06e-Testing-Cryptography/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06e-Testing-Cryptography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5240,7 +5240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06f-Testing-Local-Authentication/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06f-Testing-Local-Authentication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5261,7 +5261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06g-Testing-Network-Communication/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06g-Testing-Network-Communication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5282,7 +5282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06h-Testing-Platform-Interaction/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06h-Testing-Platform-Interaction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5303,7 +5303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06i-Testing-Code-Quality-and-Build-Settings/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06i-Testing-Code-Quality-and-Build-Settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5324,7 +5324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/0x06j-Testing-Resiliency-Against-Reverse-Engineering/" class="md-nav__link">
+      <a href="../../../../../MASTG/0x06j-Testing-Resiliency-Against-Reverse-Engineering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5378,7 +5378,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/tests/" class="md-nav__link ">
+            <a href="../../../../../MASTG/tests/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -5523,7 +5523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0001/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5544,7 +5544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0003/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5565,7 +5565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0004/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5586,7 +5586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0005/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5607,7 +5607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0006/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5628,7 +5628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0009/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5649,7 +5649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0011/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0011/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5670,7 +5670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0012/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0012/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5747,7 +5747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0013/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0013/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5768,7 +5768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0014/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0014/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5789,7 +5789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0015/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0015/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5810,7 +5810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0016/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0016/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5883,7 +5883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0017/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0017/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5904,7 +5904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0018/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0018/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5983,7 +5983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0019/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0019/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6004,7 +6004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0020/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0020/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6025,7 +6025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0021/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0021/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6046,7 +6046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0022/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6067,7 +6067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0023/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6160,7 +6160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0007/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6181,7 +6181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0008/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6202,7 +6202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0010/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6223,7 +6223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0024/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6244,7 +6244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0028/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0028/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6265,7 +6265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0029/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0029/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6286,7 +6286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0030/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0030/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6307,7 +6307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0031/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0031/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6328,7 +6328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0032/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0032/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6349,7 +6349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0033/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0033/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6370,7 +6370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0035/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0035/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6391,7 +6391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0037/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0037/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6478,7 +6478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0002/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6499,7 +6499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0025/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0025/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6520,7 +6520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0026/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0026/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6541,7 +6541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0027/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0027/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6562,7 +6562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0034/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0034/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6583,7 +6583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0036/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0036/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6604,7 +6604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0042/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0042/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6625,7 +6625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0043/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0043/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6646,7 +6646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0044/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-CODE/MASTG-TEST-0044/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6737,7 +6737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0038/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0038/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6758,7 +6758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0039/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0039/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6779,7 +6779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0040/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0040/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6800,7 +6800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0041/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0041/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6821,7 +6821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0045/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0045/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6842,7 +6842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0046/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0046/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6863,7 +6863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0047/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0047/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6884,7 +6884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0048/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0048/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6905,7 +6905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0049/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0049/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6926,7 +6926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0050/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0050/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6947,7 +6947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0051/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0051/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6976,7 +6976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7113,7 +7113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0052/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0052/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7134,7 +7134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0053/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0053/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7155,7 +7155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0054/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0054/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7176,7 +7176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0055/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0055/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7197,7 +7197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0058/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0058/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7218,7 +7218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0060/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-STORAGE/MASTG-TEST-0060/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7293,7 +7293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0061/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0061/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7314,7 +7314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0062/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0062/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7335,7 +7335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0063/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CRYPTO/MASTG-TEST-0063/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7406,7 +7406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-AUTH/MASTG-TEST-0064/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-AUTH/MASTG-TEST-0064/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7483,7 +7483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0065/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0065/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7504,7 +7504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0066/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0066/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7525,7 +7525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0067/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0067/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7546,7 +7546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0068/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-NETWORK/MASTG-TEST-0068/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7639,7 +7639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0056/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0056/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7660,7 +7660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0057/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0057/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7681,7 +7681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0059/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0059/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7702,7 +7702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0069/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0069/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7723,7 +7723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0070/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0070/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7744,7 +7744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0071/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0071/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7765,7 +7765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0072/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0072/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7786,7 +7786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0073/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0073/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7807,7 +7807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0075/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0075/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7828,7 +7828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0076/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0076/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7849,7 +7849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0077/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0077/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7870,7 +7870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0078/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-PLATFORM/MASTG-TEST-0078/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7949,7 +7949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0079/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0079/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7970,7 +7970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0080/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0080/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7991,7 +7991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0085/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0085/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8012,7 +8012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0086/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0086/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8033,7 +8033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0087/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-CODE/MASTG-TEST-0087/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8122,7 +8122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0081/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0081/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8143,7 +8143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0082/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0082/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8164,7 +8164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0083/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0083/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8185,7 +8185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0084/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0084/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8206,7 +8206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0088/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0088/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8227,7 +8227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0089/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0089/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8248,7 +8248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0090/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0090/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8269,7 +8269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0091/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0091/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8290,7 +8290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0092/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0092/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8311,7 +8311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0093/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests/ios/MASVS-RESILIENCE/MASTG-TEST-0093/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8340,7 +8340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8400,7 +8400,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/tests-beta/" class="md-nav__link ">
+            <a href="../../../../../MASTG/tests-beta/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -8537,7 +8537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0200/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0200/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8558,7 +8558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0201/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0201/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8579,7 +8579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0202/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8600,7 +8600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0203/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8621,7 +8621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0207/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-STORAGE/MASTG-TEST-0207/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8694,7 +8694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-CRYPTO/MASTG-TEST-0204/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-CRYPTO/MASTG-TEST-0204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8715,7 +8715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-CRYPTO/MASTG-TEST-0205/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-CRYPTO/MASTG-TEST-0205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8786,7 +8786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tests-beta/android/MASVS-PRIVACY/MASTG-TEST-0206/" class="md-nav__link">
+      <a href="../../../../../MASTG/tests-beta/android/MASVS-PRIVACY/MASTG-TEST-0206/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8854,7 +8854,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/demos/" class="md-nav__link ">
+            <a href="../../../../../MASTG/demos/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -8995,7 +8995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0001/MASTG-DEMO-0001/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0001/MASTG-DEMO-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9016,7 +9016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0002/MASTG-DEMO-0002/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0002/MASTG-DEMO-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9037,7 +9037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0003/MASTG-DEMO-0003/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0003/MASTG-DEMO-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9058,7 +9058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0004/MASTG-DEMO-0004/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0004/MASTG-DEMO-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9079,7 +9079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0005/MASTG-DEMO-0005/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0005/MASTG-DEMO-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9100,7 +9100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0006/MASTG-DEMO-0006/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0006/MASTG-DEMO-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9121,7 +9121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0010/MASTG-DEMO-0010/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-STORAGE/MASTG-DEMO-0010/MASTG-DEMO-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9194,7 +9194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-CRYPTO/MASTG-DEMO-0007/MASTG-DEMO-0007/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-CRYPTO/MASTG-DEMO-0007/MASTG-DEMO-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9215,7 +9215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-CRYPTO/MASTG-DEMO-0008/MASTG-DEMO-0008/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-CRYPTO/MASTG-DEMO-0008/MASTG-DEMO-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9286,7 +9286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/demos/android/MASVS-PRIVACY/MASTG-DEMO-0009/MASTG-DEMO-0009/" class="md-nav__link">
+      <a href="../../../../../MASTG/demos/android/MASVS-PRIVACY/MASTG-DEMO-0009/MASTG-DEMO-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9358,7 +9358,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/techniques/" class="md-nav__link ">
+            <a href="../../../../../MASTG/techniques/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -9441,7 +9441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/generic/MASTG-TECH-0047/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/generic/MASTG-TECH-0047/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9462,7 +9462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/generic/MASTG-TECH-0048/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/generic/MASTG-TECH-0048/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9483,7 +9483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/generic/MASTG-TECH-0049/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/generic/MASTG-TECH-0049/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9504,7 +9504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/generic/MASTG-TECH-0050/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/generic/MASTG-TECH-0050/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9525,7 +9525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/generic/MASTG-TECH-0051/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/generic/MASTG-TECH-0051/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9690,7 +9690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0001/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9711,7 +9711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0002/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9732,7 +9732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0003/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9753,7 +9753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0004/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9774,7 +9774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0005/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9795,7 +9795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0006/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9816,7 +9816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0007/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9837,7 +9837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0008/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9858,7 +9858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0009/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9879,7 +9879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0010/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9900,7 +9900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0011/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0011/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9921,7 +9921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0012/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0012/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9942,7 +9942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0013/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0013/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9963,7 +9963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0014/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0014/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9984,7 +9984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0015/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0015/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10005,7 +10005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0016/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0016/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10026,7 +10026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0017/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0017/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10047,7 +10047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0018/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0018/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10068,7 +10068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0019/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0019/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10089,7 +10089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0020/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0020/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10110,7 +10110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0021/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0021/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10131,7 +10131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0022/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10152,7 +10152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0023/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10173,7 +10173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0024/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10194,7 +10194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0025/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0025/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10215,7 +10215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0026/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0026/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10236,7 +10236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0027/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0027/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10257,7 +10257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0028/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0028/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10278,7 +10278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0029/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0029/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10299,7 +10299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0030/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0030/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10320,7 +10320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0031/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0031/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10341,7 +10341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0032/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0032/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10362,7 +10362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0033/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0033/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10383,7 +10383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0034/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0034/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10404,7 +10404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0035/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0035/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10425,7 +10425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0036/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0036/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10446,7 +10446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0037/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0037/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10467,7 +10467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0038/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0038/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10488,7 +10488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0039/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0039/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10509,7 +10509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0040/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0040/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10530,7 +10530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0041/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0041/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10551,7 +10551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0042/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0042/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10572,7 +10572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0043/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0043/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10593,7 +10593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0044/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0044/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10614,7 +10614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0045/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0045/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10635,7 +10635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0100/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0100/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10656,7 +10656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0108/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0108/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10677,7 +10677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/android/MASTG-TECH-0109/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/android/MASTG-TECH-0109/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10842,7 +10842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0052/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0052/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10863,7 +10863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0053/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0053/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10884,7 +10884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0054/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0054/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10905,7 +10905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0055/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0055/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10926,7 +10926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0056/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0056/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10947,7 +10947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0057/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0057/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10968,7 +10968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0058/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0058/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10989,7 +10989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0059/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0059/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11010,7 +11010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0060/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0060/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11031,7 +11031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0061/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0061/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11052,7 +11052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0062/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0062/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11073,7 +11073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0063/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0063/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11094,7 +11094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0064/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0064/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11115,7 +11115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0065/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0065/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11136,7 +11136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0066/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0066/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11157,7 +11157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0067/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0067/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11178,7 +11178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0068/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0068/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11199,7 +11199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0069/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0069/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11220,7 +11220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0070/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0070/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11241,7 +11241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0071/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0071/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11262,7 +11262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0072/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0072/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11283,7 +11283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0073/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0073/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11304,7 +11304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0074/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0074/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11325,7 +11325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0075/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0075/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11346,7 +11346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0076/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0076/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11367,7 +11367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0077/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0077/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11388,7 +11388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0078/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0078/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11409,7 +11409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0079/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0079/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11430,7 +11430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0080/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0080/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11451,7 +11451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0081/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0081/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11472,7 +11472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0082/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0082/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11493,7 +11493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0083/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0083/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11514,7 +11514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0084/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0084/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11535,7 +11535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0085/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0085/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11556,7 +11556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0086/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0086/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11577,7 +11577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0087/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0087/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11598,7 +11598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0088/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0088/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11619,7 +11619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0089/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0089/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11640,7 +11640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0090/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0090/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11661,7 +11661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0091/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0091/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11682,7 +11682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0092/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0092/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11703,7 +11703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0093/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0093/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11724,7 +11724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0094/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0094/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11745,7 +11745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0095/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0095/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11766,7 +11766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0096/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0096/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11787,7 +11787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0097/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0097/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11808,7 +11808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0098/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0098/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11829,7 +11829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/techniques/ios/MASTG-TECH-0110/" class="md-nav__link">
+      <a href="../../../../../MASTG/techniques/ios/MASTG-TECH-0110/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11895,7 +11895,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/tools/" class="md-nav__link ">
+            <a href="../../../../../MASTG/tools/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -11992,7 +11992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0031/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0031/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12013,7 +12013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0032/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0032/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12034,7 +12034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0033/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0033/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12055,7 +12055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0034/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0034/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12076,7 +12076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0035/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0035/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12097,7 +12097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0036/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0036/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12118,7 +12118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0037/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0037/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12139,7 +12139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0038/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0038/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12160,7 +12160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0098/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0098/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12181,7 +12181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0100/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0100/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12202,7 +12202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0101/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0101/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12223,7 +12223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/generic/MASTG-TOOL-0104/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/generic/MASTG-TOOL-0104/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12356,7 +12356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0001/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12377,7 +12377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0002/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12398,7 +12398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0003/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12419,7 +12419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0004/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12440,7 +12440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0005/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12461,7 +12461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0006/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12482,7 +12482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0007/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12503,7 +12503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0008/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12524,7 +12524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0009/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12545,7 +12545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0010/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12566,7 +12566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0011/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0011/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12587,7 +12587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0012/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0012/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12608,7 +12608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0013/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0013/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12629,7 +12629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0014/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0014/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12650,7 +12650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0015/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0015/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12671,7 +12671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0016/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0016/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12692,7 +12692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0017/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0017/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12713,7 +12713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0018/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0018/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12734,7 +12734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0019/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0019/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12755,7 +12755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0020/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0020/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12776,7 +12776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0021/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0021/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12797,7 +12797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0022/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12818,7 +12818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0023/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12839,7 +12839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0024/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12860,7 +12860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0025/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0025/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12881,7 +12881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0026/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0026/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12902,7 +12902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0027/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0027/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12923,7 +12923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0028/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0028/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12944,7 +12944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0029/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0029/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12965,7 +12965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0030/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0030/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12986,7 +12986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0099/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0099/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13007,7 +13007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/android/MASTG-TOOL-0103/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/android/MASTG-TOOL-0103/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13150,7 +13150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0039/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0039/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13171,7 +13171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0040/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0040/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13192,7 +13192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0041/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0041/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13213,7 +13213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0042/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0042/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13234,7 +13234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0043/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0043/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13255,7 +13255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0044/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0044/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13276,7 +13276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0045/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0045/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13297,7 +13297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0046/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0046/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13318,7 +13318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0047/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0047/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13339,7 +13339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0048/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0048/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13360,7 +13360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0049/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0049/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13381,7 +13381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0050/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0050/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13402,7 +13402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0051/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0051/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13423,7 +13423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0053/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0053/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13444,7 +13444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0054/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0054/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13465,7 +13465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0055/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0055/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13486,7 +13486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0056/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0056/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13507,7 +13507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0057/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0057/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13528,7 +13528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0058/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0058/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13549,7 +13549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0059/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0059/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13570,7 +13570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0060/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0060/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13591,7 +13591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0061/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0061/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13612,7 +13612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0062/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0062/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13633,7 +13633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0063/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0063/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13654,7 +13654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0064/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0064/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13675,7 +13675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0065/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0065/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13696,7 +13696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0066/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0066/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13717,7 +13717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0067/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0067/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13738,7 +13738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0068/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0068/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13759,7 +13759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0069/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0069/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13780,7 +13780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0070/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0070/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13801,7 +13801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0071/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0071/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13822,7 +13822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0072/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0072/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13843,7 +13843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0073/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0073/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13864,7 +13864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0074/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0074/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13885,7 +13885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0101/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0101/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13906,7 +13906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/ios/MASTG-TOOL-0102/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/ios/MASTG-TOOL-0102/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13991,7 +13991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0075/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0075/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14012,7 +14012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0076/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0076/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14033,7 +14033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0077/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0077/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14054,7 +14054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0078/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0078/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14075,7 +14075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0079/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0079/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14096,7 +14096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0080/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0080/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14117,7 +14117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0081/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0081/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14138,7 +14138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/tools/network/MASTG-TOOL-0097/" class="md-nav__link">
+      <a href="../../../../../MASTG/tools/network/MASTG-TOOL-0097/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14200,7 +14200,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASTG/apps/" class="md-nav__link ">
+            <a href="../../../../../MASTG/apps/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -14307,7 +14307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0001/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14328,7 +14328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0002/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0002/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14349,7 +14349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0003/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0003/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14370,7 +14370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0004/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0004/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14391,7 +14391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0005/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0005/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14412,7 +14412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0006/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0006/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14433,7 +14433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0007/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0007/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14454,7 +14454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0008/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0008/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14475,7 +14475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0009/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0009/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14496,7 +14496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0010/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0010/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14517,7 +14517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0011/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0011/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14538,7 +14538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0012/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0012/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14559,7 +14559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0013/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0013/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14580,7 +14580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0014/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0014/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14601,7 +14601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0015/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0015/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14622,7 +14622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0016/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0016/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14643,7 +14643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/android/MASTG-APP-0017/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/android/MASTG-APP-0017/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14722,7 +14722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/ios/MASTG-APP-0023/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/ios/MASTG-APP-0023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14743,7 +14743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/ios/MASTG-APP-0024/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/ios/MASTG-APP-0024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14764,7 +14764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/ios/MASTG-APP-0025/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/ios/MASTG-APP-0025/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14785,7 +14785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/ios/MASTG-APP-0026/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/ios/MASTG-APP-0026/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14806,7 +14806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASTG/apps/ios/MASTG-APP-0027/" class="md-nav__link">
+      <a href="../../../../../MASTG/apps/ios/MASTG-APP-0027/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14937,7 +14937,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../MASVS/" class="md-nav__link ">
+            <a href="../../../../../MASVS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -15018,7 +15018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/01-Foreword/" class="md-nav__link">
+      <a href="../../../../../MASVS/01-Foreword/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15039,7 +15039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/02-Frontispiece/" class="md-nav__link">
+      <a href="../../../../../MASVS/02-Frontispiece/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15060,7 +15060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/03-Using_the_MASVS/" class="md-nav__link">
+      <a href="../../../../../MASVS/03-Using_the_MASVS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15081,7 +15081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/04-Assessment_and_Certification/" class="md-nav__link">
+      <a href="../../../../../MASVS/04-Assessment_and_Certification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15110,7 +15110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/05-MASVS-STORAGE/" class="md-nav__link">
+      <a href="../../../../../MASVS/05-MASVS-STORAGE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15131,7 +15131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-STORAGE-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-STORAGE-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15152,7 +15152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-STORAGE-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-STORAGE-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15173,7 +15173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/06-MASVS-CRYPTO/" class="md-nav__link">
+      <a href="../../../../../MASVS/06-MASVS-CRYPTO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15194,7 +15194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CRYPTO-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CRYPTO-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15215,7 +15215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CRYPTO-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CRYPTO-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15236,7 +15236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/07-MASVS-AUTH/" class="md-nav__link">
+      <a href="../../../../../MASVS/07-MASVS-AUTH/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15257,7 +15257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-AUTH-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-AUTH-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15278,7 +15278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-AUTH-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-AUTH-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15299,7 +15299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-AUTH-3/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-AUTH-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15320,7 +15320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/08-MASVS-NETWORK/" class="md-nav__link">
+      <a href="../../../../../MASVS/08-MASVS-NETWORK/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15341,7 +15341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-NETWORK-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-NETWORK-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15362,7 +15362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-NETWORK-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-NETWORK-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15383,7 +15383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/09-MASVS-PLATFORM/" class="md-nav__link">
+      <a href="../../../../../MASVS/09-MASVS-PLATFORM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15404,7 +15404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PLATFORM-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PLATFORM-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15425,7 +15425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PLATFORM-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PLATFORM-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15446,7 +15446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PLATFORM-3/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PLATFORM-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15467,7 +15467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/10-MASVS-CODE/" class="md-nav__link">
+      <a href="../../../../../MASVS/10-MASVS-CODE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15488,7 +15488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CODE-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CODE-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15509,7 +15509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CODE-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CODE-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15530,7 +15530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CODE-3/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CODE-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15551,7 +15551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-CODE-4/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-CODE-4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15572,7 +15572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/11-MASVS-RESILIENCE/" class="md-nav__link">
+      <a href="../../../../../MASVS/11-MASVS-RESILIENCE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15593,7 +15593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-RESILIENCE-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-RESILIENCE-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15614,7 +15614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-RESILIENCE-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-RESILIENCE-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15635,7 +15635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-RESILIENCE-3/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-RESILIENCE-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15656,7 +15656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-RESILIENCE-4/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-RESILIENCE-4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15677,7 +15677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/12-MASVS-PRIVACY/" class="md-nav__link">
+      <a href="../../../../../MASVS/12-MASVS-PRIVACY/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15698,7 +15698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PRIVACY-1/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PRIVACY-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15719,7 +15719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PRIVACY-2/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PRIVACY-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15740,7 +15740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PRIVACY-3/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PRIVACY-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15761,7 +15761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MASVS/controls/MASVS-PRIVACY-4/" class="md-nav__link">
+      <a href="../../../../../MASVS/controls/MASVS-PRIVACY-4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15826,7 +15826,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../checklists/" class="md-nav__link ">
+            <a href="../../../../../checklists/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -15859,7 +15859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-STORAGE/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-STORAGE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15880,7 +15880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-CRYPTO/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-CRYPTO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15901,7 +15901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-AUTH/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-AUTH/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15922,7 +15922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-NETWORK/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-NETWORK/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15943,7 +15943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-PLATFORM/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-PLATFORM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15964,7 +15964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-CODE/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-CODE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -15985,7 +15985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-RESILIENCE/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-RESILIENCE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16006,7 +16006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../checklists/MASVS-PRIVACY/" class="md-nav__link">
+      <a href="../../../../../checklists/MASVS-PRIVACY/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16059,7 +16059,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../crackmes/" class="md-nav__link ">
+            <a href="../../../../../crackmes/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -16092,7 +16092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../crackmes/Android/" class="md-nav__link">
+      <a href="../../../../../crackmes/Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16113,7 +16113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../crackmes/iOS/" class="md-nav__link">
+      <a href="../../../../../crackmes/iOS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16162,7 +16162,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -16197,7 +16197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../talks/" class="md-nav__link">
+      <a href="../../../../../talks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16271,7 +16271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/" class="md-nav__link">
+      <a href="../../../../../contributing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16292,7 +16292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/1_How_Can_You_Contribute/" class="md-nav__link">
+      <a href="../../../../../contributing/1_How_Can_You_Contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16313,7 +16313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/2_Getting_Started/" class="md-nav__link">
+      <a href="../../../../../contributing/2_Getting_Started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16334,7 +16334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/3_PRs_and_Reviews/" class="md-nav__link">
+      <a href="../../../../../contributing/3_PRs_and_Reviews/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16355,7 +16355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/4_Add_new_Language/" class="md-nav__link">
+      <a href="../../../../../contributing/4_Add_new_Language/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16376,7 +16376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/5_Style_Guide/" class="md-nav__link">
+      <a href="../../../../../contributing/5_Style_Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16397,7 +16397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/6_Add_a_Crackme/" class="md-nav__link">
+      <a href="../../../../../contributing/6_Add_a_Crackme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16471,7 +16471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../donate/" class="md-nav__link">
+      <a href="../../../../../donate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16492,7 +16492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../donate/how_to_donate/" class="md-nav__link">
+      <a href="../../../../../donate/how_to_donate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16513,7 +16513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../donate/packages/" class="md-nav__link">
+      <a href="../../../../../donate/packages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16541,7 +16541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contact/" class="md-nav__link">
+      <a href="../../../../../contact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -16562,6 +16562,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -16571,8 +16573,59 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#refactoring-the-mastg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactoring the MASTG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-maswe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducing MASWE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-applications-and-demos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Applications and Demos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automation-with-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automation with GitHub Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-wanted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback Wanted
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -16581,54 +16634,99 @@
             
           
           
-  <div class="md-content" data-md-component="content">
-    <div class="md-content__inner">
-      <header class="md-typeset">
-        <h1 id="2024">2024<a class="headerlink" href="#2024" title="Permanent link">&para;</a></h1>
-      </header>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/carlos.jpg?raw=true" alt="Carlos Holguera">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-07-30 00:00:00">July 30, 2024</time></li>
-        
-        
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/carlos.jpg?raw=true" alt="Carlos Holguera">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Carlos Holguera
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-07-30 00:00:00" class="md-ellipsis">July 30, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              6 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
           
-          <li class="md-meta__item">
-            
-              6 min read
-            
-          </li>
-        
-      </ul>
-      
+        </div>
+      </div>
     </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="introducing-the-new-mobile-app-security-weakness-enumeration-maswe"><a class="toclink" href="../../2024/07/30/new-maswe/">Introducing the new Mobile App Security Weakness Enumeration (MASWE)</a></h2>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+  <h1>Introducing the new Mobile App Security Weakness Enumeration (MASWE)</h1>
+
 <p>The OWASP MAS project continues to lead the way in mobile application security, providing robust and up-to-date resources for developers and security professionals alike. Our team has been working diligently with the MAS community and industry to refactor the <a href="https://mas.owasp.org/MASVS/">Mobile Application Security Verification Standard (MASVS)</a> and the <a href="https://mas.owasp.org/MASTG/">Mobile Application Security Testing Guide (MASTG)</a>. In this blog post, we'll walk you through our latest addition to the MAS project: the brand new <a href="https://mas.owasp.org/MASWE/">Mobile App Security Weakness Enumeration (MASWE)</a>.</p>
 <p><center>
 <img style="width: 40%; border-radius: 5px" src="/assets/maswe-overview.png"/>
 </center></p>
-<h3 id="refactoring-the-mastg"><a class="toclink" href="../../2024/07/30/new-maswe/#refactoring-the-mastg">Refactoring the MASTG</a></h3>
+<h2 id="refactoring-the-mastg">Refactoring the MASTG<a class="headerlink" href="#refactoring-the-mastg" title="Permanent link">&para;</a></h2>
 <p>We began the refactoring process in 2021, focusing first on the MASVS and then on the MASTG. Our primary goal was to break the MASTG v1 into modular components, including tests, techniques, tools, and applications.</p>
 <p><center>
 <img style="width: 80%; border-radius: 5px" src="/assets/news/mas_v2_arch.png"/>
 </center></p>
 <p>This modular approach allows us to <strong>maintain and update each component independently</strong>, ensuring that the MASTG remains current and relevant. For example, in our previous structure, the MASTG consisted of large test cases within a single markdown file. This was not only difficult to maintain but also made it challenging to reference specific tests; and it was impossible to have metadata for each test.</p>
 <p>The new structure divides tests into individual pages (Markdown files with metadata), each with its own ID (<code>MASTG-TEST-****</code>) and links to relevant techniques (<code>MASTG-TECH-****</code>) and tools (<code>MASTG-TOOL-****</code>). This encapsulation ensures that <strong>each test is easily referenced and promotes reusability</strong> across all MAS components. For example, you can open a test and see what tools and techniques are being used, and soon you'll be able to do the same in reverse: open a tool or technique and see all the tests that use it. This deep cross-referencing can be extremely powerful when exploring the MASTG.</p>
-<h3 id="introducing-maswe"><a class="toclink" href="../../2024/07/30/new-maswe/#introducing-maswe">Introducing MASWE</a></h3>
+<h2 id="introducing-maswe">Introducing MASWE<a class="headerlink" href="#introducing-maswe" title="Permanent link">&para;</a></h2>
 <p>A significant addition to our project is the introduction of MASWE, designed to <strong>fill the gap between high-level MASVS controls and low-level MASTG tests</strong>. The MASWE identifies specific weaknesses in mobile applications, similar to Common Weakness Enumerations (CWEs) in the broader software security industry. This new layer provides a detailed description of each weakness, bridging the conceptual gap and making the testing process more coherent.</p>
 <div style="display: flex; justify-content: center; align-items: center;">
     <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
@@ -16661,7 +16759,7 @@
 <p><center>
 <img style="width: 80%; border-radius: 5px" src="/assets/news/mastg_v2_structure.png"/>
 </center></p>
-<h3 id="practical-applications-and-demos"><a class="toclink" href="../../2024/07/30/new-maswe/#practical-applications-and-demos">Practical Applications and Demos</a></h3>
+<h2 id="practical-applications-and-demos">Practical Applications and Demos<a class="headerlink" href="#practical-applications-and-demos" title="Permanent link">&para;</a></h2>
 <p>To ensure our guidelines are practical and reliable, we've developed new MAS Test Apps for both Android and iOS.</p>
 <p><center>
 <img style="width: 60%; border-radius: 5px" src="/assets/news/mastestapps.png"/>
@@ -16691,7 +16789,7 @@
 
 <p><img alt="🧪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f9ea.svg" title=":test_tube:" /> These demos can also be used as <strong>experimental playgrounds</strong> to improve your skills and practice with different cases as you study mobile app security with the MASTG. For example, you can try to reverse engineer the app and see if you're able to find the same issues as the demo or you can try to fix the issues and see if you can validate the fix.</p>
 <p>They are also <strong>great for advanced researchers and pentesters</strong> to quickly validate certain scenarios. For example, it's very common to find cases where Android behaves differently depending on the version or the manufacturer. With these demos, you can quickly validate if a certain issue is present on a specific device or Android version.</p>
-<h3 id="automation-with-github-actions"><a class="toclink" href="../../2024/07/30/new-maswe/#automation-with-github-actions">Automation with GitHub Actions</a></h3>
+<h2 id="automation-with-github-actions">Automation with GitHub Actions<a class="headerlink" href="#automation-with-github-actions" title="Permanent link">&para;</a></h2>
 <p>Going forward, we want to automate the process of creating and validating the new demos, and ensure that the tests remain functional over time. We'll be using GitHub Actions to do this. Here is the plan:</p>
 <p><center>
 <img style="width: 60%; border-radius: 5px" src="/assets/news/app_automation_vision.png"/>
@@ -16705,158 +16803,34 @@
 <p><center>
 <img style="width: 80%; border-radius: 5px" src="/assets/news/apk_build_autom.png"/>
 </center></p>
-<h3 id="feedback-wanted"><a class="toclink" href="../../2024/07/30/new-maswe/#feedback-wanted">Feedback Wanted</a></h3>
+<h2 id="feedback-wanted">Feedback Wanted<a class="headerlink" href="#feedback-wanted" title="Permanent link">&para;</a></h2>
 <p>We encourage you to explore the new <a href="https://mas.owasp.org/MASWE/">MASWE</a>, <a href="https://mas.owasp.org/MASTG/tests-beta/">MASTG tests</a> and <a href="https://mas.owasp.org/MASTG/demos/">MASTG demos</a>. Your insights and experiences are invaluable to us, and we invite you to <strong>share your feedback</strong> in our <a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-mastg-v2-beta-Feedback">GitHub discussions</a> to help us continue to improve. This way we can ensure that our resources are practical, reliable, and valuable for real-world application.</p>
 <p>You can also <strong>contribute to the project</strong> by creating new weaknesses, tests, techniques, tools, or demos. We welcome all contributions and feedback, and we look forward to working with you to make the MAS project the best it can be.</p>
 <p><center>
 <big><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span> Go to our GitHub repo and check our <a href="https://github.com/OWASP/owasp-mastg/milestones">milestones</a> and <a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-mastg-v2-beta-Feedback">GitHub discussions</a>.
 </big>
 </center></p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/carlos.jpg?raw=true" alt="Carlos Holguera">
-          </span>
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/sven.jpg?raw=true" alt="Sven Schleier">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-02-19 00:00:00">February 19, 2024</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="new-standard-for-secure-mobile-app-transactions"><a class="toclink" href="../../2024/02/19/new-standard-for-secure-mobile-app-transactions/">New Standard for Secure Mobile App Transactions</a></h2>
-<p>The Cyber Security Agency of Singapore (CSA) launched the <a href="https://www.csa.gov.sg/News-Events/Press-Releases/2024/csa-publishes-recommended-standard-for-more-secure-transactions-made-via-mobile-applications">"Safe App Standard"</a> on January 10, 2024. Tailored for local app developers and service providers, this guideline is based on the OWASP Mobile Application Security Verification Standard (MASVS) and focuses on critical areas such as authentication and authorization (MASVS-AUTH), data storage (MASVS-STORAGE), and tamper resistance (MASVS-RESILIENCE). The initiative aims to protect apps from common cyber threats and ensure a safer digital space for users.</p>
-<p>While the Safe App Standard is a significant step forward in securing mobile applications, developers are encouraged to consider the <a href="https://mas.owasp.org/MASVS/">full MASVS</a> and select the appropriate MAS profiles for comprehensive protection. This holistic approach to app security ensures that apps go beyond meeting the baseline and are protected against a wider range of cyber threats, providing robust security for end users.</p>
-<p><center>
-<img style="width: 20%; border-radius: 5px" src="/assets/news/safe_app_standard.png"/>
-</center></p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/carlos.jpg?raw=true" alt="Carlos Holguera">
-          </span>
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/sven.jpg?raw=true" alt="Sven Schleier">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-01-18 00:00:00">January 18, 2024</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="masvs-v210-release-masvs-privacy"><a class="toclink" href="../../2024/01/18/masvs-v210-release--masvs-privacy/">MASVS v2.1.0 Release &amp; MASVS-PRIVACY</a></h2>
-<p>We are thrilled to announce the release of the new version of the <a href="https://github.com/OWASP/owasp-masvs/releases/tag/v2.1.0">OWASP Mobile Application Security Verification Standard (MASVS) v2.1.0</a> including the new MASVS-PRIVACY category and CycloneDX support.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2024/01/18/masvs-v210-release--masvs-privacy/">
-          Continue reading
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/carlos.jpg?raw=true" alt="Carlos Holguera">
-          </span>
-        
-          <span class="md-author">
-            <img src="https://github.com/OWASP/owasp-mastg/blob/master/docs/assets/sven.jpg?raw=true" alt="Sven Schleier">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-01-11 00:00:00">January 11, 2024</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="mobile-application-risk-scoring-qa"><a class="toclink" href="../../2024/01/11/mobile-application-risk-scoring-qa/">Mobile Application Risk Scoring Q&amp;A</a></h2>
-<p>We've received many comments and excellent questions, which we've compiled and summarized, along with the authors' answers. We'd like to thank everyone who took the time to read the document and especially those who asked valuable questions.</p>
-<p>See <a href="https://docs.google.com/document/d/1dnjXoHpVL5YmZTqVEC9b9JOfu6EzQiizZAHVAeDoIlo/edit#heading=h.sl9wb7xadrza">Mobile Application Risk Scoring Q&amp;A</a></p>
-    
-  </div>
-</article>
-      
-      
-        
-          
 
 
 
-<nav class="md-pagination">
+
+
+
+
   
-</nav>
-        
+  
+
+
+
+  
+
+
+  
+
+
+
       
-    </div>
+    </article>
   </div>
 
           
@@ -16939,18 +16913,18 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "tags": {"L1": "l1", "L2": "l2", "P": "p", "R": "r", "android": "android", "draft": "draft", "ios": "ios", "new": "new"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "tags": {"L1": "l1", "L2": "l2", "P": "p", "R": "r", "android": "android", "draft": "draft", "ios": "ios", "new": "new"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../../javascripts/external_links.js"></script>
+        <script src="../../../../../javascripts/external_links.js"></script>
       
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
       
-        <script src="../../../javascripts/datatables.js"></script>
+        <script src="../../../../../javascripts/datatables.js"></script>
       
     
   </body>
