@@ -17797,12 +17797,16 @@
 
   <h1>MASTG-TOOL-0032: Frida CodeShare</h1>
 
-<p><a href="https://codeshare.frida.re/" title="Frida CodeShare">Frida CodeShare</a> is a repository containing a collection of ready-to-run Frida scripts which can enormously help when performing concrete tasks both on Android as on iOS as well as also serve as inspiration to build your own scripts. Two representative examples are:</p>
+<p><a href="https://codeshare.frida.re/" title="Frida CodeShare">Frida CodeShare</a> is a repository containing a collection of ready-to-run Frida scripts which can enormously help when performing concrete tasks both on Android as on iOS as well as also serve as inspiration to build your own scripts. Some examples of useful scripts:</p>
 <ul>
-<li>Universal Android SSL Pinning Bypass with Frida - <a href="https://codeshare.frida.re/@pcipolloni/universal-android-ssl-pinning-bypass-with-frida/">https://codeshare.frida.re/@pcipolloni/universal-android-ssl-pinning-bypass-with-frida/</a></li>
+<li>Frida Multiple Unpinning - <a href="https://codeshare.frida.re/@akabe1/frida-multiple-unpinning/">https://codeshare.frida.re/@akabe1/frida-multiple-unpinning/</a></li>
+<li>Disable Flutter TLS verification - <a href="https://codeshare.frida.re/@TheDauntless/disable-flutter-tls-v1/">https://codeshare.frida.re/@TheDauntless/disable-flutter-tls-v1/</a></li>
 <li>ObjC method observer - <a href="https://codeshare.frida.re/@mrmacete/objc-method-observer/">https://codeshare.frida.re/@mrmacete/objc-method-observer/</a></li>
+<li>JNI Trace - <a href="https://codeshare.frida.re/@chame1eon/jnitrace/">https://codeshare.frida.re/@chame1eon/jnitrace/</a></li>
+<li>Dump dynamically loaded DEX - <a href="https://codeshare.frida.re/@cryptax/inmemorydexclassloader-dump/">https://codeshare.frida.re/@cryptax/inmemorydexclassloader-dump/</a></li>
+<li>Enable iOS WebInspector - <a href="https://codeshare.frida.re/@leolashkevych/ios-enable-webinspector/">https://codeshare.frida.re/@leolashkevych/ios-enable-webinspector/</a></li>
 </ul>
-<p>Using them is as simple as including the <code>--codeshare &lt;handler&gt;</code> flag and a handler when using the Frida CLI. For example, to use "ObjC method observer", enter the following:</p>
+<p>Using them is as simple as including the <code>--codeshare &lt;script&gt;</code> flag with the chosen script when using the Frida CLI. For example, to use "ObjC method observer", enter the following:</p>
 <div class="highlight"><pre><span></span><code>frida<span class="w"> </span>--codeshare<span class="w"> </span>mrmacete/objc-method-observer<span class="w"> </span>-f<span class="w"> </span>YOUR_BINARY
 </code></pre></div>
 
