@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.06209087.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -18096,14 +18096,14 @@
 <span class="cp">#endif</span>
 </code></pre></div>
 <p>In Swift 2 (with Xcode 7), you have to set custom compiler flags for every target, and compiler flags have to start with "-D". So you can use the following annotations when the debug flag <code>DMSTG-DEBUG</code> is set:</p>
-<div class="highlight"><pre><span></span><code>#if MSTG-DEBUG
-    // Debug-only code
-#endif
+<div class="highlight"><pre><span></span><code><span class="cp">#if MSTG_DEBUG</span>
+<span class="w">    </span><span class="c1">// Debug-only code</span>
+<span class="cp">#endif</span>
 </code></pre></div>
 <p>In Swift 3 (with Xcode 8), you can set Active Compilation Conditions in Build settings/Swift compiler - Custom flags. Instead of a preprocessor, Swift 3 uses <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithCAPIs.html#//apple_ref/doc/uid/TP40014216-CH8-ID34" title="Swift conditional compilation blocks">conditional compilation blocks</a> based on the defined conditions:</p>
-<div class="highlight"><pre><span></span><code>#if DEBUG_LOGGING
-    // Debug-only code
-#endif
+<div class="highlight"><pre><span></span><code><span class="cp">#if DEBUG_LOGGING</span>
+<span class="w">    </span><span class="c1">// Debug-only code</span>
+<span class="cp">#endif</span>
 </code></pre></div>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Dynamic analysis should be executed on both a simulator and a device because developers sometimes use target-based functions (instead of functions based on a release/debug-mode) to execute the debugging code.</p>
@@ -18216,7 +18216,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../../../../assets/javascripts/workers/search.07f07601.min.js", "tags": {"L1": "l1", "L2": "l2", "P": "p", "R": "r", "android": "android", "app": "app", "demo": "demo", "draft": "draft", "ios": "ios", "masvs": "masvs", "maswe": "maswe", "new": "new", "tech": "tech", "test": "test", "tool": "tool"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "tags": {"L1": "l1", "L2": "l2", "P": "p", "R": "r", "android": "android", "app": "app", "demo": "demo", "draft": "draft", "ios": "ios", "masvs": "masvs", "maswe": "maswe", "new": "new", "tech": "tech", "test": "test", "tool": "tool"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
