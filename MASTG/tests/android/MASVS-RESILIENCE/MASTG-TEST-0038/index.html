@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
@@ -18119,34 +18119,54 @@
   <h1>MASTG-TEST-0038: Making Sure that the App is Properly Signed</h1>
 
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Ensure that the release builds are properly signed to safeguard their integrity and protect them from tampering. Android has evolved its signing schemes over time to enhance security, with newer versions offering more robust mechanisms.</p>
+<ul>
+<li><strong>Android 7.0 (API level 24) and above</strong>: Use at least the <strong>v2 signature scheme</strong>, which signs the APK as a whole, providing stronger protection compared to the older v1 (JAR) signing method.</li>
+<li><strong>Android 9 (API level 28) and above</strong>: It's recommended to use both the <strong>v2 and v3 signature schemes</strong>. The v3 scheme supports <strong>key rotation</strong>, enabling developers to replace keys in the event of a compromise without invalidating old signatures.</li>
+<li><strong>Android 11 (API level 30) and above</strong>: Optionally include the <strong>v4 signature scheme</strong> to enable faster incremental updates.</li>
+</ul>
+<p>Avoid using the <strong>v1 signature scheme</strong> (JAR signing) unless absolutely necessary for backward compatibility with Android 6.0 (API level 23) and below as it is considered insecure. For example, it is affected by the <strong>Janus vulnerability (CVE-2017-13156)</strong>, which can allow malicious actors to modify APK files without invalidating the v1 signature. As such, <strong>v1 should never be relied on exclusively for devices running Android 7.0 and above</strong>.</p>
+<p>You should also ensure that the APK's code-signing certificate is valid and belongs to the developer.</p>
+<p>For further guidance, refer to the official <a href="https://developer.android.com/studio/publish/app-signing">Android app signing documentation</a> and best practices for <a href="https://developer.android.com/tools/publishing/preparing.html#publishing-configure">configuring apps for release</a>.</p>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
-<p>Make sure that the release build has been signed via both the v1 and v2 schemes for Android 7.0 (API level 24) and above and via all the three schemes for Android 9 (API level 28) and above, and that the code-signing certificate in the APK belongs to the developer.</p>
-<p>APK signatures can be verified with the <code>apksigner</code> tool. It is located at <code>[SDK-Path]/build-tools/[version]</code>.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>apksigner<span class="w"> </span>verify<span class="w"> </span>--verbose<span class="w"> </span>Desktop/example.apk
+<p>APK signatures can be verified with the <a href="https://developer.android.com/tools/apksigner">apksigner</a> tool. It is located at <code>[SDK-Path]/build-tools/[version]/apksigner</code>.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>apksigner<span class="w"> </span>verify<span class="w"> </span>--verbose<span class="w"> </span>example.apk
 Verifies
-Verified<span class="w"> </span>using<span class="w"> </span>v1<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>JAR<span class="w"> </span>signing<span class="o">)</span>:<span class="w"> </span><span class="nb">true</span>
+Verified<span class="w"> </span>using<span class="w"> </span>v1<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>JAR<span class="w"> </span>signing<span class="o">)</span>:<span class="w"> </span><span class="nb">false</span>
 Verified<span class="w"> </span>using<span class="w"> </span>v2<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>APK<span class="w"> </span>Signature<span class="w"> </span>Scheme<span class="w"> </span>v2<span class="o">)</span>:<span class="w"> </span><span class="nb">true</span>
 Verified<span class="w"> </span>using<span class="w"> </span>v3<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>APK<span class="w"> </span>Signature<span class="w"> </span>Scheme<span class="w"> </span>v3<span class="o">)</span>:<span class="w"> </span><span class="nb">true</span>
+Verified<span class="w"> </span>using<span class="w"> </span>v3.1<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>APK<span class="w"> </span>Signature<span class="w"> </span>Scheme<span class="w"> </span>v3.1<span class="o">)</span>:<span class="w"> </span><span class="nb">false</span>
+Verified<span class="w"> </span>using<span class="w"> </span>v4<span class="w"> </span>scheme<span class="w"> </span><span class="o">(</span>APK<span class="w"> </span>Signature<span class="w"> </span>Scheme<span class="w"> </span>v4<span class="o">)</span>:<span class="w"> </span><span class="nb">false</span>
+Verified<span class="w"> </span><span class="k">for</span><span class="w"> </span>SourceStamp:<span class="w"> </span><span class="nb">false</span>
 Number<span class="w"> </span>of<span class="w"> </span>signers:<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
-<p>The contents of the signing certificate can be examined with <code>jarsigner</code>. Note that the Common Name (CN) attribute is set to "Android Debug" in the debug certificate.</p>
-<p>The output for an APK signed with a debug certificate is shown below:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>jarsigner<span class="w"> </span>-verify<span class="w"> </span>-verbose<span class="w"> </span>-certs<span class="w"> </span>example.apk
-
-sm<span class="w">     </span><span class="m">11116</span><span class="w"> </span>Fri<span class="w"> </span>Nov<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:07:48<span class="w"> </span>ICT<span class="w"> </span><span class="m">2016</span><span class="w"> </span>AndroidManifest.xml
-
-<span class="w">      </span>X.509,<span class="w"> </span><span class="nv">CN</span><span class="o">=</span>Android<span class="w"> </span>Debug,<span class="w"> </span><span class="nv">O</span><span class="o">=</span>Android,<span class="w"> </span><span class="nv">C</span><span class="o">=</span>US
-<span class="w">      </span><span class="o">[</span>certificate<span class="w"> </span>is<span class="w"> </span>valid<span class="w"> </span>from<span class="w"> </span><span class="m">3</span>/24/16<span class="w"> </span><span class="m">9</span>:18<span class="w"> </span>AM<span class="w"> </span>to<span class="w"> </span><span class="m">8</span>/10/43<span class="w"> </span><span class="m">9</span>:18<span class="w"> </span>AM<span class="o">]</span>
-<span class="w">      </span><span class="o">[</span>CertPath<span class="w"> </span>not<span class="w"> </span>validated:<span class="w"> </span>Path<span class="w"> </span>doesn<span class="se">\&#39;</span>t<span class="w"> </span>chain<span class="w"> </span>with<span class="w"> </span>any<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>trust<span class="w"> </span>anchors<span class="o">]</span>
-<span class="o">(</span>...<span class="o">)</span>
+<p>The contents of the signing certificate can be also examined with apksigner:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>apksigner<span class="w"> </span>verify<span class="w"> </span>--print-certs<span class="w"> </span>--verbose<span class="w"> </span>example.apk<span class="w">      </span>
+<span class="o">[</span>...<span class="o">]</span>
+Signer<span class="w"> </span><span class="c1">#1 certificate DN: CN=Example Developers, OU=Android, O=Example</span>
+Signer<span class="w"> </span><span class="c1">#1 certificate SHA-256 digest: 1fc4de52d0daa33a9c0e3d67217a77c895b46266ef020fad0d48216a6ad6cb70</span>
+Signer<span class="w"> </span><span class="c1">#1 certificate SHA-1 digest: 1df329fda8317da4f17f99be83aa64da62af406b</span>
+Signer<span class="w"> </span><span class="c1">#1 certificate MD5 digest: 3dbdca9c1b56f6c85415b67957d15310</span>
+Signer<span class="w"> </span><span class="c1">#1 key algorithm: RSA</span>
+Signer<span class="w"> </span><span class="c1">#1 key size (bits): 2048</span>
+Signer<span class="w"> </span><span class="c1">#1 public key SHA-256 digest: 296b4e40a31de2dcfa2ed277ccf787db0a524db6fc5eacdcda5e50447b3b1a26</span>
+Signer<span class="w"> </span><span class="c1">#1 public key SHA-1 digest: 3e02ebf64f1bd4ca85732186b3774e9ccd60cb86</span>
+Signer<span class="w"> </span><span class="c1">#1 public key MD5 digest: 24afa3496f98c66343fc9c8a0a7ff5a2</span>
 </code></pre></div>
-<p>Ignore the "CertPath not validated" error. This error occurs with Java SDK 7 and above. Instead of <code>jarsigner</code>, you can rely on the <code>apksigner</code> to verify the certificate chain.</p>
-<p>The signing configuration can be managed through Android Studio or the <code>signingConfig</code> block in <code>build.gradle</code>. To activate both the v1 and v2 schemes, the following values must be set:</p>
-<div class="highlight"><pre><span></span><code>v1SigningEnabled true
-v2SigningEnabled true
+<p>The signing configuration can be managed through Android Studio or the <code>signingConfigs</code> section in <code>build.gradle</code> or <code>build.gradle.kts</code>. To activate both the v3 and v4 schemes, the following values must be set:</p>
+<div class="highlight"><pre><span></span><code>// build.gradle
+android {
+  ...
+  signingConfigs {
+    config {
+        ...
+        enableV3Signing true
+        enableV4Signing true
+    }
+  }
+}
 </code></pre></div>
-<p>Several best practices for <a href="https://developer.android.com/tools/publishing/preparing.html#publishing-configure" title="Best Practices for configuring an Android App for Release">configuring the app for release</a> are available in the official Android developer documentation.</p>
-<p>Last but not least: make sure that the application is never deployed with your internal testing certificates.</p>
+<p>Note that APK v4 signing is optional and the lack of it does not represent a vulnerability. It is meant to allow developers to quickly deploy large APKs using the <a href="https://developer.android.com/about/versions/11/features#incremental">ADB Incremental APK installation</a> in Android 11 and above.</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Static analysis should be used to verify the APK signature.</p>
 
