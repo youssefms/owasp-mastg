@@ -18096,7 +18096,7 @@
 <p><a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-mastg-v2-beta-feedback"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376v103.3c0 18.1 14.6 32.7 32.7 32.7 9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4zm52.1 25.5L409.7 90.6 190.1 336l1.2 1zm335.1 139.7-166.6-69.5 214.1-239.3z"/></svg></span> Send Feedback</a></p>
 </details>
 <h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="sample-mastgtestswift" name="__tabbed_1" type="radio" /><input id="sample-functionasm" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="sample-mastgtestswift">MastgTest.swift</label><label for="sample-functionasm">function.asm</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="sample-mastgtestswift" name="__tabbed_1" type="radio" /><input id="sample-functionasm" name="__tabbed_1" type="radio" /><input id="sample-decompiled-o1-reviewswift" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="sample-mastgtestswift">MastgTest.swift</label><label for="sample-functionasm">function.asm</label><label for="sample-decompiled-o1-reviewswift">decompiled-o1-review.swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
@@ -18957,88 +18957,8 @@
 <span class="normal">620</span>
 <span class="normal">621</span>
 <span class="normal">622</span>
-<span class="normal">623</span>
-<span class="normal">624</span>
-<span class="normal">625</span>
-<span class="normal">626</span>
-<span class="normal">627</span>
-<span class="normal">628</span>
-<span class="normal">629</span>
-<span class="normal">630</span>
-<span class="normal">631</span>
-<span class="normal">632</span>
-<span class="normal">633</span>
-<span class="normal">634</span>
-<span class="normal">635</span>
-<span class="normal">636</span>
-<span class="normal">637</span>
-<span class="normal">638</span>
-<span class="normal">639</span>
-<span class="normal">640</span>
-<span class="normal">641</span>
-<span class="normal">642</span>
-<span class="normal">643</span>
-<span class="normal">644</span>
-<span class="normal">645</span>
-<span class="normal">646</span>
-<span class="normal">647</span>
-<span class="normal">648</span>
-<span class="normal">649</span>
-<span class="normal">650</span>
-<span class="normal">651</span>
-<span class="normal">652</span>
-<span class="normal">653</span>
-<span class="normal">654</span>
-<span class="normal">655</span>
-<span class="normal">656</span>
-<span class="normal">657</span>
-<span class="normal">658</span>
-<span class="normal">659</span>
-<span class="normal">660</span>
-<span class="normal">661</span>
-<span class="normal">662</span>
-<span class="normal">663</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">            </span><span class="c1">; CALL XREF from sym.func.1000063c8 @ 0x100006400(x)</span>
+<span class="normal">623</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">            </span><span class="c1">; CALL XREF from sym.func.1000063c8 @ 0x100006400(x)</span>
 <span class="err">┌</span><span class="w"> </span><span class="err">2444:</span><span class="w"> </span><span class="nf">sym.func.10000491c</span><span class="w"> </span><span class="p">(</span><span class="no">int64_t</span><span class="w"> </span><span class="no">arg1</span><span class="p">,</span><span class="w"> </span><span class="no">int64_t</span><span class="w"> </span><span class="no">arg2</span><span class="p">,</span><span class="w"> </span><span class="no">void</span><span class="w"> </span><span class="p">*</span><span class="no">arg3</span><span class="p">)</span><span class="c1">;</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; arg int64_t arg1 @ x0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; arg int64_t arg2 @ x1</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; arg void *arg3 @ x2</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h @ sp+0x0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_12 @ sp+0x8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_10h @ sp+0x10</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_0h_13 @ sp+0x18</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_20h @ sp+0x20</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_28h @ sp+0x28</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_30h @ sp+0x30</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_0h_11 @ sp+0x38</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_40h @ sp+0x40</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_48h @ sp+0x48</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_50h_2 @ sp+0x50</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_4 @ sp+0x58</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_60h_3 @ sp+0x60</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_60h_4 @ sp+0x68</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_0h_2 @ sp+0x70</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_9 @ sp+0x80</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_80h_2 @ sp+0x88</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_8 @ sp+0x90</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_98h @ sp+0x98</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *var_0h_7 @ sp+0x178</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var void *arg0 @ sp+0x180</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_10 @ sp+0x188</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_5 @ sp+0x190</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_6 @ sp+0x198</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_0h_3 @ sp+0x1a0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_60h @ sp+0x1b0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_60h_2 @ sp+0x1b8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_10h_2 @ sp+0x1c0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_10h_3 @ sp+0x1c8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_20h_2 @ sp+0x1d0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_20h_3 @ sp+0x1d8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_30h_2 @ sp+0x1e0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_30h_3 @ sp+0x1e8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_40h_2 @ sp+0x1f0</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_40h_3 @ sp+0x1f8</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_50h @ sp+0x200</span>
-<span class="err">│</span><span class="w">           </span><span class="c1">; var int64_t var_50h_3 @ sp+0x208</span>
 <span class="err">│</span><span class="w">           </span><span class="err">0</span><span class="nf">x10000491c</span><span class="w">      </span><span class="no">stp</span><span class="w"> </span><span class="no">x28</span><span class="p">,</span><span class="w"> </span><span class="no">x27</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">-0</span><span class="no">x60</span><span class="p">]!</span>
 <span class="err">│</span><span class="w">           </span><span class="err">0</span><span class="nf">x100004920</span><span class="w">      </span><span class="no">stp</span><span class="w"> </span><span class="no">x26</span><span class="p">,</span><span class="w"> </span><span class="no">x25</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">var_10h</span><span class="p">]</span>
 <span class="err">│</span><span class="w">           </span><span class="err">0</span><span class="nf">x100004924</span><span class="w">      </span><span class="no">stp</span><span class="w"> </span><span class="no">x24</span><span class="p">,</span><span class="w"> </span><span class="no">x23</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">var_20h</span><span class="p">]</span>
@@ -19662,6 +19582,180 @@
 <span class="err">└</span><span class="w">           </span><span class="err">0</span><span class="nf">x1000052a4</span><span class="w">      </span><span class="no">brk</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ✨ Decompiled using OpenAI&#39;s ChatGPT o1-review model ✨</span>
+
+<span class="kd">import</span> <span class="nc">Security</span>
+
+<span class="kd">func</span> <span class="nf">runCryptoFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Step 1: Load RSA Private Key from Embedded Data</span>
+    <span class="c1">// The key data is hardcoded and embedded in the binary</span>
+    <span class="kd">let</span> <span class="nv">keyBytes</span><span class="p">:</span> <span class="p">[</span><span class="nb">UInt8</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="c1">// The bytes from the data provided</span>
+        <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x82</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x5b</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span>
+        <span class="mh">0x81</span><span class="p">,</span> <span class="mh">0x81</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0xbd</span><span class="p">,</span> <span class="mh">0xf6</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0x8f</span><span class="p">,</span> <span class="mh">0xbd</span><span class="p">,</span>
+        <span class="mh">0x0c</span><span class="p">,</span> <span class="mh">0xe6</span><span class="p">,</span> <span class="mh">0x4f</span><span class="p">,</span> <span class="mh">0x9a</span><span class="p">,</span> <span class="mh">0x97</span><span class="p">,</span> <span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x1a</span><span class="p">,</span>
+        <span class="c1">// ...</span>
+        <span class="c1">// For brevity, the full key data is not shown</span>
+    <span class="p">]</span>
+    <span class="kd">let</span> <span class="nv">keyData</span> <span class="p">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">)</span>
+
+    <span class="c1">// Key attributes for creating the key</span>
+    <span class="kd">let</span> <span class="nv">keyDict</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="n">kSecAttrKeyType</span> <span class="k">as</span> <span class="nb">String</span><span class="p">:</span>            <span class="n">kSecAttrKeyTypeRSA</span><span class="p">,</span>
+        <span class="n">kSecAttrKeyClass</span> <span class="k">as</span> <span class="nb">String</span><span class="p">:</span>           <span class="n">kSecAttrKeyClassPrivate</span><span class="p">,</span>
+        <span class="n">kSecAttrKeySizeInBits</span> <span class="k">as</span> <span class="nb">String</span><span class="p">:</span>      <span class="mi">1024</span><span class="p">,</span>
+        <span class="n">kSecReturnPersistentRef</span> <span class="k">as</span> <span class="nb">String</span><span class="p">:</span>    <span class="kc">true</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="nb">Unmanaged</span><span class="p">&lt;</span><span class="n">CFError</span><span class="p">&gt;?</span>
+
+    <span class="c1">// Create the private key from the data</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">privateKey</span> <span class="p">=</span> <span class="n">SecKeyCreateWithData</span><span class="p">(</span><span class="n">keyData</span> <span class="k">as</span> <span class="n">CFData</span><span class="p">,</span> <span class="n">keyDict</span> <span class="k">as</span> <span class="n">CFDictionary</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Failed to create private key: </span><span class="si">\(</span><span class="n">error</span><span class="p">!.</span><span class="n">takeRetainedValue</span><span class="si">()</span> <span class="k">as</span> <span class="n">Error</span><span class="si">)</span><span class="s">&quot;</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="n">errorMessage</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Step 2: Extract Public Key</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">publicKey</span> <span class="p">=</span> <span class="n">SecKeyCopyPublicKey</span><span class="p">(</span><span class="n">privateKey</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Failed to generate public key&quot;</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="n">errorMessage</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Step 3: Create Sample Data</span>
+    <span class="kd">let</span> <span class="nv">sampleText</span> <span class="p">=</span> <span class="s">&quot;This is a sample text&quot;</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">sampleText</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="s">&quot;Failed to convert text to data&quot;</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Step 4: Sign the Data</span>
+    <span class="kd">let</span> <span class="nv">algorithm</span><span class="p">:</span> <span class="n">SecKeyAlgorithm</span> <span class="p">=</span> <span class="p">.</span><span class="n">rsaSignatureMessagePKCS1v15SHA256</span>
+    <span class="k">guard</span> <span class="n">SecKeyIsAlgorithmSupported</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="p">.</span><span class="n">sign</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="s">&quot;Algorithm not supported for signing&quot;</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">signatureData</span> <span class="p">=</span> <span class="n">SecKeyCreateSignature</span><span class="p">(</span><span class="n">privateKey</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">,</span> <span class="n">data</span> <span class="k">as</span> <span class="n">CFData</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span> <span class="k">as</span> <span class="n">Data</span><span class="p">?</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Signing failed: </span><span class="si">\(</span><span class="n">error</span><span class="p">!.</span><span class="n">takeRetainedValue</span><span class="si">()</span> <span class="k">as</span> <span class="n">Error</span><span class="si">)</span><span class="s">&quot;</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="n">errorMessage</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Step 5: Verify the Signature</span>
+    <span class="k">guard</span> <span class="n">SecKeyIsAlgorithmSupported</span><span class="p">(</span><span class="n">publicKey</span><span class="p">,</span> <span class="p">.</span><span class="n">verify</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="s">&quot;Algorithm not supported for verification&quot;</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">isVerified</span> <span class="p">=</span> <span class="n">SecKeyVerifySignature</span><span class="p">(</span><span class="n">publicKey</span><span class="p">,</span> <span class="n">algorithm</span><span class="p">,</span> <span class="n">data</span> <span class="k">as</span> <span class="n">CFData</span><span class="p">,</span> <span class="n">signatureData</span> <span class="k">as</span> <span class="n">CFData</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="c1">// Step 6: Convert Keys and Signature to Hex Strings</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">publicKeyData</span> <span class="p">=</span> <span class="n">SecKeyCopyExternalRepresentation</span><span class="p">(</span><span class="n">publicKey</span><span class="p">,</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span> <span class="k">as</span> <span class="n">Data</span><span class="p">?</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">errorMessage</span> <span class="p">=</span> <span class="s">&quot;Failed to extract public key: </span><span class="si">\(</span><span class="n">error</span><span class="p">!.</span><span class="n">takeRetainedValue</span><span class="si">()</span> <span class="k">as</span> <span class="n">Error</span><span class="si">)</span><span class="s">&quot;</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="n">errorMessage</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">publicKeyHex</span> <span class="p">=</span> <span class="n">publicKeyData</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&quot;%02x&quot;</span><span class="p">,</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}.</span><span class="n">joined</span><span class="p">()</span>
+    <span class="kd">let</span> <span class="nv">signatureHex</span> <span class="p">=</span> <span class="n">signatureData</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&quot;%02x&quot;</span><span class="p">,</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}.</span><span class="n">joined</span><span class="p">()</span>
+
+    <span class="c1">// Step 7: Construct an Output Message</span>
+    <span class="kd">var</span> <span class="nv">outputMessage</span> <span class="p">=</span> <span class="s">&quot;Original: </span><span class="si">\(</span><span class="n">sampleText</span><span class="si">)</span><span class="s">&quot;</span>
+    <span class="n">outputMessage</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">Signature is </span><span class="si">\(</span><span class="n">isVerified</span> <span class="p">?</span> <span class="s">&quot;valid.&quot;</span> <span class="p">:</span> <span class="s">&quot;invalid.&quot;</span><span class="si">)</span><span class="s">&quot;</span>
+    <span class="n">outputMessage</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">Public Key (Hex): </span><span class="si">\(</span><span class="n">publicKeyHex</span><span class="si">)</span><span class="s">&quot;</span>
+    <span class="n">outputMessage</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">Signature (Hex): </span><span class="si">\(</span><span class="n">signatureHex</span><span class="si">)</span><span class="s">&quot;</span>
+    <span class="n">outputMessage</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">Verification: </span><span class="si">\(</span><span class="n">isVerified</span> <span class="p">?</span> <span class="s">&quot;Success&quot;</span> <span class="p">:</span> <span class="s">&quot;Failure&quot;</span><span class="si">)</span><span class="s">&quot;</span>
+
+    <span class="c1">// Step 8: Update SwiftUI State Variable</span>
+    <span class="kc">self</span><span class="p">.</span><span class="n">output</span> <span class="p">=</span> <span class="n">outputMessage</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
@@ -19685,13 +19779,9 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
 <span class="n">e</span> <span class="n">scr</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">var</span><span class="o">=</span><span class="n">false</span>
-
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
 
 <span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of SecKeyCreateWithData:</span><span class="se">\n</span><span class="s2">&quot;</span>
 <span class="n">afl</span><span class="o">~</span><span class="n">SecKeyCreateWithData</span>
@@ -19707,7 +19797,9 @@
 
 <span class="n">px</span> <span class="mi">607</span> <span class="o">@</span> <span class="mh">0x1000100c8</span> <span class="o">&gt;</span> <span class="n">key</span><span class="o">.</span><span class="n">asm</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">r2</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">i</span> <span class="n">sec_hardcoded_rsa</span><span class="o">.</span><span class="n">r2</span> <span class="o">-</span><span class="n">A</span> <span class="n">MASTestApp</span> <span class="o">&gt;</span> <span class="n">output</span><span class="o">.</span><span class="n">asm</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="n">r2</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">i</span> <span class="n">sec_hardcoded_rsa</span><span class="o">.</span><span class="n">r2</span> <span class="o">-</span><span class="n">A</span> <span class="n">MASTestApp</span> <span class="o">&gt;</span> <span class="n">output</span><span class="o">.</span><span class="n">asm</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h3>
 <p>The output reveals a call to <code>SecKeyCreateWithData</code> as well as the hardcoded RSA private key within the DATA section of the binary.</p>
@@ -19809,6 +19901,7 @@
 </div>
 <h3 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h3>
 <p>The test fails because a hardcoded RSA private key was found in the code.</p>
+<p><strong>Note</strong>: Using artificial intelligence we're able to decompile the disassembled code and review it. The output is a human-readable version of the assembly code. The AI decompiled code may not perfect and might contain errors but, in this case, it clearly shows the use of <code>SecKeyCreateWithData</code> and the associated private key.</p>
 
 
 
