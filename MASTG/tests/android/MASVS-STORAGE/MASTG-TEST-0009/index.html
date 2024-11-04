@@ -18516,10 +18516,10 @@
 <p>The problem happens when your device has an adb version prior to 1.0.31. If that's the case you must use an adb version of 1.0.31 also on your host computer. Versions of adb after 1.0.32 <a href="https://issuetracker.google.com/issues/37096097" title="adb backup is broken since ADB version 1.0.32">broke the backwards compatibility.</a></p>
 <p>Approve the backup from your device by selecting the <em>Back up my data</em> option. After the backup process is finished, the file <em>.ab</em> will be in your working directory.
 Run the following command to convert the .ab file to tar.</p>
-<div class="highlight"><pre><span></span><code>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>mybackup.ab<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">24</span><span class="w"> </span><span class="nv">skip</span><span class="o">=</span><span class="m">1</span><span class="p">|</span>openssl<span class="w"> </span>zlib<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>mybackup.tar
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-c<span class="w"> </span>+25<span class="w"> </span>backup.ab<span class="w"> </span><span class="p">|</span>openssl<span class="w"> </span>zlib<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>backup.tar
 </code></pre></div>
 <p>In case you get the error <code>openssl:Error: 'zlib' is an invalid command.</code> you can try to use Python instead.</p>
-<div class="highlight"><pre><span></span><code>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>backup.ab<span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">skip</span><span class="o">=</span><span class="m">24</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>backup.tar
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-c<span class="w"> </span>+25<span class="w"> </span>backup.ab<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import zlib,sys;sys.stdout.buffer.write(zlib.decompress(sys.stdin.buffer.read()))&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>backup.tar
 </code></pre></div>
 <p>The <a href="https://github.com/nelenkov/android-backup-extractor" title="Android Backup Extractor"><em>Android Backup Extractor</em></a> is another alternative backup tool. To make the tool to work, you have to download the Oracle JCE Unlimited Strength Jurisdiction Policy Files for <a href="https://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" title="Oracle JCE Unlimited Strength Jurisdiction Policy Files JRE7">JRE7</a> or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" title="Oracle JCE Unlimited Strength Jurisdiction Policy Files JRE8">JRE8</a> and place them in the JRE lib/security folder. Run the following command to convert the tar file:</p>
 <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>abe.jar<span class="w"> </span>unpack<span class="w"> </span>backup.ab
@@ -18531,7 +18531,7 @@ Run the following command to convert the .ab file to tar.</p>
 <div class="highlight"><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>abe.jar<span class="w"> </span>unpack<span class="w"> </span>backup.ab<span class="w"> </span>backup.tar<span class="w"> </span><span class="m">123</span>
 </code></pre></div>
 <p>Extract the tar file to your working directory.</p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xvf<span class="w"> </span>mybackup.tar
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xvf<span class="w"> </span>backup.tar
 </code></pre></div>
 
 
