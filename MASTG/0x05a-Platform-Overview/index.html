@@ -7884,6 +7884,13 @@
     MASTG-TEST-0038: Making Sure that the App is Properly Signed
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--deprecated"></span>
+  
+
+  
 
       </a>
     </li>
@@ -11131,6 +11138,8 @@
       
         
       
+        
+      
     
     
       
@@ -12280,6 +12289,29 @@
   
   <span class="md-ellipsis">
     MASTG-TECH-0115: Obtaining Compiler Provided Security Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../techniques/android/MASTG-TECH-0116/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TECH-0116: Obtaining Information about the APK Signature
   </span>
   
 
@@ -14219,6 +14251,8 @@
       
         
       
+        
+      
     
     
       
@@ -15069,6 +15103,29 @@
   
   <span class="md-ellipsis">
     MASTG-TOOL-0120: proxyDroid
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/android/MASTG-TOOL-0123/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0123: apksigner
   </span>
   
 
@@ -20013,9 +20070,17 @@ Found<span class="w"> </span><span class="m">99</span><span class="w"> </span>se
 <p>During development, apps are signed with an automatically generated certificate. This certificate is inherently insecure and is for debugging only. Most stores don't accept this kind of certificate for publishing; therefore, a certificate with more secure features must be created.
 When an application is installed on the Android device, the Package Manager ensures that it has been signed with the certificate included in the corresponding APK. If the certificate's public key matches the key used to sign any other APK on the device, the new APK may share a UID with the pre-existing APK. This facilitates interactions between applications from a single vendor. Alternatively, specifying security permissions for the Signature protection level is possible; this will restrict access to applications that have been signed with the same key.</p>
 <h3 id="apk-signing-schemes">APK Signing Schemes<a class="headerlink" href="#apk-signing-schemes" title="Permanent link">&para;</a></h3>
-<p>Android supports three application signing schemes. Starting with Android 9 (API level 28), APKs can be verified with APK Signature Scheme v3 (v3 scheme), APK Signature Scheme v2 (v2 scheme) or JAR signing (v1 scheme). For Android 7.0 (API level 24) and above, APKs can be verified with the APK Signature Scheme v2 (v2 scheme) or JAR signing (v1 scheme). For backwards compatibility, an APK can be signed with multiple signature schemes in order to make the app run on both newer and older SDK versions. <a href="https://source.android.com/security/apksigning/" title="APK Signing">Older platforms ignore v2 signatures and verify v1 signatures only</a>.</p>
+<p>Android supports multiple application signing schemes:</p>
+<ul>
+<li><strong>Below Android 7.0 (API level 24)</strong>: applications can only use the JAR signing (v1) scheme which does not protect all parts of the APK. This scheme is considered insecure.</li>
+<li><strong>Android 7.0 (API level 24) and above</strong>: applications can use the <strong>v2 signature scheme</strong>, which signs the APK as a whole, providing stronger protection compared to the older v1 (JAR) signing method.</li>
+<li><strong>Android 9 (API level 28) and above</strong>: It's recommended to use both the <strong>v2 and v3 signature schemes</strong>. The v3 scheme supports <strong>key rotation</strong>, enabling developers to replace keys in the event of a compromise without invalidating old signatures.</li>
+<li><strong>Android 11 (API level 30) and above</strong>: applications can optionally include the <strong>v4 signature scheme</strong> to enable faster incremental updates.</li>
+</ul>
+<p>For backwards compatibility, an APK can be signed with multiple signature schemes in order to make the app run on both newer and older SDK versions.  For example, <a href="https://source.android.com/security/apksigning/">older platforms ignore v2 signatures and verify v1 signatures only</a>.</p>
 <h4 id="jar-signing-v1-scheme">JAR Signing (v1 Scheme)<a class="headerlink" href="#jar-signing-v1-scheme" title="Permanent link">&para;</a></h4>
 <p>The original version of app signing implements the signed APK as a standard signed JAR, which must contain all the entries in <code>META-INF/MANIFEST.MF</code>. All files must be signed with a common certificate. This scheme does not protect some parts of the APK, such as ZIP metadata. The drawback of this scheme is that the APK verifier needs to process untrusted data structures before applying the signature, and the verifier discards data the data structures don't cover. Also, the APK verifier must decompress all compressed files, which takes considerable time and memory.</p>
+<p>This signature scheme is considered insecure, it is for example affected by the <strong>Janus vulnerability (CVE-2017-13156)</strong>, which can allow malicious actors to modify APK files without invalidating the v1 signature. As such, <strong>v1 should never be relied on for devices running Android 7.0 and above</strong>.</p>
 <h4 id="apk-signature-scheme-v2-scheme">APK Signature Scheme (v2 Scheme)<a class="headerlink" href="#apk-signature-scheme-v2-scheme" title="Permanent link">&para;</a></h4>
 <p>With the APK signature scheme, the complete APK is hashed and signed, and an APK Signing Block is created and inserted into the APK. During validation, the v2 scheme checks the signatures of the entire APK file. This form of APK verification is faster and offers more comprehensive protection against modification. You can see the <a href="https://source.android.com/security/apksigning/v2#verification" title="APK Signature verification process">APK signature verification process for v2 Scheme</a> below.</p>
 <p><img src="../../../assets/Images/Chapters/0x05a/apk-validation-process.png" width="400px" /></p>
