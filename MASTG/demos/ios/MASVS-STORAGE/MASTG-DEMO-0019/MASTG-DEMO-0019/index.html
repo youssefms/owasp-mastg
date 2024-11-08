@@ -20046,6 +20046,60 @@
 <li>Unzip the app package and locate the main binary file (<em><a href="../../../../../techniques/ios/MASTG-TECH-0058/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Exploring the App Package</a></em>), which in this case is <code>./Payload/MASTestApp.app/MASTestApp</code>.</li>
 <li>Run <code>run.sh</code>.</li>
 </ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">isExcludedFromBackup.r2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="n">e</span> <span class="n">scr</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">false</span>
+<span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">var</span><span class="o">=</span><span class="n">false</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">afl</span><span class="o">~</span><span class="n">isExcludedFromBackup</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">axt</span> <span class="o">@</span> <span class="mh">0x10000cc28</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x100004594</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">!</span><span class="nb">print</span> <span class="s2">&quot;Search for secret.txt&quot;</span>
+<span class="o">/</span> <span class="n">secret</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of the string secret.txt:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x10000443c</span>
+
+
+<span class="n">pdf</span> <span class="o">@</span> <span class="mh">0x100004594</span> <span class="o">&gt;</span> <span class="n">function</span><span class="o">.</span><span class="n">asm</span>
+</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="n">r2</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">i</span> <span class="n">isExcludedFromBackup</span><span class="o">.</span><span class="n">r2</span> <span class="o">-</span><span class="n">A</span> <span class="n">MASTestApp</span> <span class="o">&gt;</span> <span class="n">output</span><span class="o">.</span><span class="n">asm</span>
