@@ -20071,32 +20071,30 @@
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">scr</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">var</span><span class="o">=</span><span class="n">false</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Uses</span> <span class="n">of</span> <span class="n">isExcludedFromBackup</span><span class="p">:</span>
 <span class="n">afl</span><span class="o">~</span><span class="n">isExcludedFromBackup</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">xrefs</span> <span class="n">to</span> <span class="n">isExcludedFromBackup</span><span class="p">:</span>
 <span class="n">axt</span> <span class="o">@</span> <span class="mh">0x10000cc28</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of isExcludedFromBackup:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">isExcludedFromBackup</span><span class="p">:</span>
 
 <span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x100004594</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Search for secret.txt:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Search</span> <span class="k">for</span> <span class="n">secret</span><span class="o">.</span><span class="n">txt</span><span class="p">:</span>
 <span class="o">/</span> <span class="n">secret</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of the string secret.txt:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">the</span> <span class="n">string</span> <span class="n">secret</span><span class="o">.</span><span class="n">txt</span><span class="p">:</span>
 <span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x10000443c</span>
-
 
 <span class="n">pdf</span> <span class="o">@</span> <span class="mh">0x100004594</span> <span class="o">&gt;</span> <span class="n">function</span><span class="o">.</span><span class="n">asm</span>
 </code></pre></div></td></tr></table></div>

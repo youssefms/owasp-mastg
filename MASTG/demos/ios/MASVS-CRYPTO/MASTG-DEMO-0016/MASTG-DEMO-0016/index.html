@@ -18780,29 +18780,29 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">?</span><span class="n">e</span><span class="p">;</span><span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of CryptoKit.Insecure functions:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Uses</span> <span class="n">of</span> <span class="n">CryptoKit</span><span class="o">.</span><span class="n">Insecure</span> <span class="n">functions</span><span class="p">:</span>
 <span class="n">afl</span><span class="o">~</span><span class="n">Insecure</span><span class="o">.</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to CryptoKit.Insecure.MD5:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">xrefs</span> <span class="n">to</span> <span class="n">CryptoKit</span><span class="o">.</span><span class="n">Insecure</span><span class="o">.</span><span class="n">MD5</span><span class="p">:</span>
 <span class="n">axt</span> <span class="o">@</span> <span class="mh">0x100007280</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to CryptoKit.Insecure.SHA1:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">xrefs</span> <span class="n">to</span> <span class="n">CryptoKit</span><span class="o">.</span><span class="n">Insecure</span><span class="o">.</span><span class="n">SHA1</span><span class="p">:</span>
 <span class="n">axt</span> <span class="o">@</span> <span class="mh">0x10000728c</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of MD5:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">MD5</span><span class="p">:</span>
 <span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x1000046d8</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of SHA1:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">SHA1</span><span class="p">:</span>
 <span class="n">pd</span><span class="o">--</span> <span class="mi">5</span> <span class="o">@</span> <span class="mh">0x100004214</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">r2</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">i</span> <span class="n">cryptokit_hash</span><span class="o">.</span><span class="n">r2</span> <span class="o">-</span><span class="n">A</span> <span class="n">MASTestApp</span>

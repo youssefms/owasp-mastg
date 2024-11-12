@@ -19088,21 +19088,21 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">scr</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">var</span><span class="o">=</span><span class="n">false</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of the CCCrypt function:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Uses</span> <span class="n">of</span> <span class="n">the</span> <span class="n">CCCrypt</span> <span class="n">function</span><span class="p">:</span>
 <span class="n">afl</span><span class="o">~</span><span class="n">CCCrypt</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to CCCrypt:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">xrefs</span> <span class="n">to</span> <span class="n">CCCrypt</span><span class="p">:</span>
 <span class="n">axt</span> <span class="o">@</span> <span class="mh">0x1000076c4</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Use of CCCrypt:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">CCCrypt</span><span class="p">:</span>
 
 <span class="c1"># Seek to the function where CCCrypt is called (Replace with the address found from axt output)</span>
 <span class="n">pd</span><span class="o">--</span> <span class="mi">9</span> <span class="o">@</span> <span class="mh">0x1000040e0</span>

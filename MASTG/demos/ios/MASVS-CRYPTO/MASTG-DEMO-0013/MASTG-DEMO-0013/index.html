@@ -20367,19 +20367,19 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">bytes</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">scr</span><span class="o">.</span><span class="n">color</span><span class="o">=</span><span class="n">false</span>
 <span class="n">e</span> <span class="n">asm</span><span class="o">.</span><span class="n">var</span><span class="o">=</span><span class="n">false</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;Uses of SecKeyCreateWithData:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">Uses</span> <span class="n">of</span> <span class="n">SecKeyCreateWithData</span><span class="p">:</span>
 <span class="n">afl</span><span class="o">~</span><span class="n">SecKeyCreateWithData</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;xrefs to SecKeyCreateWithData:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span> <span class="n">xrefs</span> <span class="n">to</span> <span class="n">SecKeyCreateWithData</span><span class="p">:</span>
 <span class="n">axt</span> <span class="o">@</span> <span class="mh">0x100007904</span>
 
-<span class="err">!</span><span class="n">printf</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="err">?</span><span class="n">e</span>
 
 <span class="n">pdf</span> <span class="o">@</span> <span class="n">sym</span><span class="o">.</span><span class="n">func</span><span class="mf">.10000491</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">function</span><span class="o">.</span><span class="n">asm</span>
 
