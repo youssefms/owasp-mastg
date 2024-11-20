@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../MASTG-TEST-0x38-2/">
+        <link rel="prev" href="../MASTG-TEST-0224/">
       
       
-        <link rel="next" href="../../MASVS-STORAGE/MASTG-TEST-0200/">
+        <link rel="next" href="../MASTG-TEST-0226/">
       
       
       <link rel="icon" href="../../../../../assets/logo_circle.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>MASTG-TEST-0x38: Usage of Insecure Signature Version - OWASP Mobile Application Security</title>
+        <title>MASTG-TEST-0225: Usage of Insecure Signature Key Size - OWASP Mobile Application Security</title>
       
     
     
@@ -216,7 +216,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MASTG-TEST-0x38: Usage of Insecure Signature Version
+              MASTG-TEST-0225: Usage of Insecure Signature Key Size
             
           </span>
         </div>
@@ -18725,7 +18725,7 @@
 
 
   
-    <a href="https://github.com/OWASP/owasp-mastg/edit/master/tests-beta/android/MASVS-RESILIENCE/MASTG-TEST-0x38.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/OWASP/owasp-mastg/edit/master/tests-beta/android/MASVS-RESILIENCE/MASTG-TEST-0225.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -18733,7 +18733,7 @@
   
 
 
-  <h1>MASTG-TEST-0x38: Usage of Insecure Signature Version</h1>
+  <h1>MASTG-TEST-0225: Usage of Insecure Signature Key Size</h1>
 
 <details class="example">
 <summary>Content in BETA</summary>
@@ -18741,32 +18741,15 @@
 <p><a href="https://github.com/OWASP/owasp-mastg/discussions/categories/maswe-mastg-v2-beta-feedback"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376v103.3c0 18.1 14.6 32.7 32.7 32.7 9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4zm52.1 25.5L409.7 90.6 190.1 336l1.2 1zm335.1 139.7-166.6-69.5 214.1-239.3z"/></svg></span> Send Feedback</a></p>
 </details>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Not using newer APK signing schemes means that the app lacks the enhanced security provided by more robust, updated mechanisms.</p>
-<p>This test checks if the outdated v1 signature scheme is enabled. The v1 scheme is vulnerable to certain attacks, such as the "Janus" vulnerability (<a href="https://nvd.nist.gov/vuln/detail/CVE-2017-13156">CVE-2017-13156</a>), because it does not cover all parts of the APK file, allowing malicious actors to potentially <strong>modify parts of the APK without invalidating the signature</strong>. Relying solely on v1 signing therefore increases the risk of tampering and compromises app security.</p>
-<p>To learn more about APK Signing Schemes, see <a href="../../../../0x05a-Platform-Overview/#signing-process">this document</a>.</p>
+<p>For Android apps, the cryptographic strength of the APK signature is essential for maintaining the app's integrity and authenticity. Using a signature key with insufficient length, such as an RSA key shorter than 2048 bits, weakens security, making it easier for attackers to compromise the signature. This vulnerability could allow malicious actors to forge signatures, tamper with the app's code, or distribute unauthorized, modified versions.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Obtain the <code>minSdkVersion</code> attribute from the AndroidManifest.xml, e.g., via <em><a href="../../../../tools/ios/MASTG-TOOL-0121/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> objdump - iOS</a></em>.</li>
-<li>List all used signature schemes using the <code>verify</code> command of <em><a href="../../../../tools/android/MASTG-TOOL-0123/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> apksigner</a></em> as shown in <em><a href="../../../../techniques/android/MASTG-TECH-0116/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Obtaining Information about the APK Signature</a></em>.</li>
+<li>List the additional signature information using <em><a href="../../../../techniques/android/MASTG-TECH-0116/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Obtaining Information about the APK Signature</a></em>.</li>
 </ol>
 <h2 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h2>
-<p>The output should contain the value of the <code>minSdkVersion</code> attribute and the used signature schemes (for example <code>Verified using v3 scheme (APK Signature Scheme v3): true</code>).</p>
+<p>The output should contain the information about the key size in a line like: <code>Signer #1 key size (bits):</code>.</p>
 <h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
-<p>The test case fails if the app has a <code>minSdkVersion</code> attribute of 24 and above, and only the v1 signature scheme is enabled.</p>
-<p>To mitigate this issue, ensure that the app is signed with at least the v2 or v3 APK signing scheme, as these provide comprehensive integrity checks and protect the entire APK from tampering. For optimal security and compatibility, consider using v3, which also supports key rotation. Optionally, you can add v4 signing to enable faster <a href="https://developer.android.com/about/versions/11/features#incremental">incremental updates</a> in Android 11 and above, but v4 alone does not provide security protections and should be used alongside v2 or v3.</p>
-<p>The signing configuration can be managed through Android Studio or the <code>signingConfigs</code> section in <code>build.gradle</code> or <code>build.gradle.kts</code>. To activate both the v3 and v4 schemes, the following values must be set:</p>
-<div class="highlight"><pre><span></span><code>// build.gradle
-android {
-  ...
-  signingConfigs {
-    config {
-        ...
-        enableV3Signing true
-        enableV4Signing true
-    }
-  }
-}
-</code></pre></div>
+<p>The test case fails if any of the key sizes (in bits) is less than 2048 (RSA). For example, <code>Signer #1 key size (bits): 1024</code>.</p>
 
 
 
